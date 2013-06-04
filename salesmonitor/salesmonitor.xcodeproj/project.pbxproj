@@ -37,6 +37,14 @@
 		3AB43D60175DED44007A79BC /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D55175DED44007A79BC /* AFURLConnectionOperation.m */; };
 		3AB43D61175DED44007A79BC /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D57175DED44007A79BC /* AFXMLRequestOperation.m */; };
 		3AB43D62175DED44007A79BC /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D59175DED44007A79BC /* UIImageView+AFNetworking.m */; };
+		3AB43D6A175E0E2F007A79BC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43D69175E0E2F007A79BC /* QuartzCore.framework */; };
+		3AB43D6E175E18D3007A79BC /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D6D175E18D3007A79BC /* KGModal.m */; };
+		3AB43D7D175E22E4007A79BC /* BlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D75175E22E4007A79BC /* BlockActionSheet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AB43D7E175E22E4007A79BC /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D77175E22E4007A79BC /* BlockAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AB43D7F175E22E4007A79BC /* BlockBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D79175E22E4007A79BC /* BlockBackground.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AB43D80175E22E4007A79BC /* BlockTextPromptAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D7B175E22E4007A79BC /* BlockTextPromptAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AB43D85175E2572007A79BC /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43D82175E2572007A79BC /* SIAlertView.bundle */; };
+		3AB43D86175E2572007A79BC /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D84175E2572007A79BC /* SIAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +99,21 @@
 		3AB43D57175DED44007A79BC /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		3AB43D58175DED44007A79BC /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		3AB43D59175DED44007A79BC /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		3AB43D69175E0E2F007A79BC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3AB43D6C175E18D3007A79BC /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
+		3AB43D6D175E18D3007A79BC /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
+		3AB43D74175E22E4007A79BC /* BlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockActionSheet.h; sourceTree = "<group>"; };
+		3AB43D75175E22E4007A79BC /* BlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockActionSheet.m; sourceTree = "<group>"; };
+		3AB43D76175E22E4007A79BC /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
+		3AB43D77175E22E4007A79BC /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
+		3AB43D78175E22E4007A79BC /* BlockBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockBackground.h; sourceTree = "<group>"; };
+		3AB43D79175E22E4007A79BC /* BlockBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockBackground.m; sourceTree = "<group>"; };
+		3AB43D7A175E22E4007A79BC /* BlockTextPromptAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTextPromptAlertView.h; sourceTree = "<group>"; };
+		3AB43D7B175E22E4007A79BC /* BlockTextPromptAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockTextPromptAlertView.m; sourceTree = "<group>"; };
+		3AB43D7C175E22E4007A79BC /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
+		3AB43D82175E2572007A79BC /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
+		3AB43D83175E2572007A79BC /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
+		3AB43D84175E2572007A79BC /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB43D6A175E0E2F007A79BC /* QuartzCore.framework in Frameworks */,
 				3AB43D40175DE9E0007A79BC /* SystemConfiguration.framework in Frameworks */,
 				3AB43D3E175DE9C1007A79BC /* MobileCoreServices.framework in Frameworks */,
 				3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */,
@@ -129,6 +153,7 @@
 		3AB43CA7175DCAE5007A79BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AB43D69175E0E2F007A79BC /* QuartzCore.framework */,
 				3AB43D3F175DE9E0007A79BC /* SystemConfiguration.framework */,
 				3AB43D3D175DE9C0007A79BC /* MobileCoreServices.framework */,
 				3AB43CA8175DCAE5007A79BC /* UIKit.framework */,
@@ -229,6 +254,9 @@
 		3AB43D1E175DE903007A79BC /* supportedLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				3AB43D81175E2571007A79BC /* SIAlertView */,
+				3AB43D73175E22E4007A79BC /* BlockAlertView */,
+				3AB43D6B175E18D3007A79BC /* KGModal */,
 				3AB43D46175DED43007A79BC /* AFNetworking */,
 				3AB43D42175DED1A007A79BC /* Reachibility */,
 			);
@@ -276,6 +304,41 @@
 				3AB43D59175DED44007A79BC /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		3AB43D6B175E18D3007A79BC /* KGModal */ = {
+			isa = PBXGroup;
+			children = (
+				3AB43D6C175E18D3007A79BC /* KGModal.h */,
+				3AB43D6D175E18D3007A79BC /* KGModal.m */,
+			);
+			path = KGModal;
+			sourceTree = "<group>";
+		};
+		3AB43D73175E22E4007A79BC /* BlockAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3AB43D74175E22E4007A79BC /* BlockActionSheet.h */,
+				3AB43D75175E22E4007A79BC /* BlockActionSheet.m */,
+				3AB43D76175E22E4007A79BC /* BlockAlertView.h */,
+				3AB43D77175E22E4007A79BC /* BlockAlertView.m */,
+				3AB43D78175E22E4007A79BC /* BlockBackground.h */,
+				3AB43D79175E22E4007A79BC /* BlockBackground.m */,
+				3AB43D7A175E22E4007A79BC /* BlockTextPromptAlertView.h */,
+				3AB43D7B175E22E4007A79BC /* BlockTextPromptAlertView.m */,
+				3AB43D7C175E22E4007A79BC /* BlockUI.h */,
+			);
+			path = BlockAlertView;
+			sourceTree = "<group>";
+		};
+		3AB43D81175E2571007A79BC /* SIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3AB43D82175E2572007A79BC /* SIAlertView.bundle */,
+				3AB43D83175E2572007A79BC /* SIAlertView.h */,
+				3AB43D84175E2572007A79BC /* SIAlertView.m */,
+			);
+			path = SIAlertView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +400,7 @@
 				3AB43D0D175DCDB2007A79BC /* productViewController_iPad.xib in Resources */,
 				3AB43D15175DD6AA007A79BC /* loginViewController_iPhone.xib in Resources */,
 				3AB43D1A175DD6BD007A79BC /* loginViewController_iPad.xib in Resources */,
+				3AB43D85175E2572007A79BC /* SIAlertView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +428,12 @@
 				3AB43D60175DED44007A79BC /* AFURLConnectionOperation.m in Sources */,
 				3AB43D61175DED44007A79BC /* AFXMLRequestOperation.m in Sources */,
 				3AB43D62175DED44007A79BC /* UIImageView+AFNetworking.m in Sources */,
+				3AB43D6E175E18D3007A79BC /* KGModal.m in Sources */,
+				3AB43D7D175E22E4007A79BC /* BlockActionSheet.m in Sources */,
+				3AB43D7E175E22E4007A79BC /* BlockAlertView.m in Sources */,
+				3AB43D7F175E22E4007A79BC /* BlockBackground.m in Sources */,
+				3AB43D80175E22E4007A79BC /* BlockTextPromptAlertView.m in Sources */,
+				3AB43D86175E2572007A79BC /* SIAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,7 +59,6 @@
     }
     else{
         
-        // show error message from global file
     }
 }
 

@@ -63,8 +63,6 @@
                                                        initWithNibName:@"productViewController_iPhone" bundle:nil] animated:YES];
     }
     else{
-     
-        // show error message from global file
     }
     
 }

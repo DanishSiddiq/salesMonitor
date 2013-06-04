@@ -10,6 +10,13 @@
 #import "loginViewController_iPhone.h"
 #import "loginViewController_iPad.h"
 
+
+@interface AppDelegate ()
+
+@property (nonatomic, retain) SIAlertView *alertView;
+
+@end
+
 @implementation AppDelegate
 
 @synthesize hostReach, isNetworkAvailable;
@@ -75,6 +82,15 @@
     
     // reach ability
     isNetworkAvailable = YES;
+    
+    // custom alert view
+    _alertView = [[SIAlertView alloc] initWithTitle:@"" andMessage:@""];
+    [_alertView addButtonWithTitle:@"Ok"
+                             type:SIAlertViewButtonTypeDestructive
+                          handler:^(SIAlertView *alertView) {
+                          }];
+    
+    // reachability
     hostReach = [Reachability reachabilityForInternetConnection];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector: @selector(internetAvailabilityChanged:)
@@ -96,13 +112,29 @@
         // if previously network was not connected
         if(!isNetworkAvailable){
             
-            [[NSNotificationCenter defaultCenter]   postNotificationName:NOTIFICATION_NETWORK_DISCONNECTED object:nil];
+            _alertView.title = @"Network Connected";
+            _alertView.message = @"Internet restored";
+            _alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromBottom;
+            [_alertView show];
+            
+            /*double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                [_alertView dismissAnimated:YES];
+            });*/
         }
     }
     else{
         
         // if previously network was available
         if(isNetworkAvailable){
+            
+            _alertView.title = @"Network Issue";
+            _alertView.message = @"Internet not reachable";
+            _alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromBottom;
+            [_alertView show];
+            
         }
     }
     

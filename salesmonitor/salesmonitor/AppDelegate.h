@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SIAlertView.h"
+#import "BlockAlertView.h"
 #import "Reachability.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
