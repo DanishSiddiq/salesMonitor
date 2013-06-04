@@ -18,7 +18,6 @@
 @implementation loginViewController_iPhone
 
 @synthesize txtEmail, txtPassword;
-@synthesize loginController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,6 +62,15 @@
                                                        initWithNibName:@"productViewController_iPhone" bundle:nil] animated:YES];
     }
     else{
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Login Failed" andMessage:@"custom message on basis of code"];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+        
     }
     
 }

@@ -11,13 +11,13 @@
 @interface loginViewController_iPad ()
 
 @property (nonatomic, strong) loginController *loginController;
+@property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 
 @end
 
 @implementation loginViewController_iPad
 
 @synthesize txtEmail, txtPassword;
-@synthesize loginController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,7 +47,8 @@
 // controller related methods
 -(void) initializeController{
     
-    self.loginController = [[loginController alloc] init];
+    _salesMonitorDelegate = [[UIApplication sharedApplication] delegate];
+    self.loginController = [[loginController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
 }
 
 - (void) authenticateUser : (NSInteger)responseCode  userData:(NSMutableDictionary *) userData{
@@ -59,6 +60,13 @@
     }
     else{
         
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Login Failed" andMessage:@"custom message on basis of code"];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
     }
 }
 

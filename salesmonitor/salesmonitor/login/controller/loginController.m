@@ -56,7 +56,7 @@
          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
          {
              if([self.viewController respondsToSelector:@selector(authenticateUser:userData:)]){
-                 [_viewController authenticateUser:0 userData:nil];
+                 [_viewController authenticateUser:-1 userData:nil];
              }
          }];
         [operation start];
