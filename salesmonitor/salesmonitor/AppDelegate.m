@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "productViewController_iPhone.h"
-#import "productViewController_iPad.h"
+#import "loginViewController_iPhone.h"
+#import "loginViewController_iPad.h"
 
 @implementation AppDelegate
+
+@synthesize hostReach, isNetworkAvailable;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -20,14 +22,14 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
         self.window.rootViewController = [[UINavigationController alloc]
-                                          initWithRootViewController:[[productViewController_iPhone alloc]
-                                                                      initWithNibName:@"productViewController_iPhone" bundle:nil]];
+                                          initWithRootViewController:[[loginViewController_iPhone alloc]
+                                                                      initWithNibName:@"loginViewController_iPhone" bundle:nil]];
         
     } else {
         
         self.window.rootViewController = [[UINavigationController alloc]
-                                          initWithRootViewController:[[productViewController_iPad alloc]
-                                                                      initWithNibName:@"productViewController_iPad" bundle:nil]];
+                                          initWithRootViewController:[[loginViewController_iPad alloc]
+                                                                      initWithNibName:@"loginViewController_iPad" bundle:nil]];
     }
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -68,9 +70,43 @@
 }
 
 
-// Custom supported methods
-- (void) initializeCustomClasses{
+// Initialization code
+- (void) initializeCustomClasses {
     
+    // reach ability
+    isNetworkAvailable = YES;
+    hostReach = [Reachability reachabilityForInternetConnection];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector: @selector(internetAvailabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object: nil];
+    [hostReach startNotifier];
+    [self internetAvailabilityChanged: self];
+    
+}
+
+#pragma mark - Reachibility delegate
+- (void) internetAvailabilityChanged: (id) sender {
+    
+    Reachability *connectionMonitor = [Reachability reachabilityForInternetConnection];
+    BOOL hasInternet = [connectionMonitor currentReachabilityStatus] != NotReachable;
+    
+    if (hasInternet){
+        
+        // if previously network was not connected
+        if(!isNetworkAvailable){
+            
+            [[NSNotificationCenter defaultCenter]   postNotificationName:NOTIFICATION_NETWORK_DISCONNECTED object:nil];
+        }
+    }
+    else{
+        
+        // if previously network was available
+        if(isNetworkAvailable){
+        }
+    }
+    
+    isNetworkAvailable = hasInternet;
 }
 
 @end
