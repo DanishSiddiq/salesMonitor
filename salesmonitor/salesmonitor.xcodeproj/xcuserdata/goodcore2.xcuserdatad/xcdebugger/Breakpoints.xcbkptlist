@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/controller/loginController.m"
-         timestampString = "392033121.402847"
+         timestampString = "392047627.161756"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
          landmarkName = "-authenticateUserAtServer:pass:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/controller/loginController.m"
-         timestampString = "392047155.72772"
+         timestampString = "392047627.161756"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
          landmarkName = "-authenticateUserAtServer:pass:"
          landmarkType = "5">
       </FileBreakpoint>
