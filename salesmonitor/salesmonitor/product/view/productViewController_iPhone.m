@@ -55,10 +55,18 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES ];
+    [self.navigationController setNavigationBarHidden:NO ];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    [self updateTable];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -115,15 +123,15 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_indexData inSection:0];
     
-    if(_indexData < [[_salesMonitorDelegate valueForKey:KEY_PRODUCT] count])
+    if(_indexData < [[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] count])
     {
         
-        [_loadData addObject:[[_salesMonitorDelegate valueForKey:KEY_PRODUCT] objectAtIndex:_indexData]];
+        [_loadData addObject:[[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] objectAtIndex:_indexData]];
         [_tblProduct beginUpdates];
         [_tblProduct insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         [_tblProduct endUpdates];
         
-        if( [[_salesMonitorDelegate valueForKey:KEY_PRODUCT] count] - _indexData == 1 )
+        if( [[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] count] - _indexData == 1 )
         {
             _indexData = 0;
             [_timerProductList invalidate];

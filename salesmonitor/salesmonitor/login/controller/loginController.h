@@ -17,7 +17,7 @@
 @protocol loginControllerDelegate <NSObject>
 
 // after selection of already activated bot
-- (void) authenticateUser : (NSInteger)responseCode  userData:(NSMutableDictionary *) userData;
+- (void) authenticateUser : (NSInteger)responseCode;
 
 @end
 

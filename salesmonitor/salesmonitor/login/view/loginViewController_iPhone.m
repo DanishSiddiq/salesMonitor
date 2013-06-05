@@ -54,7 +54,7 @@
     self.loginController = [[loginController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
 }
 
-- (void) authenticateUser : (NSInteger)responseCode  userData:(NSMutableDictionary *) userData{
+- (void) authenticateUser : (NSInteger)responseCode {
     
     if(responseCode == 0){
         

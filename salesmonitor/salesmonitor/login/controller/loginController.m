@@ -61,26 +61,34 @@
         AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
         
         [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"login failed due to an error, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
+            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
         }];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
-            if([_viewController respondsToSelector:@selector(authenticateUser:userData:)]){
-                [_viewController authenticateUser:0 userData:nil];
+            if([_viewController respondsToSelector:@selector(authenticateUser:)]){
+                [self populateData:JSON];
+                [_viewController authenticateUser:0];
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
             NSLog(@"ERROR saving publish message to server: %@", error);
             
-            if([self.viewController respondsToSelector:@selector(authenticateUser:userData:)]){
-                [_viewController authenticateUser:-1 userData:nil];
+            if([self.viewController respondsToSelector:@selector(authenticateUser:)]){
+                [_viewController authenticateUser:-1];
             }
         }];
             
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
      }
+}
+
+
+- (void) populateData : (NSDictionary *) userData {
+    
+    [[_salesMonitorDelegate userData] removeAllObjects];
+    [[_salesMonitorDelegate userData] addEntriesFromDictionary:userData];
 }
 
 @end

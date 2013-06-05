@@ -51,10 +51,11 @@
     self.loginController = [[loginController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
 }
 
-- (void) authenticateUser : (NSInteger)responseCode  userData:(NSMutableDictionary *) userData{
+- (void) authenticateUser : (NSInteger)responseCode {
     
     // 0 in application means no error
     if(responseCode == 0){
+        
         [self.navigationController pushViewController:[[productViewController_iPhone alloc]
                                                        initWithNibName:@"productViewController_iPad"
                                                        bundle:nil
