@@ -20,52 +20,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "salesmonitor/login/controller/loginController.m"
-         timestampString = "392047627.161756"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-authenticateUserAtServer:pass:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "salesmonitor/AppDelegate.m"
-         timestampString = "392046757.494282"
+         timestampString = "392111011.906824"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
-         landmarkName = "-internetAvailabilityChanged:"
-         landmarkType = "5">
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "@implementation AppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/view/loginViewController_iPad.m"
-         timestampString = "392047351.336093"
+         timestampString = "392112364.071982"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
          landmarkName = "-authenticateUser:userData:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "salesmonitor/login/controller/loginController.m"
-         timestampString = "392047627.161756"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
-         landmarkName = "-authenticateUserAtServer:pass:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

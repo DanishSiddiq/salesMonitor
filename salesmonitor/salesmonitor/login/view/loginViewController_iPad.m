@@ -55,8 +55,11 @@
     
     // 0 in application means no error
     if(responseCode == 0){
-        [self.navigationController pushViewController:[[productViewController_iPad alloc]
-                                                       initWithNibName:@"productViewController_iPad" bundle:nil] animated:YES];
+        [self.navigationController pushViewController:[[productViewController_iPhone alloc]
+                                                       initWithNibName:@"productViewController_iPad"
+                                                       bundle:nil
+                                                       salesMonitorDelegate:_salesMonitorDelegate]
+                                             animated:YES];
     }
     else{
         

@@ -59,7 +59,10 @@
     if(responseCode == 0){
         
         [self.navigationController pushViewController:[[productViewController_iPhone alloc]
-                                                       initWithNibName:@"productViewController_iPhone" bundle:nil] animated:YES];
+                                                       initWithNibName:@"productViewController_iPhone"
+                                                       bundle:nil
+                                                       salesMonitorDelegate:_salesMonitorDelegate]
+                                             animated:YES];
     }
     else{
         

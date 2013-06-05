@@ -46,27 +46,39 @@
         
     }
     else{
-                
+        
+        NSMutableDictionary *dictCredential = [[NSMutableDictionary alloc]
+                                                    initWithObjectsAndKeys: email, @"username", pass,  @"password"
+                                                    , nil];
+        
         NSString *urlString = [NSString stringWithFormat:KEY_SERVER_URL_LOGIN];
         NSURL *url = [NSURL URLWithString:urlString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+        httpClient.parameterEncoding = AFJSONParameterEncoding;
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:dictCredential];
         
-        AFJSONRequestOperation *operation =
-        [AFJSONRequestOperation
-         JSONRequestOperationWithRequest:request
-         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-             
-             if([_viewController respondsToSelector:@selector(authenticateUser:userData:)]){
-                 
-             }
-         }
-         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
-         {
-             if([self.viewController respondsToSelector:@selector(authenticateUser:userData:)]){
-                 [_viewController authenticateUser:-1 userData:nil];
-             }
-         }];
+        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+        
+        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"login failed due to an error, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
+            if([_viewController respondsToSelector:@selector(authenticateUser:userData:)]){
+                [_viewController authenticateUser:0 userData:nil];
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            NSLog(@"ERROR saving publish message to server: %@", error);
+            
+            if([self.viewController respondsToSelector:@selector(authenticateUser:userData:)]){
+                [_viewController authenticateUser:-1 userData:nil];
+            }
+        }];
+            
+        operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
      }
 }

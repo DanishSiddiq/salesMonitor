@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "productController.h"
+#import "applicationConstants.h"
 
-@interface productViewController_iPhone : UIViewController
+@interface productViewController_iPhone : UIViewController 
+
+
+// custom constructor
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate;
 
 @end

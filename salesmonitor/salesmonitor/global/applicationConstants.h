@@ -11,9 +11,14 @@
 #endif
 
 
-#define KEY_SERVER_URL_LOGIN @""
+#define KEY_SERVER_URL_LOGIN @"http://172.16.16.34:3000/login"
 
 
 // local notifications
 // local notifications
 #define NOTIFICATION_NETWORK_DISCONNECTED @"atmnavigator.localnotification.network.disconnected"
+
+
+
+// data triversing
+#define KEY_PRODUCT @"products"

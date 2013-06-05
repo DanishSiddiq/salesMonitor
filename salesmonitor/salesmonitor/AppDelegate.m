@@ -20,6 +20,7 @@
 @implementation AppDelegate
 
 @synthesize hostReach, isNetworkAvailable;
+@synthesize userData;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -82,6 +83,9 @@
     
     // reach ability
     isNetworkAvailable = YES;
+    
+    // user data
+    userData = [[NSMutableDictionary alloc] init];
     
     // custom alert view
     _alertView = [[SIAlertView alloc] initWithTitle:@"" andMessage:@""];

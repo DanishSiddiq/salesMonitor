@@ -21,4 +21,7 @@
 @property (nonatomic, retain) Reachability *hostReach;
 @property (nonatomic) BOOL isNetworkAvailable;
 
+// user data
+@property (nonatomic, strong) NSMutableDictionary *userData;
+
 @end
