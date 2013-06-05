@@ -11,19 +11,19 @@
 
 @interface productController ()
 
-@property (nonatomic, strong) NSMutableArray *loadData;
+@property (nonatomic, strong) NSMutableArray *loadProduct;
 @property (nonatomic) BOOL isIphone;
 
 @end
 
 @implementation productController
 
-- (id) init : (BOOL) isIphone loadData :(NSMutableArray *) loadData {
+- (id) init : (BOOL) isIphone loadProduct :(NSMutableArray *) loadProduct {
     
     self = [super init];
     
     if(self){
-        _loadData = loadData;
+        _loadProduct = loadProduct;
         _isIphone = isIphone;
     }
     
@@ -37,7 +37,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  [_loadData count];
+    return  [_loadProduct count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,7 +143,7 @@
     
     
     //now populate data for the views
-    NSMutableDictionary *product = [_loadData objectAtIndex:indexPath.row];
+    NSMutableDictionary *product = [_loadProduct objectAtIndex:indexPath.row];
     
     NSURL *candidateURL = [NSURL URLWithString: [product valueForKey:KEY_PRODUCT_PACKSHOT] ? [product valueForKey:KEY_PRODUCT_PACKSHOT] : @""];
     if (candidateURL && candidateURL.scheme && candidateURL.host){

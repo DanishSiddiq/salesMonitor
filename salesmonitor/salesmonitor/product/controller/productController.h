@@ -14,6 +14,6 @@
 @interface productController : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 // constructor
-- (id) init : (BOOL) isIphone loadData :(NSMutableArray *) loadData ;
+- (id) init : (BOOL) isIphone loadProduct :(NSMutableArray *) loadProduct ;
 
 @end

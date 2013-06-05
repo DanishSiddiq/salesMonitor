@@ -14,7 +14,7 @@
 @property (nonatomic, strong) productController *productController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) UITableView *tblProduct;
-@property (nonatomic, strong) NSMutableArray *loadData;
+@property (nonatomic, strong) NSMutableArray *loadProduct;
 @property (nonatomic, strong) NSTimer *timerProductList;
 
 @property (nonatomic) BOOL isIphone;
@@ -107,11 +107,11 @@
     
     // device orientation
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
-    _loadData = [[NSMutableArray alloc] init];
+    _loadProduct = [[NSMutableArray alloc] init];
     _indexData = 0;
     
     // for common functionlity
-    _productController = [[productController alloc] init:_isIphone loadData:_loadData];
+    _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct];
 
 }
 
@@ -137,7 +137,7 @@
 
 - (void) updateTable {
     
-    [_loadData removeAllObjects];
+    [_loadProduct removeAllObjects];
     [_tblProduct reloadData];
     _timerProductList = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(performTableUpdates:)
                                                      userInfo:nil
@@ -154,7 +154,7 @@
     if(_indexData < [[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] count])
     {
         
-        [_loadData addObject:[[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] objectAtIndex:_indexData]];
+        [_loadProduct addObject:[[[_salesMonitorDelegate userData] valueForKeyPath:KEY_PATH_PRODUCT_BUSINESS] objectAtIndex:_indexData]];
         [_tblProduct beginUpdates];
         [_tblProduct insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         [_tblProduct endUpdates];
