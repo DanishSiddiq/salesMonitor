@@ -19,6 +19,12 @@
 #define NOTIFICATION_NETWORK_DISCONNECTED @"atmnavigator.localnotification.network.disconnected"
 
 
-
 // data triversing
 #define KEY_PATH_PRODUCT_BUSINESS @"businessUnitId.products"
+#define KEY_PRODUCT_NAME @"productName"
+#define KEY_PRODUCT_PRICE @"price"
+#define KEY_PRODUCT_THERAPUTIC_CLASS @"theraputicClass"
+#define KEY_PRODUCT_INDICATION @"indication"
+#define KEY_PRODUCT_PACKSHOT @"packShot"
+#define KEY_PRODUCT_ID @"_id"
+

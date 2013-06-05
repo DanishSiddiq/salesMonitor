@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageManager.h"
 #import "loginViewController_iPhone.h"
 #import "loginViewController_iPad.h"
 
@@ -42,6 +43,17 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    // setting SDWebImageManager with out query string
+    [[SDWebImageManager sharedManager] setCacheKeyFilter:^(NSURL *url)
+     {
+         if(url && url.scheme && url.host){
+             url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+             return [url absoluteString];
+         }
+         return  @"";
+     }];
     
     // all the custom classes require to update the status
     [self initializeCustomClasses];

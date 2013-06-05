@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <QuartzCore/QuartzCore.h>
+#import "applicationConstants.h"
+#import "UIImageView+WebCache.h"
 
 @interface productController : NSObject <UITableViewDataSource, UITableViewDelegate>
 
