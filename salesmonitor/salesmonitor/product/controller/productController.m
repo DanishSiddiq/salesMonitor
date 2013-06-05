@@ -41,7 +41,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0;
+    return _isIphone ? 100.0f : 150.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -73,9 +73,10 @@
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-        [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100)];
+        [cell setFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100)
+                                :   CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 150) ];
         
-        imgViewProduct = [[UIImageView alloc] initWithFrame:CGRectMake(4, 2, 96, 96)];
+        imgViewProduct = [[UIImageView alloc] initWithFrame: _isIphone ? CGRectMake(4, 2, 96, 96) : CGRectMake(4, 4, 142, 142)];
         [imgViewProduct setContentMode:UIViewContentModeScaleAspectFill];
         [imgViewProduct setClipsToBounds:YES];
         [[imgViewProduct layer] setCornerRadius:3];
@@ -83,36 +84,40 @@
         [[imgViewProduct layer] setBorderWidth:1.25];
         imgViewProduct.tag = 10;
         
-        lblName = [[UILabel alloc] initWithFrame:CGRectMake(104, 6, 215, 28)];
+        lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 6, [UIScreen mainScreen].bounds.size.width - 104, 28)
+                                                : CGRectMake(150, 10, [UIScreen mainScreen].bounds.size.width - 150, 40)];
         [lblName setBackgroundColor:[UIColor clearColor]];
         lblName.numberOfLines = 1;
-        lblName.font = [UIFont fontWithName:@"Helvetica" size:16.0];
+        lblName.font = [UIFont fontWithName:@"Helvetica" size:_isIphone ? 16.0 : 20.0];
         lblName.textColor = [UIColor darkGrayColor];
         lblName.contentMode = UIViewContentModeBottomLeft;
         lblName.lineBreakMode = NSLineBreakByTruncatingTail;
         lblName.tag = 20;
         
-        lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(104, 35, 215, 22)];
+        lblTheraputicClass = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 35, 215, 18)
+                                                           :CGRectMake(150, 50, [UIScreen mainScreen].bounds.size.width - 150, 26)];
         lblTheraputicClass.backgroundColor = [UIColor clearColor];
-        lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 14 : 18];
         lblTheraputicClass.numberOfLines = 1;
         lblTheraputicClass.contentMode = UIViewContentModeTopLeft;
         lblTheraputicClass.lineBreakMode = NSLineBreakByTruncatingTail;
         lblTheraputicClass.textColor = [UIColor grayColor];
         lblTheraputicClass.tag = 30;
                 
-        lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(104, 57, 215, 28)];
+        lblIndication = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 54, 215, 28)
+                                                      :CGRectMake(150, 78, [UIScreen mainScreen].bounds.size.width - 150, 44)];
         lblIndication.backgroundColor = [UIColor clearColor];
-        lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblIndication.numberOfLines = 2;
         lblIndication.contentMode = UIViewContentModeTopLeft;
         lblIndication.lineBreakMode = NSLineBreakByTruncatingTail;
         lblIndication.textColor = [UIColor grayColor];
         lblIndication.tag = 40;
         
-        lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(104, 86, 238, 14)];
+        lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 86, 238, 14)
+                                                 :CGRectMake(150, 122, [UIScreen mainScreen].bounds.size.width - 150, 30)];
         lblPrice.backgroundColor = [UIColor clearColor];
-        lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblPrice.numberOfLines = 1;
         lblPrice.contentMode = UIViewContentModeTopLeft;
         lblPrice.lineBreakMode = NSLineBreakByTruncatingTail;
