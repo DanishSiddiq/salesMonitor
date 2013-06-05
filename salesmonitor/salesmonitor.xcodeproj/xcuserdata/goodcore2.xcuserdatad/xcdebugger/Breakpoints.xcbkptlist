@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "392115077.974977"
+         timestampString = "392129941.208142"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-performTableUpdates:"
          landmarkType = "5">
       </FileBreakpoint>

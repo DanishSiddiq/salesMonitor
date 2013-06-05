@@ -10,6 +10,7 @@
 
 @interface productViewController_iPhone ()
 
+@property (strong, nonatomic) UIView *navBarContainer;
 @property (nonatomic, strong) productController *productController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) UITableView *tblProduct;
@@ -50,7 +51,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self initializeController];
+    [self initializeData];
     [self initializeViews];
 }
 
@@ -76,7 +77,33 @@
 
 
 // view related methods
-- (void) initializeController {
+
+- (void) customizeNavigationBar {
+    
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 0, 45, 45)];
+    [_navBarContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnListView setTag:10];
+    
+    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnMapView setHidden:YES];
+    [btnMapView setTag:20];
+    
+    [_navBarContainer addSubview:btnListView];
+    [_navBarContainer addSubview:btnMapView];
+    
+    [self.navigationController.navigationBar addSubview:_navBarContainer];
+
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void) initializeData {
     
     // device orientation
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
@@ -90,6 +117,7 @@
 
 - (void) initializeViews {
     
+    [self customizeNavigationBar ];
     [self initialzieViewProductTable];
     
 }
