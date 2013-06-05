@@ -10,16 +10,18 @@
 
 @interface productViewController_iPhone ()
 
-@property (strong, nonatomic) UIView *navBarContainer;
-@property (nonatomic, strong) productController *productController;
+@property (nonatomic) BOOL isIphone;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
+
+@property (strong, nonatomic) UIView *navBarContainer;
+
+@property (strong, nonatomic) UIView *viewContainer;
+@property (strong, nonatomic) MKMapView  *mapBrick;
+
 @property (nonatomic, strong) UITableView *tblProduct;
+@property (nonatomic, strong) productController *productController;
 @property (nonatomic, strong) NSMutableArray *loadProduct;
 @property (nonatomic, strong) NSTimer *timerProductList;
-
-@property (nonatomic) BOOL isIphone;
-
-
 @property (nonatomic) NSInteger indexData;
 
 @end
@@ -77,32 +79,6 @@
 
 
 // view related methods
-
-- (void) customizeNavigationBar {
-    
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 0, 45, 45)];
-    [_navBarContainer setBackgroundColor:[UIColor clearColor]];
-    
-    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
-    [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
-    [btnListView setTag:10];
-    
-    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
-    [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
-    [btnMapView setHidden:YES];
-    [btnMapView setTag:20];
-    
-    [_navBarContainer addSubview:btnListView];
-    [_navBarContainer addSubview:btnMapView];
-    
-    [self.navigationController.navigationBar addSubview:_navBarContainer];
-
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
-}
-
 - (void) initializeData {
     
     // device orientation
@@ -118,8 +94,58 @@
 - (void) initializeViews {
     
     [self customizeNavigationBar ];
+    [self initializeViewContainer];
+    [self initializeMapBrick];
     [self initialzieViewProductTable];
     
+}
+
+- (void) customizeNavigationBar {
+    
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 0, 45, 45)];
+    [_navBarContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnListView setHidden:YES];
+    [btnListView setTag:10];
+    
+    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnMapView setTag:20];
+    
+    [_navBarContainer addSubview:btnListView];
+    [_navBarContainer addSubview:btnMapView];
+    
+    [self.navigationController.navigationBar addSubview:_navBarContainer];
+    
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void) initializeViewContainer {
+    
+    _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0
+                                                              , 0
+                                                              , [UIScreen mainScreen].bounds.size.width
+                                                              , [UIScreen mainScreen].bounds.size.height-45)];
+    [_viewContainer setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:_viewContainer];
+}
+
+- (void) initializeMapBrick {
+    
+    _mapBrick = [[MKMapView alloc] initWithFrame:CGRectMake(0
+                                                            , 0
+                                                            , [UIScreen mainScreen].bounds.size.width
+                                                            , [UIScreen mainScreen].bounds.size.height-45)];
+    [_mapBrick showsUserLocation];
+    _mapBrick.delegate = self;
+    
+    [_mapBrick setHidden:YES];
+    [_viewContainer addSubview:_mapBrick];
 }
 
 - (void) initialzieViewProductTable{
@@ -131,9 +157,8 @@
     
     [_tblProduct setDataSource:_productController];
     [_tblProduct setDelegate:_productController];
-    [self.view addSubview:_tblProduct];
+    [_viewContainer addSubview:_tblProduct];
 }
-
 
 - (void) updateTable {
     
@@ -178,5 +203,58 @@
         [self.view setUserInteractionEnabled:YES];
     }
 }
+
+
+// selectors
+- (void) btnNavBarPressedSwitchView {
+    
+    if([_mapBrick isHidden]){
+        
+        //[self updateMapView];
+        
+        [UIView transitionWithView:_navBarContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^{
+                            [[_navBarContainer viewWithTag:10] setHidden:NO];
+                            [[_navBarContainer viewWithTag:20] setHidden:YES];
+                            
+                        } completion:^(BOOL finished) {
+                            if(finished){
+                            }
+                        }];
+        
+        [UIView transitionWithView:_viewContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^{
+                            [_tblProduct setHidden:YES];
+                            [_mapBrick setHidden:NO];
+                            
+                        } completion:^(BOOL finished) {
+                            if(finished){
+                            }
+                        }];
+        
+    }
+    else{
+        
+        [UIView transitionWithView:_navBarContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^{
+                            [[_navBarContainer viewWithTag:10] setHidden:YES];
+                            [[_navBarContainer viewWithTag:20] setHidden:NO];
+                            
+                        } completion:^(BOOL finished) {
+                            if(finished){
+                            }
+                        }];
+        
+        
+        [UIView transitionWithView:_viewContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^{
+                            [_mapBrick setHidden:YES];
+                            [_tblProduct setHidden:NO ];
+                            
+                        } completion:^(BOOL finished) {
+                        }];
+    }
+}
+
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "AppDelegate.h"
 #import "productController.h"
 #import "applicationConstants.h"
 
-@interface productViewController_iPhone : UIViewController 
+@interface productViewController_iPhone : UIViewController <MKMapViewDelegate>
 
 
 // custom constructor
