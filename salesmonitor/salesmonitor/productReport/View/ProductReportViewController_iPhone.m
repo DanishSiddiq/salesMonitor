@@ -10,6 +10,9 @@
 
 @interface ProductReportViewController_iPhone ()
 
+@property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
+@property (nonatomic, strong) NSMutableDictionary *productSelected;
+
 @end
 
 @implementation ProductReportViewController_iPhone
@@ -20,6 +23,21 @@
     if (self) {
         // Custom initialization
     }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
+     productSelected : (NSMutableDictionary *)productSelected
+{
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+    if (self) {
+        _salesMonitorDelegate   = salesMonitorDelegate;
+        _productSelected        = productSelected;
+    }
+    
     return self;
 }
 

@@ -10,6 +10,9 @@
 
 @interface ProductReportViewController_iPad ()
 
+@property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
+@property (nonatomic, strong) NSMutableDictionary *productSelected;
+
 @end
 
 @implementation ProductReportViewController_iPad
@@ -23,10 +26,28 @@
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
+     productSelected : (NSMutableDictionary *)productSelected
+{
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        _salesMonitorDelegate   = salesMonitorDelegate;
+        _productSelected        = productSelected;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    NSLog(@"%@", _productSelected);
 }
 
 - (void)didReceiveMemoryWarning

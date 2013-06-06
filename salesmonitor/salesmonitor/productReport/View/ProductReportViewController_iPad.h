@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface ProductReportViewController_iPad : UIViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
+     productSelected : (NSMutableDictionary *)productSelected;
 
 @end

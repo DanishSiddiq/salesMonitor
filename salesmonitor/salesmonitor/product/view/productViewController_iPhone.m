@@ -302,8 +302,28 @@
 
 
 // protocol methods
--(void) productSelected:(NSMutableDictionary *) product{
+-(void) productSelected:(NSMutableDictionary *) productSelected{
     
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
+        
+        ProductReportViewController_iPhone *productReport = [[ProductReportViewController_iPhone alloc]
+                                                             initWithNibName:@"ProductReportViewController_iPhone"
+                                                             bundle:nil
+                                                             salesMonitorDelegate:_salesMonitorDelegate
+                                                             productSelected:productSelected];
+        
+        [self.navigationController pushViewController:productReport animated:YES];
+    }
+    else{
+        
+        ProductReportViewController_iPad *productReport = [[ProductReportViewController_iPad alloc]
+                                                             initWithNibName:@"ProductReportViewController_iPad"
+                                                             bundle:nil
+                                                           salesMonitorDelegate:_salesMonitorDelegate
+                                                           productSelected:productSelected];
+        
+        [self.navigationController pushViewController:productReport animated:YES];
+    }
 }
 
 @end

@@ -174,6 +174,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if([_viewController respondsToSelector:@selector(productSelected:)]){
+        [_viewController productSelected:[_loadProduct objectAtIndex:indexPath.row]];
+    }
 }
 
 @end

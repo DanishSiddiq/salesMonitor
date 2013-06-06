@@ -248,8 +248,9 @@
 				3A96B44417605DB7000970EC /* controller */,
 				3A96B44317605DA3000970EC /* view */,
 			);
-			path = productReport;
-			sourceTree = "<group>";
+			name = productReport;
+			path = salesmonitor/productReport;
+			sourceTree = SOURCE_ROOT;
 		};
 		3A96B44317605DA3000970EC /* view */ = {
 			isa = PBXGroup;
@@ -334,13 +335,13 @@
 		3AB43CAE175DCAE5007A79BC /* salesmonitor */ = {
 			isa = PBXGroup;
 			children = (
-				3A96B45417606374000970EC /* CustomClasses */,
-				3A96B44217605D6A000970EC /* productReport */,
-				3A127DDF175F186300C7CA96 /* images */,
-				3AB43D3C175DE99F007A79BC /* global */,
-				3AB43D1E175DE903007A79BC /* supportedLibraries */,
 				3AB43D0E175DD659007A79BC /* login */,
 				3AB43CC5175DCB59007A79BC /* product */,
+				3A96B44217605D6A000970EC /* productReport */,
+				3AB43D3C175DE99F007A79BC /* global */,
+				3AB43D1E175DE903007A79BC /* supportedLibraries */,
+				3A127DDF175F186300C7CA96 /* images */,
+				3A96B45417606374000970EC /* CustomClasses */,
 				3AB43CB7175DCAE5007A79BC /* AppDelegate.h */,
 				3AB43CB8175DCAE5007A79BC /* AppDelegate.m */,
 				3AB43CAF175DCAE5007A79BC /* Supporting Files */,

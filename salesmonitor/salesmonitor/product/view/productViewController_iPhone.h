@@ -14,7 +14,8 @@
 #import "brickController.h"
 #import "ZoomedMapView.h"
 #import "CustomAnnotation.h"
-
+#import "ProductReportViewController_iPhone.h"
+#import "ProductReportViewController_iPad.h"
 
 @interface productViewController_iPhone : UIViewController <productControllerDelegate>
 
