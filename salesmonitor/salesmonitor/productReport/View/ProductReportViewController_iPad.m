@@ -58,12 +58,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _isBtnFromSelected = NO;
-    _fromDate = [[NSNumber alloc] init];
-    _toDate = [[NSNumber alloc] init];
-    
-    [self initializeDates];
-    [self customizeNavigationBar];
+    [self initializeData];
+    [self initializeViews];
     
     NSLog(@"%@", _productSelected);
 }
@@ -73,14 +69,15 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+// view related methods
 
-- (void) initalizeView {
+- (void) initializeData {
     
-}
-
--(void) customizeNavigationBar {
+    _isBtnFromSelected = NO;
+    _fromDate = [[NSNumber alloc] init];
+    _toDate = [[NSNumber alloc] init];
     
-    [_navBarContainer setHidden:YES];
+    [self initializeDates];
 }
 
 - (void) initializeDates {
@@ -110,6 +107,20 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
     _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
     
+}
+
+- (void) initializeViews {
+    [self customizeNavigationBar];
+    [self initializeMainView];
+}
+
+-(void) customizeNavigationBar {
+    
+    [_navBarContainer setHidden:YES];
+}
+
+- (void) initializeMainView {
+    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
 // selectors

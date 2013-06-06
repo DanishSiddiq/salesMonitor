@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
 
+@property (nonatomic, strong) UITableView *tblSale;
+
 @property (nonatomic, strong) NSNumber *fromDate;
 @property (nonatomic, strong) NSNumber *toDate;
 
@@ -58,12 +60,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _isBtnFromSelected = NO;
-    _fromDate = [[NSNumber alloc] init];
-    _toDate = [[NSNumber alloc] init];
-    
-    [self initializeDates];    
-    [self customizeNavigationBar];
+    [self initializeData];
+    [self initializeViews];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,10 +71,13 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 // view related methods
-
--(void) customizeNavigationBar {
+- (void) initializeData {
     
-    [_navBarContainer setHidden:YES];
+    _isBtnFromSelected = NO;
+    _fromDate = [[NSNumber alloc] init];
+    _toDate = [[NSNumber alloc] init];
+    
+    [self initializeDates];
 }
 
 - (void) initializeDates {
@@ -108,6 +109,25 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
 }
 
+-(void) customizeNavigationBar {
+    
+    [_navBarContainer setHidden:YES];
+}
+
+- (void) initializeViews {
+ 
+    [self customizeNavigationBar];
+    [self initializeMainView];
+    [self initializeTableSale];
+}
+
+- (void) initializeMainView {
+    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+}
+
+- (void) initializeTableSale {
+    //_tblSale = [[UITableView alloc] initWithFrame:CGRectMake(0, 55, , )];
+}
 
 // selectors
 - (IBAction)tbnFromPressed:(id)sender {

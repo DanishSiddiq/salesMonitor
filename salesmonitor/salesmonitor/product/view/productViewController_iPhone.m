@@ -103,6 +103,7 @@
 - (void) initializeViews {
     
     [self customizeNavigationBar ];
+    [self initializeMainView];
     [self initializeViewContainer];
     [self initializeMapBrick];
     [self initialzieViewProductTable];
@@ -132,6 +133,10 @@
     
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
+}
+
+- (void) initializeMainView {
+    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
 - (void) initializeViewContainer {
