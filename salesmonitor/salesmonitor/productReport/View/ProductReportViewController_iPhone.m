@@ -129,9 +129,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dayComponents =
     [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
-    [dayComponents setHour:00];
-    [dayComponents setMinute:00];
-    [dayComponents setSecond:00];
+    
+    
+    [dayComponents setHour:_isBtnFromSelected ? 00 : 11];
+    [dayComponents setMinute:_isBtnFromSelected ? 00 : 59];
+    [dayComponents setSecond:_isBtnFromSelected ? 00 : 59];
     
     resultDate = [gregorian dateFromComponents:dayComponents];
     
@@ -139,12 +141,40 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [format setDateStyle:NSDateFormatterMediumStyle];
     
     if(_isBtnFromSelected){
-        [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-        _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+        
+        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] < [_toDate doubleValue]){
+            
+            [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+            _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+        }
+        else{
+            
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Correction" andMessage:@"From date must be less than To date"];
+            [alertView addButtonWithTitle:@"Ok"
+                                     type:SIAlertViewButtonTypeDestructive
+                                  handler:^(SIAlertView *alertView) {
+                                  }];
+            alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+            [alertView show];
+        }
     }
     else{
-        [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-        _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+        
+        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] > [_fromDate doubleValue]){
+            
+            [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+            _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+        }
+        else{
+            
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Correction" andMessage:@"To date must be greater than From date"];
+            [alertView addButtonWithTitle:@"Ok"
+                                     type:SIAlertViewButtonTypeDestructive
+                                  handler:^(SIAlertView *alertView) {
+                                  }];
+            alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+            [alertView show];
+        }
     }
 }
 
