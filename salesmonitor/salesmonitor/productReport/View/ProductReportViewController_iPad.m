@@ -57,6 +57,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
     
+    [self initializeDates];
+    
     NSLog(@"%@", _productSelected);
 }
 
@@ -71,13 +73,42 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 
+- (void) initializeDates {
+    
+    NSDate *resultDate = [NSDate date];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dayComponents =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
+    
+    [dayComponents setHour: 00];
+    [dayComponents setMinute:00];
+    [dayComponents setSecond:00];
+    resultDate = [gregorian dateFromComponents:dayComponents];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+    _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    
+    [dayComponents setHour: 11];
+    [dayComponents setMinute:59];
+    [dayComponents setSecond:59];
+    resultDate = [gregorian dateFromComponents:dayComponents];
+    
+    [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+    _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    
+}
+
 // selectors
 - (IBAction)btnFromPressed:(id)sender {
     
     _isBtnFromSelected = YES;
     
     CGRect frame = [_btnFrom frame];
-    frame.origin.x = 195;
+    frame.origin.x = 185;
     frame.origin.y = -190;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
@@ -104,7 +135,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     
     CGRect frame = [_btnTo frame];
-    frame.origin.x = 275;
+    frame.origin.x = 300;
     frame.origin.y = -190;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
@@ -133,9 +164,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dayComponents =
     [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
-    [dayComponents setHour:00];
-    [dayComponents setMinute:00];
-    [dayComponents setSecond:00];
+    
+    
+    [dayComponents setHour:_isBtnFromSelected ? 00 : 11];
+    [dayComponents setMinute:_isBtnFromSelected ? 00 : 59];
+    [dayComponents setSecond:_isBtnFromSelected ? 00 : 59];
     
     resultDate = [gregorian dateFromComponents:dayComponents];
     

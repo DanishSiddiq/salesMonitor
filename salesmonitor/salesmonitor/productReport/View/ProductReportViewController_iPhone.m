@@ -56,6 +56,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
+    
+    [self initializeDates];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +65,37 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// view related methods
+- (void) initializeDates {
+    
+    NSDate *resultDate = [NSDate date];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dayComponents =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
+    
+    [dayComponents setHour: 00];
+    [dayComponents setMinute:00];
+    [dayComponents setSecond:00];
+    resultDate = [gregorian dateFromComponents:dayComponents];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+    _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    
+    [dayComponents setHour: 11];
+    [dayComponents setMinute:59];
+    [dayComponents setSecond:59];
+    resultDate = [gregorian dateFromComponents:dayComponents];
+    
+    [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+    _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    
+}
+
 
 // selectors
 - (IBAction)tbnFromPressed:(id)sender {
