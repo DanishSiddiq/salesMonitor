@@ -17,8 +17,9 @@
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
-
+@property (nonatomic, strong) NSMutableArray *saleArray;
 @property (nonatomic, strong) UITableView *tblSale;
+@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
 @property (nonatomic, strong) NSNumber *fromDate;
 @property (nonatomic, strong) NSNumber *toDate;
@@ -76,6 +77,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
+    _saleArray = [[NSMutableArray alloc] init];
+    _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:0];
     
     [self initializeDates];
 }
@@ -126,7 +129,13 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 - (void) initializeTableSale {
-    //_tblSale = [[UITableView alloc] initWithFrame:CGRectMake(0, 55, , )];
+    _tblSale = [[UITableView alloc] initWithFrame:CGRectMake(0
+                                                             , 55
+                                                             ,[UIScreen mainScreen].bounds.size.width
+                                                             , [UIScreen mainScreen].bounds.size.height - 100)];
+    _tblSale.delegate = self;
+    _tblSale.dataSource = self;
+    [self.view addSubview:_tblSale];
 }
 
 // selectors
@@ -209,5 +218,74 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         }
     }
 }
+
+#pragma sale table delagates
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return  [_saleArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0f;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 1.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1.0f;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    NSString *branchCellIdentifier = [NSString stringWithFormat:@"SaleCell"];
+    UITableViewCell *cell;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+        [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100)];
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
+    else{
+    }
+    
+    
+    //now populate data for the view
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (_selectedIndexPath.row == indexPath.row) {
+        
+        _selectedIndexPath = nil;
+        [_tblSale reloadData];
+    } else {
+        
+        _selectedIndexPath = indexPath;
+        [_tblSale reloadData];
+        [_tblSale reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
+
 
 @end

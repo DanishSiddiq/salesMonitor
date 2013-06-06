@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "ActionSheetDatePicker.h"
 
-@interface ProductReportViewController_iPhone : UIViewController
+@interface ProductReportViewController_iPhone : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
