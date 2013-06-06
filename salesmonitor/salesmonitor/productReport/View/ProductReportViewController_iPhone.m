@@ -19,7 +19,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
 @property (nonatomic, strong) NSMutableArray *saleArray;
 @property (nonatomic, strong) UITableView *tblSale;
-@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
 @property (nonatomic, strong) NSNumber *fromDate;
 @property (nonatomic, strong) NSNumber *toDate;
@@ -78,7 +77,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
     _saleArray = [[NSMutableArray alloc] init];
-    _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:0];
     
     [self initializeDates];
 }
@@ -273,17 +271,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (_selectedIndexPath.row == indexPath.row) {
-        
-        _selectedIndexPath = nil;
-        [_tblSale reloadData];
-    } else {
-        
-        _selectedIndexPath = indexPath;
-        [_tblSale reloadData];
-        [_tblSale reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
     
 }
 
