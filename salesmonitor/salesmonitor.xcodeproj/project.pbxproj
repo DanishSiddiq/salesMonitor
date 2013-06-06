@@ -33,6 +33,11 @@
 		3A96B46317607396000970EC /* distributor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B46117607396000970EC /* distributor@2x.png */; };
 		3A96B466176074F6000970EC /* pin_annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B464176074F6000970EC /* pin_annotation.png */; };
 		3A96B467176074F6000970EC /* pin_annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B465176074F6000970EC /* pin_annotation@2x.png */; };
+		3A96B4731760AC77000970EC /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B46A1760AC77000970EC /* AbstractActionSheetPicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A96B4741760AC77000970EC /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B46C1760AC77000970EC /* ActionSheetDatePicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A96B4751760AC77000970EC /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B46E1760AC77000970EC /* ActionSheetDistancePicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A96B4761760AC77000970EC /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4701760AC77000970EC /* ActionSheetStringPicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4721760AC77000970EC /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -116,6 +121,16 @@
 		3A96B46117607396000970EC /* distributor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distributor@2x.png"; sourceTree = "<group>"; };
 		3A96B464176074F6000970EC /* pin_annotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_annotation.png; sourceTree = "<group>"; };
 		3A96B465176074F6000970EC /* pin_annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_annotation@2x.png"; sourceTree = "<group>"; };
+		3A96B4691760AC77000970EC /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		3A96B46A1760AC77000970EC /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		3A96B46B1760AC77000970EC /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		3A96B46C1760AC77000970EC /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		3A96B46D1760AC77000970EC /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		3A96B46E1760AC77000970EC /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		3A96B46F1760AC77000970EC /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		3A96B4701760AC77000970EC /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		3A96B4711760AC77000970EC /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		3A96B4721760AC77000970EC /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -300,6 +315,23 @@
 			path = MapAnnotation;
 			sourceTree = "<group>";
 		};
+		3A96B4681760AC77000970EC /* BlockActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B4691760AC77000970EC /* AbstractActionSheetPicker.h */,
+				3A96B46A1760AC77000970EC /* AbstractActionSheetPicker.m */,
+				3A96B46B1760AC77000970EC /* ActionSheetDatePicker.h */,
+				3A96B46C1760AC77000970EC /* ActionSheetDatePicker.m */,
+				3A96B46D1760AC77000970EC /* ActionSheetDistancePicker.h */,
+				3A96B46E1760AC77000970EC /* ActionSheetDistancePicker.m */,
+				3A96B46F1760AC77000970EC /* ActionSheetStringPicker.h */,
+				3A96B4701760AC77000970EC /* ActionSheetStringPicker.m */,
+				3A96B4711760AC77000970EC /* DistancePickerView.h */,
+				3A96B4721760AC77000970EC /* DistancePickerView.m */,
+			);
+			path = BlockActionSheet;
+			sourceTree = "<group>";
+		};
 		3AB43C9C175DCAE5007A79BC = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +460,7 @@
 		3AB43D1E175DE903007A79BC /* supportedLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				3A96B4681760AC77000970EC /* BlockActionSheet */,
 				3A127DE0175F5B9500C7CA96 /* SDWebImage */,
 				3AB43D81175E2571007A79BC /* SIAlertView */,
 				3AB43D73175E22E4007A79BC /* BlockAlertView */,
@@ -632,6 +665,11 @@
 				3A96B4581760638D000970EC /* ZoomedMapView.m in Sources */,
 				3A96B45C176068FE000970EC /* CustomAnnotation.m in Sources */,
 				3A96B45F1760692A000970EC /* brickController.m in Sources */,
+				3A96B4731760AC77000970EC /* AbstractActionSheetPicker.m in Sources */,
+				3A96B4741760AC77000970EC /* ActionSheetDatePicker.m in Sources */,
+				3A96B4751760AC77000970EC /* ActionSheetDistancePicker.m in Sources */,
+				3A96B4761760AC77000970EC /* ActionSheetStringPicker.m in Sources */,
+				3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

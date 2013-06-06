@@ -12,6 +12,13 @@
 
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
+@property (nonatomic, strong) IBOutlet UIButton *btnFrom;
+@property (nonatomic, strong) IBOutlet UIButton *btnTo;
+
+@property (nonatomic, strong) NSNumber *fromDate;
+@property (nonatomic, strong) NSNumber *toDate;
+
+@property (nonatomic) BOOL isBtnFromSelected;
 
 @end
 
@@ -45,12 +52,67 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _isBtnFromSelected = NO;
+    _fromDate = [[NSNumber alloc] init];
+    _toDate = [[NSNumber alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// selectors
+- (IBAction)tbnFromPressed:(id)sender {
+    
+    _isBtnFromSelected = YES;
+    
+    NSDate *myDate = [NSDate date];
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate  selectedDate:myDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+    
+    [datePicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
+    datePicker.hideCancel = NO;
+    [datePicker showActionSheetPicker];
+    
+}
+
+- (IBAction)btnToPressed:(id)sender {
+    
+    _isBtnFromSelected = NO;
+    
+    NSDate *myDate = [NSDate date];
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDate  selectedDate:myDate target:self action:@selector(dateWasSelected:element:) origin:sender];
+    
+    [datePicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
+    datePicker.hideCancel = NO;
+    [datePicker showActionSheetPicker];
+}
+
+-(void) dateWasSelected:(NSDate *)resultDate element:(UIButton *)button {
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dayComponents =
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
+    [dayComponents setHour:00];
+    [dayComponents setMinute:00];
+    [dayComponents setSecond:00];
+    
+    resultDate = [gregorian dateFromComponents:dayComponents];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    
+    if(_isBtnFromSelected){
+        [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+        _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    }
+    else{
+        [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
+        _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    }
 }
 
 @end
