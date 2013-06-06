@@ -14,9 +14,11 @@
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 
 @property (strong, nonatomic) UIView *navBarContainer;
-
 @property (strong, nonatomic) UIView *viewContainer;
+
 @property (strong, nonatomic) MKMapView  *mapBrick;
+@property (nonatomic, strong) brickController *brickController;
+@property (nonatomic, strong) NSMutableArray *loadBrick;
 
 @property (nonatomic, strong) UITableView *tblProduct;
 @property (nonatomic, strong) productController *productController;
@@ -82,12 +84,14 @@
 - (void) initializeData {
     
     // device orientation
+    _indexData = 0;
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
     _loadProduct = [[NSMutableArray alloc] init];
-    _indexData = 0;
+    _loadBrick = [[NSMutableArray alloc] init];
     
     // for common functionlity
     _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct];
+    _brickController = [[brickController alloc] init:_isIphone loadBrick:_loadBrick];
 
 }
 
@@ -142,7 +146,7 @@
                                                             , [UIScreen mainScreen].bounds.size.width
                                                             , [UIScreen mainScreen].bounds.size.height-45)];
     [_mapBrick showsUserLocation];
-    _mapBrick.delegate = self;
+    _mapBrick.delegate = _brickController;
     
     [_mapBrick setHidden:YES];
     [_viewContainer addSubview:_mapBrick];
@@ -210,7 +214,7 @@
     
     if([_mapBrick isHidden]){
         
-        //[self updateMapView];
+        [self updateMapView];
         
         [UIView transitionWithView:_navBarContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
                         animations:^{
@@ -256,5 +260,45 @@
     }
 }
 
+
+- (void) updateMapView {
+    
+    // first remove obselete annotations
+    NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:10];
+    for (id annotation in _mapBrick.annotations){
+        if (annotation != _mapBrick.userLocation){
+            [toRemove addObject:annotation];
+        }
+    }
+    [_mapBrick removeAnnotations:toRemove];
+    
+    // remove all previous objects
+    [_loadBrick removeAllObjects];
+    _loadBrick = [[_salesMonitorDelegate userData] valueForKey:KEY_BRICKS];
+    
+    NSInteger rowIndex = 0;
+    for (NSMutableDictionary *brickInfo in _loadBrick) {
+        
+        if([[brickInfo valueForKey:KEY_BRICKS_LOCATION] valueForKey:KEY_BRICKS_LOCATION_LAT]
+           && [[brickInfo valueForKey:KEY_BRICKS_LOCATION] valueForKey:KEY_BRICKS_LOCATION_LONG]){
+            
+            CustomAnnotation *annotation = [CustomAnnotation new];
+            annotation.coordinate = (CLLocationCoordinate2D){
+                [[brickInfo valueForKeyPath:KEY_PATH_BRICKS_LOCATION_LAT] doubleValue]
+                ,   [[brickInfo valueForKeyPath:KEY_PATH_BRICKS_LOCATION_LONG] doubleValue]};
+            
+            [annotation setTitle:[brickInfo valueForKey:KEY_BRICKS_NAME]];
+            [annotation setSubtitle:[brickInfo valueForKey:KEY_BRICKS_DISTRIBUTOR_NAME]];
+            [annotation setTag:rowIndex];
+            [_mapBrick addAnnotation:annotation];
+        }
+        
+        // keep refernce to stream item
+        rowIndex++;
+    }
+    
+    ZoomedMapView *zoomMap = [[ZoomedMapView alloc] init];
+    [zoomMap zoomMapViewToFitAnnotations:_mapBrick animated:NO];
+}
 
 @end

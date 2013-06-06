@@ -26,6 +26,13 @@
 		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
 		3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */; };
 		3A96B45317605E17000970EC /* ProductReportViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B45117605E17000970EC /* ProductReportViewController_iPad.xib */; };
+		3A96B4581760638D000970EC /* ZoomedMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4571760638D000970EC /* ZoomedMapView.m */; };
+		3A96B45C176068FE000970EC /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45B176068FE000970EC /* CustomAnnotation.m */; };
+		3A96B45F1760692A000970EC /* brickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45E1760692A000970EC /* brickController.m */; };
+		3A96B46217607396000970EC /* distributor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B46017607396000970EC /* distributor.png */; };
+		3A96B46317607396000970EC /* distributor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B46117607396000970EC /* distributor@2x.png */; };
+		3A96B466176074F6000970EC /* pin_annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B464176074F6000970EC /* pin_annotation.png */; };
+		3A96B467176074F6000970EC /* pin_annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B465176074F6000970EC /* pin_annotation@2x.png */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -99,6 +106,16 @@
 		3A96B44F17605E17000970EC /* ProductReportViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPad.h; path = salesmonitor/productReport/view/ProductReportViewController_iPad.h; sourceTree = SOURCE_ROOT; };
 		3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPad.m; path = salesmonitor/productReport/view/ProductReportViewController_iPad.m; sourceTree = SOURCE_ROOT; };
 		3A96B45117605E17000970EC /* ProductReportViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductReportViewController_iPad.xib; path = salesmonitor/productReport/view/ProductReportViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
+		3A96B4561760638D000970EC /* ZoomedMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomedMapView.h; sourceTree = "<group>"; };
+		3A96B4571760638D000970EC /* ZoomedMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomedMapView.m; sourceTree = "<group>"; };
+		3A96B45A176068FE000970EC /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		3A96B45B176068FE000970EC /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		3A96B45D1760692A000970EC /* brickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brickController.h; sourceTree = "<group>"; };
+		3A96B45E1760692A000970EC /* brickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = brickController.m; sourceTree = "<group>"; };
+		3A96B46017607396000970EC /* distributor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distributor.png; sourceTree = "<group>"; };
+		3A96B46117607396000970EC /* distributor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distributor@2x.png"; sourceTree = "<group>"; };
+		3A96B464176074F6000970EC /* pin_annotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_annotation.png; sourceTree = "<group>"; };
+		3A96B465176074F6000970EC /* pin_annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_annotation@2x.png"; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -187,6 +204,10 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A96B464176074F6000970EC /* pin_annotation.png */,
+				3A96B465176074F6000970EC /* pin_annotation@2x.png */,
+				3A96B46017607396000970EC /* distributor.png */,
+				3A96B46117607396000970EC /* distributor@2x.png */,
 				3A127E00175F69BE00C7CA96 /* icon-list.png */,
 				3A127E01175F69BE00C7CA96 /* icon-list@2x.png */,
 				3A127E02175F69BE00C7CA96 /* icon-map.png */,
@@ -251,6 +272,33 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		3A96B45417606374000970EC /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B459176068FE000970EC /* MapAnnotation */,
+				3A96B4551760638D000970EC /* ZoomedMapView */,
+			);
+			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		3A96B4551760638D000970EC /* ZoomedMapView */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B4561760638D000970EC /* ZoomedMapView.h */,
+				3A96B4571760638D000970EC /* ZoomedMapView.m */,
+			);
+			path = ZoomedMapView;
+			sourceTree = "<group>";
+		};
+		3A96B459176068FE000970EC /* MapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B45A176068FE000970EC /* CustomAnnotation.h */,
+				3A96B45B176068FE000970EC /* CustomAnnotation.m */,
+			);
+			path = MapAnnotation;
+			sourceTree = "<group>";
+		};
 		3AB43C9C175DCAE5007A79BC = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +334,7 @@
 		3AB43CAE175DCAE5007A79BC /* salesmonitor */ = {
 			isa = PBXGroup;
 			children = (
+				3A96B45417606374000970EC /* CustomClasses */,
 				3A96B44217605D6A000970EC /* productReport */,
 				3A127DDF175F186300C7CA96 /* images */,
 				3AB43D3C175DE99F007A79BC /* global */,
@@ -338,6 +387,8 @@
 			children = (
 				3A127DDC175F0F0600C7CA96 /* productController.h */,
 				3A127DDD175F0F0600C7CA96 /* productController.m */,
+				3A96B45D1760692A000970EC /* brickController.h */,
+				3A96B45E1760692A000970EC /* brickController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -531,6 +582,10 @@
 				3A127E07175F69BE00C7CA96 /* icon-map@2x.png in Resources */,
 				3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */,
 				3A96B45317605E17000970EC /* ProductReportViewController_iPad.xib in Resources */,
+				3A96B46217607396000970EC /* distributor.png in Resources */,
+				3A96B46317607396000970EC /* distributor@2x.png in Resources */,
+				3A96B466176074F6000970EC /* pin_annotation.png in Resources */,
+				3A96B467176074F6000970EC /* pin_annotation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +628,9 @@
 				3A127DFB175F5B9600C7CA96 /* UIImageView+WebCache.m in Sources */,
 				3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */,
 				3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */,
+				3A96B4581760638D000970EC /* ZoomedMapView.m in Sources */,
+				3A96B45C176068FE000970EC /* CustomAnnotation.m in Sources */,
+				3A96B45F1760692A000970EC /* brickController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

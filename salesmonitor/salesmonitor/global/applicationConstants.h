@@ -28,3 +28,15 @@
 #define KEY_PRODUCT_PACKSHOT @"packShot"
 #define KEY_PRODUCT_ID @"_id"
 
+#define KEY_BRICKS @"bricks"
+#define KEY_BRICKS_NAME @"name"
+#define KEY_BRICKS_DISTRIBUTOR_NAME @"distributorname"
+#define KEY_BRICKS_LOCATION @"location"
+#define KEY_BRICKS_LOCATION_LAT @"lat"
+#define KEY_BRICKS_LOCATION_LONG @"long"
+
+
+#define KEY_PATH_BRICKS_LOCATION_LAT @"location.lat"
+#define KEY_PATH_BRICKS_LOCATION_LONG @"location.long"
+
+

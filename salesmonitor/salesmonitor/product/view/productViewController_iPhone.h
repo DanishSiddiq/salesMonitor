@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "applicationConstants.h"
 #import "AppDelegate.h"
 #import "productController.h"
-#import "applicationConstants.h"
+#import "brickController.h"
+#import "ZoomedMapView.h"
+#import "CustomAnnotation.h"
 
-@interface productViewController_iPhone : UIViewController <MKMapViewDelegate>
+
+@interface productViewController_iPhone : UIViewController
 
 
 // custom constructor
