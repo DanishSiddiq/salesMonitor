@@ -11,20 +11,24 @@
 
 @interface productController ()
 
-@property (nonatomic, strong) NSMutableArray *loadProduct;
 @property (nonatomic) BOOL isIphone;
+@property (nonatomic, strong) NSMutableArray *loadProduct;
+@property (nonatomic, strong) id<productControllerDelegate> viewController;
 
 @end
 
 @implementation productController
 
-- (id) init : (BOOL) isIphone loadProduct :(NSMutableArray *) loadProduct {
+- (id)      init : (BOOL) isIphone
+     loadProduct :(NSMutableArray *) loadProduct
+  viewController : (id<productControllerDelegate>)viewController{
     
     self = [super init];
     
     if(self){
         _loadProduct = loadProduct;
-        _isIphone = isIphone;
+        _isIphone   = isIphone;
+        _viewController    = viewController;
     }
     
     return self;

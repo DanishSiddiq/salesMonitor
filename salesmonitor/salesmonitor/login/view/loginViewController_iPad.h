@@ -11,10 +11,14 @@
 #import "productViewController_iPhone.h"
 
 
-@interface loginViewController_iPad : UIViewController
+@interface loginViewController_iPad : UIViewController <loginControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *txtEmail;
 @property (nonatomic, strong) IBOutlet UITextField *txtPassword;
 - (IBAction)btnPressedLogin:(id)sender;
+
+
+// protocol implementation
+- (void) authenticateUser : (NSInteger)responseCode;
 
 @end

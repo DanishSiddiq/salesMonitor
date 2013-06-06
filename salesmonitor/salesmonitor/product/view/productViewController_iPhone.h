@@ -16,10 +16,14 @@
 #import "CustomAnnotation.h"
 
 
-@interface productViewController_iPhone : UIViewController
+@interface productViewController_iPhone : UIViewController <productControllerDelegate>
 
 
 // custom constructor
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate;
+
+
+// protocol implementation
+-(void)productSelected:(NSMutableDictionary *) product;
 
 @end

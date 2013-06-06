@@ -90,7 +90,7 @@
     _loadBrick = [[NSMutableArray alloc] init];
     
     // for common functionlity
-    _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct];
+    _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct viewController:self];
     _brickController = [[brickController alloc] init:_isIphone loadBrick:_loadBrick];
 
 }
@@ -273,7 +273,6 @@
     [_mapBrick removeAnnotations:toRemove];
     
     // remove all previous objects
-    [_loadBrick removeAllObjects];
     _loadBrick = [[_salesMonitorDelegate userData] valueForKey:KEY_BRICKS];
     
     NSInteger rowIndex = 0;
@@ -299,6 +298,12 @@
     
     ZoomedMapView *zoomMap = [[ZoomedMapView alloc] init];
     [zoomMap zoomMapViewToFitAnnotations:_mapBrick animated:NO];
+}
+
+
+// protocol methods
+-(void) productSelected:(NSMutableDictionary *) product{
+    
 }
 
 @end

@@ -11,9 +11,19 @@
 #import "applicationConstants.h"
 #import "UIImageView+WebCache.h"
 
+
+@protocol productControllerDelegate <NSObject>
+@required
+    -(void)productSelected:(NSMutableDictionary *) product;
+@end
+
 @interface productController : NSObject <UITableViewDataSource, UITableViewDelegate>
 
+
 // constructor
-- (id) init : (BOOL) isIphone loadProduct :(NSMutableArray *) loadProduct ;
+- (id)      init : (BOOL) isIphone
+     loadProduct :(NSMutableArray *) loadProduct
+  viewController : (id<productControllerDelegate>)viewController;
+
 
 @end

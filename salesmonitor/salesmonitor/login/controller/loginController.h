@@ -23,7 +23,7 @@
 
 @interface loginController : NSObject
 
--(id) init : (id) viewController salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate;
+-(id) init : (id<loginControllerDelegate>) viewController salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate;
 
 // call server for authenticating user
 - (void) authenticateUserAtServer : (NSString *) email pass : (NSString *) pass;

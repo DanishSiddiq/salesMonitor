@@ -11,7 +11,7 @@
 
 @interface  loginController()
 
-@property (nonatomic, strong) id viewController;
+@property (nonatomic, strong) id<loginControllerDelegate> viewController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 
 @end
