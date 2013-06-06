@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface doctorViewController_iPhone : UIViewController
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate;
 
 @end

@@ -24,7 +24,6 @@
 		3A127E09175F7B0E00C7CA96 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A127E08175F7B0D00C7CA96 /* MapKit.framework */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
-		3A9480621760F0820068A201 /* doctorViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9480601760F0820068A201 /* doctorViewController_iPad.m */; };
 		3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9480611760F0820068A201 /* doctorViewController_iPad.xib */; };
 		3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */; };
 		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
@@ -112,8 +111,6 @@
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
-		3A94805F1760F0820068A201 /* doctorViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPad.h; sourceTree = "<group>"; };
-		3A9480601760F0820068A201 /* doctorViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPad.m; sourceTree = "<group>"; };
 		3A9480611760F0820068A201 /* doctorViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPad.xib; sourceTree = "<group>"; };
 		3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPhone.h; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
 		3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPhone.m; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
@@ -282,8 +279,6 @@
 				3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */,
 				3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */,
 				3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */,
-				3A94805F1760F0820068A201 /* doctorViewController_iPad.h */,
-				3A9480601760F0820068A201 /* doctorViewController_iPad.m */,
 				3A9480611760F0820068A201 /* doctorViewController_iPad.xib */,
 			);
 			path = view;
@@ -713,7 +708,6 @@
 				3A96B4761760AC77000970EC /* ActionSheetStringPicker.m in Sources */,
 				3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */,
 				3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */,
-				3A9480621760F0820068A201 /* doctorViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
