@@ -22,6 +22,7 @@
 
 @synthesize hostReach, isNetworkAvailable;
 @synthesize userData;
+@synthesize isLoadingFirstTime;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -92,6 +93,9 @@
 
 // Initialization code
 - (void) initializeCustomClasses {
+    
+    // fir first time check
+    isLoadingFirstTime = YES;
     
     // reach ability
     isNetworkAvailable = YES;

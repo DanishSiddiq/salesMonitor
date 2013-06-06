@@ -70,7 +70,11 @@
     
     [super viewDidAppear:animated];
     
-    [self updateTable];
+    if([_salesMonitorDelegate isLoadingFirstTime]){
+        
+        [self updateTable];
+        [_salesMonitorDelegate setIsLoadingFirstTime:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic) BOOL isLoadingFirstTime;
+
 // reachabaility
 @property (nonatomic, retain) Reachability *hostReach;
 @property (nonatomic) BOOL isNetworkAvailable;
