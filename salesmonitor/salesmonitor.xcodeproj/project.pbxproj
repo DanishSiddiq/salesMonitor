@@ -22,6 +22,10 @@
 		3A127E06175F69BE00C7CA96 /* icon-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A127E02175F69BE00C7CA96 /* icon-map.png */; };
 		3A127E07175F69BE00C7CA96 /* icon-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A127E03175F69BE00C7CA96 /* icon-map@2x.png */; };
 		3A127E09175F7B0E00C7CA96 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A127E08175F7B0D00C7CA96 /* MapKit.framework */; };
+		3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */; };
+		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
+		3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */; };
+		3A96B45317605E17000970EC /* ProductReportViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B45117605E17000970EC /* ProductReportViewController_iPad.xib */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -89,6 +93,12 @@
 		3A127E02175F69BE00C7CA96 /* icon-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map.png"; sourceTree = "<group>"; };
 		3A127E03175F69BE00C7CA96 /* icon-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map@2x.png"; sourceTree = "<group>"; };
 		3A127E08175F7B0D00C7CA96 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPhone.h; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
+		3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPhone.m; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
+		3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductReportViewController_iPhone.xib; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
+		3A96B44F17605E17000970EC /* ProductReportViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPad.h; path = salesmonitor/productReport/view/ProductReportViewController_iPad.h; sourceTree = SOURCE_ROOT; };
+		3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPad.m; path = salesmonitor/productReport/view/ProductReportViewController_iPad.m; sourceTree = SOURCE_ROOT; };
+		3A96B45117605E17000970EC /* ProductReportViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductReportViewController_iPad.xib; path = salesmonitor/productReport/view/ProductReportViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +221,36 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		3A96B44217605D6A000970EC /* productReport */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B44417605DB7000970EC /* controller */,
+				3A96B44317605DA3000970EC /* view */,
+			);
+			path = productReport;
+			sourceTree = "<group>";
+		};
+		3A96B44317605DA3000970EC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */,
+				3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */,
+				3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */,
+				3A96B44F17605E17000970EC /* ProductReportViewController_iPad.h */,
+				3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */,
+				3A96B45117605E17000970EC /* ProductReportViewController_iPad.xib */,
+			);
+			name = view;
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A96B44417605DB7000970EC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		3AB43C9C175DCAE5007A79BC = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +286,7 @@
 		3AB43CAE175DCAE5007A79BC /* salesmonitor */ = {
 			isa = PBXGroup;
 			children = (
+				3A96B44217605D6A000970EC /* productReport */,
 				3A127DDF175F186300C7CA96 /* images */,
 				3AB43D3C175DE99F007A79BC /* global */,
 				3AB43D1E175DE903007A79BC /* supportedLibraries */,
@@ -488,6 +529,8 @@
 				3A127E05175F69BE00C7CA96 /* icon-list@2x.png in Resources */,
 				3A127E06175F69BE00C7CA96 /* icon-map.png in Resources */,
 				3A127E07175F69BE00C7CA96 /* icon-map@2x.png in Resources */,
+				3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */,
+				3A96B45317605E17000970EC /* ProductReportViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +571,8 @@
 				3A127DF9175F5B9600C7CA96 /* SDWebImagePrefetcher.m in Sources */,
 				3A127DFA175F5B9600C7CA96 /* UIButton+WebCache.m in Sources */,
 				3A127DFB175F5B9600C7CA96 /* UIImageView+WebCache.m in Sources */,
+				3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */,
+				3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
