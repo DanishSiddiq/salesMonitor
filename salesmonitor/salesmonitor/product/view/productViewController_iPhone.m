@@ -64,6 +64,7 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:NO ];
+    [_navBarContainer setHidden:NO];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -314,7 +315,8 @@
                                                              initWithNibName:@"ProductReportViewController_iPhone"
                                                              bundle:nil
                                                              salesMonitorDelegate:_salesMonitorDelegate
-                                                             productSelected:productSelected];
+                                                             productSelected:productSelected
+                                                             navBarContainer:_navBarContainer];
         
         [self.navigationController pushViewController:productReport animated:YES];
     }
@@ -324,7 +326,8 @@
                                                              initWithNibName:@"ProductReportViewController_iPad"
                                                              bundle:nil
                                                            salesMonitorDelegate:_salesMonitorDelegate
-                                                           productSelected:productSelected];
+                                                           productSelected:productSelected
+                                                           navBarContainer:_navBarContainer];
         
         [self.navigationController pushViewController:productReport animated:YES];
     }

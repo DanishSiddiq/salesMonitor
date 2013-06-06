@@ -15,7 +15,10 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
-     productSelected : (NSMutableDictionary *)productSelected;
+     productSelected : (NSMutableDictionary *)productSelected
+      navBarContainer: (UIView *) navBarContainer;
+
+
 - (IBAction)btnFromPressed:(id)sender;
 - (IBAction)btnToPressed:(id)sender;
 

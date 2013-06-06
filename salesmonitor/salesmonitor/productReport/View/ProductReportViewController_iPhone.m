@@ -10,6 +10,9 @@
 
 @interface ProductReportViewController_iPhone ()
 
+// nav bar item at right in previous view
+@property (strong, nonatomic) UIView *navBarContainer;
+
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
@@ -37,12 +40,14 @@
                bundle:(NSBundle *)nibBundleOrNil
 salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
      productSelected : (NSMutableDictionary *)productSelected
+      navBarContainer: (UIView *) navBarContainer
 {
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 
     if (self) {
         _salesMonitorDelegate   = salesMonitorDelegate;
         _productSelected        = productSelected;
+        _navBarContainer        = navBarContainer;
     }
     
     return self;
@@ -57,7 +62,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
     
-    [self initializeDates];
+    [self initializeDates];    
+    [self customizeNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +73,12 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 // view related methods
+
+-(void) customizeNavigationBar {
+    
+    [_navBarContainer setHidden:YES];
+}
+
 - (void) initializeDates {
     
     NSDate *resultDate = [NSDate date];
