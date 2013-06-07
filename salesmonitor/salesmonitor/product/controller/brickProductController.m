@@ -75,11 +75,11 @@
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-        [cell setFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)
+        [cell setFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -20, 50)
                       :   CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50) ];
         
-        lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(4, 6, [UIScreen mainScreen].bounds.size.width -187, 40)
-                                                : CGRectMake(8, 10, [UIScreen mainScreen].bounds.size.width - 284, 40)];
+        lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(4, 6, [UIScreen mainScreen].bounds.size.width -207, 40)
+                                                : CGRectMake(8, 10, [UIScreen mainScreen].bounds.size.width - 304, 40)];
         [lblName setBackgroundColor:[UIColor clearColor]];
         lblName.numberOfLines = 1;
         lblName.font = [UIFont fontWithName:@"Helvetica" size:_isIphone ? 16.0 : 20.0];
@@ -88,13 +88,13 @@
         lblName.lineBreakMode = NSLineBreakByTruncatingTail;
         lblName.tag = 10;
         
-        viewSeperatorName = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 183, 0, 1, 50)
-                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 276 , 10, 2, 50)];
+        viewSeperatorName = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 203, 0, 1, 50)
+                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 296 , 10, 2, 50)];
         [viewSeperatorName setBackgroundColor:[UIColor lightGrayColor]];
         
         
-        lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 182, 6, 60, 40)
-                                                      :CGRectMake([UIScreen mainScreen].bounds.size.width - 274, 10, 90, 40)];
+        lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 202, 6, 60, 40)
+                                                      :CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 10, 90, 40)];
         lblPrice.backgroundColor = [UIColor clearColor];
         lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblPrice.numberOfLines = 1;
@@ -103,13 +103,13 @@
         lblPrice.textColor = [UIColor grayColor];
         lblPrice.tag = 20;
         
-        viewSeperatorPrice = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 122 , 0, 1, 50)
-                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 184, 10, 2, 50)];
+        viewSeperatorPrice = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 142 , 0, 1, 50)
+                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 204, 10, 2, 50)];
         [viewSeperatorPrice setBackgroundColor:[UIColor lightGrayColor]];
         
         
-        lblSaleUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width -121, 6, 60, 40)
-                                                 :CGRectMake([UIScreen mainScreen].bounds.size.width -182, 10, 90, 40)];
+        lblSaleUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width -141, 6, 60, 40)
+                                                 :CGRectMake([UIScreen mainScreen].bounds.size.width -202, 10, 90, 40)];
         lblSaleUnit.backgroundColor = [UIColor clearColor];
         lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblSaleUnit.numberOfLines = 1;
@@ -119,13 +119,13 @@
         lblSaleUnit.tag = 30;
 
         
-        viewSeperatorUnit = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 61 , 0, 1, 50)
-                                                          : CGRectMake([UIScreen mainScreen].bounds.size.width - 92, 10, 2, 50)];
+        viewSeperatorUnit = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 81 , 0, 1, 50)
+                                                          : CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 10, 2, 50)];
         [viewSeperatorUnit setBackgroundColor:[UIColor lightGrayColor]];
         
         
-        lblTotalSale = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 60, 6, 60, 40)
-                                                    :CGRectMake([UIScreen mainScreen].bounds.size.width - 90, 10, 90, 40)];
+        lblTotalSale = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 80, 6, 60, 40)
+                                                    :CGRectMake([UIScreen mainScreen].bounds.size.width - 110, 10, 90, 40)];
         lblTotalSale.backgroundColor = [UIColor clearColor];
         lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblTotalSale.numberOfLines = 1;

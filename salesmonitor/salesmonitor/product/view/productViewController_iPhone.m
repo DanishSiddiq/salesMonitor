@@ -354,7 +354,7 @@
     
     tblBrickProduct.delegate = _brickProductController;
     tblBrickProduct.dataSource = _brickProductController;
-    
+    tblBrickProduct.bounces = NO;
     
     [[KGModal sharedInstance] showWithContentView:tblBrickProduct andAnimated:YES];
     
