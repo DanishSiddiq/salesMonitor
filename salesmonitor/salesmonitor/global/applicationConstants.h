@@ -27,6 +27,8 @@
 #define KEY_PRODUCT_INDICATION @"indication"
 #define KEY_PRODUCT_PACKSHOT @"packShot"
 #define KEY_PRODUCT_ID @"_id"
+#define KEY_PRODUCT_SALES_UNIT @"salesUnit"
+#define KEY_PRODUCT_BUDGET_UNITS @"budgetUnits"
 
 #define KEY_BRICKS @"bricks"
 #define KEY_BRICKS_NAME @"name"

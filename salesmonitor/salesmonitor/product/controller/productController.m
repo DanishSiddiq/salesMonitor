@@ -70,7 +70,7 @@
     NSString *branchCellIdentifier = [NSString stringWithFormat:@"BranchCell"];
     UITableViewCell *cell;
     UIImageView *imgViewProduct;
-    UILabel *lblName, *lblTheraputicClass, *lblIndication, *lblPrice;
+    UILabel *lblName, *lblTheraputicClass, *lblIndication, *lblPrice, *lblSaleUnit, *lblBudgetUnit;
     
     cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
     
@@ -118,8 +118,8 @@
         lblIndication.textColor = [UIColor grayColor];
         lblIndication.tag = 40;
         
-        lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 86, 238, 14)
-                                                 :CGRectMake(150, 122, [UIScreen mainScreen].bounds.size.width - 150, 30)];
+        lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(104, 86, 80, 14)
+                                                 :CGRectMake(150, 122, 300, 30)];
         lblPrice.backgroundColor = [UIColor clearColor];
         lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblPrice.numberOfLines = 1;
@@ -128,11 +128,43 @@
         lblPrice.textColor = [UIColor blackColor];
         lblPrice.tag = 50;
         
+        lblSaleUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(195, 86, 60, 14)
+                                                    :CGRectMake([UIScreen mainScreen].bounds.size.width - 185 , 122, 90, 30)];
+        lblSaleUnit.backgroundColor = [UIColor clearColor];
+        lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
+        lblSaleUnit.numberOfLines = 1;
+        lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+        lblSaleUnit.textAlignment = NSTextAlignmentRight;
+        lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblSaleUnit.textColor = [UIColor blackColor];
+        lblSaleUnit.tag = 60;
+        
+        UILabel *lblSlash = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(255, 86, 5, 14)
+                                                      :CGRectMake([UIScreen mainScreen].bounds.size.width - 95, 122, 5, 30)];
+        lblSlash.backgroundColor = [UIColor clearColor];
+        lblSlash.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
+        lblSlash.contentMode = UIViewContentModeCenter;
+        lblSlash.textColor = [UIColor blackColor];
+        lblSlash.text = @"/";
+        
+        lblBudgetUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(260, 86, 60, 14)
+                                                 :CGRectMake([UIScreen mainScreen].bounds.size.width -90 , 122, 90, 30)];
+        lblBudgetUnit.backgroundColor = [UIColor clearColor];
+        lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
+        lblBudgetUnit.numberOfLines = 1;
+        lblBudgetUnit.contentMode = UIViewContentModeTopLeft;
+        lblBudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblBudgetUnit.textColor = [UIColor blackColor];
+        lblBudgetUnit.tag = 70;
+        
         [cell.contentView addSubview:imgViewProduct];
         [cell.contentView addSubview:lblName];
         [cell.contentView addSubview:lblTheraputicClass];
         [cell.contentView addSubview:lblIndication];
         [cell.contentView addSubview:lblPrice];
+        [cell.contentView addSubview:lblSaleUnit];
+        [cell.contentView addSubview:lblSlash];
+        [cell.contentView addSubview:lblBudgetUnit];
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
@@ -143,6 +175,8 @@
         lblTheraputicClass = (UILabel *)[cell.contentView viewWithTag:30];
         lblIndication = (UILabel *)[cell.contentView viewWithTag:40];
         lblPrice = (UILabel *)[cell.contentView viewWithTag:50];
+        lblSaleUnit = (UILabel *)[cell.contentView viewWithTag:60];
+        lblBudgetUnit = (UILabel *)[cell.contentView viewWithTag:70];
     }
     
     
@@ -169,6 +203,8 @@
     lblTheraputicClass.text = [product valueForKey:KEY_PRODUCT_THERAPUTIC_CLASS];
     lblIndication.text = [product valueForKey:KEY_PRODUCT_INDICATION];
     lblPrice.text = [[product valueForKey:KEY_PRODUCT_PRICE] description];
+    lblSaleUnit.text = [[product valueForKey:KEY_PRODUCT_SALES_UNIT] description];
+    lblBudgetUnit.text = [[product valueForKey:KEY_PRODUCT_BUDGET_UNITS] description];
     
     return cell;
 }
