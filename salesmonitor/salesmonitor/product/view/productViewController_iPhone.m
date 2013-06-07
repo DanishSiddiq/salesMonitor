@@ -355,6 +355,8 @@
     tblBrickProduct.delegate = _brickProductController;
     tblBrickProduct.dataSource = _brickProductController;
     tblBrickProduct.bounces = NO;
+    [tblBrickProduct setShowsVerticalScrollIndicator:NO];
+    [tblBrickProduct setShowsHorizontalScrollIndicator:NO];
     
     [[KGModal sharedInstance] showWithContentView:tblBrickProduct andAnimated:YES];
     

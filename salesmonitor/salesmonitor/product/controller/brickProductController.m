@@ -47,7 +47,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 1.0f;
+    return 40.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -55,7 +55,72 @@
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -20, 40)
+                                                      :   CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 30) ];
+    [headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    
+    UILabel *lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(4, 5, [UIScreen mainScreen].bounds.size.width -207, 30)
+                                            : CGRectMake(8, 5, [UIScreen mainScreen].bounds.size.width - 304, 30)];
+    [lblName setBackgroundColor:[UIColor clearColor]];
+    lblName.font = [UIFont fontWithName:@"Helvetica" size:_isIphone ? 14.0 : 18.0];
+    lblName.textColor = [UIColor blackColor];
+    lblName.contentMode = UIViewContentModeCenter;
+    lblName.textAlignment = NSTextAlignmentCenter;
+    lblName.text = @"Name";
+    
+    UIView *viewSeperatorName = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 203, 0, 1, 40)
+                                                     : CGRectMake([UIScreen mainScreen].bounds.size.width - 296 , 0, 2, 40)];
+    [viewSeperatorName setBackgroundColor:[UIColor lightGrayColor]];
+    
+    
+    UILabel *lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 202, 5, 60, 30)
+                                             :CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 5, 90, 30)];
+    lblPrice.backgroundColor = [UIColor clearColor];
+    lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 14.0 : 18.0];
+    lblPrice.contentMode = UIViewContentModeCenter;
+    lblPrice.textColor = [UIColor blackColor];
+    lblPrice.textAlignment = NSTextAlignmentCenter;
+    lblPrice.text = @"Price";
+    
+    UIView *viewSeperatorPrice = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 142 , 0, 1, 40)
+                                                      : CGRectMake([UIScreen mainScreen].bounds.size.width - 204, 0, 2, 40)];
+    [viewSeperatorPrice setBackgroundColor:[UIColor lightGrayColor]];
+    
+    
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width -141, 5, 60, 30)
+                                                :CGRectMake([UIScreen mainScreen].bounds.size.width -202, 5, 90, 30)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 14.0 : 18.0];
+    lblSaleUnit.contentMode = UIViewContentModeCenter;
+    lblSaleUnit.textAlignment = NSTextAlignmentCenter;
+    lblSaleUnit.textColor = [UIColor blackColor];
+    lblSaleUnit.text = @"Sale";
+    
+    
+    UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 81 , 0, 1, 40)
+                                                     : CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 0, 2, 40)];
+    [viewSeperatorUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    
+    UILabel *lblTotalSale = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 80, 5, 60, 30)
+                                                 :CGRectMake([UIScreen mainScreen].bounds.size.width - 110, 5, 90, 30)];
+    lblTotalSale.backgroundColor = [UIColor clearColor];
+    lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 14.0 : 18.0];
+    lblTotalSale.contentMode = UIViewContentModeCenter;
+    lblTotalSale.textAlignment = NSTextAlignmentCenter;
+    lblTotalSale.textColor = [UIColor blackColor];
+    lblTotalSale.text = @"Total";
+    
+    [headerView addSubview:lblName];
+    [headerView addSubview:viewSeperatorName];
+    [headerView addSubview:lblPrice];
+    [headerView addSubview:viewSeperatorPrice];
+    [headerView addSubview:lblSaleUnit];
+    [headerView addSubview:viewSeperatorUnit];
+    [headerView addSubview:lblTotalSale];
+ 
+    return headerView;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -94,7 +159,7 @@
         
         
         lblPrice = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 202, 6, 60, 40)
-                                                      :CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 10, 90, 40)];
+                                                      :CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 0, 90, 40)];
         lblPrice.backgroundColor = [UIColor clearColor];
         lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:_isIphone ? 11 : 15];
         lblPrice.numberOfLines = 1;
@@ -104,7 +169,7 @@
         lblPrice.tag = 20;
         
         viewSeperatorPrice = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 142 , 0, 1, 50)
-                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 204, 10, 2, 50)];
+                                                         : CGRectMake([UIScreen mainScreen].bounds.size.width - 204, 0, 2, 50)];
         [viewSeperatorPrice setBackgroundColor:[UIColor lightGrayColor]];
         
         
@@ -120,7 +185,7 @@
 
         
         viewSeperatorUnit = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake([UIScreen mainScreen].bounds.size.width - 81 , 0, 1, 50)
-                                                          : CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 10, 2, 50)];
+                                                          : CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 0, 2, 50)];
         [viewSeperatorUnit setBackgroundColor:[UIColor lightGrayColor]];
         
         
