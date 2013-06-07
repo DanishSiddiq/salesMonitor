@@ -43,6 +43,7 @@
 		3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4721760AC77000970EC /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3A9900031762056000DBC696 /* brickProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9900021762056000DBC696 /* brickProductController.m */; };
 		3A9900051762208500DBC696 /* background_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9900041762208500DBC696 /* background_gradient.png */; };
+		3A99000817623C0500DBC696 /* DoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A99000717623C0500DBC696 /* DoctorController.m */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -143,6 +144,8 @@
 		3A9900011762056000DBC696 /* brickProductController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brickProductController.h; sourceTree = "<group>"; };
 		3A9900021762056000DBC696 /* brickProductController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = brickProductController.m; sourceTree = "<group>"; };
 		3A9900041762208500DBC696 /* background_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_gradient.png; sourceTree = "<group>"; };
+		3A99000617623C0500DBC696 /* DoctorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorController.h; sourceTree = "<group>"; };
+		3A99000717623C0500DBC696 /* DoctorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorController.m; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 		3A9480591760F0010068A201 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A99000617623C0500DBC696 /* DoctorController.h */,
+				3A99000717623C0500DBC696 /* DoctorController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -407,8 +412,8 @@
 		3AB43CAE175DCAE5007A79BC /* salesmonitor */ = {
 			isa = PBXGroup;
 			children = (
-				3A9480571760EFE30068A201 /* doctor */,
 				3AB43D0E175DD659007A79BC /* login */,
+				3A9480571760EFE30068A201 /* doctor */,
 				3AB43CC5175DCB59007A79BC /* product */,
 				3A96B44217605D6A000970EC /* productReport */,
 				3AB43D3C175DE99F007A79BC /* global */,
@@ -718,6 +723,7 @@
 				3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */,
 				3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */,
 				3A9900031762056000DBC696 /* brickProductController.m in Sources */,
+				3A99000817623C0500DBC696 /* DoctorController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,13 @@
 
 @interface doctorViewController_iPhone ()
 
+// nav bar item at right in previous view
+@property (strong, nonatomic) UIView *navBarContainer;
+
 @property (nonatomic) BOOL isIphone;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) UITableView *tblDoctor;
-@property (nonatomic, strong) NSMutableArray *doctors;
+@property (nonatomic, strong) DoctorController *doctorController;
 
 @end
 
@@ -28,13 +31,17 @@
     return self;
 }
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil salesMonitorDelegate:(AppDelegate *)salesMonitorDelegate{
+- (id) initWithNibName:(NSString *)nibNameOrNil
+                bundle:(NSBundle *)nibBundleOrNil
+  salesMonitorDelegate:(AppDelegate *)salesMonitorDelegate
+       navBarContainer: (UIView *) navBarContainer{
 
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
         _salesMonitorDelegate   = salesMonitorDelegate;
         _isIphone   = YES;
+        _navBarContainer = navBarContainer;
     }
     
     return self;
@@ -59,6 +66,9 @@
 - (void) initializeData {
     
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
+    _doctorController = [[DoctorController alloc] init:_isIphone
+                                            loadDoctor:[_salesMonitorDelegate valueForKey:@""]
+                                        viewController:self];
 }
 
 - (void) initializeViews {
@@ -67,7 +77,7 @@
 }
 
 - (void) customizeNavigationBar{
-
+    [_navBarContainer setHidden:YES];
 }
 
 - (void) initializeMainView {
@@ -85,5 +95,20 @@
     _tblDoctor.dataSource = nil;
     [self.view addSubview:_tblDoctor];
 }
+
+
+// protocols
+-(void)doctorEdit:(NSMutableDictionary *) doctor{
+    
+}
+
+-(void)doctorDelete:(NSMutableDictionary *) doctor{
+    
+}
+
+-(void)doctorView:(NSMutableDictionary *) doctor{
+    
+}
+
 
 @end

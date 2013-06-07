@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "DoctorController.h"
 
-@interface doctorViewController_iPhone : UIViewController
+@interface doctorViewController_iPhone : UIViewController <UITableViewDelegate, UITableViewDataSource, DoctorControllerDelegate >
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
-salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate;
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
+      navBarContainer: (UIView *) navBarContainer;
 
 @end
