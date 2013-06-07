@@ -41,6 +41,7 @@
 		3A96B4751760AC77000970EC /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B46E1760AC77000970EC /* ActionSheetDistancePicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3A96B4761760AC77000970EC /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4701760AC77000970EC /* ActionSheetStringPicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B4721760AC77000970EC /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A9900031762056000DBC696 /* brickProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9900021762056000DBC696 /* brickProductController.m */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -138,6 +139,8 @@
 		3A96B4701760AC77000970EC /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
 		3A96B4711760AC77000970EC /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
 		3A96B4721760AC77000970EC /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		3A9900011762056000DBC696 /* brickProductController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brickProductController.h; sourceTree = "<group>"; };
+		3A9900021762056000DBC696 /* brickProductController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = brickProductController.m; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -457,6 +460,8 @@
 				3A127DDD175F0F0600C7CA96 /* productController.m */,
 				3A96B45D1760692A000970EC /* brickController.h */,
 				3A96B45E1760692A000970EC /* brickController.m */,
+				3A9900011762056000DBC696 /* brickProductController.h */,
+				3A9900021762056000DBC696 /* brickProductController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -708,6 +713,7 @@
 				3A96B4761760AC77000970EC /* ActionSheetStringPicker.m in Sources */,
 				3A96B4771760AC77000970EC /* DistancePickerView.m in Sources */,
 				3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */,
+				3A9900031762056000DBC696 /* brickProductController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

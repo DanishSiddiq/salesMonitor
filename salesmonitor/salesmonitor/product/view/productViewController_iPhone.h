@@ -16,8 +16,10 @@
 #import "CustomAnnotation.h"
 #import "ProductReportViewController_iPhone.h"
 #import "ProductReportViewController_iPad.h"
+#import "brickProductController.h"
+#import "KGModal.h"
 
-@interface productViewController_iPhone : UIViewController <productControllerDelegate>
+@interface productViewController_iPhone : UIViewController <productControllerDelegate, brickControllerDelegate>
 
 
 // custom constructor

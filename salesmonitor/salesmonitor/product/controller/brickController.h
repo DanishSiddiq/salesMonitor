@@ -12,8 +12,16 @@
 #import "applicationConstants.h"
 #import "CustomAnnotation.h"
 
+
+@protocol brickControllerDelegate <NSObject>
+@required
+-(void)brickSelected:(NSMutableDictionary *) brick;
+@end
+
 @interface brickController : NSObject <MKMapViewDelegate, UIGestureRecognizerDelegate>
 
-- (id) init : (BOOL) isIphone loadBrick :(NSMutableArray *) loadBrick ;
+- (id) init : (BOOL) isIphone
+  loadBrick :(NSMutableArray *) loadBrick
+  viewController : (id<brickControllerDelegate>)viewController;
 
 @end

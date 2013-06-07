@@ -9,7 +9,8 @@
 #import "brickController.h"
 
 @interface brickController ()
-    
+
+@property (nonatomic, strong) id<brickControllerDelegate> viewController;
 @property (nonatomic, strong) NSMutableArray *loadBrick;
 @property (nonatomic) BOOL isIphone;
     
@@ -18,13 +19,14 @@
 @implementation brickController
 
 
-- (id) init : (BOOL) isIphone loadBrick :(NSMutableArray *) loadBrick{
+- (id) init : (BOOL) isIphone loadBrick :(NSMutableArray *) loadBrick   viewController : (id<brickControllerDelegate>)viewController{
     
     self = [super init];
     
     if(self){
         _loadBrick = loadBrick;
         _isIphone = isIphone;
+        _viewController = viewController;
     }
     
     return self;
@@ -88,7 +90,11 @@
 - (void)btnClearPressed:(UIButton *)sender{
     
     UIImageView *imgView = (UIImageView *)[sender superview];
-    NSLog(@"You can show details of brick for the index %d", [imgView tag]);
+    NSMutableDictionary *brickSelected = [_loadBrick objectAtIndex:[imgView tag]];
+    
+    if([_viewController respondsToSelector:@selector(brickSelected:)]){
+        [_viewController brickSelected:brickSelected];
+    }
 }
 
 @end

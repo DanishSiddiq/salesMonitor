@@ -19,6 +19,7 @@
 @property (strong, nonatomic) MKMapView  *mapBrick;
 @property (nonatomic, strong) brickController *brickController;
 @property (nonatomic, strong) NSMutableArray *loadBrick;
+@property (nonatomic, strong) brickProductController *brickProductController;
 
 @property (nonatomic, strong) UITableView *tblProduct;
 @property (nonatomic, strong) productController *productController;
@@ -96,7 +97,8 @@
     
     // for common functionlity
     _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct viewController:self];
-    _brickController = [[brickController alloc] init:_isIphone loadBrick:_loadBrick];
+    _brickController = [[brickController alloc] init:_isIphone loadBrick:_loadBrick viewController:self];
+    _brickProductController = [[brickProductController alloc] init:_isIphone];
 
 }
 
@@ -283,7 +285,8 @@
     [_mapBrick removeAnnotations:toRemove];
     
     // remove all previous objects
-    _loadBrick = [[_salesMonitorDelegate userData] valueForKey:KEY_BRICKS];
+    [_loadBrick removeAllObjects];
+    [_loadBrick addObjectsFromArray:[[_salesMonitorDelegate userData] valueForKey:KEY_BRICKS]];
     
     NSInteger rowIndex = 0;
     for (NSMutableDictionary *brickInfo in _loadBrick) {
@@ -336,6 +339,25 @@
         
         [self.navigationController pushViewController:productReport animated:YES];
     }
+}
+
+
+-(void)brickSelected:(NSMutableDictionary *) brick{
+    
+    // setting product in controller
+    [_brickProductController setLoadProduct:[brick valueForKey:KEY_BRICKS_SALES]];
+    
+    UITableView *tblBrickProduct = [[UITableView alloc] initWithFrame:CGRectMake(10
+                                                                                 , 0
+                                                                                 , [UIScreen mainScreen].bounds.size.width - 20
+                                                                                 , [[brick valueForKey:KEY_BRICKS_SALES] count]*50)];
+    
+    tblBrickProduct.delegate = _brickProductController;
+    tblBrickProduct.dataSource = _brickProductController;
+    
+    
+    [[KGModal sharedInstance] showWithContentView:tblBrickProduct andAnimated:YES];
+    
 }
 
 @end

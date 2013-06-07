@@ -30,13 +30,18 @@
 #define KEY_PRODUCT_SALES_UNIT @"salesUnit"
 #define KEY_PRODUCT_BUDGET_UNITS @"budgetUnits"
 
+
 #define KEY_BRICKS @"bricks"
+#define KEY_BRICKS_SALES @"sales"
 #define KEY_BRICKS_NAME @"name"
 #define KEY_BRICKS_DISTRIBUTOR_NAME @"distributorName"
 #define KEY_BRICKS_LOCATION @"location"
 #define KEY_BRICKS_LOCATION_LAT @"lat"
 #define KEY_BRICKS_LOCATION_LONG @"long"
-
+#define KEY_BRICKS_PRODUCT_NAME @"productName"
+#define KEY_BRICKS_PRODUCT_PRICE @"price"
+#define KEY_BRICKS_PRODUCT_SALES_UNIT @"salesUnit"
+#define KEY_BRICKS_PRODUCT_TOTAL_SALE @"salesValue"
 
 #define KEY_PATH_BRICKS_LOCATION_LAT @"location.lat"
 #define KEY_PATH_BRICKS_LOCATION_LONG @"location.long"
