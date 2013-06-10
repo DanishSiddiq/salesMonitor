@@ -12,7 +12,7 @@
 
 
 #define KEY_SERVER_URL_LOGIN @"http://172.16.16.34:3000/login"
-
+#define KEY_SERVER_REPORT_SALE @"http://172.16.16.34:3000/api/salesRep/%@/salesTrend?startDate=%@&endDate=%@"
 
 // local notifications
 // local notifications
@@ -20,6 +20,8 @@
 
 
 // data triversing
+#define KEY_USER_ID @"_id"
+
 #define KEY_PATH_PRODUCT_BUSINESS @"businessUnitId.products"
 #define KEY_PRODUCT_NAME @"productName"
 #define KEY_PRODUCT_PRICE @"price"
@@ -45,5 +47,13 @@
 
 #define KEY_PATH_BRICKS_LOCATION_LAT @"location.lat"
 #define KEY_PATH_BRICKS_LOCATION_LONG @"location.long"
+
+
+#define KEY_SALES_YEAR @"year"
+#define KEY_SALES_MONTH @"month"
+#define KEY_SALES_BUDGET_UNIT @"budgetUnits"
+#define KEY_SALES_BUDGET_VALUE @"budgetValue"
+#define KEY_SALES_UNIT @"salesUnit"
+#define KEY_SALES_VALUE @"salesValue"
 
 

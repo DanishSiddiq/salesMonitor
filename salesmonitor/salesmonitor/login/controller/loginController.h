@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-// thrif party
+// thrid party
 #import "AFNetworking.h"
+#import "SVProgressHUD.h"
 
 #import "applicationConstants.h"
 #import "AppDelegate.h"

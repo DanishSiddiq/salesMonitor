@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "ActionSheetDatePicker.h"
+#import "ProductReportController.h"
 
-@interface ProductReportViewController_iPhone : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ProductReportViewController_iPhone : UIViewController <UITableViewDataSource, UITableViewDelegate, ProductReportDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
@@ -21,5 +22,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (IBAction)tbnFromPressed:(id)sender;
 - (IBAction)btnToPressed:(id)sender;
+- (IBAction)btnPressedReport:(id)sender;
+
 
 @end

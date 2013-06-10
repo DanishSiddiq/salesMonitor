@@ -22,6 +22,11 @@
 		3A127E06175F69BE00C7CA96 /* icon-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A127E02175F69BE00C7CA96 /* icon-map.png */; };
 		3A127E07175F69BE00C7CA96 /* icon-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A127E03175F69BE00C7CA96 /* icon-map@2x.png */; };
 		3A127E09175F7B0E00C7CA96 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A127E08175F7B0D00C7CA96 /* MapKit.framework */; };
+		3A92F4FC1765C162008F2753 /* ProductReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A92F4FB1765C162008F2753 /* ProductReportController.m */; };
+		3A92F5011765CB39008F2753 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A92F4FE1765CB39008F2753 /* SVProgressHUD.bundle */; };
+		3A92F5021765CB39008F2753 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A92F5001765CB39008F2753 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A92F50517660710008F2753 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92F50317660710008F2753 /* refresh@2x.png */; };
+		3A92F50617660710008F2753 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A92F50417660710008F2753 /* refresh.png */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
 		3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9480611760F0820068A201 /* doctorViewController_iPad.xib */; };
@@ -111,6 +116,13 @@
 		3A127E02175F69BE00C7CA96 /* icon-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map.png"; sourceTree = "<group>"; };
 		3A127E03175F69BE00C7CA96 /* icon-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map@2x.png"; sourceTree = "<group>"; };
 		3A127E08175F7B0D00C7CA96 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A92F4FA1765C162008F2753 /* ProductReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReportController.h; sourceTree = "<group>"; };
+		3A92F4FB1765C162008F2753 /* ProductReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReportController.m; sourceTree = "<group>"; };
+		3A92F4FE1765CB39008F2753 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		3A92F4FF1765CB39008F2753 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		3A92F5001765CB39008F2753 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		3A92F50317660710008F2753 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
+		3A92F50417660710008F2753 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -234,6 +246,8 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A92F50317660710008F2753 /* refresh@2x.png */,
+				3A92F50417660710008F2753 /* refresh.png */,
 				3A9900041762208500DBC696 /* background_gradient.png */,
 				3A96B464176074F6000970EC /* pin_annotation.png */,
 				3A96B465176074F6000970EC /* pin_annotation@2x.png */,
@@ -271,6 +285,16 @@
 				3A127DF3175F5B9600C7CA96 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		3A92F4FD1765CB39008F2753 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3A92F4FE1765CB39008F2753 /* SVProgressHUD.bundle */,
+				3A92F4FF1765CB39008F2753 /* SVProgressHUD.h */,
+				3A92F5001765CB39008F2753 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		3A9480571760EFE30068A201 /* doctor */ = {
@@ -329,6 +353,8 @@
 		3A96B44417605DB7000970EC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A92F4FA1765C162008F2753 /* ProductReportController.h */,
+				3A92F4FB1765C162008F2753 /* ProductReportController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -508,6 +534,7 @@
 		3AB43D1E175DE903007A79BC /* supportedLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				3A92F4FD1765CB39008F2753 /* SVProgressHUD */,
 				3A96B4681760AC77000970EC /* BlockActionSheet */,
 				3A127DE0175F5B9500C7CA96 /* SDWebImage */,
 				3AB43D81175E2571007A79BC /* SIAlertView */,
@@ -671,6 +698,9 @@
 				3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */,
 				3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */,
 				3A9900051762208500DBC696 /* background_gradient.png in Resources */,
+				3A92F5011765CB39008F2753 /* SVProgressHUD.bundle in Resources */,
+				3A92F50517660710008F2753 /* refresh@2x.png in Resources */,
+				3A92F50617660710008F2753 /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +754,8 @@
 				3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */,
 				3A9900031762056000DBC696 /* brickProductController.m in Sources */,
 				3A99000817623C0500DBC696 /* DoctorController.m in Sources */,
+				3A92F4FC1765C162008F2753 /* ProductReportController.m in Sources */,
+				3A92F5021765CB39008F2753 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

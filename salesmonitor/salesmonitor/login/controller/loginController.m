@@ -65,22 +65,26 @@
         }];
         
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
+            [SVProgressHUD dismiss];
+            
             if([_viewController respondsToSelector:@selector(authenticateUser:)]){
                 [self populateData:JSON];
                 [_viewController authenticateUser:0];
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
+
+            [SVProgressHUD dismiss];
             NSLog(@"ERROR saving publish message to server: %@", error);
             
             if([self.viewController respondsToSelector:@selector(authenticateUser:)]){
                 [_viewController authenticateUser:-1];
             }
-        }];
+        }];        
             
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
+        [SVProgressHUD showWithStatus:@"Signing" maskType:SVProgressHUDMaskTypeClear];
      }
 }
 
