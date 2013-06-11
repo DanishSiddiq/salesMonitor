@@ -42,6 +42,7 @@
 		3A93A73B1767017C00ADCB49 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93A7391767017C00ADCB49 /* libxml2.2.dylib */; };
 		3A93A73C1767017C00ADCB49 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93A73A1767017C00ADCB49 /* libxml2.dylib */; };
 		3A93A73E1767026E00ADCB49 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93A73D1767026E00ADCB49 /* CoreData.framework */; };
+		3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A74117671DDA00ADCB49 /* ChartData.m */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
 		3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9480611760F0820068A201 /* doctorViewController_iPad.xib */; };
@@ -164,6 +165,8 @@
 		3A93A7391767017C00ADCB49 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		3A93A73A1767017C00ADCB49 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		3A93A73D1767026E00ADCB49 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3A93A74017671DDA00ADCB49 /* ChartData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartData.h; sourceTree = "<group>"; };
+		3A93A74117671DDA00ADCB49 /* ChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartData.m; sourceTree = "<group>"; };
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -442,6 +445,15 @@
 			path = XMlParser;
 			sourceTree = "<group>";
 		};
+		3A93A73F17671DC700ADCB49 /* ChartData */ = {
+			isa = PBXGroup;
+			children = (
+				3A93A74017671DDA00ADCB49 /* ChartData.h */,
+				3A93A74117671DDA00ADCB49 /* ChartData.m */,
+			);
+			path = ChartData;
+			sourceTree = "<group>";
+		};
 		3A9480571760EFE30068A201 /* doctor */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +486,7 @@
 		3A96B44217605D6A000970EC /* productReport */ = {
 			isa = PBXGroup;
 			children = (
+				3A93A73F17671DC700ADCB49 /* ChartData */,
 				3A96B44417605DB7000970EC /* controller */,
 				3A96B44317605DA3000970EC /* view */,
 			);
@@ -918,6 +931,7 @@
 				3A93A7351766FF5D00ADCB49 /* XMLParserDelegate.m in Sources */,
 				3A93A7361766FF5D00ADCB49 /* PlotChartView.m in Sources */,
 				3A93A7381766FF5D00ADCB49 /* GDataXMLNode.m in Sources */,
+				3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,10 +1010,12 @@
 		3AB43CC3175DCAE5007A79BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "salesmonitor/salesmonitor-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1009,10 +1025,12 @@
 		3AB43CC4175DCAE5007A79BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "salesmonitor/salesmonitor-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

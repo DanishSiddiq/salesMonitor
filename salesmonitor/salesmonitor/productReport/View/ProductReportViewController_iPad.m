@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) ProductReportController *productReportController;
+@property (nonatomic, strong) BarChartView *barChart;
+
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
@@ -62,7 +64,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [self initializeData];
     [self initializeViews];
     
-    NSLog(@"%@", _productSelected);
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,6 +129,95 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 // updating views on getting data from server
 - (void) salesDataFromServer : (NSMutableArray *) salesReport{
     
+    if([salesReport count] > 0){
+        
+        NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [salesReport count]; i++) {
+            
+            NSMutableDictionary *saleReport = [salesReport objectAtIndex:i];
+            
+            float amount = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] floatValue];
+            ChartData *cd = [[ChartData alloc]
+                             initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                             value:[NSString stringWithFormat:@"%.2f", amount]
+                             color:KEY_GRAPH_BAR_COLOR labelColor:@"000000"];
+            [chartDataArray addObject:cd];
+            
+            
+            float amount2 = [[saleReport valueForKey:KEY_SALES_VALUE] floatValue];
+            ChartData *cd2 = [[ChartData alloc]
+                              initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                              value:[NSString stringWithFormat:@"%.2f", amount2]
+                              color:KEY_GRAPH_BAR_COLOR2 labelColor:@"000000"];
+            [chartDataArray addObject:cd2];
+            
+            
+        }
+        
+        if([self saveXML:(chartDataArray)]){
+            
+            [_barChart removeFromSuperview];
+            _barChart = nil;
+            
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *documentsPath = [documentsDirectory
+                                       stringByAppendingPathComponent:@"barChart2.xml"];
+            
+            
+            _barChart = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
+                                                                       , 200.0f
+                                                                       , [UIScreen mainScreen].bounds.size.width -40
+                                                                       , [UIScreen mainScreen].bounds.size.height - 400)];
+            [_barChart setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
+            [self.view addSubview:_barChart];
+        }
+    }
+    else{
+        [_barChart removeFromSuperview];
+        _barChart = nil;
+    }
+}
+
+// creating xml
+- (BOOL) saveXML:(NSMutableArray *)chartDataArray {
+    
+    GDataXMLElement * chartElement = [GDataXMLNode elementWithName:@"chart"];
+    [chartElement addAttribute:[GDataXMLNode elementWithName:@"showAxisY" stringValue:@"false"]];
+    [chartElement addAttribute:[GDataXMLNode elementWithName:@"showAxisX" stringValue:@"true"]];
+    [chartElement addAttribute:[GDataXMLNode elementWithName:@"colorAxisY" stringValue:@"000000"]];
+    [chartElement addAttribute:[GDataXMLNode elementWithName:@"plotVerticalLines" stringValue:@"true"]];
+    
+    for(ChartData *data in chartDataArray) {
+        
+        GDataXMLElement * chartNode =
+        [GDataXMLNode elementWithName:@"chartData"];
+        
+        [chartNode addAttribute:[GDataXMLNode elementWithName:@"label" stringValue:data.label]];
+        [chartNode addAttribute:[GDataXMLNode elementWithName:@"value" stringValue:data.value]];
+        [chartNode addAttribute:[GDataXMLNode elementWithName:@"color" stringValue:data.color]];
+        [chartNode addAttribute:[GDataXMLNode elementWithName:@"labelColor" stringValue:data.labelColor]];
+        
+        [chartElement addChild:chartNode];
+    }
+    
+    GDataXMLDocument *document = [[GDataXMLDocument alloc]
+                                  initWithRootElement:chartElement];
+    NSData *xmlData = document.XMLData;
+    NSString *filePath = [self dataFilePath:TRUE];
+    return [xmlData writeToFile:filePath atomically:YES];
+}
+
+// saving to file
+- (NSString *)dataFilePath:(BOOL)forSave {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsPath = [documentsDirectory
+                               stringByAppendingPathComponent:@"barChart2.xml"];
+    return documentsPath;
 }
 
 // selectors
@@ -246,5 +336,5 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     }
 }
 
-
 @end
+

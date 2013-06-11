@@ -19,6 +19,10 @@
 #define NOTIFICATION_NETWORK_DISCONNECTED @"atmnavigator.localnotification.network.disconnected"
 
 
+// graph keys
+#define KEY_GRAPH_BAR_COLOR  @"FF9900"
+#define KEY_GRAPH_BAR_COLOR2  @"FF0099"
+
 // data triversing
 #define KEY_USER_ID @"_id"
 

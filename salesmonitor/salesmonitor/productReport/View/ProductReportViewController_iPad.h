@@ -10,6 +10,10 @@
 #import "AppDelegate.h"
 #import "ActionSheetDatePicker.h"
 #import "ProductReportController.h"
+#import "GDataXMLNode.h"
+#import "BarChartView.h"
+#import "ChartData.h"
+
 
 @interface ProductReportViewController_iPad : UIViewController <ProductReportDelegate>
 
