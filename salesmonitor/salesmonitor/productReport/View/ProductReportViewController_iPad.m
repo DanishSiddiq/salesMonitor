@@ -15,7 +15,8 @@
 
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) ProductReportController *productReportController;
-@property (nonatomic, strong) BarChartView *barChart;
+@property (nonatomic, strong) BarChartView *barChartUnit;
+@property (nonatomic, strong) BarChartView *barChartValue;
 
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
@@ -131,58 +132,98 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     if([salesReport count] > 0){
         
-        NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < [salesReport count]; i++) {
-            
-            NSMutableDictionary *saleReport = [salesReport objectAtIndex:i];
-            
-            float amount = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] floatValue];
-            ChartData *cd = [[ChartData alloc]
-                             initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
-                             value:[NSString stringWithFormat:@"%.2f", amount]
-                             color:KEY_GRAPH_BAR_COLOR labelColor:@"000000"];
-            [chartDataArray addObject:cd];
-            
-            
-            float amount2 = [[saleReport valueForKey:KEY_SALES_VALUE] floatValue];
-            ChartData *cd2 = [[ChartData alloc]
-                              initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
-                              value:[NSString stringWithFormat:@"%.2f", amount2]
-                              color:KEY_GRAPH_BAR_COLOR2 labelColor:@"000000"];
-            [chartDataArray addObject:cd2];
-            
-            
-        }
-        
-        if([self saveXML:(chartDataArray)]){
-            
-            [_barChart removeFromSuperview];
-            _barChart = nil;
-            
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *documentsPath = [documentsDirectory
-                                       stringByAppendingPathComponent:@"barChart2.xml"];
-            
-            
-            _barChart = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
-                                                                       , 200.0f
-                                                                       , [UIScreen mainScreen].bounds.size.width -40
-                                                                       , [UIScreen mainScreen].bounds.size.height - 400)];
-            [_barChart setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
-            [self.view addSubview:_barChart];
-        }
+        [self customizeBarCharForUnit:salesReport];
+        [self customizeBarChartForBudget:salesReport];
     }
     else{
-        [_barChart removeFromSuperview];
-        _barChart = nil;
+        [_barChartUnit removeFromSuperview];
+        _barChartUnit = nil;
     }
 }
 
+- (void) customizeBarCharForUnit : (NSMutableArray *) salesReport {
+    
+    NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
+    for (NSMutableDictionary *saleReport in salesReport) {
+        
+        ChartData *cd = [[ChartData alloc]
+                         initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH]
+                                       , [saleReport valueForKey:KEY_SALES_YEAR]]
+                         value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] floatValue]]
+                         color:KEY_GRAPH_BAR_UNIT_COLOR labelColor:@"000000"];
+        [chartDataArray addObject:cd];
+        
+        ChartData *cd2 = [[ChartData alloc]
+                          initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH]
+                                        , [saleReport valueForKey:KEY_SALES_YEAR]]
+                          value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_UNIT] floatValue]]
+                          color:KEY_GRAPH_BAR_UNIT_COLOR_ALTERNATE labelColor:@"000000"];
+        [chartDataArray addObject:cd2];
+    }
+    
+    if([self saveXML:(chartDataArray) fileName:KEY_GRAPH_XML_FILE_UNIT]){
+        
+        [_barChartUnit removeFromSuperview];
+        _barChartUnit = nil;
+        
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsPath = [documentsDirectory
+                                   stringByAppendingPathComponent:KEY_GRAPH_XML_FILE_UNIT];
+        
+        
+        _barChartUnit = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
+                                                                       , 200.0f
+                                                                       , [UIScreen mainScreen].bounds.size.width -40
+                                                                       , 300)];
+        [_barChartUnit setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
+        [self.view addSubview:_barChartUnit];
+    }    
+}
+
+- (void) customizeBarChartForBudget : (NSMutableArray *) salesReport{
+    
+    NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
+    for (NSMutableDictionary *saleReport in salesReport) {
+        
+        ChartData *cd = [[ChartData alloc]
+                         initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                         value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] floatValue]]
+                         color:KEY_GRAPH_BAR_UNIT_COLOR labelColor:@"000000"];
+        [chartDataArray addObject:cd];
+        
+        ChartData *cd2 = [[ChartData alloc]
+                          initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                          value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_VALUE] floatValue]]
+                          color:KEY_GRAPH_BAR_UNIT_COLOR_ALTERNATE labelColor:@"000000"];
+        [chartDataArray addObject:cd2];
+    }
+    
+    if([self saveXML:(chartDataArray) fileName:KEY_GRAPH_XML_FILE_VALUE]){
+        
+        [_barChartValue removeFromSuperview];
+        _barChartValue = nil;
+        
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsPath = [documentsDirectory
+                                   stringByAppendingPathComponent:KEY_GRAPH_XML_FILE_VALUE];
+        
+        
+        _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
+                                                                       , 550.0f
+                                                                       , [UIScreen mainScreen].bounds.size.width -40
+                                                                       , 350)];
+        [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
+        [self.view addSubview:_barChartValue];
+    }
+}
+
+
 // creating xml
-- (BOOL) saveXML:(NSMutableArray *)chartDataArray {
+- (BOOL) saveXML:(NSMutableArray *)chartDataArray fileName : (NSString *) fileName {
     
     GDataXMLElement * chartElement = [GDataXMLNode elementWithName:@"chart"];
     [chartElement addAttribute:[GDataXMLNode elementWithName:@"showAxisY" stringValue:@"false"]];
@@ -206,17 +247,17 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     GDataXMLDocument *document = [[GDataXMLDocument alloc]
                                   initWithRootElement:chartElement];
     NSData *xmlData = document.XMLData;
-    NSString *filePath = [self dataFilePath:TRUE];
+    NSString *filePath = [self dataFilePath:TRUE fileName:fileName];
     return [xmlData writeToFile:filePath atomically:YES];
 }
 
 // saving to file
-- (NSString *)dataFilePath:(BOOL)forSave {
+- (NSString *)dataFilePath:(BOOL)forSave fileName : (NSString *) fileName{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *documentsPath = [documentsDirectory
-                               stringByAppendingPathComponent:@"barChart2.xml"];
+                               stringByAppendingPathComponent:fileName];
     return documentsPath;
 }
 

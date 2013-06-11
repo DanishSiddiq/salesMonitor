@@ -20,8 +20,11 @@
 
 
 // graph keys
-#define KEY_GRAPH_BAR_COLOR  @"FF9900"
-#define KEY_GRAPH_BAR_COLOR2  @"FF0099"
+#define KEY_GRAPH_BAR_UNIT_COLOR  @"FF9900"
+#define KEY_GRAPH_BAR_UNIT_COLOR_ALTERNATE  @"FF0099"
+
+#define KEY_GRAPH_XML_FILE_UNIT @"barChartUnit.xml"
+#define KEY_GRAPH_XML_FILE_VALUE @"barChartValue.xml"
 
 // data triversing
 #define KEY_USER_ID @"_id"
