@@ -48,15 +48,15 @@ static UIFont *buttonFont = nil;
         {
             CGSize size = [title sizeWithFont:titleFont
                             constrainedToSize:CGSizeMake(frame.size.width-kActionSheetBorder*2, 1000)
-                                lineBreakMode:UILineBreakModeWordWrap];
+                                lineBreakMode:NSLineBreakByWordWrapping];
             
             UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kActionSheetBorder, _height, frame.size.width-kActionSheetBorder*2, size.height)];
             labelView.font = titleFont;
             labelView.numberOfLines = 0;
-            labelView.lineBreakMode = UILineBreakModeWordWrap;
+            labelView.lineBreakMode = NSLineBreakByWordWrapping;
             labelView.textColor = kActionSheetTitleTextColor;
             labelView.backgroundColor = [UIColor clearColor];
-            labelView.textAlignment = UITextAlignmentCenter;
+            labelView.textAlignment = NSTextAlignmentCenter;
             labelView.shadowColor = kActionSheetTitleShadowColor;
             labelView.shadowOffset = kActionSheetTitleShadowOffset;
             labelView.text = title;
@@ -147,9 +147,9 @@ static UIFont *buttonFont = nil;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(kActionSheetBorder, _height, _view.bounds.size.width-kActionSheetBorder*2, kActionSheetButtonHeight);
         button.titleLabel.font = buttonFont;
-        button.titleLabel.minimumFontSize = 6;
+        button.titleLabel.minimumScaleFactor = 0.3;
         button.titleLabel.adjustsFontSizeToFitWidth = YES;
-        button.titleLabel.textAlignment = UITextAlignmentCenter;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.titleLabel.shadowOffset = kActionSheetButtonShadowOffset;
         button.backgroundColor = [UIColor clearColor];
         button.tag = i++;
@@ -183,7 +183,7 @@ static UIFont *buttonFont = nil;
     
     [UIView animateWithDuration:0.4
                           delay:0.0
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [BlockBackground sharedInstance].alpha = 1.0f;
                          _view.center = center;
@@ -217,7 +217,7 @@ static UIFont *buttonFont = nil;
         center.y += _view.bounds.size.height;
         [UIView animateWithDuration:0.4
                               delay:0.0
-                            options:UIViewAnimationCurveEaseIn
+                            options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              _view.center = center;
                              [[BlockBackground sharedInstance] reduceAlphaIfEmpty];

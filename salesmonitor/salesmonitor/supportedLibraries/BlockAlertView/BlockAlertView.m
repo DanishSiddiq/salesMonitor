@@ -56,15 +56,15 @@ static UIFont *buttonFont = nil;
         {
             CGSize size = [title sizeWithFont:titleFont
                             constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*2, 1000)
-                                lineBreakMode:UILineBreakModeWordWrap];
+                                lineBreakMode:NSLineBreakByWordWrapping];
 
             UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kAlertViewBorder, _height, frame.size.width-kAlertViewBorder*2, size.height)];
             labelView.font = titleFont;
             labelView.numberOfLines = 0;
-            labelView.lineBreakMode = UILineBreakModeWordWrap;
+            labelView.lineBreakMode = NSLineBreakByWordWrapping;
             labelView.textColor = kAlertViewTitleTextColor;
             labelView.backgroundColor = [UIColor clearColor];
-            labelView.textAlignment = UITextAlignmentCenter;
+            labelView.textAlignment = NSTextAlignmentCenter;
             labelView.shadowColor = kAlertViewTitleShadowColor;
             labelView.shadowOffset = kAlertViewTitleShadowOffset;
             labelView.text = title;
@@ -78,15 +78,15 @@ static UIFont *buttonFont = nil;
         {
             CGSize size = [message sizeWithFont:messageFont
                               constrainedToSize:CGSizeMake(frame.size.width-kAlertViewBorder*2, 1000)
-                                  lineBreakMode:UILineBreakModeWordWrap];
+                                  lineBreakMode:NSLineBreakByWordWrapping];
             
             UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(kAlertViewBorder, _height, frame.size.width-kAlertViewBorder*2, size.height)];
             labelView.font = messageFont;
             labelView.numberOfLines = 0;
-            labelView.lineBreakMode = UILineBreakModeWordWrap;
+            labelView.lineBreakMode = NSLineBreakByWordWrapping;
             labelView.textColor = kAlertViewMessageTextColor;
             labelView.backgroundColor = [UIColor clearColor];
-            labelView.textAlignment = UITextAlignmentCenter;
+            labelView.textAlignment = NSTextAlignmentCenter;
             labelView.shadowColor = kAlertViewMessageShadowColor;
             labelView.shadowOffset = kAlertViewMessageShadowOffset;
             labelView.text = message;
@@ -165,7 +165,7 @@ static UIFont *buttonFont = nil;
                                   minFontSize:10 
                                actualFontSize:nil
                                      forWidth:_view.bounds.size.width-kAlertViewBorder*2 
-                                lineBreakMode:UILineBreakModeClip];
+                                lineBreakMode:NSLineBreakByClipping];
             
             if (size.width < maxHalfWidth - kAlertViewBorder)
             {
@@ -176,7 +176,7 @@ static UIFont *buttonFont = nil;
                                 minFontSize:10 
                              actualFontSize:nil
                                    forWidth:_view.bounds.size.width-kAlertViewBorder*2 
-                              lineBreakMode:UILineBreakModeClip];
+                              lineBreakMode:NSLineBreakByClipping];
                 
                 if (size.width < maxHalfWidth - kAlertViewBorder)
                 {
@@ -193,7 +193,7 @@ static UIFont *buttonFont = nil;
                                   minFontSize:10 
                                actualFontSize:nil
                                      forWidth:_view.bounds.size.width-kAlertViewBorder*2 
-                                lineBreakMode:UILineBreakModeClip];
+                                lineBreakMode:NSLineBreakByClipping];
 
             size.width = MAX(size.width, 80);
             if (size.width + 2 * kAlertViewBorder < width)
@@ -206,8 +206,8 @@ static UIFont *buttonFont = nil;
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(xOffset, _height, width, kAlertButtonHeight);
         button.titleLabel.font = buttonFont;
-        button.titleLabel.minimumFontSize = 10;
-        button.titleLabel.textAlignment = UITextAlignmentCenter;
+        button.titleLabel.minimumScaleFactor = 0.7;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.titleLabel.shadowOffset = kAlertViewButtonShadowOffset;
         button.backgroundColor = [UIColor clearColor];
         button.tag = i+1;
@@ -269,7 +269,7 @@ static UIFont *buttonFont = nil;
     
     [UIView animateWithDuration:0.4
                           delay:0.0
-                        options:UIViewAnimationCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          [BlockBackground sharedInstance].alpha = 1.0f;
                          _view.center = center;
@@ -312,7 +312,7 @@ static UIFont *buttonFont = nil;
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:0.4
                                                    delay:0.0 
-                                                 options:UIViewAnimationCurveEaseIn
+                                                 options:UIViewAnimationOptionCurveEaseIn
                                               animations:^{
                                                   CGRect frame = _view.frame;
                                                   frame.origin.y = -frame.size.height;

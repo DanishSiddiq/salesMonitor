@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/productReport/view/ProductReportViewController_iPad.m"
-         timestampString = "392224714.160089"
+         timestampString = "392627886.048634"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
          landmarkName = "-dateWasSelected:element:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -274,6 +274,19 @@
          startingLineNumber = "259"
          endingLineNumber = "259"
          landmarkName = "-tableView:viewForHeaderInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/productReport/view/ProductReportViewController_iPad.m"
+         timestampString = "392627879.816529"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "-salesDataFromServer:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

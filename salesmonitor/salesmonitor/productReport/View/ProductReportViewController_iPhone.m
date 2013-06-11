@@ -138,7 +138,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [self.view addSubview:_tblSale];
 }
 
-//
+// updating views on getting data from server
 - (void) salesDataFromServer : (NSMutableArray *) salesReport{
     
     [_loadSales removeAllObjects];
@@ -446,8 +446,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
     lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
     lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
-    
-    //now populate data for the view
     
     return cell;
 }

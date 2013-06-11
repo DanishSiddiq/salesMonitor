@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIView *navBarContainer;
 
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
+@property (nonatomic, strong) ProductReportController *productReportController;
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
@@ -76,6 +77,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
+    _productReportController = [[ProductReportController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
     
     [self initializeDates];
 }
@@ -121,6 +123,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (void) initializeMainView {
     [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+}
+
+// updating views on getting data from server
+- (void) salesDataFromServer : (NSMutableArray *) salesReport{
+    
 }
 
 // selectors
@@ -177,6 +184,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     [btnClear removeFromSuperview];
     btnClear = nil;
+}
+
+- (IBAction)btnPressedReport:(id)sender {
+    
+    [_productReportController fetchDataFromServer:_fromDate toDate:_toDate];
 }
 
 -(void) dateWasSelected:(NSDate *)resultDate element:(UIButton *)button {
