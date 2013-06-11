@@ -136,8 +136,13 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         [self customizeBarChartForBudget:salesReport];
     }
     else{
+        
         [_barChartUnit removeFromSuperview];
         _barChartUnit = nil;
+
+        [_barChartValue removeFromSuperview];
+        _barChartValue = nil;
+        
     }
 }
 
@@ -176,7 +181,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         _barChartUnit = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
                                                                        , 200.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -40
-                                                                       , 300)];
+                                                                       , 250)];
         [_barChartUnit setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
         [self.view addSubview:_barChartUnit];
     }    
@@ -190,13 +195,13 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         ChartData *cd = [[ChartData alloc]
                          initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
                          value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] floatValue]]
-                         color:KEY_GRAPH_BAR_UNIT_COLOR labelColor:@"000000"];
+                         color:KEY_GRAPH_BAR_BUDGET_COLOR labelColor:@"000000"];
         [chartDataArray addObject:cd];
         
         ChartData *cd2 = [[ChartData alloc]
                           initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
                           value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_VALUE] floatValue]]
-                          color:KEY_GRAPH_BAR_UNIT_COLOR_ALTERNATE labelColor:@"000000"];
+                          color:KEY_GRAPH_BAR_BUDGET_COLOR_ALTERNATE labelColor:@"000000"];
         [chartDataArray addObject:cd2];
     }
     
@@ -213,9 +218,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
-                                                                       , 550.0f
+                                                                       , 500.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -40
-                                                                       , 350)];
+                                                                       , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
         [self.view addSubview:_barChartValue];
     }
