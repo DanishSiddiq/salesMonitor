@@ -267,19 +267,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "salesmonitor/productReport/view/ProductReportViewController_iPhone.m"
-         timestampString = "392561303.363226"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "259"
-         endingLineNumber = "259"
-         landmarkName = "-tableView:viewForHeaderInSection:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "salesmonitor/productReport/view/ProductReportViewController_iPad.m"
          timestampString = "392646885.325438"
          startingColumnNumber = "9223372036854775807"
