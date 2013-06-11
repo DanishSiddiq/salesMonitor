@@ -178,7 +178,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         lblResult.text = @"Budget/Sale Value Chart";
         
         [self customizeBarChartForBudget];
-        [_tblSale reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }
     else{
         
@@ -194,8 +193,10 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
             [_barChartValue removeFromSuperview];
             _barChartValue = nil;
         }];
-        
     }
+    
+    // reload data in table with animation
+    [_tblSale reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void) customizeBarChartForBudget{
@@ -228,9 +229,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
                                    stringByAppendingPathComponent:KEY_GRAPH_XML_FILE_VALUE];
         
         
-        _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
+        _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(30.0f
                                                                        , 120.0f
-                                                                       , [UIScreen mainScreen].bounds.size.width -40
+                                                                       , [UIScreen mainScreen].bounds.size.width -60
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
         [self.view addSubview:_barChartValue];
@@ -543,7 +544,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         viewSeperatorDate = [[UIView alloc] initWithFrame:CGRectMake(136, 0, 2, 50)];
         [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
         
-        lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(138, 6, 124, 40)];
+        lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(142, 6, 120, 40)];
         lblbudgetUnit.backgroundColor = [UIColor clearColor];
         lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
         lblbudgetUnit.numberOfLines = 1;
@@ -556,7 +557,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(262 , 0, 2, 50)];
         [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
         
-        lblBudgetValue = [[UILabel alloc] initWithFrame:CGRectMake(264, 6, 124, 40)];
+        lblBudgetValue = [[UILabel alloc] initWithFrame:CGRectMake(268, 6, 120, 40)];
         lblBudgetValue.backgroundColor = [UIColor clearColor];
         lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
         lblBudgetValue.numberOfLines = 1;
@@ -569,7 +570,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(388 , 0, 2, 50)];
         [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
         
-        lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(390, 6, 124, 40)];
+        lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(394, 6, 120, 40)];
         lblSaleUnit.backgroundColor = [UIColor clearColor];
         lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
         lblSaleUnit.numberOfLines = 1;
@@ -582,7 +583,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         viewSeperatorSaleUnit = [[UIView alloc] initWithFrame:CGRectMake(514 , 0, 2, 50)];
         [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
         
-        lblSaleValue = [[UILabel alloc] initWithFrame:CGRectMake(516, 6, 124, 40)];
+        lblSaleValue = [[UILabel alloc] initWithFrame:CGRectMake(520, 6, 120, 40)];
         lblSaleValue.backgroundColor = [UIColor clearColor];
         lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
         lblSaleValue.numberOfLines = 1;
