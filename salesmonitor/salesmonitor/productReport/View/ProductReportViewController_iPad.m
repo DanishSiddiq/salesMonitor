@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) ProductReportController *productReportController;
-@property (nonatomic, strong) BarChartView *barChartUnit;
+@property (nonatomic, strong) UIView *vwHeaderChartValue;
 @property (nonatomic, strong) BarChartView *barChartValue;
 
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
@@ -116,6 +116,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 - (void) initializeViews {
     [self customizeNavigationBar];
     [self initializeMainView];
+    [self initializeViewHeaderValue];    
 }
 
 -(void) customizeNavigationBar {
@@ -127,64 +128,54 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
+- (void) initializeViewHeaderValue {
+ 
+    _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake(0
+                                                                  , 120
+                                                                  , [UIScreen mainScreen].bounds.size.width
+                                                                  , 30)];
+    
+    UILabel *lblHeading = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 200
+                                                                    , 0
+                                                                    , 400
+                                                                    , 30)];
+    lblHeading.textAlignment = NSTextAlignmentCenter;
+    lblHeading.contentMode = UIViewContentModeTop;
+    lblHeading.font = [UIFont fontWithName:@"Helvetica" size:16.0 ];
+    lblHeading.text = @"Select dates";
+    lblHeading.tag = 10;
+
+    [_vwHeaderChartValue addSubview:lblHeading];
+    [self.view addSubview:_vwHeaderChartValue];
+}
+
 // updating views on getting data from server
 - (void) salesDataFromServer : (NSMutableArray *) salesReport{
     
+    __block UILabel *lblResult;
+    
     if([salesReport count] > 0){
+        lblResult = (UILabel *)[_vwHeaderChartValue viewWithTag:10];
+        lblResult.text = @"Budget/Sale Value Chart";
         
-        [self customizeBarCharForUnit:salesReport];
         [self customizeBarChartForBudget:salesReport];
     }
     else{
         
-        [_barChartUnit removeFromSuperview];
-        _barChartUnit = nil;
-
-        [_barChartValue removeFromSuperview];
-        _barChartValue = nil;
+        [UIView animateWithDuration:1.5 animations:^{
+            [_barChartValue setAlpha:0.0];
+            
+        } completion:^(BOOL finished) {
+            
+            lblResult = (UILabel *)[_vwHeaderChartValue viewWithTag:10];
+            lblResult.text = @"No data exist for selected dates";
+            
+            
+            [_barChartValue removeFromSuperview];
+            _barChartValue = nil;
+        }];
         
     }
-}
-
-- (void) customizeBarCharForUnit : (NSMutableArray *) salesReport {
-    
-    NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
-    for (NSMutableDictionary *saleReport in salesReport) {
-        
-        ChartData *cd = [[ChartData alloc]
-                         initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH]
-                                       , [saleReport valueForKey:KEY_SALES_YEAR]]
-                         value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] floatValue]]
-                         color:KEY_GRAPH_BAR_UNIT_COLOR labelColor:@"000000"];
-        [chartDataArray addObject:cd];
-        
-        ChartData *cd2 = [[ChartData alloc]
-                          initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH]
-                                        , [saleReport valueForKey:KEY_SALES_YEAR]]
-                          value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_UNIT] floatValue]]
-                          color:KEY_GRAPH_BAR_UNIT_COLOR_ALTERNATE labelColor:@"000000"];
-        [chartDataArray addObject:cd2];
-    }
-    
-    if([self saveXML:(chartDataArray) fileName:KEY_GRAPH_XML_FILE_UNIT]){
-        
-        [_barChartUnit removeFromSuperview];
-        _barChartUnit = nil;
-        
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *documentsPath = [documentsDirectory
-                                   stringByAppendingPathComponent:KEY_GRAPH_XML_FILE_UNIT];
-        
-        
-        _barChartUnit = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
-                                                                       , 200.0f
-                                                                       , [UIScreen mainScreen].bounds.size.width -40
-                                                                       , 250)];
-        [_barChartUnit setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
-        [self.view addSubview:_barChartUnit];
-    }    
 }
 
 - (void) customizeBarChartForBudget : (NSMutableArray *) salesReport{
@@ -218,11 +209,20 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
-                                                                       , 500.0f
+                                                                       , 150.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -40
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
         [self.view addSubview:_barChartValue];
+        
+        [UIView animateWithDuration:1.5 animations:^{
+            [_vwHeaderChartValue setAlpha:1.0];
+            
+        } completion:^(BOOL finished) {
+            
+            [_vwHeaderChartValue setHidden:NO];
+        }];
+
     }
 }
 
