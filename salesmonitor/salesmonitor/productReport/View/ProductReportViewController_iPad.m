@@ -16,7 +16,10 @@
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) ProductReportController *productReportController;
 @property (nonatomic, strong) UIView *vwHeaderChartValue;
+@property (nonatomic, strong) NSMutableArray *loadSales;
 @property (nonatomic, strong) BarChartView *barChartValue;
+@property (nonatomic, strong) UITableView *tblSale;
+
 
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
@@ -79,6 +82,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     _fromDate = [[NSNumber alloc] init];
     _toDate = [[NSNumber alloc] init];
+    _loadSales = [[NSMutableArray alloc] init];
     _productReportController = [[ProductReportController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
     
     [self initializeDates];
@@ -116,7 +120,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 - (void) initializeViews {
     [self customizeNavigationBar];
     [self initializeMainView];
-    [self initializeViewHeaderValue];    
+    [self initializeViewHeaderValue];
+    [self initializeTableSale];
 }
 
 -(void) customizeNavigationBar {
@@ -131,7 +136,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 - (void) initializeViewHeaderValue {
  
     _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                                  , 120
+                                                                  , 90
                                                                   , [UIScreen mainScreen].bounds.size.width
                                                                   , 30)];
     
@@ -149,16 +154,31 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [self.view addSubview:_vwHeaderChartValue];
 }
 
+- (void) initializeTableSale {
+    _tblSale = [[UITableView alloc] initWithFrame:CGRectMake(0
+                                                             , 580
+                                                             ,[UIScreen mainScreen].bounds.size.width
+                                                             , [UIScreen mainScreen].bounds.size.height - 630)];
+    _tblSale.delegate = self;
+    _tblSale.dataSource = self;
+    [self.view addSubview:_tblSale];
+}
+
 // updating views on getting data from server
 - (void) salesDataFromServer : (NSMutableArray *) salesReport{
     
+    
+    [_loadSales removeAllObjects];
+    [_loadSales addObjectsFromArray:salesReport];
+    
     __block UILabel *lblResult;
     
-    if([salesReport count] > 0){
+    if([_loadSales count] > 0){
         lblResult = (UILabel *)[_vwHeaderChartValue viewWithTag:10];
         lblResult.text = @"Budget/Sale Value Chart";
         
-        [self customizeBarChartForBudget:salesReport];
+        [self customizeBarChartForBudget];
+        [_tblSale reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }
     else{
         
@@ -178,10 +198,10 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     }
 }
 
-- (void) customizeBarChartForBudget : (NSMutableArray *) salesReport{
+- (void) customizeBarChartForBudget{
     
     NSMutableArray *chartDataArray = [[NSMutableArray alloc] init];
-    for (NSMutableDictionary *saleReport in salesReport) {
+    for (NSMutableDictionary *saleReport in _loadSales) {
         
         ChartData *cd = [[ChartData alloc]
                          initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
@@ -209,7 +229,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(20.0f
-                                                                       , 150.0f
+                                                                       , 120.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -40
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
@@ -381,6 +401,229 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         }
     }
 }
+
+// table delegates
+#pragma sale table delagates
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return  [_loadSales count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40.0f;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1.0f;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    
+    UILabel *lblDate = [[UILabel alloc] initWithFrame: CGRectMake(4, 6, 64, 30)];
+    [lblDate setBackgroundColor:[UIColor clearColor]];
+    lblDate.numberOfLines = 1;
+    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.textColor = [UIColor darkGrayColor];
+    lblDate.contentMode = UIViewContentModeBottomLeft;
+    lblDate.textAlignment = NSTextAlignmentCenter;
+    lblDate.adjustsFontSizeToFitWidth = YES;
+    lblDate.text = @"Date";
+    
+    UIView *viewSeperatorDate = [[UIView alloc] initWithFrame:CGRectMake(68, 0, 1, 40)];
+    [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(69, 6, 62, 30)];
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblbudgetUnit.numberOfLines = 1;
+    lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
+    lblbudgetUnit.textColor = [UIColor grayColor];
+    lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.text = @"BDG Unit";
+    
+    UIView *viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(131 , 0, 1, 40)];
+    [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblBudgetValue = [[UILabel alloc] initWithFrame:CGRectMake(132, 6, 62, 30)];
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblBudgetValue.numberOfLines = 1;
+    lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+    lblBudgetValue.textAlignment = NSTextAlignmentCenter;
+    lblBudgetValue.textColor = [UIColor grayColor];
+    lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.text = @"BDG Value";
+    
+    UIView *viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(195 , 0, 1, 40)];
+    [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(196, 6, 62, 30)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleUnit.numberOfLines = 1;
+    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+    lblSaleUnit.textAlignment = NSTextAlignmentCenter;
+    lblSaleUnit.textColor = [UIColor grayColor];
+    lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.text = @"Sale Unit";
+    
+    UIView *viewSeperatorSaleUnit = [[UIView alloc] initWithFrame:CGRectMake(258 , 0, 1, 40)];
+    [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleValue = [[UILabel alloc] initWithFrame:CGRectMake(259, 6, 61, 30)];
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleValue.numberOfLines = 1;
+    lblSaleValue.contentMode = UIViewContentModeTopLeft;
+    lblSaleValue.textAlignment = NSTextAlignmentCenter;
+    lblSaleValue.textColor = [UIColor grayColor];
+    lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.text = @"Sale Value";
+    
+    [viewHeader addSubview:lblDate];
+    [viewHeader addSubview:viewSeperatorDate];
+    [viewHeader addSubview:lblbudgetUnit];
+    [viewHeader addSubview:viewSeperatorBudgetUnit];
+    [viewHeader addSubview:lblBudgetValue];
+    [viewHeader addSubview:viewSeperatorBudgetValue];
+    [viewHeader addSubview:lblSaleUnit];
+    [viewHeader addSubview:viewSeperatorSaleUnit];
+    [viewHeader addSubview:lblSaleValue];
+    
+    return viewHeader;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    NSString *branchCellIdentifier = [NSString stringWithFormat:@"SaleCell"];
+    UITableViewCell *cell;
+    UILabel *lblDate, *lblbudgetUnit, *lblBudgetValue, *lblSaleUnit, *lblSaleValue;
+    UIView *viewSeperatorDate, *viewSeperatorBudgetUnit, *viewSeperatorBudgetValue, *viewSeperatorSaleUnit;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+        [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        lblDate = [[UILabel alloc] initWithFrame: CGRectMake(4, 6, 64, 30)];
+        [lblDate setBackgroundColor:[UIColor clearColor]];
+        lblDate.numberOfLines = 1;
+        lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+        lblDate.textColor = [UIColor darkGrayColor];
+        lblDate.contentMode = UIViewContentModeBottomLeft;
+        lblDate.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblDate.adjustsFontSizeToFitWidth = YES;
+        lblDate.tag = 10;
+        
+        viewSeperatorDate = [[UIView alloc] initWithFrame:CGRectMake(68, 0, 1, 40)];
+        [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+        
+        lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(72, 6, 59, 30)];
+        lblbudgetUnit.backgroundColor = [UIColor clearColor];
+        lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblbudgetUnit.numberOfLines = 1;
+        lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+        lblbudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblbudgetUnit.textColor = [UIColor grayColor];
+        lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+        lblbudgetUnit.tag = 20;
+        
+        viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(131 , 0, 1, 40)];
+        [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+        
+        
+        lblBudgetValue = [[UILabel alloc] initWithFrame:CGRectMake(135, 6, 59, 30)];
+        lblBudgetValue.backgroundColor = [UIColor clearColor];
+        lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblBudgetValue.numberOfLines = 1;
+        lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+        lblBudgetValue.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblBudgetValue.textColor = [UIColor grayColor];
+        lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+        lblBudgetValue.tag = 30;
+        
+        viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(195 , 0, 1, 40)];
+        [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+        
+        lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(199, 6, 59, 30)];
+        lblSaleUnit.backgroundColor = [UIColor clearColor];
+        lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblSaleUnit.numberOfLines = 1;
+        lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+        lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblSaleUnit.textColor = [UIColor grayColor];
+        lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+        lblSaleUnit.tag = 40;
+        
+        viewSeperatorSaleUnit = [[UIView alloc] initWithFrame:CGRectMake(258 , 0, 1, 40)];
+        [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+        
+        lblSaleValue = [[UILabel alloc] initWithFrame:CGRectMake(262, 6, 58, 30)];
+        lblSaleValue.backgroundColor = [UIColor clearColor];
+        lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+        lblSaleValue.numberOfLines = 1;
+        lblSaleValue.contentMode = UIViewContentModeTopLeft;
+        lblSaleValue.lineBreakMode = NSLineBreakByTruncatingTail;
+        lblSaleValue.textColor = [UIColor grayColor];
+        lblSaleValue.adjustsFontSizeToFitWidth = YES;
+        lblSaleValue.tag = 50;
+        
+        
+        [cell.contentView addSubview:lblDate];
+        [cell.contentView addSubview:viewSeperatorDate];
+        [cell.contentView addSubview:lblbudgetUnit];
+        [cell.contentView addSubview:viewSeperatorBudgetUnit];
+        [cell.contentView addSubview:lblBudgetValue];
+        [cell.contentView addSubview:viewSeperatorBudgetValue];
+        [cell.contentView addSubview:lblSaleUnit];
+        [cell.contentView addSubview:viewSeperatorSaleUnit];
+        [cell.contentView addSubview:lblSaleValue];
+        
+    }
+    else{
+        
+        lblDate = (UILabel *)[cell.contentView viewWithTag:10];
+        lblbudgetUnit = (UILabel *)[cell.contentView viewWithTag:20];
+        lblBudgetValue = (UILabel *)[cell.contentView viewWithTag:30];
+        lblSaleUnit = (UILabel *)[cell.contentView viewWithTag:40];
+        lblSaleValue = (UILabel *)[cell.contentView viewWithTag:50];
+        
+    }
+    
+    NSMutableDictionary *saleReport = [_loadSales objectAtIndex:indexPath.row];
+    
+    lblDate.text = [NSString stringWithFormat:@"%@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]];
+    lblbudgetUnit.text = [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] description];
+    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
+    lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
+    lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 
 @end
 
