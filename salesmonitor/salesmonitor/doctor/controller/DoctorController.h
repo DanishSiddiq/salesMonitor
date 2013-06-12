@@ -13,12 +13,7 @@
 
 @protocol DoctorControllerDelegate <NSObject>
 @required
-    -(void)doctorEdit:(NSMutableDictionary *) doctor;
-    -(void)doctorDelete:(NSMutableDictionary *) doctor;
-    -(void)doctorView:(NSMutableDictionary *) doctor;
-    -(void) doctorMessage : (NSMutableDictionary *) doctor;
-    -(void) doctorCall : (NSMutableDictionary *) doctor;
-    -(void) doctorMail : (NSMutableDictionary *) doctor;
+    -(void)doctorSelected:(NSInteger) selectedIndex;
 
 @end
 

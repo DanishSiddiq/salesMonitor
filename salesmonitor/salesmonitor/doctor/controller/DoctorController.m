@@ -13,7 +13,6 @@
 @property (nonatomic) BOOL isIphone;
 @property (nonatomic, strong) NSMutableArray *loadDoctor;
 @property (nonatomic, strong) id<DoctorControllerDelegate> viewController;
-@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -25,10 +24,10 @@
     self = [super init];
     
     if(self){
+        
         _loadDoctor = loadDoctor;
         _isIphone   = isIphone;
         _viewController    = viewController;
-        _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:0];
      }
     
     return self;
@@ -164,67 +163,23 @@
     btnMessage.rowIndex = indexPath.row;
     btnMail.rowIndex    = indexPath.row;
     
-    if ((_selectedIndexPath != nil) && (_selectedIndexPath.row == indexPath.row)){
         
-        [lblName  setHidden:YES];
-        [lblSpeciality  setHidden:YES];
-        [lblAddress  setHidden:YES];
+    [lblName  setHidden:NO];
+    [lblSpeciality  setHidden:NO];
+    [lblAddress  setHidden:NO];
         
-        [btnCall setHidden:NO];
-        [btnMessage setHidden:NO];
-        [btnMail setHidden:NO];
-    }
-    else{
-        
-        [lblName  setHidden:NO];
-        [lblSpeciality  setHidden:NO];
-        [lblAddress  setHidden:NO];
-        
-        [btnCall setHidden:YES];
-        [btnMessage setHidden:YES];
-        [btnMail setHidden:YES];
-    }
+    [btnCall setHidden:YES];
+    [btnMessage setHidden:YES];
+    [btnMail setHidden:YES];
     
-    //now populate data for the views
-    NSMutableDictionary *doctor = [_loadDoctor objectAtIndex:indexPath.row];
-    NSLog(@"%@", doctor);
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (_selectedIndexPath != nil && _selectedIndexPath.row == indexPath.row) {
-        
-        _selectedIndexPath = nil;
-        [tableView reloadData];
-    } else {
-        
-        _selectedIndexPath = indexPath;
-        [tableView reloadData];
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    
-}
-
-- (void) btnPressedCall : (Custombutton *) sender{
-    
-    if([_viewController respondsToSelector:@selector(doctorCall:)]){
-        [_viewController doctorCall:[_loadDoctor objectAtIndex:[sender rowIndex]]];
-    }
-}
-
-- (void) btnPressedMessage : (Custombutton *) sender{
-    
-    if([_viewController respondsToSelector:@selector(doctorMessage:)]){
-        [_viewController doctorMessage:[_loadDoctor objectAtIndex:[sender rowIndex]]];
-    }
-}
-
-- (void) btnPressedMail : (Custombutton *) sender{
-    
-    if([_viewController respondsToSelector:@selector(doctorMail:)]){
-        [_viewController doctorMail:[_loadDoctor objectAtIndex:[sender rowIndex]]];
+    if([_viewController respondsToSelector:@selector(doctorSelected:)]){
+        [_viewController doctorSelected:indexPath.row];
     }
 }
 

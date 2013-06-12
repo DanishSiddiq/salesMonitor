@@ -15,8 +15,13 @@
 
 @property (nonatomic) BOOL isIphone;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
+@property (nonatomic, strong) UIView *listContainer;
 @property (nonatomic, strong) UITableView *tblDoctor;
 @property (nonatomic, strong) DoctorController *doctorController;
+@property (nonatomic, strong) UIView *doctorDetailContainer;
+@property (nonatomic, strong) UIView *doctorContactContainer;
+
+@property (nonatomic) NSInteger selectedIndex;
 
 @end
 
@@ -74,7 +79,10 @@
 - (void) initializeViews {
     [self customizeNavigationBar];
     [self initializeMainView];
+    [self initializeListContainer ];
     [self initializeDoctorTable];
+    [self initializeDoctorDetailContaiiner];
+    [self initializeDoctorContactContainer];
 }
 
 - (void) customizeNavigationBar{
@@ -86,7 +94,18 @@
     [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
+- (void) initializeListContainer {
+    
+    _listContainer = [[UIView alloc] initWithFrame:CGRectMake(0
+                                                              , 0
+                                                              , [UIScreen mainScreen].bounds.size.width
+                                                              , [UIScreen mainScreen].bounds.size.height - 45)];
+    [_listContainer setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:_listContainer];
+}
+
 - (void) initializeDoctorTable {
+
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
                                                                , 0
                                                                , [UIScreen mainScreen].bounds.size.width
@@ -94,28 +113,45 @@
     
     _tblDoctor.delegate = _doctorController;
     _tblDoctor.dataSource = _doctorController;
-    [self.view addSubview:_tblDoctor];
+    [_listContainer addSubview:_tblDoctor];
 }
 
+- (void) initializeDoctorDetailContaiiner{
+    
+    _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width
+                                                              , 0
+                                                              , [UIScreen mainScreen].bounds.size.width
+                                                              , [UIScreen mainScreen].bounds.size.height - 115)];
+    [self.view addSubview:_doctorDetailContainer];
+}
 
-// protocols
--(void)doctorEdit:(NSMutableDictionary *) doctor{
+- (void) initializeDoctorContactContainer{
+    
+    _doctorContactContainer = [[UIView alloc] initWithFrame:CGRectMake(0
+                                                                      , [UIScreen mainScreen].bounds.size.height
+                                                                      , [UIScreen mainScreen].bounds.size.width
+                                                                      , 70)];
+    [self.view addSubview:_doctorContactContainer];
+}
+
+// selectors
+-(void)doctorEdit: (UIButton *) sender{
     
 }
 
--(void)doctorDelete:(NSMutableDictionary *) doctor{
+-(void)doctorDelete: (UIButton *) sender{
     
 }
 
--(void)doctorView:(NSMutableDictionary *) doctor{
+-(void)doctorView: (UIButton *) sender{
     
 }
 
--(void) doctorMessage : (NSMutableDictionary *) doctor{
+-(void) doctorMessage : (UIButton *) sender{
     
     if([MFMessageComposeViewController canSendText])
     {
-        
+        NSMutableDictionary *doctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
         NSString *phoneNumber = [doctor valueForKey:KEY_DOCTORS_PHONE];
         NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
         
@@ -128,8 +164,9 @@
     }
 }
 
--(void) doctorCall : (NSMutableDictionary *) doctor{
-    
+-(void) doctorCall : (UIButton *) sender{
+
+    NSMutableDictionary *doctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     NSString *phoneNumber = [doctor valueForKey:KEY_DOCTORS_PHONE];
     NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
     
@@ -137,10 +174,11 @@
     [myApp openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", cleanedString]]];
 }
 
--(void) doctorMail : (NSMutableDictionary *) doctor{
+-(void) doctorMail : (UIButton *) sender{
     
     if ([MFMailComposeViewController canSendMail])
     {
+        NSMutableDictionary *doctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         [mailer setSubject:@" "];
         mailer.mailComposeDelegate = self;
@@ -181,6 +219,13 @@
 
 - (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+// protocols
+-(void)doctorSelected:(NSInteger) selectedIndex{
+    
+    _selectedIndex = selectedIndex;
 }
 
 @end
