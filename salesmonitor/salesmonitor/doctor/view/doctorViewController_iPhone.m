@@ -73,6 +73,7 @@
 
 - (void) initializeViews {
     [self customizeNavigationBar];
+    [self initializeMainView];
     [self initializeDoctorTable];
 }
 
