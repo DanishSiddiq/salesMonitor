@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "DoctorController.h"
+#import "applicationConstants.h"
 
 @interface doctorViewController_iPhone : UIViewController <UITableViewDelegate, UITableViewDataSource, DoctorControllerDelegate >
 

@@ -24,6 +24,7 @@
 -(id)           init :(BOOL) isIphone
        viewController:(id<ProductReportDelegate>) viewController
 salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
+     productSelected : (NSMutableDictionary *)productSelected
             loadSales: (NSMutableArray *)loadSales;
 
 - (void) fetchDataFromServer : (NSNumber *) fromDate toDate : (NSNumber *) toDate ;

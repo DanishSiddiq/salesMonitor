@@ -14,6 +14,7 @@
 @property (nonatomic, strong) id<ProductReportDelegate> viewController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) NSMutableArray *loadSales;
+@property (nonatomic, strong) NSMutableDictionary *productSelected;
 
 @end
 
@@ -22,6 +23,7 @@
 -(id)           init :(BOOL) isIphone
        viewController:(id<ProductReportDelegate>) viewController
 salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
+     productSelected : (NSMutableDictionary *)productSelected
             loadSales: (NSMutableArray *)loadSales{
     
     self = [super init];
@@ -31,6 +33,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         _isIphone = isIphone;
         _viewController = viewController;
         _salesMonitorDelegate = salesMonitorDelegate;
+        _productSelected = productSelected;
         _loadSales = loadSales;
     }
     
@@ -56,7 +59,8 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         NSString *urlString = [NSString stringWithFormat:KEY_SERVER_REPORT_SALE
                                , [[_salesMonitorDelegate userData] valueForKey:KEY_USER_ID]
                                , fromDate
-                               , toDate];
+                               , toDate
+                               , [_productSelected valueForKey:KEY_PRODUCT_ID]];
         
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -311,7 +315,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     lblDate.text = [NSString stringWithFormat:@"%@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]];
     lblbudgetUnit.text = [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] description];
-    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
+    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] description];
     lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
     lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
     

@@ -67,7 +67,7 @@
     
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
     _doctorController = [[DoctorController alloc] init:_isIphone
-                                            loadDoctor:[_salesMonitorDelegate valueForKey:@""]
+                                            loadDoctor:[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS]
                                         viewController:self];
 }
 

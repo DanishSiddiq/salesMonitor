@@ -18,6 +18,7 @@
 #import "ProductReportViewController_iPad.h"
 #import "brickProductController.h"
 #import "KGModal.h"
+#import "doctorViewController_iPhone.h"
 
 @interface productViewController_iPhone : UIViewController <productControllerDelegate, brickControllerDelegate>
 

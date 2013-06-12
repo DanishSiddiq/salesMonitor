@@ -80,7 +80,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _loadSales = [[NSMutableArray alloc] init];
     _productReportController = [[ProductReportController alloc] init:YES
                                                       viewController:self
-                                                salesMonitorDelegate:_salesMonitorDelegate loadSales:_loadSales];
+                                                salesMonitorDelegate:_salesMonitorDelegate
+                                                     productSelected:_productSelected
+                                                           loadSales:_loadSales];
     
     [self initializeDates];
 }

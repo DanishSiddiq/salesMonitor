@@ -86,6 +86,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _productReportController = [[ProductReportController alloc] init:NO
                                                       viewController:self
                                                 salesMonitorDelegate:_salesMonitorDelegate
+                                                     productSelected:_productSelected
                                                            loadSales:_loadSales];
     
     [self initializeDates];
@@ -208,15 +209,21 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     for (NSMutableDictionary *saleReport in _loadSales) {
         
         ChartData *cd = [[ChartData alloc]
-                         initWithName:[NSString stringWithFormat:@"BGT %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                         initWithName:[NSString stringWithFormat:@"BGT %@, %@"
+                                       , [saleReport valueForKey:KEY_SALES_MONTH]
+                                       , [saleReport valueForKey:KEY_SALES_YEAR]]
                          value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] floatValue]]
-                         color:KEY_GRAPH_BAR_BUDGET_COLOR labelColor:@"000000"];
+                         color:KEY_GRAPH_BAR_BUDGET_COLOR
+                         labelColor:@"000000"];
         [chartDataArray addObject:cd];
         
         ChartData *cd2 = [[ChartData alloc]
-                          initWithName:[NSString stringWithFormat:@"SALE %@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]]
+                          initWithName:[NSString stringWithFormat:@"SALE %@, %@"
+                                        , [saleReport valueForKey:KEY_SALES_MONTH]
+                                        , [saleReport valueForKey:KEY_SALES_YEAR]]
                           value:[NSString stringWithFormat:@"%.2f", [[saleReport valueForKey:KEY_SALES_VALUE] floatValue]]
-                          color:KEY_GRAPH_BAR_BUDGET_COLOR_ALTERNATE labelColor:@"000000"];
+                          color:KEY_GRAPH_BAR_BUDGET_COLOR_ALTERNATE
+                          labelColor:@"01A100"];
         [chartDataArray addObject:cd2];
     }
     

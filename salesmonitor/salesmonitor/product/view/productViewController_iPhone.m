@@ -114,20 +114,32 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 45, 0, 45, 45)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 125, 0, 125, 45)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    UIButton *btnDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [btnDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnDoctorList addTarget:self action:@selector(btnNavBarPressedDoctorList:) forControlEvents:UIControlEventTouchUpInside];
+    [btnDoctorList setTag:40];
+    
+    UIButton *btnProductReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
+    [btnProductReport setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnProductReport addTarget:self action:@selector(btnNavBarPressedProductReport:) forControlEvents:UIControlEventTouchUpInside];
+    [btnProductReport setTag:30];
+    
+    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
     [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnListView setHidden:YES];
     [btnListView setTag:10];
     
-    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 22, 22)];
+    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
     [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView) forControlEvents:UIControlEventTouchUpInside];
+    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnMapView setTag:20];
     
+    [_navBarContainer addSubview:btnDoctorList];
+    [_navBarContainer addSubview:btnProductReport];
     [_navBarContainer addSubview:btnListView];
     [_navBarContainer addSubview:btnMapView];
     
@@ -222,7 +234,23 @@
 
 
 // selectors
-- (void) btnNavBarPressedSwitchView {
+- (void) btnNavBarPressedDoctorList : (UIButton *) sender{
+    
+    doctorViewController_iPhone *doctoViewController = [[doctorViewController_iPhone alloc]
+                                                        initWithNibName:_isIphone ? @"doctorViewController_iPhone" : @"doctorViewController_iPad"
+                                                        bundle:nil
+                                                        salesMonitorDelegate:_salesMonitorDelegate
+                                                        navBarContainer:_navBarContainer];
+    [self.navigationController pushViewController:doctoViewController animated:YES];
+    
+}
+
+- (void) btnNavBarPressedProductReport : (UIButton *) sender{
+    
+    [self productSelected:nil];
+}
+
+- (void) btnNavBarPressedSwitchView : (UIButton *) sender {
     
     if([_mapBrick isHidden]){
         
