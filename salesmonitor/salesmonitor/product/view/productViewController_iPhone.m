@@ -242,12 +242,25 @@
 // selectors
 - (void) btnNavBarPressedDoctorList : (UIButton *) sender{
     
-    doctorViewController_iPhone *doctoViewController = [[doctorViewController_iPhone alloc]
-                                                        initWithNibName:_isIphone ? @"doctorViewController_iPhone" : @"doctorViewController_iPad"
-                                                        bundle:nil
-                                                        salesMonitorDelegate:_salesMonitorDelegate
-                                                        navBarContainer:_navBarContainer];
-    [self.navigationController pushViewController:doctoViewController animated:YES];
+    if(_isIphone){
+        
+        doctorViewController_iPhone *doctorViewController = [[doctorViewController_iPhone alloc]
+                                                            initWithNibName:@"doctorViewController_iPhone"
+                                                            bundle:nil
+                                                            salesMonitorDelegate:_salesMonitorDelegate
+                                                            navBarContainer:_navBarContainer];
+        [self.navigationController pushViewController:doctorViewController animated:YES];
+        
+    }
+    else{
+        
+        doctorViewController_iPad *doctoViewController = [[doctorViewController_iPad alloc]
+                                                            initWithNibName:@"doctorViewController_iPad"
+                                                            bundle:nil
+                                                            salesMonitorDelegate:_salesMonitorDelegate
+                                                            navBarContainer:_navBarContainer];
+        [self.navigationController pushViewController:doctoViewController animated:YES];
+    }
     
 }
 

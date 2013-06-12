@@ -1,14 +1,14 @@
 //
-//  doctorViewController_iPhone.m
+//  doctorViewController_iPad.m
 //  salesmonitor
 //
-//  Created by goodcore2 on 6/6/13.
+//  Created by goodcore2 on 6/12/13.
 //  Copyright (c) 2013 GoodCore. All rights reserved.
 //
 
-#import "doctorViewController_iPhone.h"
+#import "doctorViewController_iPad.h"
 
-@interface doctorViewController_iPhone ()
+@interface doctorViewController_iPad ()
 
 // nav bar item at right in previous view
 @property (strong, nonatomic) UIView *navBarContainer;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation doctorViewController_iPhone
+@implementation doctorViewController_iPad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +40,7 @@
                 bundle:(NSBundle *)nibBundleOrNil
   salesMonitorDelegate:(AppDelegate *)salesMonitorDelegate
        navBarContainer: (UIView *) navBarContainer{
-
+    
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
@@ -105,7 +105,7 @@
 }
 
 - (void) initializeDoctorTable {
-
+    
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
                                                                , 0
                                                                , [UIScreen mainScreen].bounds.size.width
@@ -119,18 +119,18 @@
 - (void) initializeDoctorDetailContaiiner{
     
     _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width
-                                                              , 0
-                                                              , [UIScreen mainScreen].bounds.size.width
-                                                              , [UIScreen mainScreen].bounds.size.height - 115)];
+                                                                      , 0
+                                                                      , [UIScreen mainScreen].bounds.size.width
+                                                                      , [UIScreen mainScreen].bounds.size.height - 115)];
     [self.view addSubview:_doctorDetailContainer];
 }
 
 - (void) initializeDoctorContactContainer{
     
     _doctorContactContainer = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                                      , [UIScreen mainScreen].bounds.size.height
-                                                                      , [UIScreen mainScreen].bounds.size.width
-                                                                      , 60)];
+                                                                       , [UIScreen mainScreen].bounds.size.height
+                                                                       , [UIScreen mainScreen].bounds.size.width
+                                                                       , 60)];
     
     UIButton *btnCall, *btnMessage, *btnMail;
     btnCall = [[Custombutton alloc] initWithFrame:_isIphone ? CGRectMake(70, 10, 40, 40) : CGRectMake(294, 10, 40, 40)];
@@ -187,7 +187,7 @@
 }
 
 -(void) doctorCall : (UIButton *) sender{
-
+    
     NSMutableDictionary *doctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     NSString *phoneNumber = [doctor valueForKey:KEY_DOCTORS_PHONE];
     NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
@@ -250,9 +250,9 @@
     _selectedIndex = selectedIndex;
     
     CGRect toFrameContactContainer = CGRectMake(0
-                              , [UIScreen mainScreen].bounds.size.height - 125
-                              , [UIScreen mainScreen].bounds.size.width
-                              , 60);
+                                                , [UIScreen mainScreen].bounds.size.height - 125
+                                                , [UIScreen mainScreen].bounds.size.width
+                                                , 60);
     
     
     [UIView animateWithDuration:2.0 animations:^{

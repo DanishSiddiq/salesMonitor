@@ -45,7 +45,6 @@
 		3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A74117671DDA00ADCB49 /* ChartData.m */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
-		3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9480611760F0820068A201 /* doctorViewController_iPad.xib */; };
 		3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */; };
 		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
 		3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */; };
@@ -74,6 +73,8 @@
 		3A9ECA69176892DF00297583 /* icon_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA66176892DE00297583 /* icon_mail.png */; };
 		3A9ECA6A176892DF00297583 /* icon_sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA67176892DF00297583 /* icon_sms.png */; };
 		3A9ECA6C1768946100297583 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9ECA6B1768946100297583 /* MessageUI.framework */; };
+		3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */; };
+		3A9ECA711768AE0600297583 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6F1768AE0600297583 /* doctorViewController_iPad.xib */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -179,7 +180,6 @@
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
-		3A9480611760F0820068A201 /* doctorViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPad.xib; sourceTree = "<group>"; };
 		3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPhone.h; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
 		3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPhone.m; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
 		3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductReportViewController_iPhone.xib; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
@@ -221,6 +221,9 @@
 		3A9ECA66176892DE00297583 /* icon_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mail.png; sourceTree = "<group>"; };
 		3A9ECA67176892DF00297583 /* icon_sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sms.png; sourceTree = "<group>"; };
 		3A9ECA6B1768946100297583 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3A9ECA6D1768AE0600297583 /* doctorViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPad.h; sourceTree = "<group>"; };
+		3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPad.m; sourceTree = "<group>"; };
+		3A9ECA6F1768AE0600297583 /* doctorViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPad.xib; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -496,7 +499,9 @@
 				3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */,
 				3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */,
 				3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */,
-				3A9480611760F0820068A201 /* doctorViewController_iPad.xib */,
+				3A9ECA6D1768AE0600297583 /* doctorViewController_iPad.h */,
+				3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */,
+				3A9ECA6F1768AE0600297583 /* doctorViewController_iPad.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -897,7 +902,6 @@
 				3A96B466176074F6000970EC /* pin_annotation.png in Resources */,
 				3A96B467176074F6000970EC /* pin_annotation@2x.png in Resources */,
 				3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */,
-				3A9480631760F0820068A201 /* doctorViewController_iPad.xib in Resources */,
 				3A9900051762208500DBC696 /* background_gradient.png in Resources */,
 				3A92F5011765CB39008F2753 /* SVProgressHUD.bundle in Resources */,
 				3A92F50517660710008F2753 /* refresh@2x.png in Resources */,
@@ -910,6 +914,7 @@
 				3A9ECA68176892DF00297583 /* icon_contact.png in Resources */,
 				3A9ECA69176892DF00297583 /* icon_mail.png in Resources */,
 				3A9ECA6A176892DF00297583 /* icon_sms.png in Resources */,
+				3A9ECA711768AE0600297583 /* doctorViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +983,7 @@
 				3A93A7381766FF5D00ADCB49 /* GDataXMLNode.m in Sources */,
 				3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */,
 				3A9ECA6417688C3900297583 /* Custombutton.m in Sources */,
+				3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

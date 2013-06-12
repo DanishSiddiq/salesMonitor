@@ -19,6 +19,7 @@
 #import "brickProductController.h"
 #import "KGModal.h"
 #import "doctorViewController_iPhone.h"
+#import "doctorViewController_iPad.h"
 
 @interface productViewController_iPhone : UIViewController <productControllerDelegate, brickControllerDelegate>
 

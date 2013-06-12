@@ -69,7 +69,6 @@
     
     NSString *branchCellIdentifier = [NSString stringWithFormat:@"BranchCell"];
     UITableViewCell *cell;
-    Custombutton *btnCall, *btnMessage, *btnMail;
     UILabel *lblName, *lblSpeciality, *lblAddress;
     
     cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
@@ -112,36 +111,9 @@
         [lblAddress adjustsFontSizeToFitWidth];
         lblAddress.tag = 30;
         
-        btnCall = [[Custombutton alloc] initWithFrame:_isIphone ? CGRectMake(70, 15, 40, 40) : CGRectMake(294, 15, 40, 40)];
-        [btnCall addTarget:self action:@selector(btnPressedCall:) forControlEvents:UIControlEventTouchUpInside];
-        [btnCall setBackgroundImage:[UIImage imageNamed:@"icon_contact" ] forState:UIControlStateNormal & UIControlStateSelected];
-        [btnCall setUserInteractionEnabled:YES];
-        btnCall.rowIndex = indexPath.row;
-        [btnCall setHidden:YES];
-        btnCall.tag = 40;
-        
-        btnMessage = [[Custombutton alloc] initWithFrame:_isIphone ? CGRectMake(140, 15, 40, 40) :  CGRectMake(364, 15, 40, 40)];
-        [btnMessage addTarget:self action:@selector(btnPressedMessage:) forControlEvents:UIControlEventTouchUpInside];
-        [btnMessage setBackgroundImage:[UIImage imageNamed:@"icon_sms" ] forState:UIControlStateNormal & UIControlStateSelected];
-        [btnMessage setUserInteractionEnabled:YES];
-        btnMessage.rowIndex = indexPath.row;
-        [btnMessage setHidden:YES];
-        btnMessage.tag = 50;
-        
-        btnMail = [[Custombutton alloc] initWithFrame:_isIphone ? CGRectMake(210, 15, 40, 40) : CGRectMake(434, 15, 40, 40)];
-        [btnMail addTarget:self action:@selector(btnPressedMail:) forControlEvents:UIControlEventTouchUpInside];
-        [btnMail setBackgroundImage:[UIImage imageNamed:@"icon_mail" ] forState:UIControlStateNormal & UIControlStateSelected];
-        [btnMail setUserInteractionEnabled:YES];
-        btnMail.rowIndex = indexPath.row;
-        [btnMail setHidden:YES];
-        btnMail.tag = 60;
-        
         [cell.contentView addSubview:lblName];
         [cell.contentView addSubview:lblSpeciality];
         [cell.contentView addSubview:lblAddress];
-        [cell.contentView addSubview:btnCall];
-        [cell.contentView addSubview:btnMessage];
-        [cell.contentView addSubview:btnMail];
         
     }
     else{
@@ -149,9 +121,6 @@
         lblName         = (UILabel *)[cell.contentView viewWithTag:10];
         lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:20];
         lblAddress      = (UILabel *)[cell.contentView viewWithTag:30];
-        btnCall         = (Custombutton *)[cell.contentView viewWithTag:40];
-        btnMessage      = (Custombutton *)[cell.contentView viewWithTag:50];
-        btnMail         = (Custombutton *)[cell.contentView viewWithTag:60];
     }
     
     // populate data
@@ -159,20 +128,7 @@
     lblName.text        = [currDoctor valueForKey:KEY_DOCTORS_NAME];
     lblSpeciality.text  = [currDoctor valueForKey:KEY_DOCTORS_SPECIALITY];
     lblAddress.text     = [currDoctor valueForKey:KEY_DOCTORS_ADDRESS];
-    btnCall.rowIndex    = indexPath.row;
-    btnMessage.rowIndex = indexPath.row;
-    btnMail.rowIndex    = indexPath.row;
-    
         
-    [lblName  setHidden:NO];
-    [lblSpeciality  setHidden:NO];
-    [lblAddress  setHidden:NO];
-        
-    [btnCall setHidden:YES];
-    [btnMessage setHidden:YES];
-    [btnMail setHidden:YES];
-    
-    
     return cell;
 }
 
