@@ -92,8 +92,8 @@
                                                                , [UIScreen mainScreen].bounds.size.width
                                                                , [UIScreen mainScreen].bounds.size.height - 45)];
     
-    _tblDoctor.delegate = nil;
-    _tblDoctor.dataSource = nil;
+    _tblDoctor.delegate = _doctorController;
+    _tblDoctor.dataSource = _doctorController;
     [self.view addSubview:_tblDoctor];
 }
 
@@ -111,5 +111,76 @@
     
 }
 
+-(void) doctorMessage : (NSMutableDictionary *) doctor{
+    
+    if([MFMessageComposeViewController canSendText])
+    {
+        
+        NSString *phoneNumber = [doctor valueForKey:KEY_DOCTORS_PHONE];
+        NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
+        
+        MFMessageComposeViewController *messenger = [[MFMessageComposeViewController alloc] init];
+        
+        //1(234)567-8910
+        messenger.recipients = [NSArray arrayWithObjects:cleanedString, nil];
+        messenger.messageComposeDelegate = self;
+        [self presentViewController:messenger animated:YES completion:nil];
+    }
+}
+
+-(void) doctorCall : (NSMutableDictionary *) doctor{
+    
+    NSString *phoneNumber = [doctor valueForKey:KEY_DOCTORS_PHONE];
+    NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
+    
+    UIApplication *myApp = [UIApplication sharedApplication];
+    [myApp openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", cleanedString]]];
+}
+
+-(void) doctorMail : (NSMutableDictionary *) doctor{
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        [mailer setSubject:@" "];
+        mailer.mailComposeDelegate = self;
+        NSArray *toRecipients = [NSArray arrayWithObjects:[doctor valueForKey:KEY_DOCTORS_EMAIL], nil];
+        [mailer setToRecipients:toRecipients];
+        NSString *emailBody = @"";
+        [mailer setMessageBody:emailBody isHTML:NO];
+        mailer.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [UIColor blackColor]
+                                                    ,   UITextAttributeTextColor
+                                                    ,   [UIColor clearColor]
+                                                    ,   UITextAttributeTextShadowColor
+                                                    ,   [NSValue valueWithUIOffset:UIOffsetMake(0, 0)]
+                                                    ,   UITextAttributeTextShadowOffset
+                                                    ,   [UIFont fontWithName:@"HelveticaNeue-Medium" size:20.0]
+                                                    ,   UITextAttributeFont,
+                                                    nil];
+        
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support the composer sheet"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+
+// mail controller delegates
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

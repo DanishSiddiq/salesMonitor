@@ -10,13 +10,27 @@
 #import "AppDelegate.h"
 #import "DoctorController.h"
 #import "applicationConstants.h"
+#import <MessageUI/MessageUI.h>
 
-@interface doctorViewController_iPhone : UIViewController <UITableViewDelegate, UITableViewDataSource, DoctorControllerDelegate >
+@interface doctorViewController_iPhone : UIViewController< UITableViewDelegate
+                                                            , UITableViewDataSource
+                                                            , DoctorControllerDelegate
+                                                            , MFMailComposeViewControllerDelegate
+                                                            , MFMessageComposeViewControllerDelegate  >
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
 salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
       navBarContainer: (UIView *) navBarContainer;
+
+
+// doctor delegates
+-(void)doctorEdit:(NSMutableDictionary *) doctor;
+-(void)doctorDelete:(NSMutableDictionary *) doctor;
+-(void)doctorView:(NSMutableDictionary *) doctor;
+-(void) doctorMessage : (NSMutableDictionary *) doctor;
+-(void) doctorCall : (NSMutableDictionary *) doctor;
+-(void) doctorMail : (NSMutableDictionary *) doctor;
 
 @end

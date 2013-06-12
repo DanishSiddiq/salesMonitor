@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "Custombutton.h"
+#import "applicationConstants.h"
 
 @protocol DoctorControllerDelegate <NSObject>
 @required
     -(void)doctorEdit:(NSMutableDictionary *) doctor;
     -(void)doctorDelete:(NSMutableDictionary *) doctor;
     -(void)doctorView:(NSMutableDictionary *) doctor;
+    -(void) doctorMessage : (NSMutableDictionary *) doctor;
+    -(void) doctorCall : (NSMutableDictionary *) doctor;
+    -(void) doctorMail : (NSMutableDictionary *) doctor;
+
 @end
 
-@interface DoctorController : NSObject
+@interface DoctorController : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 
 - (id)      init : (BOOL) isIphone
