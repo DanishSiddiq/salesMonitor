@@ -15,7 +15,7 @@
 #import "ChartData.h"
 
 
-@interface ProductReportViewController_iPad : UIViewController <ProductReportDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ProductReportViewController_iPad : UIViewController <ProductReportDelegate>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil

@@ -19,9 +19,13 @@
 
 @end
 
-@interface ProductReportController : NSObject
+@interface ProductReportController : NSObject <UITableViewDataSource, UITableViewDelegate>
 
--(id) init : (id<ProductReportDelegate>) viewController salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate;
+-(id)           init :(BOOL) isIphone
+       viewController:(id<ProductReportDelegate>) viewController
+salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
+            loadSales: (NSMutableArray *)loadSales;
+
 - (void) fetchDataFromServer : (NSNumber *) fromDate toDate : (NSNumber *) toDate ;
 
 @end
