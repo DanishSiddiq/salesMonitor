@@ -118,12 +118,12 @@
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
     UIButton *btnDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
-    [btnDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-doctor"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnDoctorList addTarget:self action:@selector(btnNavBarPressedDoctorList:) forControlEvents:UIControlEventTouchUpInside];
     [btnDoctorList setTag:10];
     
     UIButton *btnProductReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
-    [btnProductReport setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnProductReport setBackgroundImage:[UIImage imageNamed:@"icon-report"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnProductReport addTarget:self action:@selector(btnNavBarPressedProductReport:) forControlEvents:UIControlEventTouchUpInside];
     [btnProductReport setTag:20];
     

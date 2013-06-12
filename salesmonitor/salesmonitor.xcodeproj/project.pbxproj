@@ -65,6 +65,10 @@
 		3A9900031762056000DBC696 /* brickProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9900021762056000DBC696 /* brickProductController.m */; };
 		3A9900051762208500DBC696 /* background_gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9900041762208500DBC696 /* background_gradient.png */; };
 		3A99000817623C0500DBC696 /* DoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A99000717623C0500DBC696 /* DoctorController.m */; };
+		3A9ECA5B176870E700297583 /* icon-doctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA59176870E700297583 /* icon-doctor.png */; };
+		3A9ECA5C176870E700297583 /* icon-doctor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA5A176870E700297583 /* icon-doctor@2x.png */; };
+		3A9ECA5F176871D700297583 /* icon-report.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA5D176871D700297583 /* icon-report.png */; };
+		3A9ECA60176871D700297583 /* icon-report@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA5E176871D700297583 /* icon-report@2x.png */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -202,6 +206,10 @@
 		3A9900041762208500DBC696 /* background_gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_gradient.png; sourceTree = "<group>"; };
 		3A99000617623C0500DBC696 /* DoctorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorController.h; sourceTree = "<group>"; };
 		3A99000717623C0500DBC696 /* DoctorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorController.m; sourceTree = "<group>"; };
+		3A9ECA59176870E700297583 /* icon-doctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-doctor.png"; sourceTree = "<group>"; };
+		3A9ECA5A176870E700297583 /* icon-doctor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-doctor@2x.png"; sourceTree = "<group>"; };
+		3A9ECA5D176871D700297583 /* icon-report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-report.png"; sourceTree = "<group>"; };
+		3A9ECA5E176871D700297583 /* icon-report@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-report@2x.png"; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -293,6 +301,10 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A9ECA5D176871D700297583 /* icon-report.png */,
+				3A9ECA5E176871D700297583 /* icon-report@2x.png */,
+				3A9ECA59176870E700297583 /* icon-doctor.png */,
+				3A9ECA5A176870E700297583 /* icon-doctor@2x.png */,
 				3A92F50317660710008F2753 /* refresh@2x.png */,
 				3A92F50417660710008F2753 /* refresh.png */,
 				3A9900041762208500DBC696 /* background_gradient.png */,
@@ -865,6 +877,10 @@
 				3A92F50517660710008F2753 /* refresh@2x.png in Resources */,
 				3A92F50617660710008F2753 /* refresh.png in Resources */,
 				3A93A7371766FF5D00ADCB49 /* barChart.xml in Resources */,
+				3A9ECA5B176870E700297583 /* icon-doctor.png in Resources */,
+				3A9ECA5C176870E700297583 /* icon-doctor@2x.png in Resources */,
+				3A9ECA5F176871D700297583 /* icon-report.png in Resources */,
+				3A9ECA60176871D700297583 /* icon-report@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
