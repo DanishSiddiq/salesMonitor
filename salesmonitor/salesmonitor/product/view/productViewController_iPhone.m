@@ -120,28 +120,34 @@
     UIButton *btnDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
     [btnDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnDoctorList addTarget:self action:@selector(btnNavBarPressedDoctorList:) forControlEvents:UIControlEventTouchUpInside];
-    [btnDoctorList setTag:40];
+    [btnDoctorList setTag:10];
     
     UIButton *btnProductReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
     [btnProductReport setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnProductReport addTarget:self action:@selector(btnNavBarPressedProductReport:) forControlEvents:UIControlEventTouchUpInside];
-    [btnProductReport setTag:30];
+    [btnProductReport setTag:20];
     
-    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    [btnSwitchContainer setTag:30];
+    
+    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
     [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnListView setHidden:YES];
     [btnListView setTag:10];
     
-    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
     [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnMapView setTag:20];
     
+    
+    [btnSwitchContainer addSubview:btnListView];
+    [btnSwitchContainer addSubview:btnMapView];
+    
     [_navBarContainer addSubview:btnDoctorList];
     [_navBarContainer addSubview:btnProductReport];
-    [_navBarContainer addSubview:btnListView];
-    [_navBarContainer addSubview:btnMapView];
+    [_navBarContainer addSubview:btnSwitchContainer];
     
     [self.navigationController.navigationBar addSubview:_navBarContainer];
     
@@ -252,14 +258,16 @@
 
 - (void) btnNavBarPressedSwitchView : (UIButton *) sender {
     
+    UIView *btnSwitchContainer = [sender superview];
+    
     if([_mapBrick isHidden]){
         
         [self updateMapView];
         
-        [UIView transitionWithView:_navBarContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+        [UIView transitionWithView:btnSwitchContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
                         animations:^{
-                            [[_navBarContainer viewWithTag:10] setHidden:NO];
-                            [[_navBarContainer viewWithTag:20] setHidden:YES];
+                            [[btnSwitchContainer viewWithTag:10] setHidden:NO];
+                            [[btnSwitchContainer viewWithTag:20] setHidden:YES];
                             
                         } completion:^(BOOL finished) {
                             if(finished){
@@ -279,10 +287,10 @@
     }
     else{
         
-        [UIView transitionWithView:_navBarContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight
+        [UIView transitionWithView:btnSwitchContainer duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight
                         animations:^{
-                            [[_navBarContainer viewWithTag:10] setHidden:YES];
-                            [[_navBarContainer viewWithTag:20] setHidden:NO];
+                            [[btnSwitchContainer viewWithTag:10] setHidden:YES];
+                            [[btnSwitchContainer viewWithTag:20] setHidden:NO];
                             
                         } completion:^(BOOL finished) {
                             if(finished){
