@@ -75,6 +75,8 @@
 		3A9ECA6C1768946100297583 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9ECA6B1768946100297583 /* MessageUI.framework */; };
 		3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */; };
 		3A9ECA711768AE0600297583 /* doctorViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6F1768AE0600297583 /* doctorViewController_iPad.xib */; };
+		3A9ECA741768B11600297583 /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA721768B11600297583 /* icon_back.png */; };
+		3A9ECA751768B11600297583 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9ECA731768B11600297583 /* icon_back@2x.png */; };
 		3AB43CA9175DCAE5007A79BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CA8175DCAE5007A79BC /* UIKit.framework */; };
 		3AB43CAB175DCAE5007A79BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAA175DCAE5007A79BC /* Foundation.framework */; };
 		3AB43CAD175DCAE5007A79BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB43CAC175DCAE5007A79BC /* CoreGraphics.framework */; };
@@ -224,6 +226,8 @@
 		3A9ECA6D1768AE0600297583 /* doctorViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPad.h; sourceTree = "<group>"; };
 		3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPad.m; sourceTree = "<group>"; };
 		3A9ECA6F1768AE0600297583 /* doctorViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPad.xib; sourceTree = "<group>"; };
+		3A9ECA721768B11600297583 /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
+		3A9ECA731768B11600297583 /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		3AB43CA5175DCAE5007A79BC /* salesmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB43CA8175DCAE5007A79BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AB43CAA175DCAE5007A79BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -316,6 +320,8 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A9ECA721768B11600297583 /* icon_back.png */,
+				3A9ECA731768B11600297583 /* icon_back@2x.png */,
 				3A9ECA65176892DE00297583 /* icon_contact.png */,
 				3A9ECA66176892DE00297583 /* icon_mail.png */,
 				3A9ECA67176892DF00297583 /* icon_sms.png */,
@@ -915,6 +921,8 @@
 				3A9ECA69176892DF00297583 /* icon_mail.png in Resources */,
 				3A9ECA6A176892DF00297583 /* icon_sms.png in Resources */,
 				3A9ECA711768AE0600297583 /* doctorViewController_iPad.xib in Resources */,
+				3A9ECA741768B11600297583 /* icon_back.png in Resources */,
+				3A9ECA751768B11600297583 /* icon_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
