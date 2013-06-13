@@ -124,13 +124,13 @@
                                                               , [UIScreen mainScreen].bounds.size.height - 80)];
     [_doctorDetailContainer setHidden:YES];
     
-    UIButton *btnViewBack = [[UIButton alloc] initWithFrame:CGRectMake(275, 6, 36, 36)];
+    UIButton *btnViewBack = [[UIButton alloc] initWithFrame:CGRectMake(275, 5, 36, 36)];
     [btnViewBack setBackgroundImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnViewBack addTarget:self action:@selector(showDoctorList) forControlEvents:UIControlEventTouchUpInside];
     [btnViewBack setTag:110];
     [btnViewBack setHidden:YES];
     
-    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 40, 304, 24)];
+    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
     lblDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorName setNumberOfLines:2];
@@ -141,7 +141,7 @@
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
     
-    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 40, 304, 24)];
+    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
     [txtDoctorName setBackgroundColor:[UIColor clearColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
@@ -154,7 +154,7 @@
     [txtDoctorName setHidden:YES];
     [txtDoctorName setTag:20];
     
-    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 65, 304, 24)];
+    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     lblDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorSpeciality setNumberOfLines:2];
@@ -165,7 +165,7 @@
     [lblDoctorSpeciality setHidden:YES];
     [lblDoctorSpeciality setTag:30];
     
-    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 65, 304, 24)];
+    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
     [txtDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
@@ -178,7 +178,7 @@
     [txtDoctorSpeciality setHidden:YES];
     [txtDoctorSpeciality setTag:40];
     
-    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 90, 304, 24)];
+    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
     [lblDoctorPhone setBackgroundColor:[UIColor clearColor]];
     lblDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorPhone setNumberOfLines:2];
@@ -189,7 +189,7 @@
     [lblDoctorPhone setHidden:YES];
     [lblDoctorPhone setTag:50];
     
-    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 90, 304, 24)];
+    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
     [txtDoctorPhone setBackgroundColor:[UIColor clearColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
@@ -203,7 +203,7 @@
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
     
-    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 115, 304, 24)];
+    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
     lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorEmail setNumberOfLines:1];
@@ -214,7 +214,7 @@
     [lblDoctorEmail setHidden:YES];
     [lblDoctorEmail setTag:70];
     
-    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 115, 304, 24)];
+    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
     [txtDoctorEmail setBackgroundColor:[UIColor clearColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
@@ -228,7 +228,7 @@
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     
-    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 140, 304, 100)];
+    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 145, 304, 100)];
     [lblDoctorAddress setBackgroundColor:[UIColor clearColor]];
     lblDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [lblDoctorAddress setNumberOfLines:5];
@@ -239,7 +239,7 @@
     lblDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [lblDoctorAddress setTag:90];
     
-    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 140, 304, 100)];
+    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 145, 304, 100)];
     [txtDoctorAddress setBackgroundColor:[UIColor clearColor]];
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
@@ -434,37 +434,13 @@
 
 - (void) showDoctorDetailSection {
     
-    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
-    
-    // branch details
-    UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
-    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
-    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
-    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
-    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
-    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
-    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
-    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
-    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
-    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
-    
-    
-    [lblDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
-    [txtDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
-    [lblDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
-    [txtDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
-    [lblDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
-    [txtDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
-    [lblDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
-    [txtDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
-    [lblDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
-    [txtDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];    
+    // populate labels and text fields
+    [self populateDoctorDetailData];
     
     // showing back button at top
     UIButton *btnViewback   = (UIButton *)[_doctorDetailContainer viewWithTag:110];
     [btnViewback setHidden:NO];
     [btnViewback setAlpha:0.0];
-    
     [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
@@ -472,9 +448,7 @@
                          [btnViewback setAlpha:1.0];
                      }
                      completion:^(BOOL finished) {
-                         
                      }];
-    
     
     // now showing content realted to only view mode means only label fields not text fields
     [self showDoctorInViewMode];
@@ -489,11 +463,11 @@
                     } ];
     
     
+    // showing lower icon bar for call, message and mail
     CGRect toFrame = CGRectMake(0
                                 , [UIScreen mainScreen].bounds.size.height - 80
                                 , [UIScreen mainScreen].bounds.size.width
                                 , 60);
-    
     [UIView animateWithDuration:2.0 animations:^{
         [_doctorContactContainer setFrame:toFrame];
         
@@ -501,44 +475,34 @@
     
 }
 
-
-- (void) showDoctorList {
+- (void) populateDoctorDetailData {
     
-    [[_doctorDetailContainer viewWithTag:10] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:20] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:30] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:40] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:50] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:60] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:70] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:80] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:90] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:100] setHidden:YES];
+    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     
+    // branch details
+    UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
-    [UIView transitionFromView:_doctorDetailContainer
-                        toView:_doctorListContainer
-                      duration:0.6f
-                       options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
-                    completion:^(BOOL finished) {
-                        
-                        [UIView animateWithDuration:1.0 animations:^{
-                            
-                            CGRect toFrame = CGRectMake(0
-                                                        , [UIScreen mainScreen].bounds.size.height
-                                                        , [UIScreen mainScreen].bounds.size.width
-                                                        , 60);
-                            [_doctorContactContainer setFrame:toFrame];
-                            
-                        } completion:^(BOOL finished) {
-                            
-                            [[self navigationController] setNavigationBarHidden:NO animated:YES];
-                        }];
-                    } ];
+    [lblDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
+    [txtDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
+    [lblDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
+    [txtDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
+    [lblDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
+    [txtDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
+    [lblDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
+    [txtDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
+    [lblDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    [txtDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     
 }
-
-
 
 - (void) showDoctorInViewMode {
     
@@ -565,7 +529,7 @@
     [lblDoctorPhone setHidden:NO];
     [lblDoctorEmail setHidden:NO];
     [lblDoctorAddress setHidden:NO];
-
+    
     // buttons
     [btnEdit setHidden:NO];
     
@@ -577,18 +541,31 @@
     [lblDoctorAddress setAlpha:0.0];
     [btnEdit setAlpha:0.0];
     
-    [UIView animateWithDuration:2.0
+    [UIView animateWithDuration:1.0
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
                      animations:^{
-                        
+                         
+                         // showing transition
                          [lblDoctorName setAlpha:1.0];
                          [lblDoctorSpeciality setAlpha:1.0];
                          [lblDoctorPhone setAlpha:1.0];
                          [lblDoctorEmail setAlpha:1.0];
                          [lblDoctorAddress setAlpha:1.0];
-            
+                         
                          [btnEdit setAlpha:1.0];
+                         
+                         // hiding transition
+                         [txtDoctorName setAlpha:0.0];
+                         [txtDoctorSpeciality setAlpha:0.0];
+                         [txtDoctorPhone setAlpha:0.0];
+                         [txtDoctorEmail setAlpha:0.0];
+                         [txtDoctorAddress setAlpha:0.0];
+                         
+                         [btnUpdate setAlpha:0.0];
+                         [btnDelete setAlpha:0.0];
+                         [btnCancel setAlpha:0.0];
+                         
                      }
                      completion:^(BOOL finished) {
                          
@@ -633,7 +610,7 @@
     [txtDoctorPhone setHidden:NO];
     [txtDoctorEmail setHidden:NO];
     [txtDoctorAddress setHidden:NO];
-
+    
     // button fields
     [btnUpdate setHidden:NO];
     [btnDelete setHidden:NO];
@@ -646,18 +623,33 @@
     [txtDoctorEmail setAlpha:0.0];
     [txtDoctorAddress setAlpha:0.0];
     
-    [UIView animateWithDuration:2.0
+    [btnUpdate setAlpha:0.0];
+    [btnDelete setAlpha:0.0];
+    [btnCancel setAlpha:0.0];
+    
+    [UIView animateWithDuration:1.0
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
                      animations:^{
                          
-                         // hinding edit fields
+                         // showing edit fields
                          [txtDoctorName setAlpha:1.0];
                          [txtDoctorSpeciality setAlpha:1.0];
                          [txtDoctorPhone setAlpha:1.0];
                          [txtDoctorEmail setAlpha:1.0];
                          [txtDoctorAddress setAlpha:1.0];
                          
+                         [btnUpdate setAlpha:1.0];
+                         [btnDelete setAlpha:1.0];
+                         [btnCancel setAlpha:1.0];
+                         
+                         [lblDoctorName setAlpha:0.0];
+                         [lblDoctorSpeciality setAlpha:0.0];
+                         [lblDoctorPhone setAlpha:0.0];
+                         [lblDoctorEmail setAlpha:0.0];
+                         [lblDoctorAddress setAlpha:0.0];
+                         
+                         [btnEdit setAlpha:0.0];
                      }
                      completion:^(BOOL finished) {
                          
@@ -669,6 +661,47 @@
                          
                          [btnEdit setHidden:YES];
                      }];
+}
+
+- (void) showDoctorList {
+    
+    [[_doctorDetailContainer viewWithTag:10] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:20] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:30] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:40] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:50] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:60] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:70] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:80] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:90] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:100] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:110] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:120] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:130] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:140] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:150] setHidden:YES];
+    
+    
+    [UIView transitionFromView:_doctorDetailContainer
+                        toView:_doctorListContainer
+                      duration:0.6f
+                       options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
+                    completion:^(BOOL finished) {
+                        
+                        [UIView animateWithDuration:1.0 animations:^{
+                            
+                            CGRect toFrame = CGRectMake(0
+                                                        , [UIScreen mainScreen].bounds.size.height
+                                                        , [UIScreen mainScreen].bounds.size.width
+                                                        , 60);
+                            [_doctorContactContainer setFrame:toFrame];
+                            
+                        } completion:^(BOOL finished) {
+                            
+                            [[self navigationController] setNavigationBarHidden:NO animated:YES];
+                        }];
+                    } ];
+    
 }
 
 @end
