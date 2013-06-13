@@ -340,11 +340,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392803774.006079"
+         timestampString = "392806040.121744"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "434"
-         endingLineNumber = "434"
+         startingLineNumber = "442"
+         endingLineNumber = "442"
          landmarkName = "@implementation doctorViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -353,11 +353,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392804683.633013"
+         timestampString = "392806040.121744"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "471"
-         endingLineNumber = "471"
+         startingLineNumber = "479"
+         endingLineNumber = "479"
          landmarkName = "-showDoctorDetailSection"
          landmarkType = "5">
       </FileBreakpoint>
@@ -366,11 +366,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392804945.947419"
+         timestampString = "392806040.121744"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "509"
-         endingLineNumber = "509"
+         startingLineNumber = "517"
+         endingLineNumber = "517"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>
@@ -379,11 +379,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392804993.643972"
+         timestampString = "392806040.121744"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "534"
-         endingLineNumber = "534"
+         startingLineNumber = "542"
+         endingLineNumber = "542"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>
