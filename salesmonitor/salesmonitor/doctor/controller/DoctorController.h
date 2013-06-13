@@ -18,7 +18,7 @@
 @required
 -(void)doctorSelected:(NSInteger) selectedIndex;
 -(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg;
-
+-(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg;
 @end
 
 @interface DoctorController : NSObject <UITableViewDataSource, UITableViewDelegate>
@@ -30,5 +30,6 @@
   viewController : (id<DoctorControllerDelegate>)viewController;
 
 - (void) add : (NSMutableDictionary *) doctor;
+- (void) update : (NSMutableDictionary *) doctor _id : (NSString *) _id;
 
 @end

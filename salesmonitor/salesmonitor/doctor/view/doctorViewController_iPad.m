@@ -246,10 +246,6 @@
 
 
 // protocols
--(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
-    
-}
-
 -(void)doctorSelected:(NSInteger) selectedIndex{
     
     _selectedIndex = selectedIndex;
@@ -263,6 +259,14 @@
     [UIView animateWithDuration:2.0 animations:^{
         [_doctorContactContainer setFrame:toFrameContactContainer];
     }];
+    
+}
+
+-(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
+    
+}
+
+-(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg {
     
 }
 

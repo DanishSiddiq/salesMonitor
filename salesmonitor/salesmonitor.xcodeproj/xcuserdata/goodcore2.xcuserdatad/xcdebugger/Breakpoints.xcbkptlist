@@ -340,11 +340,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392824717.368042"
+         timestampString = "392826406.51968"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "551"
-         endingLineNumber = "551"
+         startingLineNumber = "586"
+         endingLineNumber = "586"
          landmarkName = "@implementation doctorViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -353,11 +353,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392824717.368042"
+         timestampString = "392826406.51968"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "714"
-         endingLineNumber = "714"
+         startingLineNumber = "749"
+         endingLineNumber = "749"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>
@@ -366,11 +366,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392824717.368042"
+         timestampString = "392826406.51968"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "740"
-         endingLineNumber = "740"
+         startingLineNumber = "775"
+         endingLineNumber = "775"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>
@@ -385,6 +385,19 @@
          startingLineNumber = "408"
          endingLineNumber = "408"
          landmarkName = "-btnPressedAdd:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
+         timestampString = "392826602.596738"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "563"
+         endingLineNumber = "563"
+         landmarkName = "-doctorAdd:msg:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

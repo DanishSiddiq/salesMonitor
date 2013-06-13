@@ -160,7 +160,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     }
     else{
         
-        NSString *urlString = [NSString stringWithFormat:KEY_SERVER_URL_LOGIN];
+        NSString *urlString = [NSString stringWithFormat:KEY_SERVER_URL_DOCTOR_ADD, [[_salesMonitorDelegate userData] valueForKey:KEY_USER_ID]];
         NSURL *url = [NSURL URLWithString:urlString];
         
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -177,6 +177,8 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
             [SVProgressHUD dismiss];
             
             if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
+                
+                [self addDoctorInMemory:doctor];
                 [_viewController doctorAdd:YES msg:@"Added Successfully"];
             }
         }
@@ -186,7 +188,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
                                              NSLog(@"ERROR saving publish message to server: %@", error);
                                              
                                              if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
-                                                 [_viewController doctorAdd:YES msg:@"Custm message from server"];
+                                                 [_viewController doctorAdd:NO msg:@"Custm message from server"];
                                              }
                                          }];
         
@@ -196,9 +198,66 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     }
 }
 
+- (void) update : (NSMutableDictionary *) doctor _id : (NSString *) _id{
+    
+    if(![_salesMonitorDelegate isNetworkAvailable]){
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Network Issue" andMessage:@"Internet not available"];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+        
+    }
+    else{
+        
+        NSString *urlString = [NSString stringWithFormat:KEY_SERVER_URL_DOCTOR_UPDATE, _id];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+        httpClient.parameterEncoding = AFJSONParameterEncoding;
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:doctor];
+        
+        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+        
+        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
+            [SVProgressHUD dismiss];
+            
+            if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
+                [self updateDoctorInMemory:doctor];
+                [_viewController doctorUpdate:YES msg:@"Added Successfully"];
+            }
+        }
+                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             
+                                             [SVProgressHUD dismiss];
+                                             NSLog(@"ERROR saving publish message to server: %@", error);
+                                             
+                                             if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
+                                                 [_viewController doctorUpdate:NO msg:@"Custm message from server"];
+                                             }
+                                         }];
+        
+        operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
+        [operation start];
+        [SVProgressHUD showWithStatus:@"Updating" maskType:SVProgressHUDMaskTypeClear];
+    }    
+}
+
 // adding doctor in list
 - (void) addDoctorInMemory : (NSMutableDictionary *) doctor {
     [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:doctor];
+}
+
+- (void) updateDoctorInMemory : (NSMutableDictionary *) doctor {
+    // need to write logic for it to update the same doctor in memory
+    
 }
 
 @end

@@ -428,6 +428,22 @@
 
 -(void) btnPressedUpdate: (UIButton *) sender{
     
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
+    
+    NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   txtDoctorName.text, KEY_DOCTORS_NAME
+                                   , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
+                                   , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
+                                   , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
+                                   , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
+                                   , nil];
+    
+    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];    
+    [_doctorController update:doctor _id:[selectedDoctor valueForKey:KEY_DOCTORS_ID]];
 }
 
 -(void) btnPressedDelete: (UIButton *) sender{
@@ -523,6 +539,25 @@
 
 
 // protocols
+-(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg{
+    
+    if(isSuccess){
+        [self.view endEditing:YES];
+        [self showDoctorList];
+        [_tblDoctor reloadData];
+    }
+    else{
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:msg];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+    }
+}
+
 -(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
     
     if(isSuccess){
