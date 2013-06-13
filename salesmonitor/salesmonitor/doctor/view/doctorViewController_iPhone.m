@@ -73,6 +73,7 @@
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
     _doctorController = [[DoctorController alloc] init:_isIphone
                                             loadDoctor:[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS]
+                                  salesMonitorDelegate:_salesMonitorDelegate
                                         viewController:self];
 }
 
@@ -403,6 +404,22 @@
 }
 
 -(void) btnPressedAdd: (UIButton *) sender{
+    
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
+    
+    NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                   txtDoctorName.text, KEY_DOCTORS_NAME
+                                   , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
+                                   , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
+                                   , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
+                                   , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
+                                   , nil];
+    
+    [_doctorController add:doctor];
 }
 
 -(void) btnPressedEdit: (UIButton *) sender{
@@ -482,12 +499,14 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
-                                                        message:@"Your device doesn't support the composer sheet"
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:nil];
-        [alert show];
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:@"Your device doesn't support the composer sheet"];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
     }
 }
 
@@ -504,6 +523,25 @@
 
 
 // protocols
+-(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
+    
+    if(isSuccess){
+        [self.view endEditing:YES];
+        [self showDoctorList];
+        [_tblDoctor reloadData];
+    }
+    else{
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:msg];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+    }
+}
+
 -(void)doctorSelected:(NSInteger) selectedIndex{
     
     _selectedIndex = selectedIndex;
@@ -535,15 +573,14 @@
                         [[self navigationController] setNavigationBarHidden:YES animated:YES];
                     } ];
     
+    // populate labels and text fields as per mode
+    [self populateDoctorDetailData:isAddMode];
+    
     if(isAddMode){
         
         [self showDoctorInAddMode];
     }
     else{
-        
-        // populate labels and text fields
-        [self populateDoctorDetailData];
-        
         // now showing content realted to only view mode means only label fields not text fields
         [self showDoctorInViewMode];
         
@@ -560,9 +597,10 @@
     }
 }
 
-- (void) populateDoctorDetailData {
+- (void) populateDoctorDetailData : (BOOL) isAddMode{
     
-    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
+    NSMutableDictionary *selectedDoctor =
+    isAddMode ? nil : [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     
     // branch details
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
@@ -576,16 +614,16 @@
     UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
-    [lblDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
-    [txtDoctorName setText:[selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
-    [lblDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
-    [txtDoctorSpeciality setText:[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
-    [lblDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
-    [txtDoctorPhone setText:[NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
-    [lblDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
-    [txtDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
-    [lblDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
-    [txtDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    [lblDoctorName setText: isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
+    [txtDoctorName setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
+    [lblDoctorSpeciality setText:isAddMode ? @"" :[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
+    [txtDoctorSpeciality setText:isAddMode ? @"" :[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
+    [lblDoctorPhone setText:isAddMode ? @"" : [NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
+    [txtDoctorPhone setText:isAddMode ? @"" : [NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
+    [lblDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
+    [txtDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
+    [lblDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    [txtDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     
 }
 
@@ -610,7 +648,7 @@
     
     // showing view fields
     // labels
-    [txtDoctorAddress setHidden:NO];
+    [txtDoctorName setHidden:NO];
     [txtDoctorSpeciality setHidden:NO];
     [txtDoctorPhone setHidden:NO];
     [txtDoctorEmail setHidden:NO];

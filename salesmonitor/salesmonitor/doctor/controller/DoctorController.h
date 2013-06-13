@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Custombutton.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 #import "applicationConstants.h"
+#import "AppDelegate.h"
 
 @protocol DoctorControllerDelegate <NSObject>
 @required
-    -(void)doctorSelected:(NSInteger) selectedIndex;
+-(void)doctorSelected:(NSInteger) selectedIndex;
+-(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg;
 
 @end
 
@@ -22,6 +26,9 @@
 
 - (id)      init : (BOOL) isIphone
       loadDoctor :(NSMutableArray *) loadDoctor
+    salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
   viewController : (id<DoctorControllerDelegate>)viewController;
+
+- (void) add : (NSMutableDictionary *) doctor;
 
 @end

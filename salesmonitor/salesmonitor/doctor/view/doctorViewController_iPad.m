@@ -73,6 +73,7 @@
     _isIphone = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone);
     _doctorController = [[DoctorController alloc] init:_isIphone
                                             loadDoctor:[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS]
+                                  salesMonitorDelegate:_salesMonitorDelegate
                                         viewController:self];
 }
 
@@ -245,6 +246,10 @@
 
 
 // protocols
+-(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
+    
+}
+
 -(void)doctorSelected:(NSInteger) selectedIndex{
     
     _selectedIndex = selectedIndex;
