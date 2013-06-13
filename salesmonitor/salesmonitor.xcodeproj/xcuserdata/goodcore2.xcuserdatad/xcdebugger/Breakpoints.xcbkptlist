@@ -340,11 +340,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392806040.121744"
+         timestampString = "392822058.362561"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "442"
-         endingLineNumber = "442"
+         startingLineNumber = "513"
+         endingLineNumber = "513"
          landmarkName = "@implementation doctorViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -353,24 +353,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392806040.121744"
+         timestampString = "392822058.362561"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "479"
-         endingLineNumber = "479"
-         landmarkName = "-showDoctorDetailSection"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392806040.121744"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "517"
-         endingLineNumber = "517"
+         startingLineNumber = "676"
+         endingLineNumber = "676"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>
@@ -379,11 +366,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPhone.m"
-         timestampString = "392806040.121744"
+         timestampString = "392822058.362561"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "542"
-         endingLineNumber = "542"
+         startingLineNumber = "702"
+         endingLineNumber = "702"
          landmarkName = "-showDoctorInViewMode"
          landmarkType = "5">
       </FileBreakpoint>

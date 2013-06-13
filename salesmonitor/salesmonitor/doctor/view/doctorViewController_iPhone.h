@@ -16,7 +16,9 @@
                                                             , UITableViewDataSource
                                                             , DoctorControllerDelegate
                                                             , MFMailComposeViewControllerDelegate
-                                                            , MFMessageComposeViewControllerDelegate  >
+                                                            , MFMessageComposeViewControllerDelegate
+                                                            , UITextFieldDelegate
+                                                            , UITextViewDelegate>
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil

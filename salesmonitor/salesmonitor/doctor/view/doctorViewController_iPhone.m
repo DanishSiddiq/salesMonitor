@@ -77,16 +77,31 @@
 }
 
 - (void) initializeViews {
+    
     [self customizeNavigationBar];
     [self initializeMainView];
     [self initializeDoctorListContainer ];
     [self initializeDoctorTable];
-    [self initializeDoctorDetailContaiiner];
+    [self initializeDoctorDetailContainer];
     [self initializeDoctorContactContainer];
 }
 
 - (void) customizeNavigationBar{
+    
     [_navBarContainer setHidden:YES];
+    
+    UIButton *btnNavBarAdd = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 20)];
+    [btnNavBarAdd setImage:[UIImage imageNamed:@"titlebar-add-btn"] forState:UIControlStateNormal];
+    btnNavBarAdd.imageView.contentMode = UIViewContentModeScaleToFill;
+    [btnNavBarAdd addTarget:self action:@selector(btnPressedNavBarAdd:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarAdd];
+
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
+    [btnNavBarBack setImage:[UIImage imageNamed:@"titlebar-back-btn"] forState:UIControlStateNormal];
+    btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
+    [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
+    
 }
 
 - (void) initializeMainView {
@@ -116,7 +131,7 @@
     [_doctorListContainer addSubview:_tblDoctor];
 }
 
-- (void) initializeDoctorDetailContaiiner{
+- (void) initializeDoctorDetailContainer{
     
     _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake(0
                                                               , 0
@@ -126,11 +141,11 @@
     
     UIButton *btnViewBack = [[UIButton alloc] initWithFrame:CGRectMake(275, 5, 32, 32)];
     [btnViewBack setBackgroundImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnViewBack addTarget:self action:@selector(showDoctorList) forControlEvents:UIControlEventTouchUpInside];
+    [btnViewBack addTarget:self action:@selector(btnPressedBack:) forControlEvents:UIControlEventTouchUpInside];
     [btnViewBack setTag:110];
     [btnViewBack setHidden:YES];
     
-    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 55, 304, 24)];
+    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
     lblDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorName setNumberOfLines:2];
@@ -141,7 +156,8 @@
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
     
-    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 55, 304, 24)];
+    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
+    [txtDoctorName setPlaceholder:@"name"];
     [txtDoctorName setBackgroundColor:[UIColor clearColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
@@ -152,9 +168,10 @@
     [txtDoctorName setBorderStyle:UITextBorderStyleRoundedRect];
     [txtDoctorName setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorName setHidden:YES];
+    [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
     
-    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 80, 304, 24)];
+    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     lblDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorSpeciality setNumberOfLines:2];
@@ -165,7 +182,8 @@
     [lblDoctorSpeciality setHidden:YES];
     [lblDoctorSpeciality setTag:30];
     
-    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 80, 304, 24)];
+    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
+    [txtDoctorSpeciality setPlaceholder:@"spciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
@@ -175,10 +193,11 @@
     [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorSpeciality setBorderStyle:UITextBorderStyleRoundedRect];
     [txtDoctorSpeciality setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [txtDoctorSpeciality setDelegate:self];
     [txtDoctorSpeciality setHidden:YES];
     [txtDoctorSpeciality setTag:40];
     
-    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 105, 304, 24)];
+    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
     [lblDoctorPhone setBackgroundColor:[UIColor clearColor]];
     lblDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorPhone setNumberOfLines:2];
@@ -189,7 +208,8 @@
     [lblDoctorPhone setHidden:YES];
     [lblDoctorPhone setTag:50];
     
-    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 105, 304, 24)];
+    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
+    [txtDoctorPhone setPlaceholder:@"+14134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor clearColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
@@ -200,10 +220,20 @@
     [txtDoctorPhone setBorderStyle:UITextBorderStyleRoundedRect];
     [txtDoctorPhone setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorPhone setKeyboardType:UIKeyboardTypeDecimalPad];
+    [txtDoctorPhone setDelegate:self];
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
     
-    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 130, 304, 24)];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                               target:self
+                                                                               action:@selector(btnPressedNumericTextFieldResign:)];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbar.tintColor = [UIColor blackColor];
+    toolbar.items = [NSArray arrayWithObject:barButton];
+    txtDoctorPhone.inputAccessoryView = toolbar;
+    
+    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
     lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorEmail setNumberOfLines:1];
@@ -214,7 +244,8 @@
     [lblDoctorEmail setHidden:YES];
     [lblDoctorEmail setTag:70];
     
-    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 130, 304, 24)];
+    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
+    [txtDoctorEmail setPlaceholder:@"name@mail.com"];
     [txtDoctorEmail setBackgroundColor:[UIColor clearColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
@@ -225,13 +256,14 @@
     [txtDoctorEmail setBorderStyle:UITextBorderStyleRoundedRect];
     [txtDoctorEmail setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorEmail setKeyboardType:UIKeyboardTypeEmailAddress];
+    [txtDoctorEmail setDelegate:self];
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     
-    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 155, 304, 100)];
+    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 145, 304, 60)];
     [lblDoctorAddress setBackgroundColor:[UIColor clearColor]];
     lblDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
-    [lblDoctorAddress setNumberOfLines:5];
+    [lblDoctorAddress setNumberOfLines:4];
     [lblDoctorAddress setTextColor:[UIColor grayColor]];
     lblDoctorAddress.contentMode = UIViewContentModeTopLeft;
     [lblDoctorAddress adjustsFontSizeToFitWidth];
@@ -239,52 +271,64 @@
     lblDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [lblDoctorAddress setTag:90];
     
-    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 155, 304, 100)];
+    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 145, 304, 60)];
     [txtDoctorAddress setBackgroundColor:[UIColor clearColor]];
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
     txtDoctorAddress.contentMode = UIViewContentModeTopLeft;
     [txtDoctorAddress.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorAddress.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorAddress.layer setCornerRadius:6];
+    [txtDoctorAddress.layer setBorderWidth:1.0];
     [txtDoctorAddress setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [txtDoctorAddress setDelegate:self];
     [txtDoctorAddress setHidden:YES];
     txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
     
-    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(120, 265, 80, 25)];
+    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
+    [btnAdd setTitle:@"Add" forState:UIControlStateNormal & UIControlStateSelected];
+    [btnAdd setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
+    [[btnAdd titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
+    [btnAdd.layer setCornerRadius:4];
+    [btnAdd addTarget:self action:@selector(btnPressedAdd:) forControlEvents:UIControlEventTouchUpInside];
+    [btnAdd setTag:120];
+    [btnAdd setHidden:YES];
+    
+    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
     [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
     [btnEdit setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnEdit titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
     [btnEdit.layer setCornerRadius:4];
     [btnEdit addTarget:self action:@selector(btnPressedEdit:) forControlEvents:UIControlEventTouchUpInside];
-    [btnEdit setTag:120];
+    [btnEdit setTag:130];
     [btnEdit setHidden:YES];
     
-    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(20, 265, 80, 25)];
+    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(20, 210, 80, 25)];
     [btnUpdate setTitle:@"Update" forState:UIControlStateNormal & UIControlStateSelected];
     [btnUpdate setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnUpdate titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
     [btnUpdate.layer setCornerRadius:4];
     [btnUpdate addTarget:self action:@selector(btnPressedUpdate:) forControlEvents:UIControlEventTouchUpInside];
-    [btnUpdate setTag:130];
+    [btnUpdate setTag:140];
     [btnUpdate setHidden:YES];
     
-    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(120, 265, 80, 25)];
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
     [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
     [btnDelete setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnDelete titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
     [btnDelete.layer setCornerRadius:4];
     [btnDelete addTarget:self action:@selector(btnPressedDelete:) forControlEvents:UIControlEventTouchUpInside];
-    [btnDelete setTag:140];
+    [btnDelete setTag:150];
     [btnDelete setHidden:YES];
     
-    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(220, 265, 80, 25)];
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(220, 210, 80, 25)];
     [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal & UIControlStateSelected];
     [btnCancel setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnCancel titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
     [btnCancel.layer setCornerRadius:4];
     [btnCancel addTarget:self action:@selector(btnPressedCancel:) forControlEvents:UIControlEventTouchUpInside];
-    [btnCancel setTag:150];
+    [btnCancel setTag:160];
     [btnCancel setHidden:YES];
     
     [_doctorDetailContainer addSubview:btnViewBack];
@@ -300,6 +344,7 @@
     [_doctorDetailContainer addSubview:txtDoctorAddress];
     
     // edit/view switch supported methods
+    [_doctorDetailContainer addSubview:btnAdd];
     [_doctorDetailContainer addSubview:btnEdit];
     [_doctorDetailContainer addSubview:btnUpdate];
     [_doctorDetailContainer addSubview:btnDelete];
@@ -341,6 +386,25 @@
 }
 
 // selectors
+-(void) btnPressedNavBarAdd: (UIButton *) sender{
+
+    [self showDoctorDetailSection:YES];
+}
+
+-(void) btnPressedNavBarBack: (UIButton *) sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) btnPressedBack : (UIButton *) sender{
+    
+    [self.view endEditing:YES];
+    [self showDoctorList];
+}
+
+-(void) btnPressedAdd: (UIButton *) sender{
+}
+
 -(void) btnPressedEdit: (UIButton *) sender{
     [self showDoctorInEditMode];
 }
@@ -354,7 +418,14 @@
 }
 
 - (void) btnPressedCancel : (UIButton *) sender {
+    
+    [self.view endEditing:YES];
     [self showDoctorInViewMode];
+}
+
+-(void) btnPressedNumericTextFieldResign: (UIButton *) sender{
+    
+    [self.view endEditing:YES];
 }
 
 -(void) btnPressedMessage: (UIButton *) sender{
@@ -436,14 +507,11 @@
 -(void)doctorSelected:(NSInteger) selectedIndex{
     
     _selectedIndex = selectedIndex;
-    [self showDoctorDetailSection];
+    [self showDoctorDetailSection: NO];
 }
 
 
-- (void) showDoctorDetailSection {
-    
-    // populate labels and text fields
-    [self populateDoctorDetailData];
+- (void) showDoctorDetailSection : (BOOL) isAddMode{
     
     // showing back button at top
     UIButton *btnViewback   = (UIButton *)[_doctorDetailContainer viewWithTag:110];
@@ -458,29 +526,38 @@
                      completion:^(BOOL finished) {
                      }];
     
-    // now showing content realted to only view mode means only label fields not text fields
-    [self showDoctorInViewMode];
-
     // now the whole transition taking place for the parent containers
     [UIView transitionFromView:_doctorListContainer
                         toView:_doctorDetailContainer
                       duration:0.5
                        options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
                     completion:^(BOOL finished) {
-                            [[self navigationController] setNavigationBarHidden:YES animated:YES];
+                        [[self navigationController] setNavigationBarHidden:YES animated:YES];
                     } ];
     
-    
-    // showing lower icon bar for call, message and mail
-    CGRect toFrame = CGRectMake(0
-                                , [UIScreen mainScreen].bounds.size.height - 80
-                                , [UIScreen mainScreen].bounds.size.width
-                                , 60);
-    [UIView animateWithDuration:2.0 animations:^{
-        [_doctorContactContainer setFrame:toFrame];
+    if(isAddMode){
         
+        [self showDoctorInAddMode];
+    }
+    else{
+        
+        // populate labels and text fields
+        [self populateDoctorDetailData];
+        
+        // now showing content realted to only view mode means only label fields not text fields
+        [self showDoctorInViewMode];
+        
+        
+        // showing lower icon bar for call, message and mail
+        CGRect toFrame = CGRectMake(0
+                                    , [UIScreen mainScreen].bounds.size.height - 80
+                                    , [UIScreen mainScreen].bounds.size.width
+                                    , 60);
+        [UIView animateWithDuration:2.0 animations:^{
+            [_doctorContactContainer setFrame:toFrame];
+            
         }];
-    
+    }
 }
 
 - (void) populateDoctorDetailData {
@@ -512,6 +589,88 @@
     
 }
 
+- (void) showDoctorInAddMode {
+    
+    UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
+    
+    UIButton *btnAdd   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
+    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:130];
+    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:140];
+    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:160];
+    
+    // showing view fields
+    // labels
+    [txtDoctorAddress setHidden:NO];
+    [txtDoctorSpeciality setHidden:NO];
+    [txtDoctorPhone setHidden:NO];
+    [txtDoctorEmail setHidden:NO];
+    [txtDoctorAddress setHidden:NO];
+    
+    // buttons
+    [btnAdd setHidden:NO];
+    
+    // seting alpha for transition effect
+    [txtDoctorName setAlpha:0.0];
+    [txtDoctorSpeciality setAlpha:0.0];
+    [txtDoctorPhone setAlpha:0.0];
+    [txtDoctorEmail setAlpha:0.0];
+    [txtDoctorAddress setAlpha:0.0];
+    [btnAdd setAlpha:0.0];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                         
+                         // showing transition
+                         [txtDoctorName setAlpha:1.0];
+                         [txtDoctorSpeciality setAlpha:1.0];
+                         [txtDoctorPhone setAlpha:1.0];
+                         [txtDoctorEmail setAlpha:1.0];
+                         [txtDoctorAddress setAlpha:1.0];
+                         
+                         [btnAdd setAlpha:1.0];
+                         
+                         // hiding transition
+                         [lblDoctorName setAlpha:0.0];
+                         [lblDoctorSpeciality setAlpha:0.0];
+                         [lblDoctorPhone setAlpha:0.0];
+                         [lblDoctorEmail setAlpha:0.0];
+                         [lblDoctorAddress setAlpha:0.0];
+                         
+                         [btnEdit setAlpha:0.0];
+                         [btnUpdate setAlpha:0.0];
+                         [btnDelete setAlpha:0.0];
+                         [btnCancel setAlpha:0.0];
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         
+                         // hinding edit fields
+                         [lblDoctorName setHidden:YES];
+                         [lblDoctorSpeciality setHidden:YES];
+                         [lblDoctorPhone setHidden:YES];
+                         [lblDoctorEmail setHidden:YES];
+                         [lblDoctorAddress setHidden:YES];
+                         
+                         [btnEdit setHidden:YES];
+                         [btnUpdate setHidden:YES];
+                         [btnDelete setHidden:YES];
+                         [btnCancel setHidden:YES];
+                         
+                     }];
+}
+
 - (void) showDoctorInViewMode {
     
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
@@ -525,10 +684,11 @@
     UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
-    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
-    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:130];
-    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:140];
-    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    UIButton *btnAdd   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
+    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:130];
+    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:140];
+    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:160];
     
     // showing view fields
     // labels
@@ -570,6 +730,7 @@
                          [txtDoctorEmail setAlpha:0.0];
                          [txtDoctorAddress setAlpha:0.0];
                          
+                         [btnAdd setAlpha:0.0];
                          [btnUpdate setAlpha:0.0];
                          [btnDelete setAlpha:0.0];
                          [btnCancel setAlpha:0.0];
@@ -584,13 +745,13 @@
                          [txtDoctorEmail setHidden:YES];
                          [txtDoctorAddress setHidden:YES];
                          
+                         [btnAdd setHidden:YES];
                          [btnUpdate setHidden:YES];
                          [btnDelete setHidden:YES];
                          [btnCancel setHidden:YES];
                          
                      }];
 }
-
 
 - (void) showDoctorInEditMode {
     
@@ -605,11 +766,12 @@
     UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
     UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
-    
-    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
-    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:130];
-    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:140];
-    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+
+    UIButton *btnAdd   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
+    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:130];
+    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:140];
+    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:160];
     
     // showing view fields
     // text fields
@@ -657,6 +819,7 @@
                          [lblDoctorEmail setAlpha:0.0];
                          [lblDoctorAddress setAlpha:0.0];
                          
+                         [btnAdd setAlpha:0.0];
                          [btnEdit setAlpha:0.0];
                      }
                      completion:^(BOOL finished) {
@@ -668,6 +831,7 @@
                          [lblDoctorAddress setHidden:YES];
                          
                          [btnEdit setHidden:YES];
+                         [btnAdd setHidden:YES];
                      }];
 }
 
@@ -688,6 +852,7 @@
     [[_doctorDetailContainer viewWithTag:130] setHidden:YES];
     [[_doctorDetailContainer viewWithTag:140] setHidden:YES];
     [[_doctorDetailContainer viewWithTag:150] setHidden:YES];
+    [[_doctorDetailContainer viewWithTag:160] setHidden:YES];
     
     
     [UIView transitionFromView:_doctorDetailContainer
@@ -709,6 +874,26 @@
                             [[self navigationController] setNavigationBarHidden:NO animated:YES];
                         }];
                     } ];
+    
+}
+
+// text field delegate
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+// text view delegate
+- (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    
+    if([text isEqualToString:@"\n"]){
+        [textView resignFirstResponder];
+        return NO;
+    }
+    else{
+        return YES;
+    }
     
 }
 
