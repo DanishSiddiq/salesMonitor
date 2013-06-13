@@ -147,6 +147,10 @@
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
     txtDoctorName.contentMode = UIViewContentModeBottomLeft;
     txtDoctorName.textAlignment = NSTextAlignmentCenter;
+    [txtDoctorName.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
+    [txtDoctorName.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorName setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorName setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorName setHidden:YES];
     [txtDoctorName setTag:20];
     
@@ -167,6 +171,10 @@
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     txtDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
     txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
+    [txtDoctorSpeciality.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
+    [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorSpeciality setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorSpeciality setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorSpeciality setHidden:YES];
     [txtDoctorSpeciality setTag:40];
     
@@ -187,9 +195,13 @@
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
     txtDoctorPhone.contentMode = UIViewContentModeBottomLeft;
     txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
+    [txtDoctorPhone.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
+    [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorPhone setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorPhone setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [txtDoctorPhone setKeyboardType:UIKeyboardTypeDecimalPad];
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
-    
     
     UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 115, 304, 24)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
@@ -208,6 +220,11 @@
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
     txtDoctorEmail.contentMode = UIViewContentModeBottomLeft;
     txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
+    [txtDoctorEmail.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
+    [txtDoctorEmail.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorEmail setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorEmail setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [txtDoctorEmail setKeyboardType:UIKeyboardTypeEmailAddress];
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     
@@ -227,9 +244,40 @@
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
     txtDoctorAddress.contentMode = UIViewContentModeTopLeft;
+    [txtDoctorAddress.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
+    [txtDoctorAddress.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
+    [txtDoctorAddress setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorAddress setHidden:YES];
     txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
+    
+    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(140, 260, 60, 30)];
+    [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
+    [[btnEdit titleLabel] setTextColor:[UIColor darkGrayColor]];
+    [btnEdit addTarget:self action:@selector(btnPressedEdit:) forControlEvents:UIControlEventTouchUpInside];
+    [btnEdit setTag:120];
+    [btnEdit setHidden:YES];
+    
+    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(50, 260, 60, 30)];
+    [btnUpdate setTitle:@"Update" forState:UIControlStateNormal & UIControlStateSelected];
+    [[btnUpdate titleLabel] setTextColor:[UIColor darkGrayColor]];
+    [btnUpdate addTarget:self action:@selector(btnPressedUpdate:) forControlEvents:UIControlEventTouchUpInside];
+    [btnUpdate setTag:130];
+    [btnUpdate setHidden:YES];
+    
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(130, 260, 60, 30)];
+    [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
+    [[btnDelete titleLabel] setTextColor:[UIColor darkGrayColor]];
+    [btnDelete addTarget:self action:@selector(btnPressedDelete:) forControlEvents:UIControlEventTouchUpInside];
+    [btnDelete setTag:140];
+    [btnDelete setHidden:YES];
+    
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(220, 260, 60, 30)];
+    [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal & UIControlStateSelected];
+    [[btnCancel titleLabel] setTextColor:[UIColor darkGrayColor]];
+    [btnCancel addTarget:self action:@selector(btnPressedCancel:) forControlEvents:UIControlEventTouchUpInside];
+    [btnCancel setTag:150];
+    [btnCancel setHidden:YES];
     
     [_doctorDetailContainer addSubview:btnViewBack];
     [_doctorDetailContainer addSubview:lblDoctorName];
@@ -242,6 +290,12 @@
     [_doctorDetailContainer addSubview:txtDoctorEmail];
     [_doctorDetailContainer addSubview:lblDoctorAddress];
     [_doctorDetailContainer addSubview:txtDoctorAddress];
+    
+    // edit/view switch supported methods
+    [_doctorDetailContainer addSubview:btnEdit];
+    [_doctorDetailContainer addSubview:btnUpdate];
+    [_doctorDetailContainer addSubview:btnDelete];
+    [_doctorDetailContainer addSubview:btnCancel];
     
     [self.view addSubview:_doctorDetailContainer];
 }
@@ -279,15 +333,23 @@
 }
 
 // selectors
--(void)doctorEdit: (UIButton *) sender{
+-(void) btnPressedEdit: (UIButton *) sender{
+    [self showDoctorInEditMode];
+}
+
+-(void) btnPressedUpdate: (UIButton *) sender{
     
 }
 
--(void)doctorDelete: (UIButton *) sender{
+-(void) btnPressedDelete: (UIButton *) sender{
     
 }
 
--(void) doctorMessage : (UIButton *) sender{
+- (void) btnPressedCancel : (UIButton *) sender {
+    [self showDoctorInViewMode];
+}
+
+-(void) btnPressedMessage: (UIButton *) sender{
     
     if([MFMessageComposeViewController canSendText])
     {
@@ -304,7 +366,7 @@
     }
 }
 
--(void) doctorCall : (UIButton *) sender{
+-(void) btnPressedCall : (UIButton *) sender{
 
     NSMutableDictionary *doctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     NSString *phoneNumber = [NSString stringWithFormat:@"%@", [doctor valueForKey:KEY_DOCTORS_PHONE]];
@@ -314,7 +376,7 @@
     [myApp openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", cleanedString]]];
 }
 
--(void) doctorMail : (UIButton *) sender{
+-(void) btnPressedMail  : (UIButton *) sender{
     
     if ([MFMailComposeViewController canSendMail])
     {
@@ -374,12 +436,7 @@
     
     NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     
-    // hiding update bar and showing other content related to view
-    [_doctorDetailContainer setHidden:NO];
-    [_doctorDetailContainer setAlpha:0.0];
-    
     // branch details
-    UIButton *btnViewback           = (UIButton *)[_doctorDetailContainer viewWithTag:110];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
@@ -401,44 +458,28 @@
     [lblDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
     [txtDoctorEmail setText:[selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
     [lblDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
-    [txtDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    [txtDoctorAddress setText:[selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];    
     
+    // showing back button at top
+    UIButton *btnViewback   = (UIButton *)[_doctorDetailContainer viewWithTag:110];
     [btnViewback setHidden:NO];
-    [lblDoctorName setHidden:NO];
-    [txtDoctorName setHidden:YES];
-    [lblDoctorSpeciality setHidden:NO];
-    [txtDoctorSpeciality setHidden:YES];
-    [lblDoctorPhone setHidden:NO];
-    [txtDoctorPhone setHidden:YES];
-    [lblDoctorEmail setHidden:NO];
-    [txtDoctorEmail setHidden:YES];
-    [lblDoctorAddress setHidden:NO];
-    [txtDoctorAddress setHidden:YES];
-    
     [btnViewback setAlpha:0.0];
-    [lblDoctorName setAlpha:0.0];
-    [lblDoctorSpeciality setAlpha:0.0];
-    [lblDoctorPhone setAlpha:0.0];
-    [lblDoctorEmail setAlpha:0.0];
-    [lblDoctorAddress setAlpha:0.0];
     
     [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
                      animations:^{
-                         
-                         [_doctorDetailContainer setAlpha:1.0];
                          [btnViewback setAlpha:1.0];
-                         [lblDoctorName setAlpha:1.0];
-                         [lblDoctorSpeciality setAlpha:1.0];
-                         [lblDoctorPhone setAlpha:1.0];
-                         [lblDoctorEmail setAlpha:1.0];
-                         [lblDoctorAddress setAlpha:1.0];
-                         
                      }
                      completion:^(BOOL finished) {
+                         
                      }];
     
+    
+    // now showing content realted to only view mode means only label fields not text fields
+    [self showDoctorInViewMode];
+
+    // now the whole transition taking place for the parent containers
     [UIView transitionFromView:_doctorListContainer
                         toView:_doctorDetailContainer
                       duration:0.5
@@ -497,8 +538,137 @@
     
 }
 
+
+
+- (void) showDoctorInViewMode {
+    
+    UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
+    
+    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
+    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:130];
+    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:140];
+    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    
+    // showing view fields
+    // labels
+    [lblDoctorName setHidden:NO];
+    [lblDoctorSpeciality setHidden:NO];
+    [lblDoctorPhone setHidden:NO];
+    [lblDoctorEmail setHidden:NO];
+    [lblDoctorAddress setHidden:NO];
+
+    // buttons
+    [btnEdit setHidden:NO];
+    
+    // seting alpha for transition effect
+    [lblDoctorName setAlpha:0.0];
+    [lblDoctorSpeciality setAlpha:0.0];
+    [lblDoctorPhone setAlpha:0.0];
+    [lblDoctorEmail setAlpha:0.0];
+    [lblDoctorAddress setAlpha:0.0];
+    [btnEdit setAlpha:0.0];
+    
+    [UIView animateWithDuration:2.0
+                          delay:0.0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                        
+                         [lblDoctorName setAlpha:1.0];
+                         [lblDoctorSpeciality setAlpha:1.0];
+                         [lblDoctorPhone setAlpha:1.0];
+                         [lblDoctorEmail setAlpha:1.0];
+                         [lblDoctorAddress setAlpha:1.0];
+            
+                         [btnEdit setAlpha:1.0];
+                     }
+                     completion:^(BOOL finished) {
+                         
+                         // hinding edit fields
+                         [txtDoctorName setHidden:YES];
+                         [txtDoctorSpeciality setHidden:YES];
+                         [txtDoctorPhone setHidden:YES];
+                         [txtDoctorEmail setHidden:YES];
+                         [txtDoctorAddress setHidden:YES];
+                         
+                         [btnUpdate setHidden:YES];
+                         [btnDelete setHidden:YES];
+                         [btnCancel setHidden:YES];
+                         
+                     }];
+}
+
+
 - (void) showDoctorInEditMode {
     
+    
+    UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
+    UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
+    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
+    UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
+    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
+    UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
+    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
+    UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
+    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
+    UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
+    
+    UIButton *btnEdit   = (UIButton *)[_doctorDetailContainer viewWithTag:120];
+    UIButton *btnUpdate = (UIButton *)[_doctorDetailContainer viewWithTag:130];
+    UIButton *btnDelete = (UIButton *)[_doctorDetailContainer viewWithTag:140];
+    UIButton *btnCancel = (UIButton *)[_doctorDetailContainer viewWithTag:150];
+    
+    // showing view fields
+    // text fields
+    [txtDoctorName setHidden:NO];
+    [txtDoctorSpeciality setHidden:NO];
+    [txtDoctorPhone setHidden:NO];
+    [txtDoctorEmail setHidden:NO];
+    [txtDoctorAddress setHidden:NO];
+
+    // button fields
+    [btnUpdate setHidden:NO];
+    [btnDelete setHidden:NO];
+    [btnCancel setHidden:NO];
+    
+    // setting alpha for transition
+    [txtDoctorName setAlpha:0.0];
+    [txtDoctorSpeciality setAlpha:0.0];
+    [txtDoctorPhone setAlpha:0.0];
+    [txtDoctorEmail setAlpha:0.0];
+    [txtDoctorAddress setAlpha:0.0];
+    
+    [UIView animateWithDuration:2.0
+                          delay:0.0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                         
+                         // hinding edit fields
+                         [txtDoctorName setAlpha:1.0];
+                         [txtDoctorSpeciality setAlpha:1.0];
+                         [txtDoctorPhone setAlpha:1.0];
+                         [txtDoctorEmail setAlpha:1.0];
+                         [txtDoctorAddress setAlpha:1.0];
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         
+                         [lblDoctorName setHidden:YES];
+                         [lblDoctorSpeciality setHidden:YES];
+                         [lblDoctorPhone setHidden:YES];
+                         [lblDoctorEmail setHidden:YES];
+                         [lblDoctorAddress setHidden:YES];
+                         
+                         [btnEdit setHidden:YES];
+                     }];
 }
 
 @end
