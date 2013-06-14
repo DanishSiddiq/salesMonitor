@@ -419,7 +419,8 @@
                                    , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
                                    , nil];
     
-    [_doctorController add:doctor];
+    NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
+    [_doctorController add:doctorContainer];
 }
 
 -(void) btnPressedEdit: (UIButton *) sender{

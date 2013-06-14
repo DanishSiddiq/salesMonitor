@@ -67,6 +67,7 @@
 #define KEY_SALES_VALUE         @"salesValue"
 
 
+#define KEY_DOCTOR_ADD          @"doctor"
 #define KEY_DOCTORS             @"doctors"
 #define KEY_DOCTORS_ID          @"_id"
 #define KEY_DOCTORS_NAME        @"name"

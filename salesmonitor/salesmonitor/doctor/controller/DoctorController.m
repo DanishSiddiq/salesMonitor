@@ -252,7 +252,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 
 // adding doctor in list
 - (void) addDoctorInMemory : (NSMutableDictionary *) doctor {
-    [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:doctor];
+    [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:[doctor valueForKey:KEY_DOCTOR_ADD]];
 }
 
 - (void) updateDoctorInMemory : (NSMutableDictionary *) doctor {
