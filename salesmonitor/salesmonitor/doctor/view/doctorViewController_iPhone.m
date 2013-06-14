@@ -962,11 +962,11 @@
     
     [UIView transitionFromView:_doctorDetailContainer
                         toView:_doctorListContainer
-                      duration:0.6f
+                      duration:0.5f
                        options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
                     completion:^(BOOL finished) {
                         
-                        [UIView animateWithDuration:1.0 animations:^{
+                        [UIView animateWithDuration:0.7 animations:^{
                             
                             CGRect toFrame = CGRectMake(0
                                                         , [UIScreen mainScreen].bounds.size.height
