@@ -558,7 +558,7 @@
 
         [self showDoctorList];
         [_tblDoctor reloadData];
-        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
+        [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
         
@@ -580,7 +580,7 @@
         
         [self showDoctorList];
         [_tblDoctor reloadData];
-        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
+        [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
         
@@ -602,7 +602,7 @@
         
         [self showDoctorList];
         [_tblDoctor reloadData];
-        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
+        [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
         
