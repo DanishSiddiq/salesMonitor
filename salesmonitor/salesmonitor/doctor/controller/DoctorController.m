@@ -145,7 +145,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 }
 
 
-- (void) add : (NSMutableDictionary *) doctor {
+- (void) add : (NSMutableDictionary *) doctorContainer {
     
     if(![_salesMonitorDelegate isNetworkAvailable]){
         
@@ -165,7 +165,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         httpClient.parameterEncoding = AFJSONParameterEncoding;
-        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:doctor];
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:doctorContainer];
         
         AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
         
@@ -178,7 +178,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
             
             if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
                 
-                [self addDoctorInMemory:doctor];
+                [self addDoctorInMemory:JSON];
                 [_viewController doctorAdd:YES msg:@"Added Successfully"];
             }
         }
@@ -305,7 +305,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 
 // adding doctor in list(memory)
 - (void) addDoctorInMemory : (NSMutableDictionary *) doctor {
-    [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:[doctor valueForKey:KEY_DOCTOR_ADD]];
+    [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:doctor];
 }
 
 // updating doctor in list(memory)

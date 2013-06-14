@@ -32,5 +32,6 @@
 
 - (void) add : (NSMutableDictionary *) doctorContainer;
 - (void) update : (NSMutableDictionary *) doctorContainer _id : (NSString *) _id;
+- (void) delete : (NSMutableDictionary *) doctor;
 
 @end
