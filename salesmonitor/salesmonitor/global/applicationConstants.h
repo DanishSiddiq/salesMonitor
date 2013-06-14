@@ -30,6 +30,9 @@
 #define KEY_GRAPH_XML_FILE_UNIT     @"barChartUnit.xml"
 #define KEY_GRAPH_XML_FILE_VALUE    @"barChartValue.xml"
 
+// error in network calls
+#define KEY_ERROR @"error"
+
 // data triversing
 #define KEY_USER_ID     @"_id"
 

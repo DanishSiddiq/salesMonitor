@@ -166,39 +166,34 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         httpClient.parameterEncoding = AFJSONParameterEncoding;
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:doctorContainer];
-        
-        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-        
-        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
-        }];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
-            [SVProgressHUD dismiss];
-            
-            if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
-                
-                [self addDoctorInMemory:JSON];
-                [_viewController doctorAdd:YES msg:@"Added Successfully"];
-            }
-        }
-                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                             
-                                             [SVProgressHUD dismiss];
-                                             NSLog(@"ERROR saving publish message to server: %@", error);
-                                             
-                                             if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
-                                                 [_viewController doctorAdd:NO msg:@"Custm message from server"];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                             JSONRequestOperationWithRequest:request
+                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
+                                                     
+                                                     [self addDoctorInMemory:JSON];
+                                                     [_viewController doctorAdd:YES msg:@"Added Successfully"];
+                                                 }
                                              }
-                                         }];
-        
+                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
+                                                     [_viewController doctorAdd:NO msg:[JSON valueForKey:KEY_ERROR]];
+                                                 }
+                                             }];
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
+        
         [SVProgressHUD showWithStatus:@"Adding" maskType:SVProgressHUDMaskTypeClear];
     }
 }
 
-- (void) update : (NSMutableDictionary *) doctorContainer _id : (NSString *) _id{
+- (void) update : (NSMutableDictionary *) doctorContainer _id: (NSString *) _id{
     
     if(![_salesMonitorDelegate isNetworkAvailable]){
         
@@ -218,34 +213,29 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         httpClient.parameterEncoding = AFJSONParameterEncoding;
-        NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:doctorContainer];
-        
-        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-        
-        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
-        }];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
-            [SVProgressHUD dismiss];
-            
-            if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
-                [self updateDoctorInMemory:doctorContainer _id:_id];
-                [_viewController doctorUpdate:YES msg:@"Added Successfully"];
-            }
-        }
-                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                             
-                                             [SVProgressHUD dismiss];
-                                             NSLog(@"ERROR saving publish message to server: %@", error);
-                                             
-                                             if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
-                                                 [_viewController doctorUpdate:NO msg:@"Custm message from server"];
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:doctorContainer];        
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                             JSONRequestOperationWithRequest:request
+                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){                                                     
+
+                                                     [self updateDoctorInMemory:JSON _id:_id];
+                                                     [_viewController doctorUpdate:YES msg:@"Updated Successfully"];
+                                                 }
                                              }
-                                         }];
-        
+                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];                                                  
+                                                  if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
+                                                      [_viewController doctorUpdate:NO msg:[JSON valueForKey:@"error"]];
+                                                  }
+                                             }];
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
+        
         [SVProgressHUD showWithStatus:@"Updating" maskType:SVProgressHUDMaskTypeClear];
     }    
 }
@@ -273,32 +263,28 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         httpClient.parameterEncoding = AFJSONParameterEncoding;
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"DELETE" path:@"" parameters:nil];
         
-        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-        
-        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
-        }];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
-            [SVProgressHUD dismiss];
-            
-            if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
-                [self deleteDoctor:doctor];
-                [_viewController doctorDelete:YES msg:@"Added Successfully"];
-            }
-        }
-                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                             
-                                             [SVProgressHUD dismiss];
-                                             NSLog(@"ERROR saving publish message to server: %@", error);
-                                             
-                                             if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
-                                                 [_viewController doctorDelete:NO msg:@"Custm message from server"];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                             JSONRequestOperationWithRequest:request
+                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 [SVProgressHUD dismiss];
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
+                                                     [self deleteDoctor:doctor];
+                                                     [_viewController doctorDelete:YES msg:@"Deleted Successfully"];
+                                                 }
                                              }
-                                         }];
-        
+                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 NSLog(@"ERROR saving publish message to server: %@", error);
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
+                                                     [_viewController doctorDelete:NO msg:[JSON valueForKey:@"error"]];
+                                                 }
+                                             }];
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];
+        
         [SVProgressHUD showWithStatus:@"Deleting" maskType:SVProgressHUDMaskTypeClear];
     }
 }
@@ -309,11 +295,12 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 }
 
 // updating doctor in list(memory)
-- (void) updateDoctorInMemory : (NSMutableDictionary *) doctorContainer _id : (NSString *) _id{
+- (void) updateDoctorInMemory : (NSMutableDictionary *) doctor _id: (NSString *) _id{
 
-    NSMutableDictionary *oldDoctorDefinition = [self searchDoctorByKeyValue:KEY_DOCTORS_ID value:_id];
+    NSMutableDictionary *oldDoctorDefinition = [self searchDoctorByKeyValue:KEY_DOCTORS_ID
+                                                                      value:_id];
     [oldDoctorDefinition removeAllObjects];
-    [oldDoctorDefinition addEntriesFromDictionary:[doctorContainer valueForKey:KEY_DOCTOR_ADD]];
+    [oldDoctorDefinition addEntriesFromDictionary:doctor];
 }
 
 // delete doctor in list(memory)

@@ -436,7 +436,7 @@
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
     NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   txtDoctorName.text, KEY_DOCTORS_NAME
+                                    txtDoctorName.text, KEY_DOCTORS_NAME
                                    , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
                                    , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
                                    , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
@@ -552,10 +552,13 @@
 
 -(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
     
+    [self.view endEditing:YES];
+    
     if(isSuccess){
-        [self.view endEditing:YES];
+
         [self showDoctorList];
         [_tblDoctor reloadData];
+        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
     }
     else{
         
@@ -571,11 +574,13 @@
 
 -(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg{
     
+    [self.view endEditing:YES];
+    
     if(isSuccess){
         
-        [self.view endEditing:YES];
         [self showDoctorList];
         [_tblDoctor reloadData];
+        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
     }
     else{
         
@@ -591,11 +596,13 @@
 
 -(void)doctorDelete : (BOOL) isSuccess msg : (NSString *)msg{
   
+    [self.view endEditing:YES];
+    
     if(isSuccess){
         
-        [self.view endEditing:YES];
         [self showDoctorList];
         [_tblDoctor reloadData];
+        [SVProgressHUD showSuccessWithStatus:msg duration:1.0];
     }
     else{
         
