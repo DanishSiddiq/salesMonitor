@@ -198,7 +198,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     }
 }
 
-- (void) update : (NSMutableDictionary *) doctor _id : (NSString *) _id{
+- (void) update : (NSMutableDictionary *) doctorContainer _id : (NSString *) _id{
     
     if(![_salesMonitorDelegate isNetworkAvailable]){
         
@@ -218,7 +218,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         httpClient.parameterEncoding = AFJSONParameterEncoding;
-        NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:doctor];
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"PUT" path:@"" parameters:doctorContainer];
         
         AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
         
@@ -230,7 +230,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
             [SVProgressHUD dismiss];
             
             if([_viewController respondsToSelector:@selector(doctorUpdate:msg:)]){
-                [self updateDoctorInMemory:doctor];
+                [self updateDoctorInMemory:doctorContainer _id:_id];
                 [_viewController doctorUpdate:YES msg:@"Added Successfully"];
             }
         }
@@ -250,14 +250,86 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     }    
 }
 
-// adding doctor in list
+
+- (void) delete : (NSMutableDictionary *) doctor{
+    
+    if(![_salesMonitorDelegate isNetworkAvailable]){
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Network Issue" andMessage:@"Internet not available"];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+        
+    }
+    else{
+        
+        NSString *urlString = [NSString stringWithFormat:KEY_SERVER_URL_DOCTOR_DELETE, [doctor valueForKey:KEY_DOCTORS_ID]];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+        httpClient.parameterEncoding = AFJSONParameterEncoding;
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"DELETE" path:@"" parameters:nil];
+        
+        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+        
+        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
+            [SVProgressHUD dismiss];
+            
+            if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
+                [self deleteDoctor:doctor];
+                [_viewController doctorDelete:YES msg:@"Added Successfully"];
+            }
+        }
+                                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                             
+                                             [SVProgressHUD dismiss];
+                                             NSLog(@"ERROR saving publish message to server: %@", error);
+                                             
+                                             if([_viewController respondsToSelector:@selector(doctorDelete:msg:)]){
+                                                 [_viewController doctorDelete:NO msg:@"Custm message from server"];
+                                             }
+                                         }];
+        
+        operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
+        [operation start];
+        [SVProgressHUD showWithStatus:@"Deleting" maskType:SVProgressHUDMaskTypeClear];
+    }
+}
+
+// adding doctor in list(memory)
 - (void) addDoctorInMemory : (NSMutableDictionary *) doctor {
     [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] addObject:[doctor valueForKey:KEY_DOCTOR_ADD]];
 }
 
-- (void) updateDoctorInMemory : (NSMutableDictionary *) doctor {
-    // need to write logic for it to update the same doctor in memory
+// updating doctor in list(memory)
+- (void) updateDoctorInMemory : (NSMutableDictionary *) doctorContainer _id : (NSString *) _id{
+
+    NSMutableDictionary *oldDoctorDefinition = [self searchDoctorByKeyValue:KEY_DOCTORS_ID value:_id];
+    [oldDoctorDefinition removeAllObjects];
+    [oldDoctorDefinition addEntriesFromDictionary:[doctorContainer valueForKey:KEY_DOCTOR_ADD]];
+}
+
+// delete doctor in list(memory)
+-(void) deleteDoctor : (NSMutableDictionary *) doctor {
     
+    [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] removeObject:doctor];
+}
+
+
+- (NSMutableDictionary *) searchDoctorByKeyValue : (NSString *) key  value :(NSString *) value{
+    NSInteger index = -1;
+    index = [[[_salesMonitorDelegate userData]valueForKey:KEY_DOCTORS] indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+        return ([[obj valueForKey:key] isEqualToString:value]);
+    }];
+    
+    return (index != (NSNotFound) && index != -1) ? [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:index] : nil;
 }
 
 @end

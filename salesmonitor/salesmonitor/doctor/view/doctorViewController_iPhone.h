@@ -31,5 +31,6 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 -(void)doctorSelected:(NSInteger) selectedIndex;
 -(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg;
 -(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg;
+-(void)doctorDelete : (BOOL) isSuccess msg : (NSString *)msg;
 
 @end

@@ -11,10 +11,11 @@
 #endif
 
 
-#define KEY_SERVER_URL_LOGIN    @"http://172.16.16.34:3000/login"
-#define KEY_SERVER_REPORT_SALE  @"http://172.16.16.34:3000/api/salesRep/%@/salesTrend?startDate=%@&endDate=%@&productId=%@"
-#define KEY_SERVER_URL_DOCTOR_ADD @"http://172.16.16.34:3000/api/salesRep/%@/doctor"
-#define KEY_SERVER_URL_DOCTOR_UPDATE @"http://172.16.16.34:3000/api/doctor/%@"
+#define KEY_SERVER_URL_LOGIN            @"http://172.16.16.34:3000/login"
+#define KEY_SERVER_REPORT_SALE          @"http://172.16.16.34:3000/api/salesRep/%@/salesTrend?startDate=%@&endDate=%@&productId=%@"
+#define KEY_SERVER_URL_DOCTOR_ADD       @"http://172.16.16.34:3000/api/salesRep/%@/doctor"
+#define KEY_SERVER_URL_DOCTOR_UPDATE    @"http://172.16.16.34:3000/api/doctor/%@"
+#define KEY_SERVER_URL_DOCTOR_DELETE    @"http://172.16.16.34:3000/api/doctor/%@"
 
 // local notifications
 // local notifications

@@ -443,12 +443,15 @@
                                    , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
                                    , nil];
     
-    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];    
-    [_doctorController update:doctor _id:[selectedDoctor valueForKey:KEY_DOCTORS_ID]];
+    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
+    NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
+    [_doctorController update:doctorContainer _id:[selectedDoctor valueForKey:KEY_DOCTORS_ID]];
 }
 
 -(void) btnPressedDelete: (UIButton *) sender{
     
+    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
+    [_doctorController delete:selectedDoctor];
 }
 
 - (void) btnPressedCancel : (UIButton *) sender {
@@ -540,23 +543,11 @@
 
 
 // protocols
--(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg{
+
+-(void)doctorSelected:(NSInteger) selectedIndex{
     
-    if(isSuccess){
-        [self.view endEditing:YES];
-        [self showDoctorList];
-        [_tblDoctor reloadData];
-    }
-    else{
-        
-        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:msg];
-        [alertView addButtonWithTitle:@"Ok"
-                                 type:SIAlertViewButtonTypeDestructive
-                              handler:^(SIAlertView *alertView) {
-                              }];
-        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
-        [alertView show];
-    }
+    _selectedIndex = selectedIndex;
+    [self showDoctorDetailSection: NO];
 }
 
 -(void)doctorAdd : (BOOL) isSuccess msg : (NSString *)msg{
@@ -578,12 +569,45 @@
     }
 }
 
--(void)doctorSelected:(NSInteger) selectedIndex{
+-(void)doctorUpdate : (BOOL) isSuccess msg : (NSString *)msg{
     
-    _selectedIndex = selectedIndex;
-    [self showDoctorDetailSection: NO];
+    if(isSuccess){
+        
+        [self.view endEditing:YES];
+        [self showDoctorList];
+        [_tblDoctor reloadData];
+    }
+    else{
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:msg];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+    }
 }
 
+-(void)doctorDelete : (BOOL) isSuccess msg : (NSString *)msg{
+  
+    if(isSuccess){
+        
+        [self.view endEditing:YES];
+        [self showDoctorList];
+        [_tblDoctor reloadData];
+    }
+    else{
+        
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Failure" andMessage:msg];
+        [alertView addButtonWithTitle:@"Ok"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                              }];
+        alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
+        [alertView show];
+    }
+}
 
 - (void) showDoctorDetailSection : (BOOL) isAddMode{
     

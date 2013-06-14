@@ -270,4 +270,8 @@
     
 }
 
+-(void)doctorDelete : (BOOL) isSuccess msg : (NSString *)msg{
+}
+
+
 @end
