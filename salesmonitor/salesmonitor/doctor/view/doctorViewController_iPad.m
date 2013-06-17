@@ -59,6 +59,7 @@
     
     [self initializeData];
     [self initializeViews];
+    [self showDoctorInAddMode];
 }
 
 - (void)didReceiveMemoryWarning
@@ -619,15 +620,6 @@
 }
 
 - (void) showDoctorDetailSection : (BOOL) isAddMode{
-    
-    // showing back button at top
-    [UIView animateWithDuration:2.0
-                          delay:0.0
-                        options:UIViewAnimationOptionTransitionNone
-                     animations:^{
-                     }
-                     completion:^(BOOL finished) {
-                     }];
     
     // populate labels and text fields as per mode
     [self populateDoctorDetailData:isAddMode];
