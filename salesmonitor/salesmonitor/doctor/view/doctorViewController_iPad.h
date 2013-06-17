@@ -12,6 +12,14 @@
 #import "applicationConstants.h"
 #import <MessageUI/MessageUI.h>
 
+
+typedef enum dataOperationTypes {
+    add = 1,
+    update,
+    delete
+    } dataOperation;
+
+
 @interface doctorViewController_iPad : UIViewController < UITableViewDelegate
                                                             , UITableViewDataSource
                                                             , MFMailComposeViewControllerDelegate

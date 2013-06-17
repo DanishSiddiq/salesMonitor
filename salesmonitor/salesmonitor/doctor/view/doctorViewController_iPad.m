@@ -400,12 +400,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) btnPressedBack : (UIButton *) sender{
-    
-    [self.view endEditing:YES];
-    [self showDoctorList];
-}
-
 -(void) btnPressedAdd: (UIButton *) sender{
     
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
@@ -559,8 +553,7 @@
     
     if(isSuccess){
         
-        [self showDoctorList];
-        [_tblDoctor reloadData];
+        [self updateViewAfterChangeInCoreData:add];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
@@ -581,8 +574,7 @@
     
     if(isSuccess){
         
-        [self showDoctorList];
-        [_tblDoctor reloadData];
+        [self updateViewAfterChangeInCoreData:update];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
@@ -603,8 +595,7 @@
     
     if(isSuccess){
         
-        [self showDoctorList];
-        [_tblDoctor reloadData];
+        [self updateViewAfterChangeInCoreData:delete];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
@@ -932,45 +923,26 @@
                      }];
 }
 
-- (void) showDoctorList {
+- (void) updateViewAfterChangeInCoreData : (dataOperation) operationType{
     
-    [[_doctorDetailContainer viewWithTag:10] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:20] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:30] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:40] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:50] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:60] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:70] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:80] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:90] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:100] setHidden:YES];
+    switch (operationType) {
+        case add:
+            _selectedIndex = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] count] - 1;
+            [_tblDoctor reloadData];
+            [self showDoctorDetailSection:NO];
+            break;
+        case update:
+            [_tblDoctor reloadData];
+            [self showDoctorDetailSection:NO];
+            break;
+        case delete:
+            [_tblDoctor reloadData];
+            [self showDoctorDetailSection:YES];
+            break;
+        default:
+            break;
+    }
     
-    [[_doctorDetailContainer viewWithTag:120] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:130] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:140] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:150] setHidden:YES];
-    [[_doctorDetailContainer viewWithTag:160] setHidden:YES];
-    
-    
-    [UIView transitionFromView:_doctorDetailContainer
-                        toView:_doctorListContainer
-                      duration:0.5f
-                       options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
-                    completion:^(BOOL finished) {
-                        
-                        [UIView animateWithDuration:0.7 animations:^{
-                            
-                            CGRect toFrame = CGRectMake(402
-                                                        , [UIScreen mainScreen].bounds.size.height
-                                                        , 366
-                                                        , 60);
-                            [_doctorContactContainer setFrame:toFrame];
-                            
-                        } completion:^(BOOL finished) {
-                            
-                            [[self navigationController] setNavigationBarHidden:NO animated:YES];
-                        }];
-                    } ];
     
 }
 
