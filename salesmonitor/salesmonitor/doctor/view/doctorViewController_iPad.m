@@ -149,7 +149,7 @@
                                                                       , 366
                                                                       , [UIScreen mainScreen].bounds.size.height - 125)];
     
-    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
+    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 200, 304, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
     lblDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorName setNumberOfLines:2];
@@ -160,7 +160,7 @@
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
     
-    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
+    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 200, 304, 24)];
     [txtDoctorName setPlaceholder:@"name"];
     [txtDoctorName setBackgroundColor:[UIColor clearColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
@@ -175,7 +175,7 @@
     [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
     
-    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
+    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 225, 304, 24)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     lblDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorSpeciality setNumberOfLines:2];
@@ -186,7 +186,7 @@
     [lblDoctorSpeciality setHidden:YES];
     [lblDoctorSpeciality setTag:30];
     
-    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
+    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 225, 304, 24)];
     [txtDoctorSpeciality setPlaceholder:@"spciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
@@ -201,7 +201,7 @@
     [txtDoctorSpeciality setHidden:YES];
     [txtDoctorSpeciality setTag:40];
     
-    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
+    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(8, 250, 304, 24)];
     [lblDoctorPhone setBackgroundColor:[UIColor clearColor]];
     lblDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorPhone setNumberOfLines:2];
@@ -212,7 +212,7 @@
     [lblDoctorPhone setHidden:YES];
     [lblDoctorPhone setTag:50];
     
-    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
+    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 250, 304, 24)];
     [txtDoctorPhone setPlaceholder:@"+14134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor clearColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
@@ -237,7 +237,7 @@
     toolbar.items = [NSArray arrayWithObject:barButton];
     txtDoctorPhone.inputAccessoryView = toolbar;
     
-    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
+    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(8, 275, 304, 24)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
     lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorEmail setNumberOfLines:1];
@@ -248,7 +248,7 @@
     [lblDoctorEmail setHidden:YES];
     [lblDoctorEmail setTag:70];
     
-    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 120, 304, 24)];
+    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(8, 275, 304, 24)];
     [txtDoctorEmail setPlaceholder:@"name@mail.com"];
     [txtDoctorEmail setBackgroundColor:[UIColor clearColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
@@ -264,7 +264,7 @@
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     
-    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 145, 304, 60)];
+    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 300, 304, 60)];
     [lblDoctorAddress setBackgroundColor:[UIColor clearColor]];
     lblDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [lblDoctorAddress setNumberOfLines:4];
@@ -275,7 +275,7 @@
     lblDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [lblDoctorAddress setTag:90];
     
-    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 145, 304, 60)];
+    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(8, 300, 304, 60)];
     [txtDoctorAddress setBackgroundColor:[UIColor clearColor]];
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
@@ -290,7 +290,7 @@
     txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
     
-    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
+    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(120, 365, 80, 25)];
     [btnAdd setTitle:@"Add" forState:UIControlStateNormal & UIControlStateSelected];
     [btnAdd setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnAdd titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -299,7 +299,7 @@
     [btnAdd setTag:120];
     [btnAdd setHidden:YES];
     
-    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
+    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(120, 365, 80, 25)];
     [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
     [btnEdit setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnEdit titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -308,7 +308,7 @@
     [btnEdit setTag:130];
     [btnEdit setHidden:YES];
     
-    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(20, 210, 80, 25)];
+    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(20, 365, 80, 25)];
     [btnUpdate setTitle:@"Update" forState:UIControlStateNormal & UIControlStateSelected];
     [btnUpdate setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnUpdate titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -317,7 +317,7 @@
     [btnUpdate setTag:140];
     [btnUpdate setHidden:YES];
     
-    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(120, 210, 80, 25)];
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(120, 365, 80, 25)];
     [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
     [btnDelete setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnDelete titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -326,7 +326,7 @@
     [btnDelete setTag:150];
     [btnDelete setHidden:YES];
     
-    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(220, 210, 80, 25)];
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(220, 365, 80, 25)];
     [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal & UIControlStateSelected];
     [btnCancel setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnCancel titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -643,7 +643,7 @@
         
         // showing lower icon bar for call, message and mail
         CGRect toFrame = CGRectMake(402
-                                    , [UIScreen mainScreen].bounds.size.height - 80
+                                    , [UIScreen mainScreen].bounds.size.height - 125
                                     , 366
                                     , 60);
         [UIView animateWithDuration:2.0 animations:^{
