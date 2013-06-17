@@ -148,7 +148,6 @@
                                                                       , 0
                                                                       , 366
                                                                       , [UIScreen mainScreen].bounds.size.height - 125)];
-    [_doctorDetailContainer setHidden:YES];
     
     UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
@@ -622,26 +621,13 @@
 - (void) showDoctorDetailSection : (BOOL) isAddMode{
     
     // showing back button at top
-    UIButton *btnViewback   = (UIButton *)[_doctorDetailContainer viewWithTag:110];
-    [btnViewback setHidden:NO];
-    [btnViewback setAlpha:0.0];
     [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
                      animations:^{
-                         [btnViewback setAlpha:1.0];
                      }
                      completion:^(BOOL finished) {
                      }];
-    
-    // now the whole transition taking place for the parent containers
-    [UIView transitionFromView:_doctorListContainer
-                        toView:_doctorDetailContainer
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionShowHideTransitionViews
-                    completion:^(BOOL finished) {
-                        [[self navigationController] setNavigationBarHidden:YES animated:YES];
-                    } ];
     
     // populate labels and text fields as per mode
     [self populateDoctorDetailData:isAddMode];
@@ -656,9 +642,9 @@
         
         
         // showing lower icon bar for call, message and mail
-        CGRect toFrame = CGRectMake(0
+        CGRect toFrame = CGRectMake(402
                                     , [UIScreen mainScreen].bounds.size.height - 80
-                                    , [UIScreen mainScreen].bounds.size.width
+                                    , 366
                                     , 60);
         [UIView animateWithDuration:2.0 animations:^{
             [_doctorContactContainer setFrame:toFrame];
@@ -971,9 +957,9 @@
                         
                         [UIView animateWithDuration:0.7 animations:^{
                             
-                            CGRect toFrame = CGRectMake(0
+                            CGRect toFrame = CGRectMake(402
                                                         , [UIScreen mainScreen].bounds.size.height
-                                                        , [UIScreen mainScreen].bounds.size.width
+                                                        , 366
                                                         , 60);
                             [_doctorContactContainer setFrame:toFrame];
                             
