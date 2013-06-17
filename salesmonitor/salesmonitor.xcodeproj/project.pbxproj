@@ -45,6 +45,11 @@
 		3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A74117671DDA00ADCB49 /* ChartData.m */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
+		3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */; };
+		3A95BE8E176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */; };
+		3A95BE93176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */; };
+		3A95BE96176F37E200C72D36 /* icon-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE94176F37E200C72D36 /* icon-stats.png */; };
+		3A95BE97176F37E200C72D36 /* icon-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE95176F37E200C72D36 /* icon-stats@2x.png */; };
 		3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */; };
 		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
 		3A96B45217605E17000970EC /* ProductReportViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B45017605E17000970EC /* ProductReportViewController_iPad.m */; };
@@ -186,6 +191,12 @@
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
+		3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvanceReportViewController_iPhone.h; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
+		3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvanceReportViewController_iPhone.m; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
+		3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvanceReportViewController_iPhone.xib; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
+		3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvanceReportViewController_iPad.xib; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
+		3A95BE94176F37E200C72D36 /* icon-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-stats.png"; sourceTree = "<group>"; };
+		3A95BE95176F37E200C72D36 /* icon-stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-stats@2x.png"; sourceTree = "<group>"; };
 		3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPhone.h; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
 		3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPhone.m; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
 		3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductReportViewController_iPhone.xib; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
@@ -328,6 +339,8 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A95BE94176F37E200C72D36 /* icon-stats.png */,
+				3A95BE95176F37E200C72D36 /* icon-stats@2x.png */,
 				3A9E8B051769F9A50028D433 /* titlebar-back-btn.png */,
 				3A9E8B061769F9A50028D433 /* titlebar-back-btn@2x.png */,
 				3A9E8B011769EBC10028D433 /* titlebar-add-btn.png */,
@@ -533,6 +546,18 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		3A95BE84176F2B1D00C72D36 /* ProductReportAdvance */ = {
+			isa = PBXGroup;
+			children = (
+				3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPhone.h */,
+				3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */,
+				3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */,
+				3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */,
+			);
+			name = ProductReportAdvance;
+			path = ProductreportAdvance;
+			sourceTree = "<group>";
+		};
 		3A96B44217605D6A000970EC /* productReport */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +685,7 @@
 		3AB43CAE175DCAE5007A79BC /* salesmonitor */ = {
 			isa = PBXGroup;
 			children = (
+				3A95BE84176F2B1D00C72D36 /* ProductReportAdvance */,
 				3AB43D0E175DD659007A79BC /* login */,
 				3A9480571760EFE30068A201 /* doctor */,
 				3AB43CC5175DCB59007A79BC /* product */,
@@ -939,6 +965,10 @@
 				3A9E8B041769EBC10028D433 /* titlebar-add-btn@2x.png in Resources */,
 				3A9E8B071769F9A50028D433 /* titlebar-back-btn.png in Resources */,
 				3A9E8B081769F9A50028D433 /* titlebar-back-btn@2x.png in Resources */,
+				3A95BE8E176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib in Resources */,
+				3A95BE93176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib in Resources */,
+				3A95BE96176F37E200C72D36 /* icon-stats.png in Resources */,
+				3A95BE97176F37E200C72D36 /* icon-stats@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1038,7 @@
 				3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */,
 				3A9ECA6417688C3900297583 /* Custombutton.m in Sources */,
 				3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */,
+				3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1122,7 @@
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "salesmonitor/salesmonitor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1106,6 +1138,7 @@
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "salesmonitor/salesmonitor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

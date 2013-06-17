@@ -114,39 +114,41 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 125, 0, 125, 45)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 150, 0, 150, 45)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIButton *btnDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
-    [btnDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-doctor"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnDoctorList addTarget:self action:@selector(btnNavBarPressedDoctorList:) forControlEvents:UIControlEventTouchUpInside];
-    [btnDoctorList setTag:10];
+    UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-doctor"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarDoctorList addTarget:self action:@selector(btnPressedNavBarDoctorList:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btnProductReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
-    [btnProductReport setBackgroundImage:[UIImage imageNamed:@"icon-report"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnProductReport addTarget:self action:@selector(btnNavBarPressedProductReport:) forControlEvents:UIControlEventTouchUpInside];
-    [btnProductReport setTag:20];
+    UIButton *btnNavBarProductReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
+    [btnNavBarProductReport setBackgroundImage:[UIImage imageNamed:@"icon-report"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarProductReport addTarget:self action:@selector(btnPressedNavBarProductReport:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
-    [btnSwitchContainer setTag:30];
+    UIButton *btnNavBarAdvanceReport = [[UIButton alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"icon-stats"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarAdvanceReport addTarget:self action:@selector(btnPressedNavBarAdvanceReports:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btnListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [btnListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnListView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
-    [btnListView setHidden:YES];
-    [btnListView setTag:10];
+    UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(126, 10, 22, 22)];
     
-    UIButton *btnMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [btnMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
-    [btnMapView addTarget:self action:@selector(btnNavBarPressedSwitchView:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMapView setTag:20];
+    UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarListView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavBarListView setHidden:YES];
+    [btnNavBarListView setTag:10];
+    
+    UIButton *btnNavBarMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarMapView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavBarMapView setTag:20];
     
     
-    [btnSwitchContainer addSubview:btnListView];
-    [btnSwitchContainer addSubview:btnMapView];
+    [btnSwitchContainer addSubview:btnNavBarListView];
+    [btnSwitchContainer addSubview:btnNavBarMapView];
     
-    [_navBarContainer addSubview:btnDoctorList];
-    [_navBarContainer addSubview:btnProductReport];
+    [_navBarContainer addSubview:btnNavBarDoctorList];
+    [_navBarContainer addSubview:btnNavBarProductReport];
+    [_navBarContainer addSubview:btnNavBarAdvanceReport];
     [_navBarContainer addSubview:btnSwitchContainer];
     
     [self.navigationController.navigationBar addSubview:_navBarContainer];
@@ -240,7 +242,7 @@
 
 
 // selectors
-- (void) btnNavBarPressedDoctorList : (UIButton *) sender{
+- (void) btnPressedNavBarDoctorList : (UIButton *) sender{
     
     if(_isIphone){
         
@@ -264,12 +266,22 @@
     
 }
 
-- (void) btnNavBarPressedProductReport : (UIButton *) sender{
+- (void) btnPressedNavBarAdvanceReports : (UIButton *) sender {
+    
+    AdvanceReportViewController_iPhone *advanceReportViewController =[[AdvanceReportViewController_iPhone alloc]
+                                                                      initWithNibName:_isIphone ? @"AdvanceReportViewController_iPhone" :
+                                                                      @"AdvanceReportViewController_iPad"
+                                                                      bundle:nil];
+    [self.navigationController pushViewController:advanceReportViewController animated:YES];
+    
+}
+
+- (void) btnPressedNavBarProductReport : (UIButton *) sender{
     
     [self productSelected:nil];
 }
 
-- (void) btnNavBarPressedSwitchView : (UIButton *) sender {
+- (void) btnPressedNavBarSwitchView : (UIButton *) sender {
     
     UIView *btnSwitchContainer = [sender superview];
     

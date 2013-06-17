@@ -130,7 +130,16 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 -(void) customizeNavigationBar {
     
+    // icons in navigation bar
     [_navBarContainer setHidden:YES];
+    
+    
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
+    [btnNavBarBack setImage:[UIImage imageNamed:@"titlebar-back-btn"] forState:UIControlStateNormal];
+    btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
+    [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
+    
 }
 
 - (void) initializeMainView {
@@ -298,6 +307,12 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 // selectors
+
+- (void) btnPressedNavBarBack: (UIButton *)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)btnFromPressed:(id)sender {
     
     _isBtnFromSelected = YES;

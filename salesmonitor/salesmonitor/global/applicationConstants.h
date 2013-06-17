@@ -16,6 +16,7 @@
 #define KEY_SERVER_URL_DOCTOR_ADD       @"http://172.16.16.34:3000/api/salesRep/%@/doctor"
 #define KEY_SERVER_URL_DOCTOR_UPDATE    @"http://172.16.16.34:3000/api/doctor/%@"
 #define KEY_SERVER_URL_DOCTOR_DELETE    @"http://172.16.16.34:3000/api/doctor/%@"
+#define KEY_SERVER_URL_REPORT_ADVANCE   @"http://172.16.16.34:3000/main"
 
 // local notifications
 // local notifications
