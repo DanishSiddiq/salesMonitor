@@ -755,6 +755,17 @@
                          [btnCancel setHidden:YES];
                          
                      }];
+    
+    
+    CGRect toFrame = CGRectMake(402
+                                , [UIScreen mainScreen].bounds.size.height
+                                , 366
+                                , 60);
+    [UIView animateWithDuration:2.0 animations:^{
+        [_doctorContactContainer setFrame:toFrame];
+        
+    }];
+    
 }
 
 - (void) showDoctorInViewMode {
