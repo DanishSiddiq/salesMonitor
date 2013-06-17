@@ -14,9 +14,11 @@
 
 @interface doctorViewController_iPad : UIViewController < UITableViewDelegate
                                                             , UITableViewDataSource
-                                                            , DoctorControllerDelegate
                                                             , MFMailComposeViewControllerDelegate
-                                                            , MFMessageComposeViewControllerDelegate  >
+                                                            , MFMessageComposeViewControllerDelegate
+                                                            , UITextFieldDelegate
+                                                            , UITextViewDelegate
+                                                            , DoctorControllerDelegate>
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil

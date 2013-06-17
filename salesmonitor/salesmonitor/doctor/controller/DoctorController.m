@@ -82,11 +82,12 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
         [cell setFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 70)
-                      :   CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 70) ];
+                      :   CGRectMake(0, 0, 400, 70) ];
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, [UIScreen mainScreen].bounds.size.width - 12, 16)];
+        lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 6, [UIScreen mainScreen].bounds.size.width - 12, 16) :
+                                                            CGRectMake(8, 6, 400 - 12, 16)];
         lblName.numberOfLines = 1;
         [lblName setBackgroundColor:[UIColor clearColor]];
         lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
@@ -95,7 +96,8 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
         lblName.tag = 10;
         
-        lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, [UIScreen mainScreen].bounds.size.width -12, 15)];
+        lblSpeciality = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 24, [UIScreen mainScreen].bounds.size.width -12, 15):
+                                                                    CGRectMake(8, 24, 400 -12, 15)];
         lblSpeciality.numberOfLines = 1;
         [lblSpeciality setBackgroundColor:[UIColor clearColor]];
         [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
@@ -105,7 +107,8 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         [lblSpeciality setTextColor:[UIColor grayColor]];
         lblSpeciality.tag = 20;
         
-        lblAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width -12, 28)];
+        lblAddress = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width -12, 28) :
+                                                                CGRectMake(8, 40, 400 -12, 28)];
         lblAddress.numberOfLines = 2;
         [lblAddress setBackgroundColor:[UIColor clearColor]];
         [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
