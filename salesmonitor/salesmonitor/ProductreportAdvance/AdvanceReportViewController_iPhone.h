@@ -11,4 +11,8 @@
 
 @interface AdvanceReportViewController_iPhone : UIViewController <UIWebViewDelegate>
 
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+      navBarContainer: (UIView *) navBarContainer;
+
 @end

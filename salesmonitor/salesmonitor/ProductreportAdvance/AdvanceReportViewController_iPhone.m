@@ -10,6 +10,9 @@
 
 @interface AdvanceReportViewController_iPhone ()
 
+// nav bar item at right in previous view
+@property (strong, nonatomic) UIView *navBarContainer;
+
 @property (nonatomic, strong) UIWebView *wvReport;
 
 @end
@@ -22,6 +25,19 @@
     if (self) {
         // Custom initialization
     }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+      navBarContainer: (UIView *) navBarContainer{
+    
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        _navBarContainer        = navBarContainer;
+    }
+    
     return self;
 }
 
@@ -55,6 +71,8 @@
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
     
+    
+    [_navBarContainer setHidden:YES];
 }
 
 - (void) initializeMainView {

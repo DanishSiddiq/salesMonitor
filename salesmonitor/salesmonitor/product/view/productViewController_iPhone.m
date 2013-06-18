@@ -271,7 +271,8 @@
     AdvanceReportViewController_iPhone *advanceReportViewController =[[AdvanceReportViewController_iPhone alloc]
                                                                       initWithNibName:_isIphone ? @"AdvanceReportViewController_iPhone" :
                                                                       @"AdvanceReportViewController_iPad"
-                                                                      bundle:nil];
+                                                                      bundle:nil
+                                                                      navBarContainer:_navBarContainer];
     [self.navigationController pushViewController:advanceReportViewController animated:YES];
     
 }

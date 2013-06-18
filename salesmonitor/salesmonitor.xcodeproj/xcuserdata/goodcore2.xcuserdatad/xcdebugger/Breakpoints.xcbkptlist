@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "306"
-         endingLineNumber = "306"
+         startingLineNumber = "307"
+         endingLineNumber = "307"
          landmarkName = "-btnPressedNavBarSwitchView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "426"
-         endingLineNumber = "426"
+         startingLineNumber = "427"
+         endingLineNumber = "427"
          landmarkName = "@implementation productViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "487"
-         endingLineNumber = "487">
+         startingLineNumber = "488"
+         endingLineNumber = "488">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "425"
-         endingLineNumber = "425"
+         startingLineNumber = "426"
+         endingLineNumber = "426"
          landmarkName = "@implementation productViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -188,11 +188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "450"
-         endingLineNumber = "450">
+         startingLineNumber = "451"
+         endingLineNumber = "451">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -212,11 +212,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "485"
-         endingLineNumber = "485">
+         startingLineNumber = "486"
+         endingLineNumber = "486">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -262,11 +262,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "364"
-         endingLineNumber = "364"
+         startingLineNumber = "365"
+         endingLineNumber = "365"
          landmarkName = "-updateMapView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -275,11 +275,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "348"
-         endingLineNumber = "348"
+         startingLineNumber = "349"
+         endingLineNumber = "349"
          landmarkName = "-updateMapView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -288,11 +288,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "359"
-         endingLineNumber = "359"
+         startingLineNumber = "360"
+         endingLineNumber = "360"
          landmarkName = "-updateMapView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -457,11 +457,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.m"
-         timestampString = "393163078.071573"
+         timestampString = "393234532.475027"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-initializeViews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -470,12 +470,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPhone.m"
-         timestampString = "393166218.934584"
+         timestampString = "393235011.908951"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "302"
-         endingLineNumber = "302"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
          landmarkName = "-btnPressedNavBarSwitchView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.m"
+         timestampString = "393234947.943167"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
+         landmarkName = "-customizeNavigationBar"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
