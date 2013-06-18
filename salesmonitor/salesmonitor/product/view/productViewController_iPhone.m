@@ -114,7 +114,7 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 150, 0, 150, 45)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 195, 0, 195, 45)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
     UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
@@ -142,14 +142,19 @@
     [btnNavBarMapView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarMapView setTag:20];
     
-    
     [btnSwitchContainer addSubview:btnNavBarListView];
     [btnSwitchContainer addSubview:btnNavBarMapView];
+    
+    UIButton *btnNavBarLogout = [[UIButton alloc] initWithFrame:CGRectMake(168, 10, 22, 22)];
+    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarLogout addTarget:self action:@selector(btnPressedNavBarLogout:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [_navBarContainer addSubview:btnNavBarDoctorList];
     [_navBarContainer addSubview:btnNavBarProductReport];
     [_navBarContainer addSubview:btnNavBarAdvanceReport];
     [_navBarContainer addSubview:btnSwitchContainer];
+    [_navBarContainer addSubview:btnNavBarLogout];
     
     [self.navigationController.navigationBar addSubview:_navBarContainer];
     
@@ -334,6 +339,11 @@
     }
 }
 
+- (void) btnPressedNavBarLogout : (UIButton *) sender{
+    
+    [[_salesMonitorDelegate userData] removeAllObjects];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void) updateMapView {
     

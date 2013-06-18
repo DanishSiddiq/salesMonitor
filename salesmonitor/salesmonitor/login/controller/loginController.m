@@ -91,6 +91,7 @@
 
 - (void) populateData : (NSDictionary *) userData {
     
+    [_salesMonitorDelegate setIsLoadingFirstTime:YES];
     [[_salesMonitorDelegate userData] removeAllObjects];
     [[_salesMonitorDelegate userData] addEntriesFromDictionary:userData];
 }
