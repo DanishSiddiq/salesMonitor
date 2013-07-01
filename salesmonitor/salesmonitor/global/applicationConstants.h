@@ -10,13 +10,14 @@
 #define salesmonitor_applicationConstants_h
 #endif
 
+#define KEY_SERVER_MAIN_URL             @"http://localhost:3000/"
 
-#define KEY_SERVER_URL_LOGIN            @"http://172.16.16.34:3000/login"
-#define KEY_SERVER_REPORT_SALE          @"http://172.16.16.34:3000/api/salesRep/%@/salesTrend?startDate=%@&endDate=%@&productId=%@"
-#define KEY_SERVER_URL_DOCTOR_ADD       @"http://172.16.16.34:3000/api/salesRep/%@/doctor"
-#define KEY_SERVER_URL_DOCTOR_UPDATE    @"http://172.16.16.34:3000/api/doctor/%@"
-#define KEY_SERVER_URL_DOCTOR_DELETE    @"http://172.16.16.34:3000/api/doctor/%@"
-#define KEY_SERVER_URL_REPORT_ADVANCE   @"http://172.16.16.34:3000/main-ipad"
+#define KEY_SERVER_URL_LOGIN            KEY_SERVER_MAIN_URL @"login"
+#define KEY_SERVER_REPORT_SALE          KEY_SERVER_MAIN_URL @"api/salesRep/%@/salesTrend?startDate=%@&endDate=%@&productId=%@"
+#define KEY_SERVER_URL_DOCTOR_ADD       KEY_SERVER_MAIN_URL @"api/salesRep/%@/doctor"
+#define KEY_SERVER_URL_DOCTOR_UPDATE    KEY_SERVER_MAIN_URL @"api/doctor/%@"
+#define KEY_SERVER_URL_DOCTOR_DELETE    KEY_SERVER_MAIN_URL @"api/doctor/%@"
+#define KEY_SERVER_URL_REPORT_ADVANCE   KEY_SERVER_MAIN_URL @"main-ipad"
 
 // local notifications
 // local notifications
