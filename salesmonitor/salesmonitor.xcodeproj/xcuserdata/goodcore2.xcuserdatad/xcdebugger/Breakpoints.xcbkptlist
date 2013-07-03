@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/view/loginViewController_iPhone.m"
-         timestampString = "392047351.336093"
+         timestampString = "394547267.943698"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-authenticateUser:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,7 +21,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/AppDelegate.m"
-         timestampString = "392220608.563662"
+         timestampString = "394547712.99072"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "124"
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/view/loginViewController_iPad.m"
-         timestampString = "392114474.314594"
+         timestampString = "394547712.99072"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-authenticateUser:"
          landmarkType = "5">
       </FileBreakpoint>
