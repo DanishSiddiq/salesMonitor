@@ -11,6 +11,8 @@
 #import "DoctorController.h"
 #import "applicationConstants.h"
 #import <MessageUI/MessageUI.h>
+#import "BlockActionSheet.h"
+#import "CustomImageView.h"
 
 
 typedef enum dataOperationTypes {
@@ -26,8 +28,14 @@ typedef enum dataOperationTypes {
                                                             , MFMessageComposeViewControllerDelegate
                                                             , UITextFieldDelegate
                                                             , UITextViewDelegate
-                                                            , DoctorControllerDelegate>
+                                                            , UINavigationControllerDelegate
+                                                            , UIImagePickerControllerDelegate
+, UIPopoverControllerDelegate
+, DoctorControllerDelegate>{
+    UIPopoverController *popoverController;
+}
 
+@property (nonatomic, retain) UIPopoverController *popoverController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil

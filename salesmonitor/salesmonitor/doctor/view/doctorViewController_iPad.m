@@ -22,10 +22,13 @@
 @property (nonatomic, strong) UIView *doctorContactContainer;
 
 @property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic, strong) NSString *cacheImagePath;
 
 @end
 
 @implementation doctorViewController_iPad
+
+@synthesize popoverController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -149,6 +152,19 @@
                                                                       , 0
                                                                       , 366
                                                                       , [UIScreen mainScreen].bounds.size.height - 125)];
+    
+    
+    CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(13, 50, 100, 100)];
+    [imgViewDoctor setUserInteractionEnabled:YES];
+    [imgViewDoctor setImage:nil];
+    [imgViewDoctor.layer setBorderColor:[UIColor redColor].CGColor];
+    [imgViewDoctor.layer setBorderWidth:1.0];
+    [imgViewDoctor setTag:200];
+    
+    UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 340, 50)];
+    [btnImage addTarget:self action:@selector(btnPressedImageDoctor:) forControlEvents:UIControlEventTouchUpInside];
+    [btnImage setBackgroundColor:[UIColor clearColor]];
+    [imgViewDoctor addSubview:btnImage];    
     
     UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(13, 200, 340, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
@@ -336,6 +352,7 @@
     [btnCancel setTag:160];
     [btnCancel setHidden:YES];
     
+    [_doctorDetailContainer addSubview:imgViewDoctor];
     [_doctorDetailContainer addSubview:lblDoctorName];
     [_doctorDetailContainer addSubview:txtDoctorName];
     [_doctorDetailContainer addSubview:lblDoctorSpeciality];
@@ -400,8 +417,40 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void) btnPressedImageDoctor: (UIButton *) sender{
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    BlockActionSheet *actionSheet = [BlockActionSheet sheetWithTitle:nil];
+    // Should be able to view bot card for bot
+    [actionSheet addButtonWithTitle:@"Use Image from library" block:^{
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        self.popoverController = popover;
+        popoverController.delegate = self;
+        [popoverController presentPopoverFromRect:CGRectMake(100, 250, 564, 800)
+                                           inView:self.view
+                         permittedArrowDirections:UIPopoverArrowDirectionUp
+                                         animated:YES];
+    }];
+    
+    // Should be able to view bot card for bot
+    [actionSheet addButtonWithTitle:@"Take picture from camera" block:^{
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }];
+    
+    // Should be able to view bot card for bot
+    [actionSheet setDestructiveButtonWithTitle:@"Cancel" block:^{
+    }];
+    
+    [actionSheet showInView:self.view];
+}
+
 -(void) btnPressedAdd: (UIButton *) sender{
     
+    CustomImageView *imgViewDoctor = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
     UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
@@ -409,7 +458,8 @@
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
     NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   txtDoctorName.text, KEY_DOCTORS_NAME
+                                   imgViewDoctor.cacheImagePath , KEY_DOCTORS_IMAGE
+                                   , txtDoctorName.text, KEY_DOCTORS_NAME
                                    , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
                                    , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
                                    , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
@@ -426,6 +476,7 @@
 
 -(void) btnPressedUpdate: (UIButton *) sender{
     
+    CustomImageView *imgViewDoctor = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
     UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
@@ -433,7 +484,8 @@
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
     NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   txtDoctorName.text, KEY_DOCTORS_NAME
+                                   imgViewDoctor.cacheImagePath , KEY_DOCTORS_IMAGE
+                                   , txtDoctorName.text, KEY_DOCTORS_NAME
                                    , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
                                    , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
                                    , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
@@ -454,7 +506,7 @@
 - (void) btnPressedCancel : (UIButton *) sender {
     
     [self.view endEditing:YES];
-    [self showDoctorInViewMode];
+    [self showDoctorDetailSection:NO];
 }
 
 -(void) btnPressedNumericTextFieldResign: (UIButton *) sender{
@@ -596,6 +648,7 @@
     if(isSuccess){
         
         [self updateViewAfterChangeInCoreData:delete];
+        [self deleteImagesCreatedByApplicationAtDevice];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
     else{
@@ -607,6 +660,22 @@
                               }];
         alertView.transitionStyle = SIAlertViewTransitionStyleSlideFromTop;
         [alertView show];
+    }
+}
+
+-(void) deleteImagesCreatedByApplicationAtDevice{
+    
+    NSString *tempPath = NSTemporaryDirectory();
+    NSError *dataError = nil;
+    NSArray *dirContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tempPath error:&dataError];
+    NSArray *onlyJPGs = [dirContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS 'cache_salesmonitor_'"]];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (onlyJPGs) {
+        for (int i = 0; i < [onlyJPGs count]; i++) {
+            NSString *contentsOnly = [NSString stringWithFormat:@"%@%@", tempPath, [onlyJPGs objectAtIndex:i]];
+            [fileManager removeItemAtPath:contentsOnly error:nil];
+        }
     }
 }
 
@@ -642,6 +711,7 @@
     isAddMode ? nil : [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
     
     // branch details
+    CustomImageView *imgViewDoctor = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
@@ -663,11 +733,21 @@
     [txtDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
     [lblDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     [txtDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    [imgViewDoctor setImage:nil];
+    
+    if(isAddMode){
+        [imgViewDoctor setImage:nil];
+        [imgViewDoctor.cacheImagePath setString:@""];
+    }
+    else{
+        [imgViewDoctor setImage:[UIImage imageWithContentsOfFile:[selectedDoctor valueForKey:KEY_DOCTORS_IMAGE]]];
+    }
     
 }
 
 - (void) showDoctorInAddMode {
     
+    CustomImageView *imgViewDoctor  = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
@@ -697,6 +777,9 @@
     [btnAdd setHidden:NO];
     
     // seting alpha for transition effect
+    [imgViewDoctor setAlpha:0.0];
+    [imgViewDoctor setUserInteractionEnabled:YES];
+    
     [txtDoctorName setAlpha:0.0];
     [txtDoctorSpeciality setAlpha:0.0];
     [txtDoctorPhone setAlpha:0.0];
@@ -710,6 +793,7 @@
                      animations:^{
                          
                          // showing transition
+                         [imgViewDoctor setAlpha:1.0];
                          [txtDoctorName setAlpha:1.0];
                          [txtDoctorSpeciality setAlpha:1.0];
                          [txtDoctorPhone setAlpha:1.0];
@@ -761,6 +845,7 @@
 
 - (void) showDoctorInViewMode {
     
+    CustomImageView *imgViewDoctor  = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
@@ -790,6 +875,9 @@
     [btnEdit setHidden:NO];
     
     // seting alpha for transition effect
+    [imgViewDoctor setAlpha:0.0];
+    [imgViewDoctor setUserInteractionEnabled:NO];
+    
     [lblDoctorName setAlpha:0.0];
     [lblDoctorSpeciality setAlpha:0.0];
     [lblDoctorPhone setAlpha:0.0];
@@ -803,6 +891,7 @@
                      animations:^{
                          
                          // showing transition
+                         [imgViewDoctor setAlpha:1.0];
                          [lblDoctorName setAlpha:1.0];
                          [lblDoctorSpeciality setAlpha:1.0];
                          [lblDoctorPhone setAlpha:1.0];
@@ -843,7 +932,7 @@
 
 - (void) showDoctorInEditMode {
     
-    
+    CustomImageView *imgViewDoctor  = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
     UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
@@ -875,6 +964,9 @@
     [btnCancel setHidden:NO];
     
     // setting alpha for transition
+    [imgViewDoctor setAlpha:0.0];
+    [imgViewDoctor setUserInteractionEnabled:YES];
+    
     [txtDoctorName setAlpha:0.0];
     [txtDoctorSpeciality setAlpha:0.0];
     [txtDoctorPhone setAlpha:0.0];
@@ -891,6 +983,7 @@
                      animations:^{
                          
                          // showing edit fields
+                         [imgViewDoctor setAlpha:1.0];
                          [txtDoctorName setAlpha:1.0];
                          [txtDoctorSpeciality setAlpha:1.0];
                          [txtDoctorPhone setAlpha:1.0];
@@ -964,6 +1057,49 @@
         return YES;
     }
     
+}
+
+// image delegate
+
+- (NSString *)generateUUIDStringAtDevice {
+    
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    uuidStr = [uuidStr stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    CFRelease(uuid);
+    
+    return uuidStr;
+}
+
+-(void)imagePickerController: (UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    CustomImageView *imgViewDoctor =  (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
+    
+    UIImage *myImage =  [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSString *imageIDString = [self generateUUIDStringAtDevice];
+    
+    // if not from camera then from libraray
+    CGSize cacheImageSize = CGSizeMake(300,300);
+    UIGraphicsBeginImageContext(cacheImageSize);
+    [myImage drawInRect:CGRectMake(0,0,cacheImageSize.width, cacheImageSize.height)];
+    UIImage *cacheImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    // write image to iOS tmp directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];    
+    [imgViewDoctor.cacheImagePath setString:[documentsDirectory stringByAppendingPathComponent:
+     [NSString stringWithFormat:@"%@%@%@",@"cache_salesmonitor_",imageIDString,@".jpg"]]];
+    [UIImageJPEGRepresentation(cacheImage, 0.8) writeToFile:imgViewDoctor.cacheImagePath atomically:YES];
+    [imgViewDoctor setImage:[UIImage imageWithContentsOfFile:imgViewDoctor.cacheImagePath]];
+    
+    [self.popoverController dismissPopoverAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel: (UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

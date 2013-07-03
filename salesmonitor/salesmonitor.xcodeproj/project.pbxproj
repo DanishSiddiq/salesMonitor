@@ -71,6 +71,7 @@
 		3A99000817623C0500DBC696 /* DoctorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A99000717623C0500DBC696 /* DoctorController.m */; };
 		3A99D40117704D7300C4DABE /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A99D3FF17704D7300C4DABE /* logout.png */; };
 		3A99D40217704D7300C4DABE /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A99D40017704D7300C4DABE /* logout@2x.png */; };
+		3A9D593717841F79001EF677 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D593617841F79001EF677 /* CustomImageView.m */; };
 		3A9E8B031769EBC10028D433 /* titlebar-add-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E8B011769EBC10028D433 /* titlebar-add-btn.png */; };
 		3A9E8B041769EBC10028D433 /* titlebar-add-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E8B021769EBC10028D433 /* titlebar-add-btn@2x.png */; };
 		3A9E8B071769F9A50028D433 /* titlebar-back-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E8B051769F9A50028D433 /* titlebar-back-btn.png */; };
@@ -232,6 +233,8 @@
 		3A99000717623C0500DBC696 /* DoctorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorController.m; sourceTree = "<group>"; };
 		3A99D3FF17704D7300C4DABE /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		3A99D40017704D7300C4DABE /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
+		3A9D593517841F79001EF677 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		3A9D593617841F79001EF677 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
 		3A9E8B011769EBC10028D433 /* titlebar-add-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-add-btn.png"; sourceTree = "<group>"; };
 		3A9E8B021769EBC10028D433 /* titlebar-add-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-add-btn@2x.png"; sourceTree = "<group>"; };
 		3A9E8B051769F9A50028D433 /* titlebar-back-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-back-btn.png"; sourceTree = "<group>"; };
@@ -601,6 +604,7 @@
 		3A96B45417606374000970EC /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				3A9D593417841E93001EF677 /* CustomImageView */,
 				3A9ECA6117688C3900297583 /* CustomButton */,
 				3A96B459176068FE000970EC /* MapAnnotation */,
 				3A96B4551760638D000970EC /* ZoomedMapView */,
@@ -641,6 +645,15 @@
 				3A96B4721760AC77000970EC /* DistancePickerView.m */,
 			);
 			path = BlockActionSheet;
+			sourceTree = "<group>";
+		};
+		3A9D593417841E93001EF677 /* CustomImageView */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D593517841F79001EF677 /* CustomImageView.h */,
+				3A9D593617841F79001EF677 /* CustomImageView.m */,
+			);
+			path = CustomImageView;
 			sourceTree = "<group>";
 		};
 		3A9ECA6117688C3900297583 /* CustomButton */ = {
@@ -1047,6 +1060,7 @@
 				3A9ECA6417688C3900297583 /* Custombutton.m in Sources */,
 				3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */,
 				3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m in Sources */,
+				3A9D593717841F79001EF677 /* CustomImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
