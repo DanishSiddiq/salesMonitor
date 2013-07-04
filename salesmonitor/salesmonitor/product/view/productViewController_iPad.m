@@ -63,8 +63,6 @@
 - (void) viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO ];
     [_navBarContainer setHidden:NO];
 }
 
@@ -113,18 +111,27 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 150, 0, 150, 45)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 786, 67)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 786, 67)];
+    [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBackGround setClipsToBounds:YES];
+    [imgViewBackGround setImage:[UIImage imageNamed:@"topBarLogoBg"]];
+    [imgViewBackGround setTag:10];
     
     UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
     [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-doctor"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarDoctorList addTarget:self action:@selector(btnPressedNavBarDoctorList:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavBarDoctorList setTag:20];
     
     UIButton *btnNavBarAdvanceReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
     [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"icon-stats"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarAdvanceReport addTarget:self action:@selector(btnPressedNavBarAdvanceReports:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavBarAdvanceReport setTag:20];
     
     UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    [btnSwitchContainer setTag:30];
     
     UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
     [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
@@ -143,19 +150,15 @@
     UIButton *btnNavBarLogout = [[UIButton alloc] initWithFrame:CGRectMake(126, 10, 22, 22)];
     [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarLogout addTarget:self action:@selector(btnPressedNavBarLogout:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavBarLogout setTag:40];
     
-    
+    [_navBarContainer addSubview:imgViewBackGround];
     [_navBarContainer addSubview:btnNavBarDoctorList];
     [_navBarContainer addSubview:btnNavBarAdvanceReport];
     [_navBarContainer addSubview:btnSwitchContainer];
     [_navBarContainer addSubview:btnNavBarLogout];
     
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topBarLogoBg"] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar addSubview:_navBarContainer];
-    
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
+    [self.view addSubview:_navBarContainer];
 }
 
 - (void) initializeMainView {
@@ -165,9 +168,9 @@
 - (void) initializeViewContainer {
     
     _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                              , 0
+                                                              , 67
                                                               , [UIScreen mainScreen].bounds.size.width
-                                                              , [UIScreen mainScreen].bounds.size.height-45)];
+                                                              , [UIScreen mainScreen].bounds.size.height-67)];
     [_viewContainer setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_viewContainer];
 }
@@ -177,7 +180,7 @@
     _mapBrick = [[MKMapView alloc] initWithFrame:CGRectMake(0
                                                             , 0
                                                             , [UIScreen mainScreen].bounds.size.width
-                                                            , [UIScreen mainScreen].bounds.size.height-45)];
+                                                            , [UIScreen mainScreen].bounds.size.height-67)];
     [_mapBrick showsUserLocation];
     _mapBrick.delegate = _brickController;
     
@@ -190,7 +193,7 @@
     _tblProduct = [[UITableView alloc] initWithFrame:CGRectMake(0
                                                                 , 0
                                                                 , [UIScreen mainScreen].bounds.size.width,
-                                                                [UIScreen mainScreen].bounds.size.height - 45)];
+                                                                [UIScreen mainScreen].bounds.size.height - 67)];
     
     [_tblProduct setDataSource:_productController];
     [_tblProduct setDelegate:_productController];

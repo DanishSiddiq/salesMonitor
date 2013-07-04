@@ -574,11 +574,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPad.m"
-         timestampString = "394620462.146504"
+         timestampString = "394621629.895701"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
          landmarkName = "-customizeNavigationBar"
          landmarkType = "5">
       </FileBreakpoint>
@@ -587,11 +587,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/product/view/productViewController_iPad.m"
-         timestampString = "394620462.146504"
+         timestampString = "394621629.895701"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "-customizeNavigationBar"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/product/view/productViewController_iPad.m"
+         timestampString = "394621731.302138"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "114"
+         endingLineNumber = "114"
          landmarkName = "-customizeNavigationBar"
          landmarkType = "5">
       </FileBreakpoint>
