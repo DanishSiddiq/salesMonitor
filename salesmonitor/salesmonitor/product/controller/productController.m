@@ -266,7 +266,7 @@
     lblIndication.contentMode = UIViewContentModeTopLeft;
     lblIndication.lineBreakMode = NSLineBreakByTruncatingTail;
     lblIndication.textColor = [UIColor grayColor];
-    lblIndication.backgroundColor = [UIColor colorWithRed:154/255.0f green:154/255.0f blue:154/255.0f alpha:1.0];
+    lblIndication.backgroundColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
     UIView *vwBackPrice = [[UIView alloc] initWithFrame:CGRectMake(530, 12, 142, 27)];

@@ -156,6 +156,13 @@
 		3AE5033D178578070000B5F3 /* barIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50339178578070000B5F3 /* barIcon2.png */; };
 		3AE5033E178578070000B5F3 /* barIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5033A178578070000B5F3 /* barIcon3.png */; };
 		3AE503401785BD420000B5F3 /* priceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5033F1785BD420000B5F3 /* priceIcon.png */; };
+		3AE503481785C4AE0000B5F3 /* calicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503411785C4AD0000B5F3 /* calicon.png */; };
+		3AE503491785C4AE0000B5F3 /* dateBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503421785C4AD0000B5F3 /* dateBtn.png */; };
+		3AE5034A1785C4AE0000B5F3 /* saleDateBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503431785C4AD0000B5F3 /* saleDateBar.png */; };
+		3AE5034B1785C4AE0000B5F3 /* saleGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503441785C4AD0000B5F3 /* saleGraph.png */; };
+		3AE5034C1785C4AE0000B5F3 /* salesGraphBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503451785C4AE0000B5F3 /* salesGraphBg.png */; };
+		3AE5034D1785C4AE0000B5F3 /* salesTable.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503461785C4AE0000B5F3 /* salesTable.png */; };
+		3AE5034E1785C4AE0000B5F3 /* salesTable2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE503471785C4AE0000B5F3 /* salesTable2.png */; };
 		3D3D02911785B56800F3DFFF /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3D02901785B56800F3DFFF /* cancelBtn.png */; };
 		3D3D02931785B57F00F3DFFF /* deleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3D02921785B57F00F3DFFF /* deleteBtn.png */; };
 /* End PBXBuildFile section */
@@ -381,6 +388,13 @@
 		3AE50339178578070000B5F3 /* barIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon2.png; sourceTree = "<group>"; };
 		3AE5033A178578070000B5F3 /* barIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon3.png; sourceTree = "<group>"; };
 		3AE5033F1785BD420000B5F3 /* priceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = priceIcon.png; sourceTree = "<group>"; };
+		3AE503411785C4AD0000B5F3 /* calicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calicon.png; sourceTree = "<group>"; };
+		3AE503421785C4AD0000B5F3 /* dateBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dateBtn.png; sourceTree = "<group>"; };
+		3AE503431785C4AD0000B5F3 /* saleDateBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saleDateBar.png; sourceTree = "<group>"; };
+		3AE503441785C4AD0000B5F3 /* saleGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saleGraph.png; sourceTree = "<group>"; };
+		3AE503451785C4AE0000B5F3 /* salesGraphBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salesGraphBg.png; sourceTree = "<group>"; };
+		3AE503461785C4AE0000B5F3 /* salesTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salesTable.png; sourceTree = "<group>"; };
+		3AE503471785C4AE0000B5F3 /* salesTable2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salesTable2.png; sourceTree = "<group>"; };
 		3D3D02901785B56800F3DFFF /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		3D3D02921785B57F00F3DFFF /* deleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -411,6 +425,13 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AE503411785C4AD0000B5F3 /* calicon.png */,
+				3AE503421785C4AD0000B5F3 /* dateBtn.png */,
+				3AE503431785C4AD0000B5F3 /* saleDateBar.png */,
+				3AE503441785C4AD0000B5F3 /* saleGraph.png */,
+				3AE503451785C4AE0000B5F3 /* salesGraphBg.png */,
+				3AE503461785C4AE0000B5F3 /* salesTable.png */,
+				3AE503471785C4AE0000B5F3 /* salesTable2.png */,
 				3AE5033F1785BD420000B5F3 /* priceIcon.png */,
 				3D3D02921785B57F00F3DFFF /* deleteBtn.png */,
 				3D3D02901785B56800F3DFFF /* cancelBtn.png */,
@@ -1127,6 +1148,13 @@
 				3D3D02911785B56800F3DFFF /* cancelBtn.png in Resources */,
 				3D3D02931785B57F00F3DFFF /* deleteBtn.png in Resources */,
 				3AE503401785BD420000B5F3 /* priceIcon.png in Resources */,
+				3AE503481785C4AE0000B5F3 /* calicon.png in Resources */,
+				3AE503491785C4AE0000B5F3 /* dateBtn.png in Resources */,
+				3AE5034A1785C4AE0000B5F3 /* saleDateBar.png in Resources */,
+				3AE5034B1785C4AE0000B5F3 /* saleGraph.png in Resources */,
+				3AE5034C1785C4AE0000B5F3 /* salesGraphBg.png in Resources */,
+				3AE5034D1785C4AE0000B5F3 /* salesTable.png in Resources */,
+				3AE5034E1785C4AE0000B5F3 /* salesTable2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
