@@ -155,6 +155,8 @@
 		3AE5033C178578070000B5F3 /* barIcon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50338178578070000B5F3 /* barIcon4.png */; };
 		3AE5033D178578070000B5F3 /* barIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50339178578070000B5F3 /* barIcon2.png */; };
 		3AE5033E178578070000B5F3 /* barIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5033A178578070000B5F3 /* barIcon3.png */; };
+		3D3D02911785B56800F3DFFF /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3D02901785B56800F3DFFF /* cancelBtn.png */; };
+		3D3D02931785B57F00F3DFFF /* deleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D3D02921785B57F00F3DFFF /* deleteBtn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -377,6 +379,8 @@
 		3AE50338178578070000B5F3 /* barIcon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon4.png; sourceTree = "<group>"; };
 		3AE50339178578070000B5F3 /* barIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon2.png; sourceTree = "<group>"; };
 		3AE5033A178578070000B5F3 /* barIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon3.png; sourceTree = "<group>"; };
+		3D3D02901785B56800F3DFFF /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
+		3D3D02921785B57F00F3DFFF /* deleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +409,8 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3D3D02921785B57F00F3DFFF /* deleteBtn.png */,
+				3D3D02901785B56800F3DFFF /* cancelBtn.png */,
 				3AE50337178578070000B5F3 /* barIcon1.png */,
 				3AE50338178578070000B5F3 /* barIcon4.png */,
 				3AE50339178578070000B5F3 /* barIcon2.png */,
@@ -1115,6 +1121,8 @@
 				3AE5033C178578070000B5F3 /* barIcon4.png in Resources */,
 				3AE5033D178578070000B5F3 /* barIcon2.png in Resources */,
 				3AE5033E178578070000B5F3 /* barIcon3.png in Resources */,
+				3D3D02911785B56800F3DFFF /* cancelBtn.png in Resources */,
+				3D3D02931785B57F00F3DFFF /* deleteBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
