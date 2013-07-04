@@ -134,7 +134,7 @@
     [btnSwitchContainer setTag:30];
     
     UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 83, 63)];
-    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"barIcon6"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarListView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarListView setHidden:YES];
     [btnNavBarListView setTag:10];
