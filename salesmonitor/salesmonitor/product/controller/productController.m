@@ -240,7 +240,7 @@
     [[imgViewProduct layer] setBorderWidth:1.0];
     imgViewProduct.tag = 10;
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, tableView.frame.size.width - 225, 26)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, 400, 26)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
     lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
@@ -269,13 +269,21 @@
     lblIndication.backgroundColor = [UIColor colorWithRed:154/255.0f green:154/255.0f blue:154/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
-    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 75, 45, 300, 30)];
+    UIView *vwBackPrice = [[UIView alloc] initWithFrame:CGRectMake(530, 12, 142, 27)];
+    [vwBackPrice setBackgroundColor:[UIColor colorWithRed:71/255.0f green:192/255.0f blue:88/255.0f alpha:1.0]];
+    
+    UIImageView *imgViewPrice = [[UIImageView alloc] initWithFrame:CGRectMake(530, 12, 32, 27)];
+    [imgViewPrice setClipsToBounds:YES];
+    [imgViewPrice setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewPrice setImage:[UIImage imageNamed:@"priceIcon"]];
+    
+    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(570, 12, 100, 27)];
     lblPrice.backgroundColor = [UIColor clearColor];
     lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     lblPrice.numberOfLines = 1;
     lblPrice.contentMode = UIViewContentModeTopLeft;
     lblPrice.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblPrice.textColor = [UIColor blackColor];
+    lblPrice.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblPrice.tag = 50;
     
     UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 15, 70, 60)];
@@ -303,7 +311,9 @@
     [cell.contentView addSubview:lblName];
     [cell.contentView addSubview:lblTheraputicClass];
     [cell.contentView addSubview:lblIndication];
-    //[cell.contentView addSubview:lblPrice];
+    [cell.contentView addSubview:vwBackPrice];
+    [cell.contentView addSubview:imgViewPrice];
+    [cell.contentView addSubview:lblPrice];
     [cell.contentView addSubview:lblSaleUnit];
     [cell.contentView addSubview:lblBudgetUnit];
     
