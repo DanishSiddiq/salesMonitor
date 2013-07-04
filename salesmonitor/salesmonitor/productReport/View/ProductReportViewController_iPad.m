@@ -47,14 +47,12 @@
                bundle:(NSBundle *)nibBundleOrNil
 salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
      productSelected : (NSMutableDictionary *)productSelected
-      navBarContainer: (UIView *) navBarContainer
 {
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
         _salesMonitorDelegate   = salesMonitorDelegate;
         _productSelected        = productSelected;
-        _navBarContainer        = navBarContainer;
     }
     
     return self;
@@ -131,14 +129,30 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 -(void) customizeNavigationBar {
     
     // icons in navigation bar
-    [_navBarContainer setHidden:YES];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    [_navBarContainer setBackgroundColor:[UIColor clearColor]];    
     
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBackGround setClipsToBounds:YES];
+    [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
+    [imgViewBackGround setTag:10];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
-    [btnNavBarBack setImage:[UIImage imageNamed:@"titlebar-back-btn"] forState:UIControlStateNormal];
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewLogo setClipsToBounds:YES];
+    [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
+    [imgViewLogo setTag:20];
+    
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 63)];
+    [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
+    
+    [_navBarContainer addSubview:imgViewBackGround];
+    [_navBarContainer addSubview:imgViewLogo];
+    [_navBarContainer addSubview:btnNavBarBack];
+    [self.view addSubview:_navBarContainer];
     
 }
 
@@ -149,7 +163,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 - (void) initializeViewHeaderValue {
  
     _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                                  , 90
+                                                                  , 140
                                                                   , [UIScreen mainScreen].bounds.size.width
                                                                   , 30)];
     
@@ -159,6 +173,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
                                                                     , 30)];
     lblHeading.textAlignment = NSTextAlignmentCenter;
     lblHeading.contentMode = UIViewContentModeTop;
+    [lblHeading setBackgroundColor:[UIColor clearColor]];
     lblHeading.font = [UIFont fontWithName:@"Helvetica" size:16.0 ];
     lblHeading.text = @"Select dates";
     lblHeading.tag = 10;
@@ -169,11 +184,13 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (void) initializeTableSale {
     _tblSale = [[UITableView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 320
-                                                             , 600
+                                                             , 700
                                                              , 640
-                                                             , [UIScreen mainScreen].bounds.size.height - 650)];
+                                                             , [UIScreen mainScreen].bounds.size.height - 790)];
     _tblSale.delegate = _productReportController;
     _tblSale.dataSource = _productReportController;
+    _tblSale.backgroundColor = [UIColor clearColor];
+    _tblSale.separatorColor = [UIColor clearColor];
     [self.view addSubview:_tblSale];
 }
 
@@ -249,7 +266,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(30.0f
-                                                                       , 120.0f
+                                                                       , 180.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -60
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
@@ -319,7 +336,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     CGRect frame = [_btnFrom frame];
     frame.origin.x = 185;
-    frame.origin.y = -190;
+    frame.origin.y = -140;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];
@@ -346,7 +363,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     CGRect frame = [_btnTo frame];
     frame.origin.x = 300;
-    frame.origin.y = -190;
+    frame.origin.y = -140;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];

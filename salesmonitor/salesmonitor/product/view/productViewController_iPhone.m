@@ -246,33 +246,20 @@
 // selectors
 - (void) btnPressedNavBarDoctorList : (UIButton *) sender{
     
-    if(_isIphone){
         
-        doctorViewController_iPhone *doctorViewController = [[doctorViewController_iPhone alloc]
+    doctorViewController_iPhone *doctorViewController = [[doctorViewController_iPhone alloc]
                                                             initWithNibName:@"doctorViewController_iPhone"
                                                             bundle:nil
                                                             salesMonitorDelegate:_salesMonitorDelegate
                                                             navBarContainer:_navBarContainer];
-        [self.navigationController pushViewController:doctorViewController animated:YES];
-        
-    }
-    else{
-        
-        doctorViewController_iPad *doctoViewController = [[doctorViewController_iPad alloc]
-                                                            initWithNibName:@"doctorViewController_iPad"
-                                                            bundle:nil
-                                                            salesMonitorDelegate:_salesMonitorDelegate
-                                                            navBarContainer:_navBarContainer];
-        [self.navigationController pushViewController:doctoViewController animated:YES];
-    }
+    [self.navigationController pushViewController:doctorViewController animated:YES];
     
 }
 
 - (void) btnPressedNavBarAdvanceReports : (UIButton *) sender {
     
     AdvanceReportViewController_iPhone *advanceReportViewController =[[AdvanceReportViewController_iPhone alloc]
-                                                                      initWithNibName:_isIphone ? @"AdvanceReportViewController_iPhone" :
-                                                                      @"AdvanceReportViewController_iPad"
+                                                                      initWithNibName:@"AdvanceReportViewController_iPhone"
                                                                       bundle:nil
                                                                       navBarContainer:_navBarContainer];
     [self.navigationController pushViewController:advanceReportViewController animated:YES];
@@ -381,28 +368,15 @@
 // protocol methods
 -(void) productSelected:(NSMutableDictionary *) productSelected{
     
-    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
         
-        ProductReportViewController_iPhone *productReport = [[ProductReportViewController_iPhone alloc]
+    ProductReportViewController_iPhone *productReport = [[ProductReportViewController_iPhone alloc]
                                                              initWithNibName:@"ProductReportViewController_iPhone"
                                                              bundle:nil
                                                              salesMonitorDelegate:_salesMonitorDelegate
                                                              productSelected:productSelected
                                                              navBarContainer:_navBarContainer];
         
-        [self.navigationController pushViewController:productReport animated:YES];
-    }
-    else{
-        
-        ProductReportViewController_iPad *productReport = [[ProductReportViewController_iPad alloc]
-                                                             initWithNibName:@"ProductReportViewController_iPad"
-                                                             bundle:nil
-                                                           salesMonitorDelegate:_salesMonitorDelegate
-                                                           productSelected:productSelected
-                                                           navBarContainer:_navBarContainer];
-        
-        [self.navigationController pushViewController:productReport animated:YES];
-    }
+    [self.navigationController pushViewController:productReport animated:YES];
 }
 
 

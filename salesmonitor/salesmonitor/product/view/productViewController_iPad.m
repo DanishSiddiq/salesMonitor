@@ -374,8 +374,7 @@
                                                        initWithNibName:@"ProductReportViewController_iPad"
                                                        bundle:nil
                                                        salesMonitorDelegate:_salesMonitorDelegate
-                                                       productSelected:productSelected
-                                                       navBarContainer:_navBarContainer];
+                                                       productSelected:productSelected];
         
     [self.navigationController pushViewController:productReport animated:YES];
 }

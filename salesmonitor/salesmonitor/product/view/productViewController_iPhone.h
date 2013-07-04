@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "applicationConstants.h"
-#import "AppDelegate.h"
-#import "productController.h"
-#import "brickController.h"
+#import "KGModal.h"
 #import "ZoomedMapView.h"
 #import "CustomAnnotation.h"
-#import "ProductReportViewController_iPhone.h"
-#import "ProductReportViewController_iPad.h"
+
+#import "AppDelegate.h"
+#import "applicationConstants.h"
+#import "productController.h"
+#import "brickController.h"
 #import "brickProductController.h"
-#import "KGModal.h"
+#import "ProductReportViewController_iPhone.h"
+#import "AdvanceReportViewController_iPhone.h"
 #import "doctorViewController_iPhone.h"
-#import "doctorViewController_iPad.h"
 
 @interface productViewController_iPhone : UIViewController <productControllerDelegate, brickControllerDelegate>
 
