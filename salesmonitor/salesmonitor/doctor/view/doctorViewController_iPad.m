@@ -153,37 +153,39 @@
                                                                       , 366
                                                                       , [UIScreen mainScreen].bounds.size.height - 125)];
     
+    _doctorDetailContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColBg"]];
     
-    CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(13, 50, 100, 100)];
+    CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(32, 50, 300, 193)];
     [imgViewDoctor setUserInteractionEnabled:YES];
-    [imgViewDoctor setImage:nil];
+    [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
     [imgViewDoctor.layer setBorderColor:[UIColor redColor].CGColor];
     [imgViewDoctor.layer setBorderWidth:1.0];
     [imgViewDoctor setTag:200];
     
-    UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 340, 50)];
+    UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(32, 50, 300, 193)];
     [btnImage addTarget:self action:@selector(btnPressedImageDoctor:) forControlEvents:UIControlEventTouchUpInside];
     [btnImage setBackgroundColor:[UIColor clearColor]];
-    [imgViewDoctor addSubview:btnImage];    
+    [imgViewDoctor addSubview:btnImage];
     
-    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(13, 200, 340, 24)];
+    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(32, 13, 300, 24)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
     lblDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorName setNumberOfLines:2];
     [lblDoctorName setTextColor:[UIColor darkGrayColor]];
     lblDoctorName.contentMode = UIViewContentModeBottomLeft;
-    lblDoctorName.textAlignment = NSTextAlignmentCenter;
+    //lblDoctorName.textAlignment = NSTextAlignmentCenter;
     [lblDoctorName adjustsFontSizeToFitWidth];
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
+    [lblDoctorName setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(13, 200, 340, 24)];
+    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 24)];
     [txtDoctorName setPlaceholder:@"name"];
     [txtDoctorName setBackgroundColor:[UIColor clearColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
     txtDoctorName.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorName.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorName.textAlignment = NSTextAlignmentCenter;
     [txtDoctorName.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorName.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorName setBorderStyle:UITextBorderStyleRoundedRect];
@@ -191,51 +193,56 @@
     [txtDoctorName setHidden:YES];
     [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
+    [txtDoctorName setTextColor:[UIColor whiteColor]];
     
-    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(13, 225, 340, 24)];
+    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(32, 300, 100, 24)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     lblDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorSpeciality setNumberOfLines:2];
     [lblDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     lblDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
-    lblDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
+    //lblDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
     [lblDoctorSpeciality adjustsFontSizeToFitWidth];
-    [lblDoctorSpeciality setHidden:YES];
+    [lblDoctorSpeciality setHidden:NO];
     [lblDoctorSpeciality setTag:30];
+    [lblDoctorSpeciality setTextColor:[UIColor whiteColor]];
+    [lblDoctorSpeciality setText:@"Speciality :"];
     
-    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(13, 225, 340, 24)];
-    [txtDoctorSpeciality setPlaceholder:@"spciality"];
+    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(142, 300, 300, 24)];
+    [txtDoctorSpeciality setPlaceholder:@"speciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     txtDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
     [txtDoctorSpeciality.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorSpeciality setBorderStyle:UITextBorderStyleRoundedRect];
     [txtDoctorSpeciality setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorSpeciality setDelegate:self];
-    [txtDoctorSpeciality setHidden:YES];
+    [txtDoctorSpeciality setHidden:NO];
     [txtDoctorSpeciality setTag:40];
+    [txtDoctorSpeciality setTextColor:[UIColor whiteColor]];
     
-    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(13, 250, 340, 24)];
+    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(32, 325, 340, 24)];
     [lblDoctorPhone setBackgroundColor:[UIColor clearColor]];
     lblDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorPhone setNumberOfLines:2];
     [lblDoctorPhone setTextColor:[UIColor darkGrayColor]];
     lblDoctorPhone.contentMode = UIViewContentModeBottomLeft;
-    lblDoctorPhone.textAlignment = NSTextAlignmentCenter;
+    //lblDoctorPhone.textAlignment = NSTextAlignmentCenter;
     [lblDoctorPhone adjustsFontSizeToFitWidth];
     [lblDoctorPhone setHidden:YES];
     [lblDoctorPhone setTag:50];
+    [lblDoctorPhone setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(13, 250, 340, 24)];
+    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(32, 325, 340, 24)];
     [txtDoctorPhone setPlaceholder:@"+14134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor clearColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
     txtDoctorPhone.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
     [txtDoctorPhone.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorPhone setBorderStyle:UITextBorderStyleRoundedRect];
@@ -244,6 +251,7 @@
     [txtDoctorPhone setDelegate:self];
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
+    [txtDoctorPhone setTextColor:[UIColor whiteColor]];
     
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                target:self
@@ -254,24 +262,25 @@
     toolbar.items = [NSArray arrayWithObject:barButton];
     txtDoctorPhone.inputAccessoryView = toolbar;
     
-    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(13, 275, 340, 24)];
+    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(32, 350, 340, 24)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
     lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorEmail setNumberOfLines:1];
     [lblDoctorEmail setTextColor:[UIColor darkGrayColor]];
     lblDoctorEmail.contentMode = UIViewContentModeBottomLeft;
-    lblDoctorEmail.textAlignment = NSTextAlignmentCenter;
+    //lblDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [lblDoctorEmail adjustsFontSizeToFitWidth];
     [lblDoctorEmail setHidden:YES];
     [lblDoctorEmail setTag:70];
+    [lblDoctorEmail setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(13, 275, 340, 24)];
+    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(32, 350, 340, 24)];
     [txtDoctorEmail setPlaceholder:@"name@mail.com"];
     [txtDoctorEmail setBackgroundColor:[UIColor clearColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
     txtDoctorEmail.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [txtDoctorEmail.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorEmail.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorEmail setBorderStyle:UITextBorderStyleRoundedRect];
@@ -280,8 +289,9 @@
     [txtDoctorEmail setDelegate:self];
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
+    [txtDoctorEmail setTextColor:[UIColor whiteColor]];
     
-    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(13, 300, 340, 60)];
+    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(32, 375, 340, 60)];
     [lblDoctorAddress setBackgroundColor:[UIColor clearColor]];
     lblDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [lblDoctorAddress setNumberOfLines:4];
@@ -289,10 +299,11 @@
     lblDoctorAddress.contentMode = UIViewContentModeTopLeft;
     [lblDoctorAddress adjustsFontSizeToFitWidth];
     [lblDoctorAddress setHidden:YES];
-    lblDoctorAddress.textAlignment = NSTextAlignmentCenter;
+    //lblDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [lblDoctorAddress setTag:90];
+    [lblDoctorAddress setTextColor:[UIColor whiteColor]];
     
-    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(13, 300, 340, 60)];
+    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(32, 375, 340, 60)];
     [txtDoctorAddress setBackgroundColor:[UIColor clearColor]];
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
@@ -304,10 +315,11 @@
     [txtDoctorAddress setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorAddress setDelegate:self];
     [txtDoctorAddress setHidden:YES];
-    txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
+    [txtDoctorAddress setTextColor:[UIColor whiteColor]];
     
-    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(143, 365, 80, 25)];
+    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(143, 435, 80, 25)];
     [btnAdd setTitle:@"Add" forState:UIControlStateNormal & UIControlStateSelected];
     [btnAdd setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnAdd titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -316,7 +328,7 @@
     [btnAdd setTag:120];
     [btnAdd setHidden:YES];
     
-    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(143, 365, 80, 25)];
+    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(143, 435, 80, 25)];
     [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
     [btnEdit setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnEdit titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -325,7 +337,7 @@
     [btnEdit setTag:130];
     [btnEdit setHidden:YES];
     
-    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(33, 365, 80, 25)];
+    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(33, 435, 80, 25)];
     [btnUpdate setTitle:@"Update" forState:UIControlStateNormal & UIControlStateSelected];
     [btnUpdate setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnUpdate titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -334,7 +346,7 @@
     [btnUpdate setTag:140];
     [btnUpdate setHidden:YES];
     
-    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(143, 365, 80, 25)];
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(143, 435, 80, 25)];
     [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
     [btnDelete setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnDelete titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -370,6 +382,7 @@
     [_doctorDetailContainer addSubview:btnUpdate];
     [_doctorDetailContainer addSubview:btnDelete];
     [_doctorDetailContainer addSubview:btnCancel];
+    
     
     [self.view addSubview:_doctorDetailContainer];
 }
@@ -714,33 +727,38 @@
     CustomImageView *imgViewDoctor = (CustomImageView *)[_doctorDetailContainer viewWithTag:200];
     UILabel *lblDoctorName          = (UILabel *)[_doctorDetailContainer viewWithTag:10];
     UITextField *txtDoctorName      = (UITextField *)[_doctorDetailContainer viewWithTag:20];
-    UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
+    //UILabel *lblDoctorSpeciality    = (UILabel *)[_doctorDetailContainer viewWithTag:30];
     UITextField *txtDoctorSpeciality = (UITextField *)[_doctorDetailContainer viewWithTag:40];
-    UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
+    //UILabel *lblDoctorPhone         = (UILabel *)[_doctorDetailContainer viewWithTag:50];
     UITextField *txtDoctorPhone     = (UITextField *)[_doctorDetailContainer viewWithTag:60];
-    UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
+    //UILabel *lblDoctorEmail         = (UILabel *)[_doctorDetailContainer viewWithTag:70];
     UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
-    UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
+    //UILabel *lblDoctorAddress       = (UILabel *)[_doctorDetailContainer viewWithTag:90];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
     [lblDoctorName setText: isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
     [txtDoctorName setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_NAME]];
-    [lblDoctorSpeciality setText:isAddMode ? @"" :[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
+    //[lblDoctorSpeciality setText:isAddMode ? @"" :[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
     [txtDoctorSpeciality setText:isAddMode ? @"" :[selectedDoctor valueForKey:KEY_DOCTORS_SPECIALITY]];
-    [lblDoctorPhone setText:isAddMode ? @"" : [NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
+    //[lblDoctorPhone setText:isAddMode ? @"" : [NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
     [txtDoctorPhone setText:isAddMode ? @"" : [NSString stringWithFormat:@"%@", [selectedDoctor valueForKey:KEY_DOCTORS_PHONE]]];
-    [lblDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
+    //[lblDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
     [txtDoctorEmail setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_EMAIL]];
-    [lblDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
+    //[lblDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     [txtDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
-    [imgViewDoctor setImage:nil];
+    [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
     
     if(isAddMode){
         [imgViewDoctor setImage:nil];
         [imgViewDoctor.cacheImagePath setString:@""];
     }
     else{
-        [imgViewDoctor setImage:[UIImage imageWithContentsOfFile:[selectedDoctor valueForKey:KEY_DOCTORS_IMAGE]]];
+        // check to see image exists or not
+        if([selectedDoctor valueForKey:KEY_DOCTORS_IMAGE] != nil && [UIImage imageWithContentsOfFile:[selectedDoctor valueForKey:KEY_DOCTORS_IMAGE]] != nil){
+            [imgViewDoctor setImage:[UIImage imageWithContentsOfFile:[selectedDoctor valueForKey:KEY_DOCTORS_IMAGE]]];
+        }else{
+            [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
+        }
     }
     
 }
@@ -902,10 +920,10 @@
                          
                          // hiding transition
                          [txtDoctorName setAlpha:0.0];
-                         [txtDoctorSpeciality setAlpha:0.0];
-                         [txtDoctorPhone setAlpha:0.0];
-                         [txtDoctorEmail setAlpha:0.0];
-                         [txtDoctorAddress setAlpha:0.0];
+                         [txtDoctorSpeciality setAlpha:1.0];
+                         [txtDoctorPhone setAlpha:1.0];
+                         [txtDoctorEmail setAlpha:1.0];
+                         [txtDoctorAddress setAlpha:1.0];
                          
                          [btnAdd setAlpha:0.0];
                          [btnUpdate setAlpha:0.0];
@@ -917,10 +935,10 @@
                          
                          // hinding edit fields
                          [txtDoctorName setHidden:YES];
-                         [txtDoctorSpeciality setHidden:YES];
-                         [txtDoctorPhone setHidden:YES];
-                         [txtDoctorEmail setHidden:YES];
-                         [txtDoctorAddress setHidden:YES];
+                         //                         [txtDoctorSpeciality setHidden:YES];
+                         //                         [txtDoctorPhone setHidden:YES];
+                         //                         [txtDoctorEmail setHidden:YES];
+                         //                         [txtDoctorAddress setHidden:YES];
                          
                          [btnAdd setHidden:YES];
                          [btnUpdate setHidden:YES];
@@ -995,10 +1013,10 @@
                          [btnCancel setAlpha:1.0];
                          
                          [lblDoctorName setAlpha:0.0];
-                         [lblDoctorSpeciality setAlpha:0.0];
-                         [lblDoctorPhone setAlpha:0.0];
-                         [lblDoctorEmail setAlpha:0.0];
-                         [lblDoctorAddress setAlpha:0.0];
+                         [lblDoctorSpeciality setAlpha:1.0];
+                         [lblDoctorPhone setAlpha:1.0];
+                         [lblDoctorEmail setAlpha:1.0];
+                         [lblDoctorAddress setAlpha:1.0];
                          
                          [btnAdd setAlpha:0.0];
                          [btnEdit setAlpha:0.0];
@@ -1006,10 +1024,10 @@
                      completion:^(BOOL finished) {
                          
                          [lblDoctorName setHidden:YES];
-                         [lblDoctorSpeciality setHidden:YES];
-                         [lblDoctorPhone setHidden:YES];
-                         [lblDoctorEmail setHidden:YES];
-                         [lblDoctorAddress setHidden:YES];
+                         //                         [lblDoctorSpeciality setHidden:YES];
+                         //                         [lblDoctorPhone setHidden:YES];
+                         //                         [lblDoctorEmail setHidden:YES];
+                         //                         [lblDoctorAddress setHidden:YES];
                          
                          [btnEdit setHidden:YES];
                          [btnAdd setHidden:YES];
@@ -1087,9 +1105,9 @@
     
     // write image to iOS tmp directory
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
     [imgViewDoctor.cacheImagePath setString:[documentsDirectory stringByAppendingPathComponent:
-     [NSString stringWithFormat:@"%@%@%@",@"cache_salesmonitor_",imageIDString,@".jpg"]]];
+                                             [NSString stringWithFormat:@"%@%@%@",@"cache_salesmonitor_",imageIDString,@".jpg"]]];
     [UIImageJPEGRepresentation(cacheImage, 0.8) writeToFile:imgViewDoctor.cacheImagePath atomically:YES];
     [imgViewDoctor setImage:[UIImage imageWithContentsOfFile:imgViewDoctor.cacheImagePath]];
     
