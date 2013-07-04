@@ -73,69 +73,20 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     
     NSString *branchCellIdentifier = [NSString stringWithFormat:@"BranchCell"];
-    UITableViewCell *cell;
-    UILabel *lblName, *lblSpeciality, *lblAddress;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-        [cell setFrame:_isIphone ?  CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 70)
-                      :   CGRectMake(0, 0, 400, 70) ];
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
-        lblName = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 6, [UIScreen mainScreen].bounds.size.width - 12, 16) :
-                                                            CGRectMake(8, 6, 400 - 12, 16)];
-        lblName.numberOfLines = 1;
-        [lblName setBackgroundColor:[UIColor clearColor]];
-        lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
-        [lblName setTextColor:[UIColor darkGrayColor]];
-        [lblName setContentMode:UIViewContentModeTopLeft];
-        [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
-        lblName.tag = 10;
-        
-        lblSpeciality = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 24, [UIScreen mainScreen].bounds.size.width -12, 15):
-                                                                    CGRectMake(8, 24, 400 -12, 15)];
-        lblSpeciality.numberOfLines = 1;
-        [lblSpeciality setBackgroundColor:[UIColor clearColor]];
-        [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
-        [lblSpeciality setContentMode:UIViewContentModeTopLeft];
-        [lblSpeciality setTextAlignment:NSTextAlignmentLeft];
-        [lblSpeciality setLineBreakMode:NSLineBreakByTruncatingTail];
-        [lblSpeciality setTextColor:[UIColor grayColor]];
-        lblSpeciality.tag = 20;
-        
-        lblAddress = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width -12, 28) :
-                                                                CGRectMake(8, 40, 400 -12, 28)];
-        lblAddress.numberOfLines = 2;
-        [lblAddress setBackgroundColor:[UIColor clearColor]];
-        [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
-        [lblAddress setContentMode:UIViewContentModeTopLeft];
-        [lblAddress setTextAlignment:NSTextAlignmentLeft];
-        [lblAddress setLineBreakMode:NSLineBreakByTruncatingTail];
-        [lblAddress setTextColor:[UIColor grayColor]];
-        [lblAddress adjustsFontSizeToFitWidth];
-        lblAddress.tag = 30;
-        
-        [cell.contentView addSubview:lblName];
-        [cell.contentView addSubview:lblSpeciality];
-        [cell.contentView addSubview:lblAddress];
-        
-    }
-    else{
-        
-        lblName         = (UILabel *)[cell.contentView viewWithTag:10];
-        lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:20];
-        lblAddress      = (UILabel *)[cell.contentView viewWithTag:30];
+        cell = _isIphone ? [self createCellContentForIphone:tableView branchCellIdentifier:branchCellIdentifier]
+                         : [self createCellContentForIpad:tableView branchCellIdentifier:branchCellIdentifier];
     }
     
-    // populate data
-    NSMutableDictionary *currDoctor = [_loadDoctor objectAtIndex:indexPath.row];
-    lblName.text        = [currDoctor valueForKey:KEY_DOCTORS_NAME];
-    lblSpeciality.text  = [currDoctor valueForKey:KEY_DOCTORS_SPECIALITY];
-    lblAddress.text     = [currDoctor valueForKey:KEY_DOCTORS_ADDRESS];
+    if(_isIphone){
+        [self populateCellContentForIphone:cell row:indexPath.row];
+    }
+    else{
+        [self populateCellContentForIpad:cell row:indexPath.row];
+    }
         
     return cell;
 }
@@ -145,6 +96,124 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     if([_viewController respondsToSelector:@selector(doctorSelected:)]){
         [_viewController doctorSelected:indexPath.row];
     }
+}
+
+// for iphone
+- (UITableViewCell *) createCellContentForIphone : (UITableView *) tableView branchCellIdentifier : (NSString *) branchCellIdentifier{
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 70)];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, [UIScreen mainScreen].bounds.size.width - 12, 16)];
+    lblName.numberOfLines = 1;
+    [lblName setBackgroundColor:[UIColor clearColor]];
+    lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+    [lblName setTextColor:[UIColor darkGrayColor]];
+    [lblName setContentMode:UIViewContentModeTopLeft];
+    [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
+    lblName.tag = 10;
+    
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, [UIScreen mainScreen].bounds.size.width -12, 15)];
+    lblSpeciality.numberOfLines = 1;
+    [lblSpeciality setBackgroundColor:[UIColor clearColor]];
+    [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
+    [lblSpeciality setContentMode:UIViewContentModeTopLeft];
+    [lblSpeciality setTextAlignment:NSTextAlignmentLeft];
+    [lblSpeciality setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblSpeciality setTextColor:[UIColor grayColor]];
+    lblSpeciality.tag = 20;
+    
+    UILabel *lblAddress = [[UILabel alloc] initWithFrame: CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width -12, 28)];
+    lblAddress.numberOfLines = 2;
+    [lblAddress setBackgroundColor:[UIColor clearColor]];
+    [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
+    [lblAddress setContentMode:UIViewContentModeTopLeft];
+    [lblAddress setTextAlignment:NSTextAlignmentLeft];
+    [lblAddress setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblAddress setTextColor:[UIColor grayColor]];
+    [lblAddress adjustsFontSizeToFitWidth];
+    lblAddress.tag = 30;
+    
+    [cell.contentView addSubview:lblName];
+    [cell.contentView addSubview:lblSpeciality];
+    [cell.contentView addSubview:lblAddress];
+    
+    return cell;
+    
+}
+
+- (void) populateCellContentForIphone : (UITableViewCell *) cell row: (NSInteger) row{
+    
+    UILabel *lblName         = (UILabel *)[cell.contentView viewWithTag:10];
+    UILabel *lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:20];
+    UILabel *lblAddress      = (UILabel *)[cell.contentView viewWithTag:30];
+    
+    // populate data
+    NSMutableDictionary *currDoctor = [_loadDoctor objectAtIndex:row];
+    lblName.text        = [currDoctor valueForKey:KEY_DOCTORS_NAME];
+    lblSpeciality.text  = [currDoctor valueForKey:KEY_DOCTORS_SPECIALITY];
+    lblAddress.text     = [currDoctor valueForKey:KEY_DOCTORS_ADDRESS];
+}
+
+// for ipad
+- (UITableViewCell *) createCellContentForIpad : (UITableView *) tableView branchCellIdentifier : (NSString *) branchCellIdentifier{
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+    [cell setFrame:CGRectMake(0, 0, 400, 70) ];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, 400 - 12, 16)];
+    lblName.numberOfLines = 1;
+    [lblName setBackgroundColor:[UIColor clearColor]];
+    lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
+    [lblName setTextColor:[UIColor darkGrayColor]];
+    [lblName setContentMode:UIViewContentModeTopLeft];
+    [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
+    lblName.tag = 10;
+    
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, 400 -12, 15)];
+    lblSpeciality.numberOfLines = 1;
+    [lblSpeciality setBackgroundColor:[UIColor clearColor]];
+    [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
+    [lblSpeciality setContentMode:UIViewContentModeTopLeft];
+    [lblSpeciality setTextAlignment:NSTextAlignmentLeft];
+    [lblSpeciality setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblSpeciality setTextColor:[UIColor grayColor]];
+    lblSpeciality.tag = 20;
+    
+    UILabel *lblAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 40, 400 -12, 28)];
+    lblAddress.numberOfLines = 2;
+    [lblAddress setBackgroundColor:[UIColor clearColor]];
+    [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
+    [lblAddress setContentMode:UIViewContentModeTopLeft];
+    [lblAddress setTextAlignment:NSTextAlignmentLeft];
+    [lblAddress setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblAddress setTextColor:[UIColor grayColor]];
+    [lblAddress adjustsFontSizeToFitWidth];
+    lblAddress.tag = 30;
+    
+    [cell.contentView addSubview:lblName];
+    [cell.contentView addSubview:lblSpeciality];
+    [cell.contentView addSubview:lblAddress];
+    
+    return cell;
+    
+}
+
+- (void) populateCellContentForIpad : (UITableViewCell *) cell row : (NSInteger) row{
+    
+    UILabel *lblName         = (UILabel *)[cell.contentView viewWithTag:10];
+    UILabel *lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:20];
+    UILabel *lblAddress      = (UILabel *)[cell.contentView viewWithTag:30];
+    
+    // populate data
+    NSMutableDictionary *currDoctor = [_loadDoctor objectAtIndex:row];
+    lblName.text        = [currDoctor valueForKey:KEY_DOCTORS_NAME];
+    lblSpeciality.text  = [currDoctor valueForKey:KEY_DOCTORS_SPECIALITY];
+    lblAddress.text     = [currDoctor valueForKey:KEY_DOCTORS_ADDRESS];
 }
 
 
