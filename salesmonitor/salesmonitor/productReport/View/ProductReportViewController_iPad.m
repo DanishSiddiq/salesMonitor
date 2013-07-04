@@ -162,19 +162,20 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (void) initializeViewHeaderValue {
  
-    _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                                  , 140
-                                                                  , [UIScreen mainScreen].bounds.size.width
+    _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake( 30
+                                                                  , 170
+                                                                  , [UIScreen mainScreen].bounds.size.width - 30
                                                                   , 30)];
     
-    UILabel *lblHeading = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 200
+    UILabel *lblHeading = [[UILabel alloc] initWithFrame:CGRectMake(10
                                                                     , 0
                                                                     , 400
                                                                     , 30)];
-    lblHeading.textAlignment = NSTextAlignmentCenter;
+    lblHeading.textAlignment = NSTextAlignmentLeft;
     lblHeading.contentMode = UIViewContentModeTop;
     [lblHeading setBackgroundColor:[UIColor clearColor]];
     lblHeading.font = [UIFont fontWithName:@"Helvetica" size:16.0 ];
+    lblHeading.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblHeading.text = @"Select dates";
     lblHeading.tag = 10;
 
@@ -186,7 +187,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _tblSale = [[UITableView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 320
                                                              , 700
                                                              , 640
-                                                             , [UIScreen mainScreen].bounds.size.height - 790)];
+                                                             , [UIScreen mainScreen].bounds.size.height - 780)];
     _tblSale.delegate = _productReportController;
     _tblSale.dataSource = _productReportController;
     _tblSale.backgroundColor = [UIColor clearColor];
@@ -266,7 +267,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(30.0f
-                                                                       , 180.0f
+                                                                       , 240.0f
                                                                        , [UIScreen mainScreen].bounds.size.width -60
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
