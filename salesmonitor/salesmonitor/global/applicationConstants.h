@@ -10,7 +10,7 @@
 #define salesmonitor_applicationConstants_h
 #endif
 
-#define KEY_SERVER_MAIN_URL             @"http://172.16.1.33:3000/"
+#define KEY_SERVER_MAIN_URL             @"http://localhost:3000/"
 
 #define KEY_SERVER_URL_LOGIN            KEY_SERVER_MAIN_URL @"login"
 #define KEY_SERVER_REPORT_SALE          KEY_SERVER_MAIN_URL @"api/salesRep/%@/salesTrend?startDate=%@&endDate=%@&productId=%@"
