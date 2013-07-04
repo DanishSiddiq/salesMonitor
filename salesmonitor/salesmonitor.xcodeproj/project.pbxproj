@@ -151,6 +151,10 @@
 		3AB43D80175E22E4007A79BC /* BlockTextPromptAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D7B175E22E4007A79BC /* BlockTextPromptAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3AB43D85175E2572007A79BC /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43D82175E2572007A79BC /* SIAlertView.bundle */; };
 		3AB43D86175E2572007A79BC /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D84175E2572007A79BC /* SIAlertView.m */; };
+		3AE5033B178578070000B5F3 /* barIcon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50337178578070000B5F3 /* barIcon1.png */; };
+		3AE5033C178578070000B5F3 /* barIcon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50338178578070000B5F3 /* barIcon4.png */; };
+		3AE5033D178578070000B5F3 /* barIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE50339178578070000B5F3 /* barIcon2.png */; };
+		3AE5033E178578070000B5F3 /* barIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5033A178578070000B5F3 /* barIcon3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -369,6 +373,10 @@
 		3AB43D82175E2572007A79BC /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
 		3AB43D83175E2572007A79BC /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		3AB43D84175E2572007A79BC /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
+		3AE50337178578070000B5F3 /* barIcon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon1.png; sourceTree = "<group>"; };
+		3AE50338178578070000B5F3 /* barIcon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon4.png; sourceTree = "<group>"; };
+		3AE50339178578070000B5F3 /* barIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon2.png; sourceTree = "<group>"; };
+		3AE5033A178578070000B5F3 /* barIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +405,10 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AE50337178578070000B5F3 /* barIcon1.png */,
+				3AE50338178578070000B5F3 /* barIcon4.png */,
+				3AE50339178578070000B5F3 /* barIcon2.png */,
+				3AE5033A178578070000B5F3 /* barIcon3.png */,
 				3A9B304D1785663700767173 /* topBarLogoBg.png */,
 				3A9D594E17846337001EF677 /* medPicPlaceholder.png */,
 				3A9D595317846337001EF677 /* barLogo.png */,
@@ -1099,6 +1111,10 @@
 				3A9D598817846337001EF677 /* bg.png in Resources */,
 				3A9D598917846337001EF677 /* iPadIcon.png in Resources */,
 				3A9B304E1785663D00767173 /* topBarLogoBg.png in Resources */,
+				3AE5033B178578070000B5F3 /* barIcon1.png in Resources */,
+				3AE5033C178578070000B5F3 /* barIcon4.png in Resources */,
+				3AE5033D178578070000B5F3 /* barIcon2.png in Resources */,
+				3AE5033E178578070000B5F3 /* barIcon3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
