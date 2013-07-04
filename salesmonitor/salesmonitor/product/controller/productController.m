@@ -236,11 +236,11 @@
     UIImageView *imgViewProduct = [[UIImageView alloc] initWithFrame:CGRectMake(4, 14, 132, 132)];
     [imgViewProduct setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewProduct setClipsToBounds:YES];
-    [[imgViewProduct layer] setBorderColor:[UIColor grayColor].CGColor];
-    [[imgViewProduct layer] setBorderWidth:1.25];
+    [[imgViewProduct layer] setBorderColor:[UIColor colorWithRed:146/255.0f green:146/255.0f blue:146/255.0f alpha:1.0].CGColor];
+    [[imgViewProduct layer] setBorderWidth:1.0];
     imgViewProduct.tag = 10;
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(150, 10, tableView.frame.size.width - 150, 40)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, tableView.frame.size.width - 220, 26)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
     lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
@@ -249,7 +249,7 @@
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
     
-    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(150, 50, tableView.frame.size.width - 300, 26)];
+    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 44, tableView.frame.size.width - 220, 22)];
     lblTheraputicClass.backgroundColor = [UIColor clearColor];
     lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
     lblTheraputicClass.numberOfLines = 1;
@@ -259,7 +259,7 @@
     lblTheraputicClass.backgroundColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
     lblTheraputicClass.tag = 30;
     
-    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(150, 78, tableView.frame.size.width - 150, 44)];
+    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(140, 70, tableView.frame.size.width - 220, 66)];
     lblIndication.backgroundColor = [UIColor clearColor];
     lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     lblIndication.numberOfLines = 2;
@@ -348,6 +348,20 @@
     lblSaleUnit.text = [[product valueForKey:KEY_PRODUCT_SALES_UNIT] description];
     lblBudgetUnit.text = [[product valueForKey:KEY_PRODUCT_BUDGET_UNITS] description];
     
+    
+    CGSize size = [[product valueForKey:KEY_PRODUCT_THERAPUTIC_CLASS]
+                   sizeWithFont:lblTheraputicClass.font
+                   constrainedToSize:lblTheraputicClass.frame.size
+                   lineBreakMode:lblTheraputicClass.lineBreakMode];
+    
+    
+    if(size.width < 300){
+        
+        lblTheraputicClass.frame = CGRectMake(lblTheraputicClass.frame.origin.x
+                                              , lblTheraputicClass.frame.origin.y
+                                              , size.width
+                                              , size.height);
+    }
 }
 
 @end
