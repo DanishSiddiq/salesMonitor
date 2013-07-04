@@ -135,7 +135,7 @@
 
 - (void) initializeDoctorListContainer {
     
-    _doctorListContainer = [[UIView alloc] initWithFrame:CGRectMake(0
+    _doctorListContainer = [[UIView alloc] initWithFrame:CGRectMake(10
                                                                     , 77
                                                                     , 400
                                                                     , [UIScreen mainScreen].bounds.size.height - 107)];
@@ -146,7 +146,7 @@
 - (void) initializeDoctorTable {
     
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
-                                                               , 10
+                                                               , 0
                                                                , 390
                                                                , [UIScreen mainScreen].bounds.size.height - 107)];
     
@@ -170,7 +170,7 @@
     _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake(402
                                                                       , 77
                                                                       , 366
-                                                                      , [UIScreen mainScreen].bounds.size.height - 200)];
+                                                                      , [UIScreen mainScreen].bounds.size.height - 157)];
     
     _doctorDetailContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColBg"]];
     
