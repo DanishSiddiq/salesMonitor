@@ -244,7 +244,7 @@
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
     lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
-    lblName.textColor = [UIColor colorWithRed:61/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+    lblName.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblName.contentMode = UIViewContentModeBottomLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
@@ -266,7 +266,7 @@
     lblIndication.contentMode = UIViewContentModeTopLeft;
     lblIndication.lineBreakMode = NSLineBreakByTruncatingTail;
     lblIndication.textColor = [UIColor grayColor];
-    lblIndication.backgroundColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0];
+    lblIndication.backgroundColor = [UIColor colorWithRed:154/255.0f green:154/255.0f blue:154/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
     UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 75, 45, 300, 30)];
@@ -285,7 +285,7 @@
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
     lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblSaleUnit.textColor = [UIColor blackColor];
+    lblSaleUnit.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblSaleUnit.tag = 60;
     
     UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 85, 70, 60)];
@@ -295,7 +295,7 @@
     lblBudgetUnit.contentMode = UIViewContentModeCenter;
     lblBudgetUnit.textAlignment = NSTextAlignmentCenter;
     lblBudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblBudgetUnit.textColor = [UIColor blackColor];
+    lblBudgetUnit.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblBudgetUnit.tag = 70;
     
     [cell.contentView addSubview:imgViewBG];

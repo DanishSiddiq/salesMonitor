@@ -28,19 +28,6 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil
-               bundle:(NSBundle *)nibBundleOrNil
-      navBarContainer: (UIView *) navBarContainer{
-    
-    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        _navBarContainer        = navBarContainer;
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -65,14 +52,32 @@
 
 - (void) customizeNavigationBar{
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
-    [btnNavBarBack setImage:[UIImage imageNamed:@"titlebar-back-btn"] forState:UIControlStateNormal];
+    // icons in navigation bar
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    [_navBarContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBackGround setClipsToBounds:YES];
+    [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
+    [imgViewBackGround setTag:10];
+    
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewLogo setClipsToBounds:YES];
+    [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
+    [imgViewLogo setTag:20];
+    
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 63)];
+    [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
     
+    [_navBarContainer addSubview:imgViewBackGround];
+    [_navBarContainer addSubview:imgViewLogo];
+    [_navBarContainer addSubview:btnNavBarBack];
+    [self.view addSubview:_navBarContainer];
     
-    [_navBarContainer setHidden:YES];
 }
 
 - (void) initializeMainView {
@@ -82,7 +87,11 @@
 
 - (void) initializeWebViewReport{
     
-    _wvReport = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    _wvReport = [[UIWebView alloc] initWithFrame:CGRectMake(10
+                                                            , 87
+                                                            , [UIScreen mainScreen].bounds.size.width - 10
+                                                            , [UIScreen mainScreen].bounds.size.height - 117)];
+    [_wvReport setBackgroundColor:[UIColor clearColor]];
     _wvReport.delegate = self;
     [self.view addSubview:_wvReport];
     
