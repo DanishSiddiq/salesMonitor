@@ -111,44 +111,44 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 786, 67)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 786, 67)];
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
     [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewBackGround setClipsToBounds:YES];
     [imgViewBackGround setImage:[UIImage imageNamed:@"topBarLogoBg"]];
     [imgViewBackGround setTag:10];
     
-    UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 22, 22)];
-    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"icon-doctor"] forState:UIControlStateNormal & UIControlStateSelected];
+    UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - (83 * 4), 2, 83, 63)];
+    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"barIcon1"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarDoctorList addTarget:self action:@selector(btnPressedNavBarDoctorList:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarDoctorList setTag:20];
     
-    UIButton *btnNavBarAdvanceReport = [[UIButton alloc] initWithFrame:CGRectMake(42, 10, 22, 22)];
-    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"icon-stats"] forState:UIControlStateNormal & UIControlStateSelected];
+    UIButton *btnNavBarAdvanceReport = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - (83 * 3), 2, 83, 63)];
+    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"barIcon2"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarAdvanceReport addTarget:self action:@selector(btnPressedNavBarAdvanceReports:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarAdvanceReport setTag:20];
     
-    UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(84, 10, 22, 22)];
+    UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - (83 * 2), 2, 83, 63)];
     [btnSwitchContainer setTag:30];
     
-    UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 83, 63)];
     [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"icon-list.png"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarListView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarListView setHidden:YES];
     [btnNavBarListView setTag:10];
     
-    UIButton *btnNavBarMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"icon-map.png"] forState:UIControlStateNormal & UIControlStateSelected];
+    UIButton *btnNavBarMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 83, 63)];
+    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"barIcon3"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarMapView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarMapView setTag:20];
     
     [btnSwitchContainer addSubview:btnNavBarListView];
     [btnSwitchContainer addSubview:btnNavBarMapView];
     
-    UIButton *btnNavBarLogout = [[UIButton alloc] initWithFrame:CGRectMake(126, 10, 22, 22)];
-    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal & UIControlStateSelected];
+    UIButton *btnNavBarLogout = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - (83 * 1), 2, 83, 63)];
+    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"barIcon4"] forState:UIControlStateNormal & UIControlStateSelected];
     [btnNavBarLogout addTarget:self action:@selector(btnPressedNavBarLogout:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarLogout setTag:40];
     
