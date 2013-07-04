@@ -240,7 +240,7 @@
     [[imgViewProduct layer] setBorderWidth:1.0];
     imgViewProduct.tag = 10;
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, tableView.frame.size.width - 220, 26)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, tableView.frame.size.width - 225, 26)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
     lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
@@ -249,7 +249,7 @@
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
     
-    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 44, tableView.frame.size.width - 220, 22)];
+    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 40, tableView.frame.size.width - 225, 20)];
     lblTheraputicClass.backgroundColor = [UIColor clearColor];
     lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
     lblTheraputicClass.numberOfLines = 1;
@@ -259,13 +259,14 @@
     lblTheraputicClass.backgroundColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
     lblTheraputicClass.tag = 30;
     
-    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(140, 70, tableView.frame.size.width - 220, 66)];
+    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(140, 72, tableView.frame.size.width - 225, 72)];
     lblIndication.backgroundColor = [UIColor clearColor];
     lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     lblIndication.numberOfLines = 2;
     lblIndication.contentMode = UIViewContentModeTopLeft;
     lblIndication.lineBreakMode = NSLineBreakByTruncatingTail;
     lblIndication.textColor = [UIColor grayColor];
+    lblIndication.backgroundColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
     UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 75, 45, 300, 30)];
