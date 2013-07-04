@@ -45,7 +45,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _isIphone ? 100.0f : 150.0f;
+    return _isIphone ? 100.0f : 140.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -231,7 +231,13 @@
     
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 150) ];
+    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 140) ];
+    
+    UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 140)];
+    [imgViewBG setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBG setClipsToBounds:YES];
+    [imgViewBG setImage:[UIImage imageNamed:@"medDetailsBar"]];
+    
     
     UIImageView *imgViewProduct = [[UIImageView alloc] initWithFrame:CGRectMake(4, 4, 142, 142)];
     [imgViewProduct setContentMode:UIViewContentModeScaleAspectFill];
@@ -303,6 +309,7 @@
     lblBudgetUnit.textColor = [UIColor blackColor];
     lblBudgetUnit.tag = 70;
     
+    [cell.contentView addSubview:imgViewBG];
     [cell.contentView addSubview:imgViewProduct];
     [cell.contentView addSubview:lblName];
     [cell.contentView addSubview:lblTheraputicClass];
@@ -311,6 +318,8 @@
     [cell.contentView addSubview:lblSaleUnit];
     [cell.contentView addSubview:lblSlash];
     [cell.contentView addSubview:lblBudgetUnit];
+    
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return cell;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "loginController.h"
-#import "productViewController_iPhone.h"
+#import "productViewController_iPad.h"
 
 
 @interface loginViewController_iPad : UIViewController <loginControllerDelegate>

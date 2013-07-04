@@ -1,14 +1,14 @@
 //
-//  productViewController_iPhone.m
+//  productViewController_iPad.m
 //  salesmonitor
 //
-//  Created by goodcore2 on 6/4/13.
+//  Created by goodcore2 on 7/4/13.
 //  Copyright (c) 2013 GoodCore. All rights reserved.
 //
 
-#import "productViewController_iPhone.h"
+#import "productViewController_iPad.h"
 
-@interface productViewController_iPhone ()
+@interface productViewController_iPad ()
 
 @property (nonatomic) BOOL isIphone;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation productViewController_iPhone
+@implementation productViewController_iPad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +46,7 @@
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _salesMonitorDelegate   = salesMonitorDelegate;
-        _isIphone                = YES;
+        _isIphone                = NO;
     }
     return self;
 }
@@ -54,14 +54,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	// Do any additional setup after loading the view.
     
     [self initializeData];
     [self initializeViews];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:NO ];
@@ -85,7 +85,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 // view related methods
 - (void) initializeData {
     
@@ -99,7 +98,7 @@
     _productController = [[productController alloc] init:_isIphone loadProduct:_loadProduct viewController:self];
     _brickController = [[brickController alloc] init:_isIphone loadBrick:_loadBrick viewController:self];
     _brickProductController = [[brickProductController alloc] init:_isIphone];
-
+    
 }
 
 - (void) initializeViews {
@@ -203,8 +202,8 @@
     [_loadProduct removeAllObjects];
     [_tblProduct reloadData];
     _timerProductList = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(performTableUpdates:)
-                                                     userInfo:nil
-                                                      repeats:YES];
+                                                       userInfo:nil
+                                                        repeats:YES];
     
 }
 -(void)performTableUpdates:(NSTimer*)timer
@@ -245,34 +244,19 @@
 
 // selectors
 - (void) btnPressedNavBarDoctorList : (UIButton *) sender{
-    
-    if(_isIphone){
         
-        doctorViewController_iPhone *doctorViewController = [[doctorViewController_iPhone alloc]
-                                                            initWithNibName:@"doctorViewController_iPhone"
-                                                            bundle:nil
-                                                            salesMonitorDelegate:_salesMonitorDelegate
-                                                            navBarContainer:_navBarContainer];
-        [self.navigationController pushViewController:doctorViewController animated:YES];
-        
-    }
-    else{
-        
-        doctorViewController_iPad *doctoViewController = [[doctorViewController_iPad alloc]
-                                                            initWithNibName:@"doctorViewController_iPad"
-                                                            bundle:nil
-                                                            salesMonitorDelegate:_salesMonitorDelegate
-                                                            navBarContainer:_navBarContainer];
-        [self.navigationController pushViewController:doctoViewController animated:YES];
-    }
-    
+    doctorViewController_iPad *doctoViewController = [[doctorViewController_iPad alloc]
+                                                      initWithNibName:@"doctorViewController_iPad"
+                                                      bundle:nil
+                                                      salesMonitorDelegate:_salesMonitorDelegate
+                                                      navBarContainer:_navBarContainer];
+    [self.navigationController pushViewController:doctoViewController animated:YES];    
 }
 
 - (void) btnPressedNavBarAdvanceReports : (UIButton *) sender {
     
     AdvanceReportViewController_iPhone *advanceReportViewController =[[AdvanceReportViewController_iPhone alloc]
-                                                                      initWithNibName:_isIphone ? @"AdvanceReportViewController_iPhone" :
-                                                                      @"AdvanceReportViewController_iPad"
+                                                                      initWithNibName:@"AdvanceReportViewController_iPad"
                                                                       bundle:nil
                                                                       navBarContainer:_navBarContainer];
     [self.navigationController pushViewController:advanceReportViewController animated:YES];
@@ -380,29 +364,15 @@
 
 // protocol methods
 -(void) productSelected:(NSMutableDictionary *) productSelected{
-    
-    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
         
-        ProductReportViewController_iPhone *productReport = [[ProductReportViewController_iPhone alloc]
-                                                             initWithNibName:@"ProductReportViewController_iPhone"
-                                                             bundle:nil
-                                                             salesMonitorDelegate:_salesMonitorDelegate
-                                                             productSelected:productSelected
-                                                             navBarContainer:_navBarContainer];
+    ProductReportViewController_iPad *productReport = [[ProductReportViewController_iPad alloc]
+                                                       initWithNibName:@"ProductReportViewController_iPad"
+                                                       bundle:nil
+                                                       salesMonitorDelegate:_salesMonitorDelegate
+                                                       productSelected:productSelected
+                                                       navBarContainer:_navBarContainer];
         
-        [self.navigationController pushViewController:productReport animated:YES];
-    }
-    else{
-        
-        ProductReportViewController_iPad *productReport = [[ProductReportViewController_iPad alloc]
-                                                             initWithNibName:@"ProductReportViewController_iPad"
-                                                             bundle:nil
-                                                           salesMonitorDelegate:_salesMonitorDelegate
-                                                           productSelected:productSelected
-                                                           navBarContainer:_navBarContainer];
-        
-        [self.navigationController pushViewController:productReport animated:YES];
-    }
+    [self.navigationController pushViewController:productReport animated:YES];
 }
 
 
