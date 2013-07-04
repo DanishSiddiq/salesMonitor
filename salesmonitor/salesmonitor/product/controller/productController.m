@@ -45,7 +45,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _isIphone ? 100.0f : 140.0f;
+    return _isIphone ? 100.0f : 160.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -74,7 +74,8 @@
     
     if (cell == nil)
     {
-        cell = _isIphone ? [self createCellContentForIphone:branchCellIdentifier] : [self createCellContentForIpad:branchCellIdentifier];
+        cell = _isIphone ? [self createCellContentForIphone:branchCellIdentifier]
+                        : [self createCellContentForIpad:tableView branchCellIdentifier:branchCellIdentifier];
     }    
     
     if(_isIphone){
@@ -156,13 +157,6 @@
     lblSaleUnit.textColor = [UIColor blackColor];
     lblSaleUnit.tag = 60;
     
-    UILabel *lblSlash = [[UILabel alloc] initWithFrame:CGRectMake(255, 86, 5, 14)];
-    lblSlash.backgroundColor = [UIColor clearColor];
-    lblSlash.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
-    lblSlash.contentMode = UIViewContentModeCenter;
-    lblSlash.textColor = [UIColor blackColor];
-    lblSlash.text = @"/";
-    
     UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(260, 86, 60, 14)];
     lblBudgetUnit.backgroundColor = [UIColor clearColor];
     lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
@@ -178,7 +172,6 @@
     [cell.contentView addSubview:lblIndication];
     [cell.contentView addSubview:lblPrice];
     [cell.contentView addSubview:lblSaleUnit];
-    [cell.contentView addSubview:lblSlash];
     [cell.contentView addSubview:lblBudgetUnit];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
@@ -227,54 +220,56 @@
 
 
 // ipad
-- (UITableViewCell *) createCellContentForIpad: (NSString *) branchCellIdentifier {
+- (UITableViewCell *) createCellContentForIpad: (UITableView *) tableView branchCellIdentifier: (NSString *) branchCellIdentifier {
     
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 140) ];
+    [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160) ];
+    [cell setBackgroundColor:[UIColor clearColor]];
     
-    UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 140)];
+    UIImageView *imgViewBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, tableView.frame.size.width, 140)];
     [imgViewBG setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewBG setClipsToBounds:YES];
     [imgViewBG setImage:[UIImage imageNamed:@"medDetailsBar"]];
     
     
-    UIImageView *imgViewProduct = [[UIImageView alloc] initWithFrame:CGRectMake(4, 4, 142, 142)];
+    UIImageView *imgViewProduct = [[UIImageView alloc] initWithFrame:CGRectMake(4, 14, 132, 132)];
     [imgViewProduct setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewProduct setClipsToBounds:YES];
-    [[imgViewProduct layer] setCornerRadius:3];
-    [[imgViewProduct layer] setBorderColor:[UIColor grayColor].CGColor];
-    [[imgViewProduct layer] setBorderWidth:1.25];
+    [[imgViewProduct layer] setBorderColor:[UIColor colorWithRed:146/255.0f green:146/255.0f blue:146/255.0f alpha:1.0].CGColor];
+    [[imgViewProduct layer] setBorderWidth:1.0];
     imgViewProduct.tag = 10;
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(150, 10, [UIScreen mainScreen].bounds.size.width - 150, 40)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, tableView.frame.size.width - 225, 26)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
     lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
-    lblName.textColor = [UIColor darkGrayColor];
+    lblName.textColor = [UIColor colorWithRed:61/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
     lblName.contentMode = UIViewContentModeBottomLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
     
-    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(150, 50, [UIScreen mainScreen].bounds.size.width - 150, 26)];
+    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 40, tableView.frame.size.width - 225, 20)];
     lblTheraputicClass.backgroundColor = [UIColor clearColor];
     lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
     lblTheraputicClass.numberOfLines = 1;
     lblTheraputicClass.contentMode = UIViewContentModeTopLeft;
     lblTheraputicClass.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblTheraputicClass.textColor = [UIColor grayColor];
+    lblTheraputicClass.textColor = [UIColor colorWithRed:197/255.0f green:197/255.0f blue:197/255.0f alpha:1.0];
+    lblTheraputicClass.backgroundColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
     lblTheraputicClass.tag = 30;
     
-    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(150, 78, [UIScreen mainScreen].bounds.size.width - 150, 44)];
+    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(140, 72, tableView.frame.size.width - 225, 72)];
     lblIndication.backgroundColor = [UIColor clearColor];
     lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     lblIndication.numberOfLines = 2;
     lblIndication.contentMode = UIViewContentModeTopLeft;
     lblIndication.lineBreakMode = NSLineBreakByTruncatingTail;
     lblIndication.textColor = [UIColor grayColor];
+    lblIndication.backgroundColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
-    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(150, 122, 300, 30)];
+    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 75, 45, 300, 30)];
     lblPrice.backgroundColor = [UIColor clearColor];
     lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
     lblPrice.numberOfLines = 1;
@@ -283,28 +278,22 @@
     lblPrice.textColor = [UIColor blackColor];
     lblPrice.tag = 50;
     
-    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 185 , 122, 90, 30)];
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 15, 70, 60)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
-    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
     lblSaleUnit.numberOfLines = 1;
-    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
-    lblSaleUnit.textAlignment = NSTextAlignmentRight;
+    lblSaleUnit.contentMode = UIViewContentModeCenter;
+    lblSaleUnit.textAlignment = NSTextAlignmentCenter;
     lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
     lblSaleUnit.textColor = [UIColor blackColor];
     lblSaleUnit.tag = 60;
     
-    UILabel *lblSlash = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 95, 122, 5, 30)];
-    lblSlash.backgroundColor = [UIColor clearColor];
-    lblSlash.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
-    lblSlash.contentMode = UIViewContentModeCenter;
-    lblSlash.textColor = [UIColor blackColor];
-    lblSlash.text = @"/";
-    
-    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -90 , 122, 90, 30)];
+    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 85, 70, 60)];
     lblBudgetUnit.backgroundColor = [UIColor clearColor];
-    lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
     lblBudgetUnit.numberOfLines = 1;
-    lblBudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblBudgetUnit.contentMode = UIViewContentModeCenter;
+    lblBudgetUnit.textAlignment = NSTextAlignmentCenter;
     lblBudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
     lblBudgetUnit.textColor = [UIColor blackColor];
     lblBudgetUnit.tag = 70;
@@ -314,9 +303,8 @@
     [cell.contentView addSubview:lblName];
     [cell.contentView addSubview:lblTheraputicClass];
     [cell.contentView addSubview:lblIndication];
-    [cell.contentView addSubview:lblPrice];
+    //[cell.contentView addSubview:lblPrice];
     [cell.contentView addSubview:lblSaleUnit];
-    [cell.contentView addSubview:lblSlash];
     [cell.contentView addSubview:lblBudgetUnit];
     
     
@@ -361,6 +349,20 @@
     lblSaleUnit.text = [[product valueForKey:KEY_PRODUCT_SALES_UNIT] description];
     lblBudgetUnit.text = [[product valueForKey:KEY_PRODUCT_BUDGET_UNITS] description];
     
+    
+    CGSize size = [[product valueForKey:KEY_PRODUCT_THERAPUTIC_CLASS]
+                   sizeWithFont:lblTheraputicClass.font
+                   constrainedToSize:lblTheraputicClass.frame.size
+                   lineBreakMode:lblTheraputicClass.lineBreakMode];
+    
+    
+    if(size.width < 300){
+        
+        lblTheraputicClass.frame = CGRectMake(lblTheraputicClass.frame.origin.x
+                                              , lblTheraputicClass.frame.origin.y
+                                              , size.width
+                                              , size.height);
+    }
 }
 
 @end

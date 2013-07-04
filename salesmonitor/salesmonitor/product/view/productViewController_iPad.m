@@ -111,7 +111,7 @@
 
 - (void) customizeNavigationBar {
     
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
     UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
@@ -168,10 +168,10 @@
 - (void) initializeViewContainer {
     
     _viewContainer = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                              , 67
+                                                              , 77
                                                               , [UIScreen mainScreen].bounds.size.width
-                                                              , [UIScreen mainScreen].bounds.size.height-67)];
-    [_viewContainer setBackgroundColor:[UIColor whiteColor]];
+                                                              , [UIScreen mainScreen].bounds.size.height-107)];
+    [_viewContainer setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_viewContainer];
 }
 
@@ -180,7 +180,7 @@
     _mapBrick = [[MKMapView alloc] initWithFrame:CGRectMake(0
                                                             , 0
                                                             , [UIScreen mainScreen].bounds.size.width
-                                                            , [UIScreen mainScreen].bounds.size.height-67)];
+                                                            , [UIScreen mainScreen].bounds.size.height-107)];
     [_mapBrick showsUserLocation];
     _mapBrick.delegate = _brickController;
     
@@ -190,13 +190,15 @@
 
 - (void) initialzieViewProductTable{
     
-    _tblProduct = [[UITableView alloc] initWithFrame:CGRectMake(0
+    _tblProduct = [[UITableView alloc] initWithFrame:CGRectMake(10
                                                                 , 0
-                                                                , [UIScreen mainScreen].bounds.size.width,
-                                                                [UIScreen mainScreen].bounds.size.height - 67)];
+                                                                , [UIScreen mainScreen].bounds.size.width-10,
+                                                                [UIScreen mainScreen].bounds.size.height - 107)];
     
     [_tblProduct setDataSource:_productController];
     [_tblProduct setDelegate:_productController];
+    [_tblProduct setBackgroundColor:[UIColor clearColor]];
+    [_tblProduct setSeparatorColor:[UIColor clearColor]];
     [_viewContainer addSubview:_tblProduct];
 }
 
