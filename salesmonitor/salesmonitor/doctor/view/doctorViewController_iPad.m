@@ -41,15 +41,13 @@
 
 - (id) initWithNibName:(NSString *)nibNameOrNil
                 bundle:(NSBundle *)nibBundleOrNil
-  salesMonitorDelegate:(AppDelegate *)salesMonitorDelegate
-       navBarContainer: (UIView *) navBarContainer{
+  salesMonitorDelegate:(AppDelegate *)salesMonitorDelegate{
     
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
         _salesMonitorDelegate   = salesMonitorDelegate;
         _isIphone   = YES;
-        _navBarContainer = navBarContainer;
     }
     
     return self;
@@ -95,20 +93,39 @@
 
 - (void) customizeNavigationBar{
     
-    [_navBarContainer setHidden:YES];
+    // icons in navigation bar
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIButton *btnNavBarAdd = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 20)];
-    [btnNavBarAdd setImage:[UIImage imageNamed:@"titlebar-add-btn"] forState:UIControlStateNormal];
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBackGround setClipsToBounds:YES];
+    [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
+    [imgViewBackGround setTag:10];
+    
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewLogo setClipsToBounds:YES];
+    [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
+    [imgViewLogo setTag:20];
+    
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 63)];
+    [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
+    btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
+    [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *btnNavBarAdd = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 92, 0, 82, 63)];
+    [btnNavBarAdd setImage:[UIImage imageNamed:@"addBtn"] forState:UIControlStateNormal];
     btnNavBarAdd.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarAdd addTarget:self action:@selector(btnPressedNavBarAdd:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarAdd];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
-    [btnNavBarBack setImage:[UIImage imageNamed:@"titlebar-back-btn"] forState:UIControlStateNormal];
-    btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
-    [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnNavBarBack];
     
+    [_navBarContainer addSubview:imgViewBackGround];
+    [_navBarContainer addSubview:imgViewLogo];
+    [_navBarContainer addSubview:btnNavBarBack];
+    [_navBarContainer addSubview:btnNavBarAdd];
+    [self.view addSubview:_navBarContainer];
 }
 
 - (void) initializeMainView {
@@ -119,28 +136,30 @@
 - (void) initializeDoctorListContainer {
     
     _doctorListContainer = [[UIView alloc] initWithFrame:CGRectMake(0
-                                                                    , 0
+                                                                    , 77
                                                                     , 400
-                                                                    , [UIScreen mainScreen].bounds.size.height - 65)];
-    [_doctorListContainer setBackgroundColor:[UIColor whiteColor]];
+                                                                    , [UIScreen mainScreen].bounds.size.height - 107)];
+    [_doctorListContainer setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_doctorListContainer];
 }
 
 - (void) initializeDoctorTable {
     
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
-                                                               , 0
-                                                               , 400
-                                                               , [UIScreen mainScreen].bounds.size.height - 65)];
+                                                               , 10
+                                                               , 390
+                                                               , [UIScreen mainScreen].bounds.size.height - 107)];
     
     _tblDoctor.delegate = _doctorController;
     _tblDoctor.dataSource = _doctorController;
+    [_tblDoctor setBackgroundColor:[UIColor clearColor]];
+    [_tblDoctor setSeparatorColor:[UIColor clearColor]];
     [_doctorListContainer addSubview:_tblDoctor];
 }
 
 -(void) initializeSeperatorView {
     
-    UIView *vwSeperator = [[UIView alloc] initWithFrame:CGRectMake(400, 0, 2, [UIScreen mainScreen].bounds.size.height)];
+    UIView *vwSeperator = [[UIView alloc] initWithFrame:CGRectMake(400, 77, 2, [UIScreen mainScreen].bounds.size.height-77)];
     [vwSeperator setBackgroundColor:[UIColor darkGrayColor]];
     [self.view addSubview:vwSeperator];
     
@@ -149,9 +168,9 @@
 - (void) initializeDoctorDetailContainer{
     
     _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake(402
-                                                                      , 0
+                                                                      , 77
                                                                       , 366
-                                                                      , [UIScreen mainScreen].bounds.size.height - 125)];
+                                                                      , [UIScreen mainScreen].bounds.size.height - 200)];
     
     _doctorDetailContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColBg"]];
     

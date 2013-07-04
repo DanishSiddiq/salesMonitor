@@ -253,8 +253,7 @@
     doctorViewController_iPad *doctoViewController = [[doctorViewController_iPad alloc]
                                                       initWithNibName:@"doctorViewController_iPad"
                                                       bundle:nil
-                                                      salesMonitorDelegate:_salesMonitorDelegate
-                                                      navBarContainer:_navBarContainer];
+                                                      salesMonitorDelegate:_salesMonitorDelegate];
     [self.navigationController pushViewController:doctoViewController animated:YES];    
 }
 

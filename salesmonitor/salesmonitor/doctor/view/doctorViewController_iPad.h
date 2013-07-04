@@ -39,8 +39,7 @@ typedef enum dataOperationTypes {
 
 - (id)initWithNibName:(NSString *)nibNameOrNil
                bundle:(NSBundle *)nibBundleOrNil
-salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
-      navBarContainer: (UIView *) navBarContainer;
+salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate;
 
 
 // doctor delegates

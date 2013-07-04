@@ -161,11 +161,11 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 - (UITableViewCell *) createCellContentForIpad : (UITableView *) tableView branchCellIdentifier : (NSString *) branchCellIdentifier{
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, 400, 70) ];
+    [cell setFrame:CGRectMake(0, 0, 390, 70) ];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, 400 - 12, 16)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, 390 - 12, 16)];
     lblName.numberOfLines = 1;
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
@@ -174,7 +174,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
     lblName.tag = 10;
     
-    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, 400 -12, 15)];
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, 390 -12, 15)];
     lblSpeciality.numberOfLines = 1;
     [lblSpeciality setBackgroundColor:[UIColor clearColor]];
     [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
@@ -184,7 +184,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     [lblSpeciality setTextColor:[UIColor grayColor]];
     lblSpeciality.tag = 20;
     
-    UILabel *lblAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 40, 400 -12, 28)];
+    UILabel *lblAddress = [[UILabel alloc] initWithFrame:CGRectMake(8, 40, 390 -12, 28)];
     lblAddress.numberOfLines = 2;
     [lblAddress setBackgroundColor:[UIColor clearColor]];
     [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
