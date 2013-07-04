@@ -199,19 +199,19 @@
     
     UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 24)];
     [txtDoctorName setPlaceholder:@"name"];
-    [txtDoctorName setBackgroundColor:[UIColor clearColor]];
+    [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
     txtDoctorName.contentMode = UIViewContentModeBottomLeft;
     //txtDoctorName.textAlignment = NSTextAlignmentCenter;
     [txtDoctorName.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorName.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    [txtDoctorName setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorName setBorderStyle:UITextBorderStyleNone];
     [txtDoctorName setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorName setHidden:YES];
     [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
-    [txtDoctorName setTextColor:[UIColor whiteColor]];
+    [txtDoctorName setTextColor:[UIColor grayColor]];
     
     UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(32, 300, 300, 24)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
@@ -224,23 +224,22 @@
     [lblDoctorSpeciality setHidden:NO];
     [lblDoctorSpeciality setTag:30];
     [lblDoctorSpeciality setTextColor:[UIColor whiteColor]];
-    [lblDoctorSpeciality setText:@"Speciality :"];
     
     UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(32, 300, 300, 24)];
     [txtDoctorSpeciality setPlaceholder:@"speciality"];
-    [txtDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
+    [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     txtDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
     [txtDoctorSpeciality.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    [txtDoctorSpeciality setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorSpeciality setBorderStyle:UITextBorderStyleNone];
     [txtDoctorSpeciality setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorSpeciality setDelegate:self];
     [txtDoctorSpeciality setHidden:NO];
     [txtDoctorSpeciality setTag:40];
-    [txtDoctorSpeciality setTextColor:[UIColor whiteColor]];
+    [txtDoctorSpeciality setTextColor:[UIColor grayColor]];
     
     UIView *vwSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(32, 334, 300, 1)];
     vwSeperator1.backgroundColor = [UIColor whiteColor];
@@ -260,20 +259,20 @@
     
     UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(32, 345, 300, 24)];
     [txtDoctorPhone setPlaceholder:@"+14134562"];
-    [txtDoctorPhone setBackgroundColor:[UIColor clearColor]];
+    [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
     txtDoctorPhone.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
     [txtDoctorPhone.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    [txtDoctorPhone setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorPhone setBorderStyle:UITextBorderStyleNone];
     [txtDoctorPhone setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorPhone setKeyboardType:UIKeyboardTypeDecimalPad];
     [txtDoctorPhone setDelegate:self];
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
-    [txtDoctorPhone setTextColor:[UIColor whiteColor]];
+    [txtDoctorPhone setTextColor:[UIColor grayColor]];
     
     UIView *vwSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(32, 379, 300, 1)];
     vwSeperator2.backgroundColor = [UIColor whiteColor];
@@ -302,20 +301,20 @@
     
     UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(32, 390, 300, 24)];
     [txtDoctorEmail setPlaceholder:@"name@mail.com"];
-    [txtDoctorEmail setBackgroundColor:[UIColor clearColor]];
+    [txtDoctorEmail setBackgroundColor:[UIColor whiteColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
     txtDoctorEmail.contentMode = UIViewContentModeBottomLeft;
-    txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
+    //txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [txtDoctorEmail.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorEmail.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    [txtDoctorEmail setBorderStyle:UITextBorderStyleRoundedRect];
+    [txtDoctorEmail setBorderStyle:UITextBorderStyleNone];
     [txtDoctorEmail setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorEmail setKeyboardType:UIKeyboardTypeEmailAddress];
     [txtDoctorEmail setDelegate:self];
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
-    [txtDoctorEmail setTextColor:[UIColor whiteColor]];
+    [txtDoctorEmail setTextColor:[UIColor grayColor]];
     
     UIView *vwSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(32, 424, 300, 1)];
     vwSeperator3.backgroundColor = [UIColor whiteColor];
@@ -334,7 +333,7 @@
     [lblDoctorAddress setTextColor:[UIColor whiteColor]];
     
     UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(32, 435, 300, 60)];
-    [txtDoctorAddress setBackgroundColor:[UIColor clearColor]];
+    [txtDoctorAddress setBackgroundColor:[UIColor whiteColor]];
     txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
     txtDoctorAddress.contentMode = UIViewContentModeTopLeft;
@@ -347,7 +346,7 @@
     [txtDoctorAddress setHidden:YES];
     txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
-    [txtDoctorAddress setTextColor:[UIColor whiteColor]];
+    [txtDoctorAddress setTextColor:[UIColor grayColor]];
     
     UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(32, 515, 300, 50)];
     [btnAdd setTitle:@"Add" forState:UIControlStateNormal & UIControlStateSelected];
@@ -379,7 +378,7 @@
     [btnUpdate setHidden:YES];
     [btnUpdate setImage:[UIImage imageNamed:@"submitBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(32, 575, 300, 50)];
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(32, 570, 300, 50)];
     [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
     [btnDelete setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnDelete titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -387,9 +386,9 @@
     [btnDelete addTarget:self action:@selector(btnPressedDelete:) forControlEvents:UIControlEventTouchUpInside];
     [btnDelete setTag:150];
     [btnDelete setHidden:YES];
-    [btnDelete setImage:[UIImage imageNamed:@"loginBtn"] forState:UIControlStateNormal];
+    [btnDelete setImage:[UIImage imageNamed:@"deleteBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(32, 635, 300, 50)];
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(32, 625, 300, 50)];
     [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal & UIControlStateSelected];
     [btnCancel setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnCancel titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -397,6 +396,7 @@
     [btnCancel addTarget:self action:@selector(btnPressedCancel:) forControlEvents:UIControlEventTouchUpInside];
     [btnCancel setTag:160];
     [btnCancel setHidden:YES];
+    [btnCancel setImage:[UIImage imageNamed:@"cancelBtn"] forState:UIControlStateNormal];
     
     
     vwSeperator1.hidden = vwSeperator2.hidden = vwSeperator3.hidden = YES;
