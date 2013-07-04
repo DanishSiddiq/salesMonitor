@@ -76,10 +76,6 @@
 		3A9D594C17844D87001EF677 /* HelveticaNeueLTStd-HvCn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D594717844D87001EF677 /* HelveticaNeueLTStd-HvCn.ttf */; };
 		3A9D594D17844D87001EF677 /* HelveticaNeueLTStd-Ex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D594817844D87001EF677 /* HelveticaNeueLTStd-Ex.ttf */; };
 		3A9D596C17846337001EF677 /* medPicPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D594E17846337001EF677 /* medPicPlaceholder.png */; };
-		3A9D596D17846337001EF677 /* barIcon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D594F17846337001EF677 /* barIcon1.png */; };
-		3A9D596E17846337001EF677 /* barIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595017846337001EF677 /* barIcon2.png */; };
-		3A9D596F17846337001EF677 /* barIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595117846337001EF677 /* barIcon3.png */; };
-		3A9D597017846337001EF677 /* barIcon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595217846337001EF677 /* barIcon4.png */; };
 		3A9D597117846337001EF677 /* barLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595317846337001EF677 /* barLogo.png */; };
 		3A9D597217846337001EF677 /* medDetailsBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595417846337001EF677 /* medDetailsBar.png */; };
 		3A9D597317846337001EF677 /* descriptionsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D595517846337001EF677 /* descriptionsBg.png */; };
@@ -269,10 +265,6 @@
 		3A9D594717844D87001EF677 /* HelveticaNeueLTStd-HvCn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTStd-HvCn.ttf"; sourceTree = "<group>"; };
 		3A9D594817844D87001EF677 /* HelveticaNeueLTStd-Ex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTStd-Ex.ttf"; sourceTree = "<group>"; };
 		3A9D594E17846337001EF677 /* medPicPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medPicPlaceholder.png; sourceTree = "<group>"; };
-		3A9D594F17846337001EF677 /* barIcon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon1.png; sourceTree = "<group>"; };
-		3A9D595017846337001EF677 /* barIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon2.png; sourceTree = "<group>"; };
-		3A9D595117846337001EF677 /* barIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon3.png; sourceTree = "<group>"; };
-		3A9D595217846337001EF677 /* barIcon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barIcon4.png; sourceTree = "<group>"; };
 		3A9D595317846337001EF677 /* barLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barLogo.png; sourceTree = "<group>"; };
 		3A9D595417846337001EF677 /* medDetailsBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medDetailsBar.png; sourceTree = "<group>"; };
 		3A9D595517846337001EF677 /* descriptionsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionsBg.png; sourceTree = "<group>"; };
@@ -407,10 +399,6 @@
 			children = (
 				3A9B304D1785663700767173 /* topBarLogoBg.png */,
 				3A9D594E17846337001EF677 /* medPicPlaceholder.png */,
-				3A9D594F17846337001EF677 /* barIcon1.png */,
-				3A9D595017846337001EF677 /* barIcon2.png */,
-				3A9D595117846337001EF677 /* barIcon3.png */,
-				3A9D595217846337001EF677 /* barIcon4.png */,
 				3A9D595317846337001EF677 /* barLogo.png */,
 				3A9D595417846337001EF677 /* medDetailsBar.png */,
 				3A9D595517846337001EF677 /* descriptionsBg.png */,
@@ -1085,10 +1073,6 @@
 				3A9D594C17844D87001EF677 /* HelveticaNeueLTStd-HvCn.ttf in Resources */,
 				3A9D594D17844D87001EF677 /* HelveticaNeueLTStd-Ex.ttf in Resources */,
 				3A9D596C17846337001EF677 /* medPicPlaceholder.png in Resources */,
-				3A9D596D17846337001EF677 /* barIcon1.png in Resources */,
-				3A9D596E17846337001EF677 /* barIcon2.png in Resources */,
-				3A9D596F17846337001EF677 /* barIcon3.png in Resources */,
-				3A9D597017846337001EF677 /* barIcon4.png in Resources */,
 				3A9D597117846337001EF677 /* barLogo.png in Resources */,
 				3A9D597217846337001EF677 /* medDetailsBar.png in Resources */,
 				3A9D597317846337001EF677 /* descriptionsBg.png in Resources */,
