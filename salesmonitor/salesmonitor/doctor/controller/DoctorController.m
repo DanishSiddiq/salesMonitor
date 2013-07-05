@@ -285,6 +285,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
                                                  
                                                  if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
                                                      
+                                                     _selectedIndexPath = [NSIndexPath indexPathForRow:[_loadDoctor count] inSection:0];
                                                      [self addDoctorInMemory:JSON];
                                                      [_viewController doctorAdd:YES msg:@"Added Successfully"];
                                                  }

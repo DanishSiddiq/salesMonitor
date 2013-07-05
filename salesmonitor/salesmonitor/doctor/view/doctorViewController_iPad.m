@@ -651,7 +651,6 @@
 
 
 // protocols
-
 -(void)doctorSelected:(NSInteger) selectedIndex{
     
     _selectedIndex = selectedIndex;
