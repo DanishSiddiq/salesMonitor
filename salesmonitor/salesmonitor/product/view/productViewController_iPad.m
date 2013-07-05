@@ -391,6 +391,7 @@
     tblBrickProduct.delegate = _brickProductController;
     tblBrickProduct.dataSource = _brickProductController;
     tblBrickProduct.bounces = NO;
+    tblBrickProduct.separatorColor = [UIColor clearColor];
     [tblBrickProduct setShowsVerticalScrollIndicator:NO];
     [tblBrickProduct setShowsHorizontalScrollIndicator:NO];
     
