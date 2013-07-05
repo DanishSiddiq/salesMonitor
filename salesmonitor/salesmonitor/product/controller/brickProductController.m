@@ -76,7 +76,7 @@
     UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 5, [UIScreen mainScreen].bounds.size.width - 304, 30)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size: 18.0];
-    lblName.textColor = [UIColor blackColor];
+    lblName.textColor = [UIColor whiteColor];
     lblName.contentMode = UIViewContentModeCenter;
     lblName.textAlignment = NSTextAlignmentCenter;
     lblName.text = @"Name";
@@ -92,7 +92,7 @@
     lblPrice.backgroundColor = [UIColor clearColor];
     lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
     lblPrice.contentMode = UIViewContentModeCenter;
-    lblPrice.textColor = [UIColor blackColor];
+    lblPrice.textColor = [UIColor whiteColor];
     lblPrice.textAlignment = NSTextAlignmentCenter;
     lblPrice.text = @"Price";
     
@@ -107,7 +107,7 @@
     lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size: 18.0];
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
-    lblSaleUnit.textColor = [UIColor blackColor];
+    lblSaleUnit.textColor = [UIColor whiteColor];
     lblSaleUnit.text = @"Sale";
     
     UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame: CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 0, 2, 40)];
@@ -121,7 +121,7 @@
     lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeue" size: 18.0];
     lblTotalSale.contentMode = UIViewContentModeCenter;
     lblTotalSale.textAlignment = NSTextAlignmentCenter;
-    lblTotalSale.textColor = [UIColor blackColor];
+    lblTotalSale.textColor = [UIColor whiteColor];
     lblTotalSale.text = @"Total";
     
     [headerView addSubview:vwBgName];
