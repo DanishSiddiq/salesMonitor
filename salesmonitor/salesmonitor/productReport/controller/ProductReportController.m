@@ -212,118 +212,238 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     NSString *branchCellIdentifier = [NSString stringWithFormat:@"SaleCell"];
-    UITableViewCell *cell;
-    UILabel *lblDate, *lblbudgetUnit, *lblBudgetValue, *lblSaleUnit, *lblSaleValue;
-    UIView *viewSeperatorDate, *viewSeperatorBudgetUnit, *viewSeperatorBudgetValue, *viewSeperatorSaleUnit;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:branchCellIdentifier];
     
     if (cell == nil)
     {
+        cell = _isIphone ? [self createCellContentForIphone:tableView branchCellIdentifier:branchCellIdentifier]
+                        :   [self createCellContentForIpad:tableView branchCellIdentifier:branchCellIdentifier];
+    }
+    
+    if(_isIphone){
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-        [cell setFrame: _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40) : CGRectMake(0, 0, 640, 50)];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
-        lblDate = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(4, 6, 64, 30) : CGRectMake(8, 6, 128, 40)];
-        [lblDate setBackgroundColor:[UIColor clearColor]];
-        lblDate.numberOfLines = 1;
-        lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
-        lblDate.textColor = [UIColor darkGrayColor];
-        lblDate.contentMode = UIViewContentModeBottomLeft;
-        lblDate.lineBreakMode = NSLineBreakByTruncatingTail;
-        lblDate.adjustsFontSizeToFitWidth = YES;
-        lblDate.tag = 10;
-        
-        viewSeperatorDate = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(68, 0, 1, 40) : CGRectMake(136, 0, 2, 50)];
-        [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
-        
-        lblbudgetUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(72, 6, 59, 30) : CGRectMake(142, 6, 120, 40)];
-        lblbudgetUnit.backgroundColor = [UIColor clearColor];
-        lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
-        lblbudgetUnit.numberOfLines = 1;
-        lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
-        lblbudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
-        lblbudgetUnit.textColor = [UIColor grayColor];
-        lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
-        lblbudgetUnit.tag = 20;
-        
-        viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame: -_isIphone ? CGRectMake(131 , 0, 1, 40) : CGRectMake(262 , 0, 2, 50)];
-        [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
-        
-        lblBudgetValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(135, 6, 59, 30) : CGRectMake(268, 6, 120, 40)];
-        lblBudgetValue.backgroundColor = [UIColor clearColor];
-        lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
-        lblBudgetValue.numberOfLines = 1;
-        lblBudgetValue.contentMode = UIViewContentModeTopLeft;
-        lblBudgetValue.lineBreakMode = NSLineBreakByTruncatingTail;
-        lblBudgetValue.textColor = [UIColor grayColor];
-        lblBudgetValue.adjustsFontSizeToFitWidth = YES;
-        lblBudgetValue.tag = 30;
-        
-        viewSeperatorBudgetValue = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(195 , 0, 1, 40) : CGRectMake(388 , 0, 2, 50)];
-        [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
-        
-        lblSaleUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(199, 6, 59, 30) : CGRectMake(394, 6, 120, 40)];
-        lblSaleUnit.backgroundColor = [UIColor clearColor];
-        lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
-        lblSaleUnit.numberOfLines = 1;
-        lblSaleUnit.contentMode = UIViewContentModeTopLeft;
-        lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
-        lblSaleUnit.textColor = [UIColor grayColor];
-        lblSaleUnit.adjustsFontSizeToFitWidth = YES;
-        lblSaleUnit.tag = 40;
-        
-        viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(258 , 0, 1, 40) : CGRectMake(514 , 0, 2, 50)];
-        [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
-        
-        lblSaleValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(262, 6, 58, 30) : CGRectMake(520, 6, 120, 40)];
-        lblSaleValue.backgroundColor = [UIColor clearColor];
-        lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
-        lblSaleValue.numberOfLines = 1;
-        lblSaleValue.contentMode = UIViewContentModeTopLeft;
-        lblSaleValue.lineBreakMode = NSLineBreakByTruncatingTail;
-        lblSaleValue.textColor = [UIColor grayColor];
-        lblSaleValue.adjustsFontSizeToFitWidth = YES;
-        lblSaleValue.tag = 50;
-        
-        
-        [cell.contentView addSubview:lblDate];
-        [cell.contentView addSubview:viewSeperatorDate];
-        [cell.contentView addSubview:lblbudgetUnit];
-        [cell.contentView addSubview:viewSeperatorBudgetUnit];
-        [cell.contentView addSubview:lblBudgetValue];
-        [cell.contentView addSubview:viewSeperatorBudgetValue];
-        [cell.contentView addSubview:lblSaleUnit];
-        [cell.contentView addSubview:viewSeperatorSaleUnit];
-        [cell.contentView addSubview:lblSaleValue];
-        
+        [self populateCellContentForIphone:cell row:indexPath.row];
     }
     else{
         
-        lblDate = (UILabel *)[cell.contentView viewWithTag:10];
-        lblbudgetUnit = (UILabel *)[cell.contentView viewWithTag:20];
-        lblBudgetValue = (UILabel *)[cell.contentView viewWithTag:30];
-        lblSaleUnit = (UILabel *)[cell.contentView viewWithTag:40];
-        lblSaleValue = (UILabel *)[cell.contentView viewWithTag:50];
-        
+        [self populateCellContentForIpad:cell row:indexPath.row];
     }
-    
-    NSMutableDictionary *saleReport = [_loadSales objectAtIndex:indexPath.row];
-    
-    lblDate.text = [NSString stringWithFormat:@"%@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]];
-    lblbudgetUnit.text = [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] description];
-    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] description];
-    lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
-    lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+
+// for ipad
+- (UITableViewCell *) createCellContentForIpad: (UITableView *) tableView branchCellIdentifier: (NSString *) branchCellIdentifier {
+    
+    UILabel *lblDate, *lblbudgetUnit, *lblBudgetValue, *lblSaleUnit, *lblSaleValue;
+    UIView *viewSeperatorDate, *viewSeperatorBudgetUnit, *viewSeperatorBudgetValue, *viewSeperatorSaleUnit;
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+    [cell setFrame: _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40) : CGRectMake(0, 0, 640, 50)];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    lblDate = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(4, 6, 64, 30) : CGRectMake(8, 6, 128, 40)];
+    [lblDate setBackgroundColor:[UIColor clearColor]];
+    lblDate.numberOfLines = 1;
+    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.textColor = [UIColor darkGrayColor];
+    lblDate.contentMode = UIViewContentModeBottomLeft;
+    lblDate.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblDate.adjustsFontSizeToFitWidth = YES;
+    lblDate.tag = 10;
+    
+    viewSeperatorDate = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(68, 0, 1, 40) : CGRectMake(136, 0, 2, 50)];
+    [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblbudgetUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(72, 6, 59, 30) : CGRectMake(142, 6, 120, 40)];
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblbudgetUnit.numberOfLines = 1;
+    lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblbudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblbudgetUnit.textColor = [UIColor grayColor];
+    lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.tag = 20;
+    
+    viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame: -_isIphone ? CGRectMake(131 , 0, 1, 40) : CGRectMake(262 , 0, 2, 50)];
+    [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblBudgetValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(135, 6, 59, 30) : CGRectMake(268, 6, 120, 40)];
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblBudgetValue.numberOfLines = 1;
+    lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+    lblBudgetValue.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblBudgetValue.textColor = [UIColor grayColor];
+    lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.tag = 30;
+    
+    viewSeperatorBudgetValue = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(195 , 0, 1, 40) : CGRectMake(388 , 0, 2, 50)];
+    [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblSaleUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(199, 6, 59, 30) : CGRectMake(394, 6, 120, 40)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleUnit.numberOfLines = 1;
+    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+    lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblSaleUnit.textColor = [UIColor grayColor];
+    lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.tag = 40;
+    
+    viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(258 , 0, 1, 40) : CGRectMake(514 , 0, 2, 50)];
+    [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblSaleValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(262, 6, 58, 30) : CGRectMake(520, 6, 120, 40)];
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleValue.numberOfLines = 1;
+    lblSaleValue.contentMode = UIViewContentModeTopLeft;
+    lblSaleValue.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblSaleValue.textColor = [UIColor grayColor];
+    lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.tag = 50;
+    
+    
+    [cell.contentView addSubview:lblDate];
+    [cell.contentView addSubview:viewSeperatorDate];
+    [cell.contentView addSubview:lblbudgetUnit];
+    [cell.contentView addSubview:viewSeperatorBudgetUnit];
+    [cell.contentView addSubview:lblBudgetValue];
+    [cell.contentView addSubview:viewSeperatorBudgetValue];
+    [cell.contentView addSubview:lblSaleUnit];
+    [cell.contentView addSubview:viewSeperatorSaleUnit];
+    [cell.contentView addSubview:lblSaleValue];
+    
+    return cell;
+    
+}
+
+
+- (void) populateCellContentForIpad : (UITableViewCell *) cell row: (NSInteger) row{
+    
+    UILabel *lblDate = (UILabel *)[cell.contentView viewWithTag:10];
+    UILabel *lblbudgetUnit = (UILabel *)[cell.contentView viewWithTag:20];
+    UILabel *lblBudgetValue = (UILabel *)[cell.contentView viewWithTag:30];
+    UILabel *lblSaleUnit = (UILabel *)[cell.contentView viewWithTag:40];
+    UILabel *lblSaleValue = (UILabel *)[cell.contentView viewWithTag:50];
+    
+    NSMutableDictionary *saleReport = [_loadSales objectAtIndex:row];
+    
+    lblDate.text = [NSString stringWithFormat:@"%@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]];
+    lblbudgetUnit.text = [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] description];
+    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] description];
+    lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
+    lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
+}
+
+// for iphone
+- (UITableViewCell *) createCellContentForIphone: (UITableView *) tableView branchCellIdentifier: (NSString *) branchCellIdentifier {
+    
+    UILabel *lblDate, *lblbudgetUnit, *lblBudgetValue, *lblSaleUnit, *lblSaleValue;
+    UIView *viewSeperatorDate, *viewSeperatorBudgetUnit, *viewSeperatorBudgetValue, *viewSeperatorSaleUnit;
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
+    [cell setFrame: _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40) : CGRectMake(0, 0, 640, 50)];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    lblDate = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(4, 6, 64, 30) : CGRectMake(8, 6, 128, 40)];
+    [lblDate setBackgroundColor:[UIColor clearColor]];
+    lblDate.numberOfLines = 1;
+    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.textColor = [UIColor darkGrayColor];
+    lblDate.contentMode = UIViewContentModeBottomLeft;
+    lblDate.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblDate.adjustsFontSizeToFitWidth = YES;
+    lblDate.tag = 10;
+    
+    viewSeperatorDate = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(68, 0, 1, 40) : CGRectMake(136, 0, 2, 50)];
+    [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblbudgetUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(72, 6, 59, 30) : CGRectMake(142, 6, 120, 40)];
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblbudgetUnit.numberOfLines = 1;
+    lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblbudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblbudgetUnit.textColor = [UIColor grayColor];
+    lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.tag = 20;
+    
+    viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame: -_isIphone ? CGRectMake(131 , 0, 1, 40) : CGRectMake(262 , 0, 2, 50)];
+    [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblBudgetValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(135, 6, 59, 30) : CGRectMake(268, 6, 120, 40)];
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblBudgetValue.numberOfLines = 1;
+    lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+    lblBudgetValue.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblBudgetValue.textColor = [UIColor grayColor];
+    lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.tag = 30;
+    
+    viewSeperatorBudgetValue = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(195 , 0, 1, 40) : CGRectMake(388 , 0, 2, 50)];
+    [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblSaleUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(199, 6, 59, 30) : CGRectMake(394, 6, 120, 40)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleUnit.numberOfLines = 1;
+    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+    lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblSaleUnit.textColor = [UIColor grayColor];
+    lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.tag = 40;
+    
+    viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(258 , 0, 1, 40) : CGRectMake(514 , 0, 2, 50)];
+    [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    lblSaleValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(262, 6, 58, 30) : CGRectMake(520, 6, 120, 40)];
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleValue.numberOfLines = 1;
+    lblSaleValue.contentMode = UIViewContentModeTopLeft;
+    lblSaleValue.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblSaleValue.textColor = [UIColor grayColor];
+    lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.tag = 50;
+    
+    
+    [cell.contentView addSubview:lblDate];
+    [cell.contentView addSubview:viewSeperatorDate];
+    [cell.contentView addSubview:lblbudgetUnit];
+    [cell.contentView addSubview:viewSeperatorBudgetUnit];
+    [cell.contentView addSubview:lblBudgetValue];
+    [cell.contentView addSubview:viewSeperatorBudgetValue];
+    [cell.contentView addSubview:lblSaleUnit];
+    [cell.contentView addSubview:viewSeperatorSaleUnit];
+    [cell.contentView addSubview:lblSaleValue];
+    
+    return cell;
+}
+
+- (void) populateCellContentForIphone : (UITableViewCell *) cell row: (NSInteger) row{
+    
+    UILabel *lblDate = (UILabel *)[cell.contentView viewWithTag:10];
+    UILabel *lblbudgetUnit = (UILabel *)[cell.contentView viewWithTag:20];
+    UILabel *lblBudgetValue = (UILabel *)[cell.contentView viewWithTag:30];
+    UILabel *lblSaleUnit = (UILabel *)[cell.contentView viewWithTag:40];
+    UILabel *lblSaleValue = (UILabel *)[cell.contentView viewWithTag:50];
+    
+    NSMutableDictionary *saleReport = [_loadSales objectAtIndex:row];
+    
+    lblDate.text = [NSString stringWithFormat:@"%@, %@", [saleReport valueForKey:KEY_SALES_MONTH], [saleReport valueForKey:KEY_SALES_YEAR]];
+    lblbudgetUnit.text = [[saleReport valueForKey:KEY_SALES_BUDGET_UNIT] description];
+    lblBudgetValue.text = [[saleReport valueForKey:KEY_SALES_BUDGET_VALUE] description];
+    lblSaleUnit.text = [[saleReport valueForKey:KEY_SALES_UNIT] description];
+    lblSaleValue.text = [[saleReport valueForKey:KEY_SALES_VALUE] description];
 }
 
 @end
