@@ -468,6 +468,8 @@
 // selectors
 -(void) btnPressedNavBarAdd: (UIButton *) sender{
     
+    [_doctorController setSelectedIndexPath:nil];
+    [_tblDoctor reloadData];
     [self showDoctorDetailSection:YES];
 }
 
@@ -663,6 +665,8 @@
     
     if(isSuccess){
         
+        [_doctorController setSelectedIndexPath:[NSIndexPath indexPathForRow:[[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] count] -1
+                                                                   inSection:0]];
         [self updateViewAfterChangeInCoreData:add];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];
     }
@@ -705,6 +709,7 @@
     
     if(isSuccess){
         
+        [_doctorController setSelectedIndexPath:nil];
         [self updateViewAfterChangeInCoreData:delete];
         [self deleteImagesCreatedByApplicationAtDevice];
         [SVProgressHUD showSuccessWithStatus:msg duration:0.5];

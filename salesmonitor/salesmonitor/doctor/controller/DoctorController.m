@@ -14,12 +14,13 @@
 @property (nonatomic, strong) NSMutableArray *loadDoctor;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) id<DoctorControllerDelegate> viewController;
-@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
 
 @implementation DoctorController
 
+
+@synthesize selectedIndexPath;
 
 - (id)          init : (BOOL) isIphone
           loadDoctor :(NSMutableArray *) loadDoctor
@@ -34,7 +35,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
         _isIphone   = isIphone;
         _salesMonitorDelegate = salesMonitorDelegate;
         _viewController    = viewController;
-        _selectedIndexPath = nil;
+        selectedIndexPath = nil;
      }
     
     return self;
@@ -97,7 +98,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     if([_viewController respondsToSelector:@selector(doctorSelected:)]){
         [_viewController doctorSelected:indexPath.row];
-        _selectedIndexPath = indexPath;
+        selectedIndexPath = indexPath;
         [tableView reloadData];
     }
 }
@@ -203,7 +204,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(190, 38, 25, 25)];
     [imgViewCallIcon setImage:[UIImage imageNamed:@"callIcon"]];
     
-    UILabel *lblContactNo = [[UILabel alloc] initWithFrame:CGRectMake(220, 40, 335 -12, 28)];
+    UILabel *lblContactNo = [[UILabel alloc] initWithFrame:CGRectMake(220, 40, 110, 28)];
     lblContactNo.numberOfLines = 1;
     [lblContactNo setBackgroundColor:[UIColor clearColor]];
     [lblContactNo setFont:[UIFont fontWithName:@"HelveticaNeue" size:16]];
@@ -233,7 +234,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     UILabel *lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:40];
     UILabel *lblAddress      = (UILabel *)[cell.contentView viewWithTag:50];
     
-    if(_selectedIndexPath != nil && _selectedIndexPath.row == row){
+    if(selectedIndexPath != nil && selectedIndexPath.row == row){
         
         [imgViewBg setImage:[UIImage imageNamed:@"medDataBgHover"]];
         [lblIndex setTextColor:[UIColor colorWithRed:243/255.0f green:243/255.0f blue:243/255.0f alpha:1.0]];
@@ -284,8 +285,6 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
                                                  [SVProgressHUD dismiss];
                                                  
                                                  if([_viewController respondsToSelector:@selector(doctorAdd:msg:)]){
-                                                     
-                                                     _selectedIndexPath = [NSIndexPath indexPathForRow:[_loadDoctor count] inSection:0];
                                                      [self addDoctorInMemory:JSON];
                                                      [_viewController doctorAdd:YES msg:@"Added Successfully"];
                                                  }

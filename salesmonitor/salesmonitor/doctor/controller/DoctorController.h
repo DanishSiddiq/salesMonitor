@@ -30,6 +30,9 @@
     salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
   viewController : (id<DoctorControllerDelegate>)viewController;
 
+
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
 - (void) add : (NSMutableDictionary *) doctorContainer;
 - (void) update : (NSMutableDictionary *) doctorContainer _id: (NSString *) _id;
 - (void) delete : (NSMutableDictionary *) doctor;
