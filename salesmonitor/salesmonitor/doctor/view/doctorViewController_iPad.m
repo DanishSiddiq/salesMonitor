@@ -135,11 +135,11 @@
 
 - (void) initializeDoctorListContainer {
     
-    _doctorListContainer = [[UIView alloc] initWithFrame:CGRectMake(10
-                                                                    , 77
-                                                                    , 400
-                                                                    , [UIScreen mainScreen].bounds.size.height - 107)];
-    [_doctorListContainer setBackgroundColor:[UIColor clearColor]];
+    _doctorListContainer = [[UIView alloc] initWithFrame:CGRectMake(25
+                                                                    , 92
+                                                                    , 345
+                                                                    , [UIScreen mainScreen].bounds.size.height - 137)];
+    [_doctorListContainer setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_doctorListContainer];
 }
 
@@ -147,7 +147,7 @@
     
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
                                                                , 0
-                                                               , 390
+                                                               , 345
                                                                , [UIScreen mainScreen].bounds.size.height - 107)];
     
     _tblDoctor.delegate = _doctorController;
