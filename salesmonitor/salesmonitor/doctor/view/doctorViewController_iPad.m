@@ -356,7 +356,7 @@
     [btnAdd addTarget:self action:@selector(btnPressedAdd:) forControlEvents:UIControlEventTouchUpInside];
     [btnAdd setTag:120];
     [btnAdd setHidden:YES];
-    [btnAdd setImage:[UIImage imageNamed:@"addBtn"] forState:UIControlStateNormal];
+    [btnAdd setImage:[UIImage imageNamed:@"submitBtn"] forState:UIControlStateNormal];
     
     UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(32, 515, 302, 50)];
     [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
