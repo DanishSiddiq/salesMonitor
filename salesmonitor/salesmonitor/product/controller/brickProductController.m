@@ -70,6 +70,9 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40) ];
     [headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
     
+    UIView *vwBgName = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 302, 40)];
+    [vwBgName setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
+    
     UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 5, [UIScreen mainScreen].bounds.size.width - 304, 30)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size: 18.0];
@@ -80,6 +83,10 @@
     
     UIView *viewSeperatorName = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 296 , 0, 2, 40)];
     [viewSeperatorName setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
+    
+    UIView *vwBgPrice = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 290
+                                                                 , 0, 82, 40)];
+    [vwBgPrice setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 5, 90, 30)];
     lblPrice.backgroundColor = [UIColor clearColor];
@@ -92,6 +99,9 @@
     UIView *viewSeperatorPrice = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 204, 0, 2, 40)];
     [viewSeperatorPrice setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
     
+    UIView *vwBgSaleUnit = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -198, 0, 82, 40)];
+    [vwBgSaleUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
+    
     UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -202, 5, 90, 30)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
     lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size: 18.0];
@@ -100,9 +110,11 @@
     lblSaleUnit.textColor = [UIColor blackColor];
     lblSaleUnit.text = @"Sale";
     
-    
     UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame: CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 0, 2, 40)];
     [viewSeperatorUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
+    
+    UIView *vwBgTotalSale = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 106, 0, 90, 40)];
+    [vwBgTotalSale setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UILabel *lblTotalSale = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 110, 5, 90, 30)];
     lblTotalSale.backgroundColor = [UIColor clearColor];
@@ -112,12 +124,16 @@
     lblTotalSale.textColor = [UIColor blackColor];
     lblTotalSale.text = @"Total";
     
+    [headerView addSubview:vwBgName];
     [headerView addSubview:lblName];
     [headerView addSubview:viewSeperatorName];
+    [headerView addSubview:vwBgPrice];
     [headerView addSubview:lblPrice];
     [headerView addSubview:viewSeperatorPrice];
+    [headerView addSubview:vwBgSaleUnit];
     [headerView addSubview:lblSaleUnit];
     [headerView addSubview:viewSeperatorUnit];
+    [headerView addSubview:vwBgTotalSale];
     [headerView addSubview:lblTotalSale];
     
     return headerView;
