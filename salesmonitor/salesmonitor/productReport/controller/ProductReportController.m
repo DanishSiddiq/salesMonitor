@@ -126,84 +126,175 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     }
     else{
         
-        UIView *viewHeader = [[UIView alloc] initWithFrame:
-                              _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40):CGRectMake(0, 0, 640, 50)];
-        [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
-        
-        UILabel *lblDate = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(4, 6, 64, 30) : CGRectMake(8, 6, 128, 40)];
-        [lblDate setBackgroundColor:[UIColor clearColor]];
-        lblDate.numberOfLines = 1;
-        lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
-        lblDate.textColor = [UIColor darkGrayColor];
-        lblDate.contentMode = UIViewContentModeBottomLeft;
-        lblDate.textAlignment = NSTextAlignmentCenter;
-        lblDate.adjustsFontSizeToFitWidth = YES;
-        lblDate.text = @"Date";
-        
-        UIView *viewSeperatorDate = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake(68, 0, 1, 40) : CGRectMake(136, 0, 2, 50)];
-        [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
-        
-        UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(69, 6, 62, 30) : CGRectMake(138, 6, 124, 40)];
-        lblbudgetUnit.backgroundColor = [UIColor clearColor];
-        lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-        lblbudgetUnit.numberOfLines = 1;
-        lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
-        lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
-        lblbudgetUnit.textColor = [UIColor grayColor];
-        lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
-        lblbudgetUnit.text = @"BDG Unit";
-        
-        UIView *viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake(131 , 0, 1, 40) : CGRectMake(262 , 0, 2, 50)];
-        [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
-        
-        UILabel *lblBudgetValue = [[UILabel alloc] initWithFrame:_isIphone ? CGRectMake(132, 6, 62, 30) : CGRectMake(264, 6, 124, 40)];
-        lblBudgetValue.backgroundColor = [UIColor clearColor];
-        lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-        lblBudgetValue.numberOfLines = 1;
-        lblBudgetValue.contentMode = UIViewContentModeTopLeft;
-        lblBudgetValue.textAlignment = NSTextAlignmentCenter;
-        lblBudgetValue.textColor = [UIColor grayColor];
-        lblBudgetValue.adjustsFontSizeToFitWidth = YES;
-        lblBudgetValue.text = @"BDG Value";
-        
-        UIView *viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:_isIphone ? CGRectMake(195 , 0, 1, 40) : CGRectMake(388 , 0, 2, 50)];
-        [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
-        
-        UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(196, 6, 62, 30) : CGRectMake(390, 6, 124, 40)];
-        lblSaleUnit.backgroundColor = [UIColor clearColor];
-        lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-        lblSaleUnit.numberOfLines = 1;
-        lblSaleUnit.contentMode = UIViewContentModeTopLeft;
-        lblSaleUnit.textAlignment = NSTextAlignmentCenter;
-        lblSaleUnit.textColor = [UIColor grayColor];
-        lblSaleUnit.adjustsFontSizeToFitWidth = YES;
-        lblSaleUnit.text = @"Sale Unit";
-        
-        UIView *viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: _isIphone ? CGRectMake(258 , 0, 1, 40) : CGRectMake(514 , 0, 2, 50)];
-        [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
-        
-        UILabel *lblSaleValue = [[UILabel alloc] initWithFrame: _isIphone ? CGRectMake(259, 6, 61, 30) : CGRectMake(516, 6, 124, 40)];
-        lblSaleValue.backgroundColor = [UIColor clearColor];
-        lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
-        lblSaleValue.numberOfLines = 1;
-        lblSaleValue.contentMode = UIViewContentModeTopLeft;
-        lblSaleValue.textAlignment = NSTextAlignmentCenter;
-        lblSaleValue.textColor = [UIColor grayColor];
-        lblSaleValue.adjustsFontSizeToFitWidth = YES;
-        lblSaleValue.text = @"Sale Value";
-        
-        [viewHeader addSubview:lblDate];
-        [viewHeader addSubview:viewSeperatorDate];
-        [viewHeader addSubview:lblbudgetUnit];
-        [viewHeader addSubview:viewSeperatorBudgetUnit];
-        [viewHeader addSubview:lblBudgetValue];
-        [viewHeader addSubview:viewSeperatorBudgetValue];
-        [viewHeader addSubview:lblSaleUnit];
-        [viewHeader addSubview:viewSeperatorSaleUnit];
-        [viewHeader addSubview:lblSaleValue];
-        
-        return viewHeader;
+        return _isIphone ? [self createHeaderViewForIphone] : [self createHeaderViewForIpad];
     }
+}
+
+- (UIView *) createHeaderViewForIpad {
+    
+    
+    UIView *viewHeader = [[UIView alloc] initWithFrame:
+                          _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40):CGRectMake(0, 0, 640, 50)];
+    [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    
+    UILabel *lblDate = [[UILabel alloc] initWithFrame: CGRectMake(8, 6, 128, 40)];
+    [lblDate setBackgroundColor:[UIColor clearColor]];
+    lblDate.numberOfLines = 1;
+    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.textColor = [UIColor darkGrayColor];
+    lblDate.contentMode = UIViewContentModeBottomLeft;
+    lblDate.textAlignment = NSTextAlignmentCenter;
+    lblDate.adjustsFontSizeToFitWidth = YES;
+    lblDate.text = @"Date";
+    
+    UIView *viewSeperatorDate = [[UIView alloc] initWithFrame: CGRectMake(136, 0, 2, 50)];
+    [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame: CGRectMake(138, 6, 124, 40)];
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblbudgetUnit.numberOfLines = 1;
+    lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
+    lblbudgetUnit.textColor = [UIColor grayColor];
+    lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.text = @"BDG Unit";
+    
+    UIView *viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame: CGRectMake(262 , 0, 2, 50)];
+    [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblBudgetValue = [[UILabel alloc] initWithFrame: CGRectMake(264, 6, 124, 40)];
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblBudgetValue.numberOfLines = 1;
+    lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+    lblBudgetValue.textAlignment = NSTextAlignmentCenter;
+    lblBudgetValue.textColor = [UIColor grayColor];
+    lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.text = @"BDG Value";
+    
+    UIView *viewSeperatorBudgetValue = [[UIView alloc] initWithFrame: CGRectMake(388 , 0, 2, 50)];
+    [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame: CGRectMake(390, 6, 124, 40)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleUnit.numberOfLines = 1;
+    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+    lblSaleUnit.textAlignment = NSTextAlignmentCenter;
+    lblSaleUnit.textColor = [UIColor grayColor];
+    lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.text = @"Sale Unit";
+    
+    UIView *viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: CGRectMake(514 , 0, 2, 50)];
+    [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleValue = [[UILabel alloc] initWithFrame: CGRectMake(516, 6, 124, 40)];
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleValue.numberOfLines = 1;
+    lblSaleValue.contentMode = UIViewContentModeTopLeft;
+    lblSaleValue.textAlignment = NSTextAlignmentCenter;
+    lblSaleValue.textColor = [UIColor grayColor];
+    lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.text = @"Sale Value";
+    
+    [viewHeader addSubview:lblDate];
+    [viewHeader addSubview:viewSeperatorDate];
+    [viewHeader addSubview:lblbudgetUnit];
+    [viewHeader addSubview:viewSeperatorBudgetUnit];
+    [viewHeader addSubview:lblBudgetValue];
+    [viewHeader addSubview:viewSeperatorBudgetValue];
+    [viewHeader addSubview:lblSaleUnit];
+    [viewHeader addSubview:viewSeperatorSaleUnit];
+    [viewHeader addSubview:lblSaleValue];
+    
+    return viewHeader;
+    
+}
+
+
+- (UIView *) createHeaderViewForIphone {
+    
+    
+    UIView *viewHeader = [[UIView alloc] initWithFrame:
+                          _isIphone ? CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40):CGRectMake(0, 0, 640, 50)];
+    [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    
+    UILabel *lblDate = [[UILabel alloc] initWithFrame: CGRectMake(4, 6, 64, 30)];
+    [lblDate setBackgroundColor:[UIColor clearColor]];
+    lblDate.numberOfLines = 1;
+    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.textColor = [UIColor darkGrayColor];
+    lblDate.contentMode = UIViewContentModeBottomLeft;
+    lblDate.textAlignment = NSTextAlignmentCenter;
+    lblDate.adjustsFontSizeToFitWidth = YES;
+    lblDate.text = @"Date";
+    
+    UIView *viewSeperatorDate = [[UIView alloc] initWithFrame:CGRectMake(68, 0, 1, 40)];
+    [viewSeperatorDate setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(69, 6, 62, 30) ];
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblbudgetUnit.numberOfLines = 1;
+    lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
+    lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
+    lblbudgetUnit.textColor = [UIColor grayColor];
+    lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.text = @"BDG Unit";
+    
+    UIView *viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(131 , 0, 1, 40) ];
+    [viewSeperatorBudgetUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblBudgetValue = [[UILabel alloc] initWithFrame: CGRectMake(132, 6, 62, 30)];
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblBudgetValue.numberOfLines = 1;
+    lblBudgetValue.contentMode = UIViewContentModeTopLeft;
+    lblBudgetValue.textAlignment = NSTextAlignmentCenter;
+    lblBudgetValue.textColor = [UIColor grayColor];
+    lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.text = @"BDG Value";
+    
+    UIView *viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(195 , 0, 1, 40)];
+    [viewSeperatorBudgetValue setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame: CGRectMake(196, 6, 62, 30)];
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleUnit.numberOfLines = 1;
+    lblSaleUnit.contentMode = UIViewContentModeTopLeft;
+    lblSaleUnit.textAlignment = NSTextAlignmentCenter;
+    lblSaleUnit.textColor = [UIColor grayColor];
+    lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.text = @"Sale Unit";
+    
+    UIView *viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: CGRectMake(258 , 0, 1, 40) ];
+    [viewSeperatorSaleUnit setBackgroundColor:[UIColor lightGrayColor]];
+    
+    UILabel *lblSaleValue = [[UILabel alloc] initWithFrame: CGRectMake(259, 6, 61, 30)];
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleValue.numberOfLines = 1;
+    lblSaleValue.contentMode = UIViewContentModeTopLeft;
+    lblSaleValue.textAlignment = NSTextAlignmentCenter;
+    lblSaleValue.textColor = [UIColor grayColor];
+    lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.text = @"Sale Value";
+    
+    [viewHeader addSubview:lblDate];
+    [viewHeader addSubview:viewSeperatorDate];
+    [viewHeader addSubview:lblbudgetUnit];
+    [viewHeader addSubview:viewSeperatorBudgetUnit];
+    [viewHeader addSubview:lblBudgetValue];
+    [viewHeader addSubview:viewSeperatorBudgetValue];
+    [viewHeader addSubview:lblSaleUnit];
+    [viewHeader addSubview:viewSeperatorSaleUnit];
+    [viewHeader addSubview:lblSaleValue];
+    
+    return viewHeader;
+    
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
