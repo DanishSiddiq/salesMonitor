@@ -86,7 +86,6 @@
     [self initializeMainView];
     [self initializeDoctorListContainer ];
     [self initializeDoctorTable];
-    [self initializeSeperatorView];
     [self initializeDoctorDetailContainer];
     [self initializeDoctorContactContainer];
 }
@@ -157,20 +156,12 @@
     [_doctorListContainer addSubview:_tblDoctor];
 }
 
--(void) initializeSeperatorView {
-    
-    UIView *vwSeperator = [[UIView alloc] initWithFrame:CGRectMake(400, 77, 2, [UIScreen mainScreen].bounds.size.height-77)];
-    [vwSeperator setBackgroundColor:[UIColor darkGrayColor]];
-    [self.view addSubview:vwSeperator];
-    
-}
-
 - (void) initializeDoctorDetailContainer{
     
     _doctorDetailContainer = [[UIView alloc] initWithFrame:CGRectMake(402
-                                                                      , 77
+                                                                      , 92
                                                                       , 366
-                                                                      , [UIScreen mainScreen].bounds.size.height - 157)];
+                                                                      , [UIScreen mainScreen].bounds.size.height - 137)];
     
     _doctorDetailContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColBg"]];
     
@@ -438,26 +429,31 @@
     _doctorContactContainer = [[UIView alloc] initWithFrame:CGRectMake(402
                                                                        , [UIScreen mainScreen].bounds.size.height
                                                                        , 366
-                                                                       , 60)];
-    [_doctorContactContainer setBackgroundColor:[UIColor colorWithRed:247/255.f green:247/255.f blue:247/255.f alpha:1.0]];
+                                                                       , 55)];
+    [_doctorContactContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(33, 0, 303, 55)];
+    [imgViewBg setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBg setImage:[UIImage imageNamed:@"callAppBg"]];    
     
     UIButton *btnCall, *btnMessage, *btnMail;
     btnCall = [[Custombutton alloc] initWithFrame:CGRectMake(90, 10, 40, 40)];
     [btnCall addTarget:self action:@selector(btnPressedCall:) forControlEvents:UIControlEventTouchUpInside];
-    [btnCall setBackgroundImage:[UIImage imageNamed:@"icon_contact" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnCall setBackgroundImage:[UIImage imageNamed:@"callIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnCall.tag = 10;
     
     btnMessage = [[Custombutton alloc] initWithFrame:CGRectMake(164, 10, 40, 40)];
     [btnMessage addTarget:self action:@selector(btnPressedMessage:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMessage setBackgroundImage:[UIImage imageNamed:@"icon_sms" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMessage setBackgroundImage:[UIImage imageNamed:@"smsIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnMessage.tag = 20;
     
     btnMail = [[Custombutton alloc] initWithFrame:CGRectMake(230, 10, 40, 40)];
     [btnMail addTarget:self action:@selector(btnPressedMail:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMail setBackgroundImage:[UIImage imageNamed:@"icon_mail" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMail setBackgroundImage:[UIImage imageNamed:@"emailIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnMail.tag = 30;
     
     
+    [_doctorContactContainer addSubview:imgViewBg];
     [_doctorContactContainer addSubview:btnCall];
     [_doctorContactContainer addSubview:btnMessage];
     [_doctorContactContainer addSubview:btnMail];
@@ -760,7 +756,7 @@
         CGRect toFrame = CGRectMake(402
                                     , [UIScreen mainScreen].bounds.size.height - 125
                                     , 366
-                                    , 60);
+                                    , 55);
         [UIView animateWithDuration:2.0 animations:^{
             [_doctorContactContainer setFrame:toFrame];
             
@@ -916,7 +912,7 @@
     CGRect toFrame = CGRectMake(402
                                 , [UIScreen mainScreen].bounds.size.height
                                 , 366
-                                , 60);
+                                , 55);
     [UIView animateWithDuration:2.0 animations:^{
         [_doctorContactContainer setFrame:toFrame];
         
