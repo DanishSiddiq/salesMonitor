@@ -144,7 +144,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
     [imgViewLogo setTag:20];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 63)];
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 67)];
     [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
