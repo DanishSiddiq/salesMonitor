@@ -18,7 +18,6 @@
 #import "brickController.h"
 #import "brickProductController.h"
 #import "ProductReportViewController_iPhone.h"
-#import "AdvanceReportViewController_iPhone.h"
 #import "doctorViewController_iPhone.h"
 
 @interface productViewController_iPhone : UIViewController <productControllerDelegate, brickControllerDelegate>
