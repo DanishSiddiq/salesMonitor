@@ -184,7 +184,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 - (void) initializeTableSale {
-    _tblSale = [[UITableView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 320
+    _tblSale = [[UITableView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 312
                                                              , 700
                                                              , 640
                                                              , [UIScreen mainScreen].bounds.size.height - 780)];
@@ -268,7 +268,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         
         _barChartValue = [[BarChartView alloc] initWithFrame:CGRectMake(30.0f
                                                                        , 240.0f
-                                                                       , [UIScreen mainScreen].bounds.size.width -60
+                                                                       , [UIScreen mainScreen].bounds.size.width -50
                                                                        , 450)];
         [_barChartValue setXmlData:[NSData dataWithContentsOfFile:documentsPath]];
         [self.view addSubview:_barChartValue];
