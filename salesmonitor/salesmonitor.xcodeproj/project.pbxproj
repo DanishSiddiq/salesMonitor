@@ -101,39 +101,6 @@
 		3A9D598717846337001EF677 /* splashLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D596917846337001EF677 /* splashLogo.png */; };
 		3A9D598817846337001EF677 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D596A17846337001EF677 /* bg.png */; };
 		3A9D598917846337001EF677 /* iPadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D596B17846337001EF677 /* iPadIcon.png */; };
-		3A9DFCBC178A8C8000D831EE /* iphonesubmitBtnBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFC9B178A8C8000D831EE /* iphonesubmitBtnBig.png */; };
-		3A9DFCBD178A8C8000D831EE /* iphoneeditBtnBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFC9C178A8C8000D831EE /* iphoneeditBtnBig.png */; };
-		3A9DFCBE178A8C8000D831EE /* iphonecancelBtnBig.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFC9D178A8C8000D831EE /* iphonecancelBtnBig.png */; };
-		3A9DFCBF178A8C8000D831EE /* iphonebarIcon3Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFC9E178A8C8000D831EE /* iphonebarIcon3Selected.png */; };
-		3A9DFCC0178A8C8000D831EE /* iphonebarIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFC9F178A8C8000D831EE /* iphonebarIcon3.png */; };
-		3A9DFCC1178A8C8000D831EE /* iphonebarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA0178A8C8000D831EE /* iphonebarIcon2.png */; };
-		3A9DFCC2178A8C8000D831EE /* iphonebarIcon2Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA1178A8C8000D831EE /* iphonebarIcon2Selected.png */; };
-		3A9DFCC3178A8C8000D831EE /* iphonebarIcon4Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA2178A8C8000D831EE /* iphonebarIcon4Selected.png */; };
-		3A9DFCC4178A8C8000D831EE /* iphonebarIcon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA3178A8C8000D831EE /* iphonebarIcon4.png */; };
-		3A9DFCC5178A8C8000D831EE /* iphonebarIcon1Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA4178A8C8000D831EE /* iphonebarIcon1Selected.png */; };
-		3A9DFCC6178A8C8000D831EE /* iphonebarIcon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA5178A8C8000D831EE /* iphonebarIcon1.png */; };
-		3A9DFCC7178A8C8000D831EE /* iphonemedDetailsBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA6178A8C8000D831EE /* iphonemedDetailsBar.png */; };
-		3A9DFCC8178A8C8000D831EE /* iphoneDrDetailsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA7178A8C8000D831EE /* iphoneDrDetailsBg.png */; };
-		3A9DFCC9178A8C8000D831EE /* iphonemedDataBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA8178A8C8000D831EE /* iphonemedDataBg.png */; };
-		3A9DFCCA178A8C8000D831EE /* iphonemedDataBgHover.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCA9178A8C8000D831EE /* iphonemedDataBgHover.png */; };
-		3A9DFCCB178A8C8000D831EE /* iphonecallAppBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAA178A8C8000D831EE /* iphonecallAppBg.png */; };
-		3A9DFCCC178A8C8000D831EE /* iphoneAvaterWithoutFace.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAB178A8C8000D831EE /* iphoneAvaterWithoutFace.png */; };
-		3A9DFCCD178A8C8000D831EE /* iphoneAvater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAC178A8C8000D831EE /* iphoneAvater.png */; };
-		3A9DFCCE178A8C8000D831EE /* iphonedescriptionsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAD178A8C8000D831EE /* iphonedescriptionsBg.png */; };
-		3A9DFCCF178A8C8000D831EE /* iphonetopBarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAE178A8C8000D831EE /* iphonetopBarBg.png */; };
-		3A9DFCD0178A8C8000D831EE /* iphoneDetailsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCAF178A8C8000D831EE /* iphoneDetailsBg.png */; };
-		3A9DFCD1178A8C8000D831EE /* iphonecancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB0178A8C8000D831EE /* iphonecancelBtn.png */; };
-		3A9DFCD2178A8C8000D831EE /* iphonedeleteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB1178A8C8000D831EE /* iphonedeleteBtn.png */; };
-		3A9DFCD3178A8C8000D831EE /* iphonesubmitBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB2178A8C8000D831EE /* iphonesubmitBtn.png */; };
-		3A9DFCD4178A8C8000D831EE /* iphoneFlieds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB3178A8C8000D831EE /* iphoneFlieds.png */; };
-		3A9DFCD5178A8C8000D831EE /* iphoneaddBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB4178A8C8000D831EE /* iphoneaddBtn.png */; };
-		3A9DFCD6178A8C8000D831EE /* iphonebackBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB5178A8C8000D831EE /* iphonebackBtn.png */; };
-		3A9DFCD7178A8C8000D831EE /* iphonebgInner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB6178A8C8000D831EE /* iphonebgInner.png */; };
-		3A9DFCD8178A8C8000D831EE /* iphoneaboutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB7178A8C8000D831EE /* iphoneaboutBtn.png */; };
-		3A9DFCD9178A8C8000D831EE /* iphoneloginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB8178A8C8000D831EE /* iphoneloginBtn.png */; };
-		3A9DFCDA178A8C8000D831EE /* iphonelogingBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCB9178A8C8000D831EE /* iphonelogingBg.png */; };
-		3A9DFCDB178A8C8000D831EE /* iphonesplashLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCBA178A8C8000D831EE /* iphonesplashLogo.png */; };
-		3A9DFCDC178A8C8000D831EE /* iphonebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCBB178A8C8000D831EE /* iphonebg.png */; };
 		3A9DFCE5178A8E7B00D831EE /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCE4178A8E7B00D831EE /* about.png */; };
 		3A9E8B031769EBC10028D433 /* titlebar-add-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E8B011769EBC10028D433 /* titlebar-add-btn.png */; };
 		3A9E8B041769EBC10028D433 /* titlebar-add-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9E8B021769EBC10028D433 /* titlebar-add-btn@2x.png */; };
@@ -339,39 +306,6 @@
 		3A9D596917846337001EF677 /* splashLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashLogo.png; sourceTree = "<group>"; };
 		3A9D596A17846337001EF677 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3A9D596B17846337001EF677 /* iPadIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadIcon.png; sourceTree = "<group>"; };
-		3A9DFC9B178A8C8000D831EE /* iphonesubmitBtnBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonesubmitBtnBig.png; sourceTree = "<group>"; };
-		3A9DFC9C178A8C8000D831EE /* iphoneeditBtnBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneeditBtnBig.png; sourceTree = "<group>"; };
-		3A9DFC9D178A8C8000D831EE /* iphonecancelBtnBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonecancelBtnBig.png; sourceTree = "<group>"; };
-		3A9DFC9E178A8C8000D831EE /* iphonebarIcon3Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon3Selected.png; sourceTree = "<group>"; };
-		3A9DFC9F178A8C8000D831EE /* iphonebarIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon3.png; sourceTree = "<group>"; };
-		3A9DFCA0178A8C8000D831EE /* iphonebarIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon2.png; sourceTree = "<group>"; };
-		3A9DFCA1178A8C8000D831EE /* iphonebarIcon2Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon2Selected.png; sourceTree = "<group>"; };
-		3A9DFCA2178A8C8000D831EE /* iphonebarIcon4Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon4Selected.png; sourceTree = "<group>"; };
-		3A9DFCA3178A8C8000D831EE /* iphonebarIcon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon4.png; sourceTree = "<group>"; };
-		3A9DFCA4178A8C8000D831EE /* iphonebarIcon1Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon1Selected.png; sourceTree = "<group>"; };
-		3A9DFCA5178A8C8000D831EE /* iphonebarIcon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon1.png; sourceTree = "<group>"; };
-		3A9DFCA6178A8C8000D831EE /* iphonemedDetailsBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonemedDetailsBar.png; sourceTree = "<group>"; };
-		3A9DFCA7178A8C8000D831EE /* iphoneDrDetailsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneDrDetailsBg.png; sourceTree = "<group>"; };
-		3A9DFCA8178A8C8000D831EE /* iphonemedDataBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonemedDataBg.png; sourceTree = "<group>"; };
-		3A9DFCA9178A8C8000D831EE /* iphonemedDataBgHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonemedDataBgHover.png; sourceTree = "<group>"; };
-		3A9DFCAA178A8C8000D831EE /* iphonecallAppBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonecallAppBg.png; sourceTree = "<group>"; };
-		3A9DFCAB178A8C8000D831EE /* iphoneAvaterWithoutFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneAvaterWithoutFace.png; sourceTree = "<group>"; };
-		3A9DFCAC178A8C8000D831EE /* iphoneAvater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneAvater.png; sourceTree = "<group>"; };
-		3A9DFCAD178A8C8000D831EE /* iphonedescriptionsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonedescriptionsBg.png; sourceTree = "<group>"; };
-		3A9DFCAE178A8C8000D831EE /* iphonetopBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonetopBarBg.png; sourceTree = "<group>"; };
-		3A9DFCAF178A8C8000D831EE /* iphoneDetailsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneDetailsBg.png; sourceTree = "<group>"; };
-		3A9DFCB0178A8C8000D831EE /* iphonecancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonecancelBtn.png; sourceTree = "<group>"; };
-		3A9DFCB1178A8C8000D831EE /* iphonedeleteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonedeleteBtn.png; sourceTree = "<group>"; };
-		3A9DFCB2178A8C8000D831EE /* iphonesubmitBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonesubmitBtn.png; sourceTree = "<group>"; };
-		3A9DFCB3178A8C8000D831EE /* iphoneFlieds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneFlieds.png; sourceTree = "<group>"; };
-		3A9DFCB4178A8C8000D831EE /* iphoneaddBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneaddBtn.png; sourceTree = "<group>"; };
-		3A9DFCB5178A8C8000D831EE /* iphonebackBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebackBtn.png; sourceTree = "<group>"; };
-		3A9DFCB6178A8C8000D831EE /* iphonebgInner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebgInner.png; sourceTree = "<group>"; };
-		3A9DFCB7178A8C8000D831EE /* iphoneaboutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneaboutBtn.png; sourceTree = "<group>"; };
-		3A9DFCB8178A8C8000D831EE /* iphoneloginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneloginBtn.png; sourceTree = "<group>"; };
-		3A9DFCB9178A8C8000D831EE /* iphonelogingBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonelogingBg.png; sourceTree = "<group>"; };
-		3A9DFCBA178A8C8000D831EE /* iphonesplashLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonesplashLogo.png; sourceTree = "<group>"; };
-		3A9DFCBB178A8C8000D831EE /* iphonebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebg.png; sourceTree = "<group>"; };
 		3A9DFCE4178A8E7B00D831EE /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		3A9E8B011769EBC10028D433 /* titlebar-add-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-add-btn.png"; sourceTree = "<group>"; };
 		3A9E8B021769EBC10028D433 /* titlebar-add-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-add-btn@2x.png"; sourceTree = "<group>"; };
@@ -495,7 +429,6 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				3A9DFC9A178A8C5E00D831EE /* iPhone */,
 				3A9DFCE4178A8E7B00D831EE /* about.png */,
 				3AE5034F1785D5E30000B5F3 /* barIcon6.png */,
 				3AE503411785C4AD0000B5F3 /* calicon.png */,
@@ -851,46 +784,6 @@
 				3A9D594817844D87001EF677 /* HelveticaNeueLTStd-Ex.ttf */,
 			);
 			path = CustomFonts;
-			sourceTree = "<group>";
-		};
-		3A9DFC9A178A8C5E00D831EE /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-				3A9DFC9B178A8C8000D831EE /* iphonesubmitBtnBig.png */,
-				3A9DFC9C178A8C8000D831EE /* iphoneeditBtnBig.png */,
-				3A9DFC9D178A8C8000D831EE /* iphonecancelBtnBig.png */,
-				3A9DFC9E178A8C8000D831EE /* iphonebarIcon3Selected.png */,
-				3A9DFC9F178A8C8000D831EE /* iphonebarIcon3.png */,
-				3A9DFCA0178A8C8000D831EE /* iphonebarIcon2.png */,
-				3A9DFCA1178A8C8000D831EE /* iphonebarIcon2Selected.png */,
-				3A9DFCA2178A8C8000D831EE /* iphonebarIcon4Selected.png */,
-				3A9DFCA3178A8C8000D831EE /* iphonebarIcon4.png */,
-				3A9DFCA4178A8C8000D831EE /* iphonebarIcon1Selected.png */,
-				3A9DFCA5178A8C8000D831EE /* iphonebarIcon1.png */,
-				3A9DFCA6178A8C8000D831EE /* iphonemedDetailsBar.png */,
-				3A9DFCA7178A8C8000D831EE /* iphoneDrDetailsBg.png */,
-				3A9DFCA8178A8C8000D831EE /* iphonemedDataBg.png */,
-				3A9DFCA9178A8C8000D831EE /* iphonemedDataBgHover.png */,
-				3A9DFCAA178A8C8000D831EE /* iphonecallAppBg.png */,
-				3A9DFCAB178A8C8000D831EE /* iphoneAvaterWithoutFace.png */,
-				3A9DFCAC178A8C8000D831EE /* iphoneAvater.png */,
-				3A9DFCAD178A8C8000D831EE /* iphonedescriptionsBg.png */,
-				3A9DFCAE178A8C8000D831EE /* iphonetopBarBg.png */,
-				3A9DFCAF178A8C8000D831EE /* iphoneDetailsBg.png */,
-				3A9DFCB0178A8C8000D831EE /* iphonecancelBtn.png */,
-				3A9DFCB1178A8C8000D831EE /* iphonedeleteBtn.png */,
-				3A9DFCB2178A8C8000D831EE /* iphonesubmitBtn.png */,
-				3A9DFCB3178A8C8000D831EE /* iphoneFlieds.png */,
-				3A9DFCB4178A8C8000D831EE /* iphoneaddBtn.png */,
-				3A9DFCB5178A8C8000D831EE /* iphonebackBtn.png */,
-				3A9DFCB6178A8C8000D831EE /* iphonebgInner.png */,
-				3A9DFCB7178A8C8000D831EE /* iphoneaboutBtn.png */,
-				3A9DFCB8178A8C8000D831EE /* iphoneloginBtn.png */,
-				3A9DFCB9178A8C8000D831EE /* iphonelogingBg.png */,
-				3A9DFCBA178A8C8000D831EE /* iphonesplashLogo.png */,
-				3A9DFCBB178A8C8000D831EE /* iphonebg.png */,
-			);
-			path = iPhone;
 			sourceTree = "<group>";
 		};
 		3A9ECA6117688C3900297583 /* CustomButton */ = {
@@ -1269,39 +1162,6 @@
 				3AE5034D1785C4AE0000B5F3 /* salesTable.png in Resources */,
 				3AE5034E1785C4AE0000B5F3 /* salesTable2.png in Resources */,
 				3AE503501785D5E30000B5F3 /* barIcon6.png in Resources */,
-				3A9DFCBC178A8C8000D831EE /* iphonesubmitBtnBig.png in Resources */,
-				3A9DFCBD178A8C8000D831EE /* iphoneeditBtnBig.png in Resources */,
-				3A9DFCBE178A8C8000D831EE /* iphonecancelBtnBig.png in Resources */,
-				3A9DFCBF178A8C8000D831EE /* iphonebarIcon3Selected.png in Resources */,
-				3A9DFCC0178A8C8000D831EE /* iphonebarIcon3.png in Resources */,
-				3A9DFCC1178A8C8000D831EE /* iphonebarIcon2.png in Resources */,
-				3A9DFCC2178A8C8000D831EE /* iphonebarIcon2Selected.png in Resources */,
-				3A9DFCC3178A8C8000D831EE /* iphonebarIcon4Selected.png in Resources */,
-				3A9DFCC4178A8C8000D831EE /* iphonebarIcon4.png in Resources */,
-				3A9DFCC5178A8C8000D831EE /* iphonebarIcon1Selected.png in Resources */,
-				3A9DFCC6178A8C8000D831EE /* iphonebarIcon1.png in Resources */,
-				3A9DFCC7178A8C8000D831EE /* iphonemedDetailsBar.png in Resources */,
-				3A9DFCC8178A8C8000D831EE /* iphoneDrDetailsBg.png in Resources */,
-				3A9DFCC9178A8C8000D831EE /* iphonemedDataBg.png in Resources */,
-				3A9DFCCA178A8C8000D831EE /* iphonemedDataBgHover.png in Resources */,
-				3A9DFCCB178A8C8000D831EE /* iphonecallAppBg.png in Resources */,
-				3A9DFCCC178A8C8000D831EE /* iphoneAvaterWithoutFace.png in Resources */,
-				3A9DFCCD178A8C8000D831EE /* iphoneAvater.png in Resources */,
-				3A9DFCCE178A8C8000D831EE /* iphonedescriptionsBg.png in Resources */,
-				3A9DFCCF178A8C8000D831EE /* iphonetopBarBg.png in Resources */,
-				3A9DFCD0178A8C8000D831EE /* iphoneDetailsBg.png in Resources */,
-				3A9DFCD1178A8C8000D831EE /* iphonecancelBtn.png in Resources */,
-				3A9DFCD2178A8C8000D831EE /* iphonedeleteBtn.png in Resources */,
-				3A9DFCD3178A8C8000D831EE /* iphonesubmitBtn.png in Resources */,
-				3A9DFCD4178A8C8000D831EE /* iphoneFlieds.png in Resources */,
-				3A9DFCD5178A8C8000D831EE /* iphoneaddBtn.png in Resources */,
-				3A9DFCD6178A8C8000D831EE /* iphonebackBtn.png in Resources */,
-				3A9DFCD7178A8C8000D831EE /* iphonebgInner.png in Resources */,
-				3A9DFCD8178A8C8000D831EE /* iphoneaboutBtn.png in Resources */,
-				3A9DFCD9178A8C8000D831EE /* iphoneloginBtn.png in Resources */,
-				3A9DFCDA178A8C8000D831EE /* iphonelogingBg.png in Resources */,
-				3A9DFCDB178A8C8000D831EE /* iphonesplashLogo.png in Resources */,
-				3A9DFCDC178A8C8000D831EE /* iphonebg.png in Resources */,
 				3A9DFCE5178A8E7B00D831EE /* about.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
