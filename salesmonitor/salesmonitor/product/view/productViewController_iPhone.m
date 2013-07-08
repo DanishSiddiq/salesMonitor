@@ -177,7 +177,7 @@
                                                               , 0
                                                               , [UIScreen mainScreen].bounds.size.width
                                                               , [UIScreen mainScreen].bounds.size.height-45)];
-    [_viewContainer setBackgroundColor:[UIColor whiteColor]];
+    [_viewContainer setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_viewContainer];
 }
 
@@ -200,6 +200,11 @@
                                                                 , 0
                                                                 , [UIScreen mainScreen].bounds.size.width,
                                                                 [UIScreen mainScreen].bounds.size.height - 45)];
+    
+    [_tblProduct setShowsHorizontalScrollIndicator:NO];
+    [_tblProduct setShowsVerticalScrollIndicator:NO];
+    [_tblProduct setSeparatorColor:[UIColor clearColor]];
+    [_tblProduct setBackgroundColor:[UIColor clearColor]];
     
     [_tblProduct setDataSource:_productController];
     [_tblProduct setDelegate:_productController];
