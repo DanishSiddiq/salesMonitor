@@ -148,6 +148,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
                                                              , [UIScreen mainScreen].bounds.size.height - 100)];
     _tblSale.delegate = _productReportController;
     _tblSale.dataSource = _productReportController;
+    _tblSale.backgroundColor = [UIColor clearColor];
+    _tblSale.separatorColor = [UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0];
     [self.view addSubview:_tblSale];
 }
 
