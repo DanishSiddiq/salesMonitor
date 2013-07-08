@@ -13,6 +13,10 @@
 @property (nonatomic, strong) loginController *loginController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 
+// selectors
+- (IBAction)btnPressedLogin:(id)sender;
+- (IBAction)btnPressedInfo:(id)sender;
+
 @end
 
 @implementation loginViewController_iPad
@@ -99,5 +103,13 @@
     [self.loginController authenticateUserAtServer:txtEmail.text pass:txtPassword.text];
 }
 
+
+- (IBAction)btnPressedInfo:(id)sender{
+    
+    [self.navigationController pushViewController:[[InfoGraphViewController_iPad alloc]
+                                                   initWithNibName:@"InfoGraphViewController_iPad"
+                                                   bundle:nil]
+                                         animated:YES];
+}
 
 @end

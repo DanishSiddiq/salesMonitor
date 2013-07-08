@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "loginController.h"
 #import "productViewController_iPad.h"
-
+#import "InfoGraphViewController_iPad.h"
 
 @interface loginViewController_iPad : UIViewController <loginControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *txtEmail;
 @property (nonatomic, strong) IBOutlet UITextField *txtPassword;
-- (IBAction)btnPressedLogin:(id)sender;
 
 
 // protocol implementation
