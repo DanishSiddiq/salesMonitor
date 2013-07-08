@@ -211,6 +211,14 @@
 		3A9DFE0D178AA29100D831EE /* splashLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD79178AA29100D831EE /* splashLogo@2x.png */; };
 		3A9DFE0E178AA29100D831EE /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD7A178AA29100D831EE /* bg@2x.png */; };
 		3A9DFE0F178AA29100D831EE /* iPadIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD7B178AA29100D831EE /* iPadIcon@2x.png */; };
+		3A9DFE12178AAD3300D831EE /* iphonebarIcon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE10178AAD2B00D831EE /* iphonebarIcon6.png */; };
+		3A9DFE13178AAD3300D831EE /* iphonebarIcon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE11178AAD2E00D831EE /* iphonebarIcon6@2x.png */; };
+		3A9DFE16178AB29C00D831EE /* titlebar-back-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE14178AB29300D831EE /* titlebar-back-btn.png */; };
+		3A9DFE17178AB29C00D831EE /* titlebar-back-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE15178AB29800D831EE /* titlebar-back-btn@2x.png */; };
+		3A9DFE1C178AB39A00D831EE /* iphonebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE18178AB38700D831EE /* iphonebg.png */; };
+		3A9DFE1D178AB39A00D831EE /* iphonebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */; };
+		3A9DFE1E178AB39A00D831EE /* iphonebgInner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */; };
+		3A9DFE1F178AB39A00D831EE /* iphonebgInner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE1B178AB39300D831EE /* iphonebgInner@2x.png */; };
 		3A9ECA6417688C3900297583 /* Custombutton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6317688C3900297583 /* Custombutton.m */; };
 		3A9ECA6C1768946100297583 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9ECA6B1768946100297583 /* MessageUI.framework */; };
 		3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */; };
@@ -501,6 +509,14 @@
 		3A9DFD79178AA29100D831EE /* splashLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splashLogo@2x.png"; sourceTree = "<group>"; };
 		3A9DFD7A178AA29100D831EE /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		3A9DFD7B178AA29100D831EE /* iPadIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadIcon@2x.png"; sourceTree = "<group>"; };
+		3A9DFE10178AAD2B00D831EE /* iphonebarIcon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon6.png; sourceTree = "<group>"; };
+		3A9DFE11178AAD2E00D831EE /* iphonebarIcon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebarIcon6@2x.png"; sourceTree = "<group>"; };
+		3A9DFE14178AB29300D831EE /* titlebar-back-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-back-btn.png"; sourceTree = "<group>"; };
+		3A9DFE15178AB29800D831EE /* titlebar-back-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-back-btn@2x.png"; sourceTree = "<group>"; };
+		3A9DFE18178AB38700D831EE /* iphonebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebg.png; sourceTree = "<group>"; };
+		3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebg@2x.png"; sourceTree = "<group>"; };
+		3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebgInner.png; sourceTree = "<group>"; };
+		3A9DFE1B178AB39300D831EE /* iphonebgInner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebgInner@2x.png"; sourceTree = "<group>"; };
 		3A9ECA6217688C3900297583 /* Custombutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custombutton.h; sourceTree = "<group>"; };
 		3A9ECA6317688C3900297583 /* Custombutton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custombutton.m; sourceTree = "<group>"; };
 		3A9ECA6B1768946100297583 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -599,6 +615,14 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A9DFE18178AB38700D831EE /* iphonebg.png */,
+				3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */,
+				3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */,
+				3A9DFE1B178AB39300D831EE /* iphonebgInner@2x.png */,
+				3A9DFE14178AB29300D831EE /* titlebar-back-btn.png */,
+				3A9DFE15178AB29800D831EE /* titlebar-back-btn@2x.png */,
+				3A9DFE10178AAD2B00D831EE /* iphonebarIcon6.png */,
+				3A9DFE11178AAD2E00D831EE /* iphonebarIcon6@2x.png */,
 				3A9DFCE8178AA29100D831EE /* addBtn.png */,
 				3A9DFCE9178AA29100D831EE /* avaterShadow.png */,
 				3A9DFCEA178AA29100D831EE /* backBtn.png */,
@@ -1511,6 +1535,14 @@
 				3A9DFE0D178AA29100D831EE /* splashLogo@2x.png in Resources */,
 				3A9DFE0E178AA29100D831EE /* bg@2x.png in Resources */,
 				3A9DFE0F178AA29100D831EE /* iPadIcon@2x.png in Resources */,
+				3A9DFE12178AAD3300D831EE /* iphonebarIcon6.png in Resources */,
+				3A9DFE13178AAD3300D831EE /* iphonebarIcon6@2x.png in Resources */,
+				3A9DFE16178AB29C00D831EE /* titlebar-back-btn.png in Resources */,
+				3A9DFE17178AB29C00D831EE /* titlebar-back-btn@2x.png in Resources */,
+				3A9DFE1C178AB39A00D831EE /* iphonebg.png in Resources */,
+				3A9DFE1D178AB39A00D831EE /* iphonebg@2x.png in Resources */,
+				3A9DFE1E178AB39A00D831EE /* iphonebgInner.png in Resources */,
+				3A9DFE1F178AB39A00D831EE /* iphonebgInner@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
