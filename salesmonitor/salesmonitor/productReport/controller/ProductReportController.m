@@ -234,32 +234,42 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 
 - (UIView *) createHeaderViewForIphone {
     
-    
     UIView *viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
     [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    
+    UIView *vwBgDate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 64, 40)];
+    [vwBgDate setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UILabel *lblDate = [[UILabel alloc] initWithFrame: CGRectMake(4, 6, 64, 30)];
     [lblDate setBackgroundColor:[UIColor clearColor]];
     lblDate.numberOfLines = 1;
     lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
-    lblDate.textColor = [UIColor darkGrayColor];
     lblDate.contentMode = UIViewContentModeBottomLeft;
     lblDate.textAlignment = NSTextAlignmentCenter;
     lblDate.adjustsFontSizeToFitWidth = YES;
-    lblDate.text = @"Date";
+    lblDate.backgroundColor = [UIColor clearColor];
+    lblDate.textColor = [UIColor whiteColor];
+    lblDate.text = @"Date";    
+    
+    UIView *vwBgBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(72, 0, 56, 40)];
+    [vwBgBudgetUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UIView *viewSeperatorDate = [[UIView alloc] initWithFrame:CGRectMake(68, 0, 1, 40)];
     [viewSeperatorDate setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
     
-    UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(69, 6, 62, 30) ];
+    UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(69, 6, 62, 30)];
     lblbudgetUnit.backgroundColor = [UIColor clearColor];
     lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     lblbudgetUnit.numberOfLines = 1;
     lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
     lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
-    lblbudgetUnit.textColor = [UIColor grayColor];
     lblbudgetUnit.adjustsFontSizeToFitWidth = YES;
+    lblbudgetUnit.backgroundColor = [UIColor clearColor];
+    lblbudgetUnit.textColor = [UIColor whiteColor];
     lblbudgetUnit.text = @"BDG Unit";
+    
+    UIView *vwBgBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(134, 0, 59, 40)];
+    [vwBgBudgetValue setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UIView *viewSeperatorBudgetUnit = [[UIView alloc] initWithFrame:CGRectMake(131 , 0, 1, 40) ];
     [viewSeperatorBudgetUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
@@ -270,9 +280,13 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     lblBudgetValue.numberOfLines = 1;
     lblBudgetValue.contentMode = UIViewContentModeTopLeft;
     lblBudgetValue.textAlignment = NSTextAlignmentCenter;
-    lblBudgetValue.textColor = [UIColor grayColor];
     lblBudgetValue.adjustsFontSizeToFitWidth = YES;
+    lblBudgetValue.backgroundColor = [UIColor clearColor];
+    lblBudgetValue.textColor = [UIColor whiteColor];
     lblBudgetValue.text = @"BDG Value";
+    
+    UIView *vwBgSaleUnit = [[UIView alloc] initWithFrame:CGRectMake(198, 0, 58, 40)];
+    [vwBgSaleUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UIView *viewSeperatorBudgetValue = [[UIView alloc] initWithFrame:CGRectMake(195 , 0, 1, 40)];
     [viewSeperatorBudgetValue setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
@@ -283,9 +297,13 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     lblSaleUnit.numberOfLines = 1;
     lblSaleUnit.contentMode = UIViewContentModeTopLeft;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
-    lblSaleUnit.textColor = [UIColor grayColor];
     lblSaleUnit.adjustsFontSizeToFitWidth = YES;
+    lblSaleUnit.backgroundColor = [UIColor clearColor];
+    lblSaleUnit.textColor = [UIColor whiteColor];
     lblSaleUnit.text = @"Sale Unit";
+    
+    UIView *vwBgSaleValue = [[UIView alloc] initWithFrame:CGRectMake(261, 0, 62, 40)];
+    [vwBgSaleValue setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UIView *viewSeperatorSaleUnit = [[UIView alloc] initWithFrame: CGRectMake(258 , 0, 1, 40) ];
     [viewSeperatorSaleUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
@@ -296,17 +314,23 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     lblSaleValue.numberOfLines = 1;
     lblSaleValue.contentMode = UIViewContentModeTopLeft;
     lblSaleValue.textAlignment = NSTextAlignmentCenter;
-    lblSaleValue.textColor = [UIColor grayColor];
     lblSaleValue.adjustsFontSizeToFitWidth = YES;
+    lblSaleValue.backgroundColor = [UIColor clearColor];
+    lblSaleValue.textColor = [UIColor whiteColor];
     lblSaleValue.text = @"Sale Value";
     
+    [viewHeader addSubview:vwBgDate];
     [viewHeader addSubview:lblDate];
+    [viewHeader addSubview:vwBgBudgetUnit];
     [viewHeader addSubview:viewSeperatorDate];
     [viewHeader addSubview:lblbudgetUnit];
+    [viewHeader addSubview:vwBgBudgetValue];
     [viewHeader addSubview:viewSeperatorBudgetUnit];
     [viewHeader addSubview:lblBudgetValue];
+    [viewHeader addSubview:vwBgSaleUnit];
     [viewHeader addSubview:viewSeperatorBudgetValue];
     [viewHeader addSubview:lblSaleUnit];
+    [viewHeader addSubview:vwBgSaleValue];
     [viewHeader addSubview:viewSeperatorSaleUnit];
     [viewHeader addSubview:lblSaleValue];
     
