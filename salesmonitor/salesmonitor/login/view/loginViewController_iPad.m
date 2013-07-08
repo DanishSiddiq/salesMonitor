@@ -106,10 +106,13 @@
 
 - (IBAction)btnPressedInfo:(id)sender{
     
-    [self.navigationController pushViewController:[[InfoGraphViewController_iPad alloc]
-                                                   initWithNibName:@"InfoGraphViewController_iPad"
-                                                   bundle:nil]
-                                         animated:YES];
+    // setting product in controller
+    UIImageView *imgViewInfo = [[UIImageView alloc] initWithFrame:CGRectMake(60
+                                                                            , 60
+                                                                            , [UIScreen mainScreen].bounds.size.width - 30
+                                                                            , [UIScreen mainScreen].bounds.size.height - 30)];
+    [imgViewInfo setImage:[UIImage imageNamed:@"about"]];
+    [[KGModal sharedInstance] showWithContentView:imgViewInfo andAnimated:YES];
 }
 
 @end

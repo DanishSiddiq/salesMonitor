@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "loginController.h"
 #import "productViewController_iPad.h"
-#import "InfoGraphViewController_iPad.h"
 
 @interface loginViewController_iPad : UIViewController <loginControllerDelegate>
 
