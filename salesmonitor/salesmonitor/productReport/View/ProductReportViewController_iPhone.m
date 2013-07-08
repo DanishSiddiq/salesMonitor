@@ -16,6 +16,7 @@
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 @property (nonatomic, strong) ProductReportController *productReportController;
 @property (nonatomic, strong) NSMutableDictionary *productSelected;
+@property (strong, nonatomic) IBOutlet UIImageView *imgViewBg;
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
 @property (nonatomic, strong) NSMutableArray *loadSales;
@@ -135,7 +136,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 }
 
 - (void) initializeMainView {
+    
     [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [_imgViewBg setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
 }
 
 - (void) initializeTableSale {

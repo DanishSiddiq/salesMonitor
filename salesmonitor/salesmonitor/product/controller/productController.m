@@ -126,7 +126,7 @@
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
     
-    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(64, 32, 220, 18)];
+    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(64, 26, 220, 16)];
     lblTheraputicClass.backgroundColor = [UIColor clearColor];
     lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     lblTheraputicClass.numberOfLines = 1;
@@ -136,7 +136,7 @@
     lblTheraputicClass.backgroundColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
     lblTheraputicClass.tag = 30;
     
-    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(64, 54, 216, 18)];
+    UILabel *lblIndication = [[UILabel alloc] initWithFrame:CGRectMake(64, 48, 220, 22)];
     lblIndication.backgroundColor = [UIColor clearColor];
     lblIndication.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     lblIndication.numberOfLines = 2;
@@ -163,7 +163,7 @@
     lblPrice.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblPrice.tag = 50;
     
-    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 36 , 7, 36, 35)];
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 34 , 7, 34, 35)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
     lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     lblSaleUnit.numberOfLines = 1;
@@ -173,7 +173,7 @@
     lblSaleUnit.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblSaleUnit.tag = 60;
     
-    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 36 , 44, 36, 35)];
+    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 34 , 44, 34, 35)];
     lblBudgetUnit.backgroundColor = [UIColor clearColor];
     lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     lblBudgetUnit.numberOfLines = 1;
