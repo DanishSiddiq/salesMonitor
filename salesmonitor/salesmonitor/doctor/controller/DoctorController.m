@@ -124,7 +124,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     [lblIndex setLineBreakMode:NSLineBreakByTruncatingTail];
     [lblIndex setTag:40];
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(45, 10, 200, 16)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 200, 16)];
     lblName.numberOfLines = 1;
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
@@ -145,10 +145,10 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
 //    NSLog(@"Label Speciality: %@", lblSpeciality);
     
-    UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(130, 42, 15, 15)];
+    UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(160, 42, 15, 15)];
     [imgViewCallIcon setImage:[UIImage imageNamed:@"callIcon"]];
     
-    UILabel *lblContactNo = [[UILabel alloc] initWithFrame: CGRectMake(150, 43, 150, 15)];
+    UILabel *lblContactNo = [[UILabel alloc] initWithFrame: CGRectMake(180, 43, 150, 15)];
     lblContactNo.numberOfLines = 1;
     [lblContactNo setBackgroundColor:[UIColor clearColor]];
     [lblContactNo setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
