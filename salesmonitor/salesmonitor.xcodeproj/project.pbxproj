@@ -219,6 +219,10 @@
 		3A9DFE1D178AB39A00D831EE /* iphonebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */; };
 		3A9DFE1E178AB39A00D831EE /* iphonebgInner.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */; };
 		3A9DFE1F178AB39A00D831EE /* iphonebgInner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE1B178AB39300D831EE /* iphonebgInner@2x.png */; };
+		3A9DFE24178AE40E00D831EE /* iphonedateBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE20178AE3DA00D831EE /* iphonedateBtn.png */; };
+		3A9DFE25178AE40E00D831EE /* iphonesaleDateBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE21178AE3E100D831EE /* iphonesaleDateBar.png */; };
+		3A9DFE26178AE40E00D831EE /* iphonedateBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE22178AE3EB00D831EE /* iphonedateBtn@2x.png */; };
+		3A9DFE27178AE40E00D831EE /* iphonesaleDateBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE23178AE3FC00D831EE /* iphonesaleDateBar@2x.png */; };
 		3A9ECA6417688C3900297583 /* Custombutton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6317688C3900297583 /* Custombutton.m */; };
 		3A9ECA6C1768946100297583 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9ECA6B1768946100297583 /* MessageUI.framework */; };
 		3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9ECA6E1768AE0600297583 /* doctorViewController_iPad.m */; };
@@ -517,6 +521,10 @@
 		3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebg@2x.png"; sourceTree = "<group>"; };
 		3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebgInner.png; sourceTree = "<group>"; };
 		3A9DFE1B178AB39300D831EE /* iphonebgInner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebgInner@2x.png"; sourceTree = "<group>"; };
+		3A9DFE20178AE3DA00D831EE /* iphonedateBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonedateBtn.png; sourceTree = "<group>"; };
+		3A9DFE21178AE3E100D831EE /* iphonesaleDateBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonesaleDateBar.png; sourceTree = "<group>"; };
+		3A9DFE22178AE3EB00D831EE /* iphonedateBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonedateBtn@2x.png"; sourceTree = "<group>"; };
+		3A9DFE23178AE3FC00D831EE /* iphonesaleDateBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonesaleDateBar@2x.png"; sourceTree = "<group>"; };
 		3A9ECA6217688C3900297583 /* Custombutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custombutton.h; sourceTree = "<group>"; };
 		3A9ECA6317688C3900297583 /* Custombutton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custombutton.m; sourceTree = "<group>"; };
 		3A9ECA6B1768946100297583 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -615,6 +623,10 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A9DFE20178AE3DA00D831EE /* iphonedateBtn.png */,
+				3A9DFE21178AE3E100D831EE /* iphonesaleDateBar.png */,
+				3A9DFE22178AE3EB00D831EE /* iphonedateBtn@2x.png */,
+				3A9DFE23178AE3FC00D831EE /* iphonesaleDateBar@2x.png */,
 				3A9DFE18178AB38700D831EE /* iphonebg.png */,
 				3A9DFE19178AB38A00D831EE /* iphonebg@2x.png */,
 				3A9DFE1A178AB38E00D831EE /* iphonebgInner.png */,
@@ -1543,6 +1555,10 @@
 				3A9DFE1D178AB39A00D831EE /* iphonebg@2x.png in Resources */,
 				3A9DFE1E178AB39A00D831EE /* iphonebgInner.png in Resources */,
 				3A9DFE1F178AB39A00D831EE /* iphonebgInner@2x.png in Resources */,
+				3A9DFE24178AE40E00D831EE /* iphonedateBtn.png in Resources */,
+				3A9DFE25178AE40E00D831EE /* iphonesaleDateBar.png in Resources */,
+				3A9DFE26178AE40E00D831EE /* iphonedateBtn@2x.png in Resources */,
+				3A9DFE27178AE40E00D831EE /* iphonesaleDateBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
