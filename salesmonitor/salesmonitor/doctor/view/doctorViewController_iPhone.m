@@ -393,25 +393,29 @@
                                                                       , [UIScreen mainScreen].bounds.size.height
                                                                       , [UIScreen mainScreen].bounds.size.width
                                                                       , 60)];
-    [_doctorContactContainer setBackgroundColor:[UIColor colorWithRed:247/255.f green:247/255.f blue:247/255.f alpha:1.0]];
+    [_doctorContactContainer setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(14, 4, 290, 53)];
+    [imgViewBg setContentMode:UIViewContentModeScaleAspectFill];
+    [imgViewBg setImage:[UIImage imageNamed:@"iphonecallAppBg"]];
     
     UIButton *btnCall, *btnMessage, *btnMail;
-    btnCall = [[Custombutton alloc] initWithFrame:CGRectMake(70, 10, 40, 40)];
+    btnCall = [[Custombutton alloc] initWithFrame:CGRectMake(65, 10, 40, 40)];
     [btnCall addTarget:self action:@selector(btnPressedCall:) forControlEvents:UIControlEventTouchUpInside];
-    [btnCall setBackgroundImage:[UIImage imageNamed:@"icon_contact" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnCall setBackgroundImage:[UIImage imageNamed:@"callIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnCall.tag = 10;
     
-    btnMessage = [[Custombutton alloc] initWithFrame:CGRectMake(140, 10, 40, 40)];
+    btnMessage = [[Custombutton alloc] initWithFrame:CGRectMake(137, 10, 40, 40)];
     [btnMessage addTarget:self action:@selector(btnPressedMessage:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMessage setBackgroundImage:[UIImage imageNamed:@"icon_sms" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMessage setBackgroundImage:[UIImage imageNamed:@"smsIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnMessage.tag = 20;
     
     btnMail = [[Custombutton alloc] initWithFrame:CGRectMake(210, 10, 40, 40)];
     [btnMail addTarget:self action:@selector(btnPressedMail:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMail setBackgroundImage:[UIImage imageNamed:@"icon_mail" ] forState:UIControlStateNormal & UIControlStateSelected];
+    [btnMail setBackgroundImage:[UIImage imageNamed:@"emailIcon" ] forState:UIControlStateNormal & UIControlStateSelected];
     btnMail.tag = 30;
     
-    
+    [_doctorContactContainer addSubview:imgViewBg];
     [_doctorContactContainer addSubview:btnCall];
     [_doctorContactContainer addSubview:btnMessage];
     [_doctorContactContainer addSubview:btnMail];

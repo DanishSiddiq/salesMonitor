@@ -53,7 +53,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _isIphone ? 70.0f : 77.0f;
+    return _isIphone ? 77.0f : 77.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -110,6 +110,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     
     UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
     [imgViewBg setTag:5];
