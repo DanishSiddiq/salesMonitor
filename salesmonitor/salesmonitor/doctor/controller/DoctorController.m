@@ -107,43 +107,63 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 - (UITableViewCell *) createCellContentForIphone : (UITableView *) tableView branchCellIdentifier : (NSString *) branchCellIdentifier{
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 70)];
+    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, [UIScreen mainScreen].bounds.size.width - 12, 16)];
+    UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    [imgViewBg setTag:5];
+    
+    UILabel *lblIndex = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 30, 16)];
+    lblIndex.numberOfLines = 1;
+    [lblIndex setBackgroundColor:[UIColor clearColor]];
+    lblIndex.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [lblIndex setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
+    [lblIndex setContentMode:UIViewContentModeTopLeft];
+    [lblIndex setTextAlignment:NSTextAlignmentCenter];
+    [lblIndex setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblIndex setTag:40];
+    
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(45, 10, 200, 16)];
     lblName.numberOfLines = 1;
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size:15.0];
-    [lblName setTextColor:[UIColor darkGrayColor]];
+    [lblName setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
     [lblName setContentMode:UIViewContentModeTopLeft];
     [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
     lblName.tag = 10;
     
-    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 24, [UIScreen mainScreen].bounds.size.width -12, 15)];
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(8, 43, 100, 15)];
     lblSpeciality.numberOfLines = 1;
     [lblSpeciality setBackgroundColor:[UIColor clearColor]];
     [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
     [lblSpeciality setContentMode:UIViewContentModeTopLeft];
     [lblSpeciality setTextAlignment:NSTextAlignmentLeft];
     [lblSpeciality setLineBreakMode:NSLineBreakByTruncatingTail];
-    [lblSpeciality setTextColor:[UIColor grayColor]];
+    [lblSpeciality setTextColor:[UIColor whiteColor]];
     lblSpeciality.tag = 20;
     
-    UILabel *lblAddress = [[UILabel alloc] initWithFrame: CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width -12, 28)];
-    lblAddress.numberOfLines = 2;
-    [lblAddress setBackgroundColor:[UIColor clearColor]];
-    [lblAddress setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
-    [lblAddress setContentMode:UIViewContentModeTopLeft];
-    [lblAddress setTextAlignment:NSTextAlignmentLeft];
-    [lblAddress setLineBreakMode:NSLineBreakByTruncatingTail];
-    [lblAddress setTextColor:[UIColor grayColor]];
-    [lblAddress adjustsFontSizeToFitWidth];
-    lblAddress.tag = 30;
+//    NSLog(@"Label Speciality: %@", lblSpeciality);
     
+    UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(130, 42, 15, 15)];
+    [imgViewCallIcon setImage:[UIImage imageNamed:@"callIcon"]];
+    
+    UILabel *lblContactNo = [[UILabel alloc] initWithFrame: CGRectMake(150, 43, 150, 15)];
+    lblContactNo.numberOfLines = 1;
+    [lblContactNo setBackgroundColor:[UIColor clearColor]];
+    [lblContactNo setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
+    [lblContactNo setContentMode:UIViewContentModeTopLeft];
+    [lblContactNo setTextAlignment:NSTextAlignmentLeft];
+    [lblContactNo setLineBreakMode:NSLineBreakByTruncatingTail];
+    [lblContactNo setTextColor:[UIColor whiteColor]];
+    lblContactNo.tag = 30;
+    
+    [cell.contentView addSubview:imgViewBg];
+    [cell.contentView addSubview:lblIndex];
     [cell.contentView addSubview:lblName];
     [cell.contentView addSubview:lblSpeciality];
-    [cell.contentView addSubview:lblAddress];
+    [cell.contentView addSubview:imgViewCallIcon];
+    [cell.contentView addSubview:lblContactNo];
     
     return cell;
     
@@ -151,15 +171,32 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 
 - (void) populateCellContentForIphone : (UITableViewCell *) cell row: (NSInteger) row{
     
+    UIImageView *imgViewBg   = (UIImageView *)[cell.contentView viewWithTag:5];
     UILabel *lblName         = (UILabel *)[cell.contentView viewWithTag:10];
     UILabel *lblSpeciality   = (UILabel *)[cell.contentView viewWithTag:20];
-    UILabel *lblAddress      = (UILabel *)[cell.contentView viewWithTag:30];
+    UILabel *lblPhoneNo      = (UILabel *)[cell.contentView viewWithTag:30];
+    UILabel *lblIndex      = (UILabel *)[cell.contentView viewWithTag:40];
+    
+    
+    if(selectedIndexPath != nil && selectedIndexPath.row == row){
+        
+        [imgViewBg setImage:[UIImage imageNamed:@"iphonemedDataBgHover"]];
+        [lblIndex setTextColor:[UIColor colorWithRed:243/255.0f green:243/255.0f blue:243/255.0f alpha:1.0]];
+        [lblName setTextColor:[UIColor colorWithRed:243/255.0f green:243/255.0f blue:243/255.0f alpha:1.0]];
+    }
+    else{
+        
+        [imgViewBg setImage:[UIImage imageNamed:@"iphonemedDataBg"]];
+        [lblIndex setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
+        [lblName setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
+    }
     
     // populate data
     NSMutableDictionary *currDoctor = [_loadDoctor objectAtIndex:row];
     lblName.text        = [currDoctor valueForKey:KEY_DOCTORS_NAME];
     lblSpeciality.text  = [currDoctor valueForKey:KEY_DOCTORS_SPECIALITY];
-    lblAddress.text     = [currDoctor valueForKey:KEY_DOCTORS_ADDRESS];
+    lblPhoneNo.text     = [[currDoctor valueForKey:KEY_DOCTORS_PHONE] description];
+    lblIndex.text       = [NSString stringWithFormat: (row + 1) > 9 ? @"%d" : @"0%d" , (row + 1)];
 }
 
 // for ipad
