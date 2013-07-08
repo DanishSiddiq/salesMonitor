@@ -60,7 +60,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
                                , [[_salesMonitorDelegate userData] valueForKey:KEY_USER_ID]
                                , fromDate
                                , toDate
-                               , [_productSelected valueForKey:KEY_PRODUCT_ID]];
+                               , _productSelected ? [_productSelected valueForKey:KEY_PRODUCT_ID] : @""];
         
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];

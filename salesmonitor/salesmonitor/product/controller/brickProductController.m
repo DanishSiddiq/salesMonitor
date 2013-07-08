@@ -144,6 +144,9 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -20, 40)];
     [headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
     
+    UIView *vwBgName = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 207, 40)];
+    [vwBgName setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
+    
     UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(4, 5, [UIScreen mainScreen].bounds.size.width -207, 30)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.font = [UIFont fontWithName:@"Helvetica" size:14.0];
@@ -154,6 +157,9 @@
     
     UIView *viewSeperatorName = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 203, 0, 1, 40)];
     [viewSeperatorName setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
+    
+    UIView *vwBgPrice = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 198, 0, 52, 40)];
+    [vwBgPrice setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
     
     UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 202, 5, 60, 30)];
     lblPrice.backgroundColor = [UIColor clearColor];
@@ -166,6 +172,9 @@
     UIView *viewSeperatorPrice = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 142 , 0, 1, 40)];
     [viewSeperatorPrice setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
     
+    UIView *vwBgSaleUnit = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -136, 0, 52, 40)];
+    [vwBgSaleUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
+    
     UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -141, 5, 60, 30)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
     lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
@@ -177,6 +186,9 @@
     UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 81 , 0, 1, 40)];
     [viewSeperatorUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
     
+    UIView *vwBgTotalSale = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 76, 0, 60,40)];
+    [vwBgTotalSale setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];
+    
     UILabel *lblTotalSale = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 80, 5, 60, 30)];
     lblTotalSale.backgroundColor = [UIColor clearColor];
     lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
@@ -185,12 +197,16 @@
     lblTotalSale.textColor = [UIColor blackColor];
     lblTotalSale.text = @"Total";
     
+    [headerView addSubview:vwBgName];
     [headerView addSubview:lblName];
     [headerView addSubview:viewSeperatorName];
+    [headerView addSubview:vwBgPrice];
     [headerView addSubview:lblPrice];
     [headerView addSubview:viewSeperatorPrice];
+    [headerView addSubview:vwBgSaleUnit];
     [headerView addSubview:lblSaleUnit];
     [headerView addSubview:viewSeperatorUnit];
+    [headerView addSubview:vwBgTotalSale];
     [headerView addSubview:lblTotalSale];
     
     return headerView;
@@ -314,10 +330,10 @@
     //now populate data for the views
     NSMutableDictionary *product = [_loadProduct objectAtIndex:row];
     
-    lblName.text = [product valueForKey:KEY_BRICKS_PRODUCT_NAME];
-    lblPrice.text = [[product valueForKey:KEY_BRICKS_PRODUCT_PRICE] description];
-    lblSaleUnit.text = [[product valueForKey:KEY_BRICKS_PRODUCT_SALES_UNIT] description];
-    lblTotalSale.text = [[product valueForKey:KEY_BRICKS_PRODUCT_TOTAL_SALE] description];
+    lblName.text = [NSString stringWithFormat:@"   %@",[product valueForKey:KEY_BRICKS_PRODUCT_NAME]];
+    lblPrice.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_PRICE] description]];
+    lblSaleUnit.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_SALES_UNIT] description]];
+    lblTotalSale.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_TOTAL_SALE] description]];
 }
 
 
@@ -399,10 +415,10 @@
     //now populate data for the views
     NSMutableDictionary *product = [_loadProduct objectAtIndex:row];
     
-    lblName.text = [product valueForKey:KEY_BRICKS_PRODUCT_NAME];
-    lblPrice.text = [[product valueForKey:KEY_BRICKS_PRODUCT_PRICE] description];
-    lblSaleUnit.text = [[product valueForKey:KEY_BRICKS_PRODUCT_SALES_UNIT] description];
-    lblTotalSale.text = [[product valueForKey:KEY_BRICKS_PRODUCT_TOTAL_SALE] description];
+    lblName.text = [NSString stringWithFormat:@"   %@",[product valueForKey:KEY_BRICKS_PRODUCT_NAME]];
+    lblPrice.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_PRICE] description]];
+    lblSaleUnit.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_SALES_UNIT] description]];
+    lblTotalSale.text = [NSString stringWithFormat:@"   %@",[[product valueForKey:KEY_BRICKS_PRODUCT_TOTAL_SALE] description]];
 }
 
 @end
