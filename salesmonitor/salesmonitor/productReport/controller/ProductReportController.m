@@ -141,7 +141,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     UILabel *lblDate = [[UILabel alloc] initWithFrame: CGRectMake(8, 6, 128, 40)];
     [lblDate setBackgroundColor:[UIColor clearColor]];
     lblDate.numberOfLines = 1;
-    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18.0];
     lblDate.textColor = [UIColor whiteColor];
     lblDate.contentMode = UIViewContentModeBottomLeft;
     lblDate.textAlignment = NSTextAlignmentCenter;
@@ -156,7 +156,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     UILabel *lblbudgetUnit = [[UILabel alloc] initWithFrame: CGRectMake(138, 6, 124, 40)];
     lblbudgetUnit.backgroundColor = [UIColor clearColor];
-    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18];
     lblbudgetUnit.numberOfLines = 1;
     lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
     lblbudgetUnit.textAlignment = NSTextAlignmentCenter;
@@ -172,7 +172,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     UILabel *lblBudgetValue = [[UILabel alloc] initWithFrame: CGRectMake(264, 6, 124, 40)];
     lblBudgetValue.backgroundColor = [UIColor clearColor];
-    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18];
     lblBudgetValue.numberOfLines = 1;
     lblBudgetValue.contentMode = UIViewContentModeTopLeft;
     lblBudgetValue.textAlignment = NSTextAlignmentCenter;
@@ -188,7 +188,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame: CGRectMake(390, 6, 124, 40)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
-    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18];
     lblSaleUnit.numberOfLines = 1;
     lblSaleUnit.contentMode = UIViewContentModeTopLeft;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
@@ -204,7 +204,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     UILabel *lblSaleValue = [[UILabel alloc] initWithFrame: CGRectMake(516, 6, 124, 40)];
     lblSaleValue.backgroundColor = [UIColor clearColor];
-    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18];
     lblSaleValue.numberOfLines = 1;
     lblSaleValue.contentMode = UIViewContentModeTopLeft;
     lblSaleValue.textAlignment = NSTextAlignmentCenter;
@@ -392,7 +392,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     lblDate = [[UILabel alloc] initWithFrame: CGRectMake(8, 6, 128, 40)];
     [lblDate setBackgroundColor:[UIColor clearColor]];
     lblDate.numberOfLines = 1;
-    lblDate.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDate.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:14.0];
     lblDate.textColor = [UIColor darkGrayColor];
     lblDate.contentMode = UIViewContentModeBottomLeft;
     lblDate.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -404,7 +404,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     lblbudgetUnit = [[UILabel alloc] initWithFrame: CGRectMake(142, 6, 120, 40)];
     lblbudgetUnit.backgroundColor = [UIColor clearColor];
-    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblbudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     lblbudgetUnit.numberOfLines = 1;
     lblbudgetUnit.contentMode = UIViewContentModeTopLeft;
     lblbudgetUnit.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -417,7 +417,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     lblBudgetValue = [[UILabel alloc] initWithFrame:CGRectMake(268, 6, 120, 40)];
     lblBudgetValue.backgroundColor = [UIColor clearColor];
-    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblBudgetValue.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     lblBudgetValue.numberOfLines = 1;
     lblBudgetValue.contentMode = UIViewContentModeTopLeft;
     lblBudgetValue.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -430,7 +430,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     lblSaleUnit = [[UILabel alloc] initWithFrame: CGRectMake(394, 6, 120, 40)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
-    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     lblSaleUnit.numberOfLines = 1;
     lblSaleUnit.contentMode = UIViewContentModeTopLeft;
     lblSaleUnit.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -443,7 +443,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     
     lblSaleValue = [[UILabel alloc] initWithFrame:CGRectMake(520, 6, 120, 40)];
     lblSaleValue.backgroundColor = [UIColor clearColor];
-    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
+    lblSaleValue.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
     lblSaleValue.numberOfLines = 1;
     lblSaleValue.contentMode = UIViewContentModeTopLeft;
     lblSaleValue.lineBreakMode = NSLineBreakByTruncatingTail;

@@ -162,8 +162,10 @@
                                                                       , 92
                                                                       , 366
                                                                       , [UIScreen mainScreen].bounds.size.height - 137)];
+    _doctorDetailContainer.backgroundColor = [UIColor clearColor];
     
-    _doctorDetailContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColBg"]];
+    UIImageView *imgVwBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rightColBg"]];
+    [imgVwBg setTag:-10];
     
     CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(32, 50, 300, 193)];
     [imgViewDoctor setUserInteractionEnabled:YES];
@@ -176,25 +178,23 @@
     [btnImage setBackgroundColor:[UIColor clearColor]];
     [imgViewDoctor addSubview:btnImage];
     
-    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(32, 13, 300, 24)];
+    UILabel *lblDoctorName = [[UILabel alloc] initWithFrame:CGRectMake(32, 15, 300, 30)];
     [lblDoctorName setBackgroundColor:[UIColor clearColor]];
-    lblDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    lblDoctorName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:20.0];
     [lblDoctorName setNumberOfLines:2];
     [lblDoctorName setTextColor:[UIColor darkGrayColor]];
     lblDoctorName.contentMode = UIViewContentModeBottomLeft;
-    //lblDoctorName.textAlignment = NSTextAlignmentCenter;
     [lblDoctorName adjustsFontSizeToFitWidth];
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
     [lblDoctorName setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 24)];
+    UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 35)];
     [txtDoctorName setPlaceholder:@"name"];
     [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
-    txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    txtDoctorName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
     txtDoctorName.contentMode = UIViewContentModeBottomLeft;
-    //txtDoctorName.textAlignment = NSTextAlignmentCenter;
     [txtDoctorName.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorName.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorName setBorderStyle:UITextBorderStyleNone];
@@ -203,10 +203,11 @@
     [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
     [txtDoctorName setTextColor:[UIColor grayColor]];
+    [txtDoctorName setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
-    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(32, 300, 300, 24)];
+    UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(32, 260, 300, 35)];
     [lblDoctorSpeciality setBackgroundColor:[UIColor clearColor]];
-    lblDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    lblDoctorSpeciality.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [lblDoctorSpeciality setNumberOfLines:2];
     [lblDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     lblDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
@@ -216,13 +217,12 @@
     [lblDoctorSpeciality setTag:30];
     [lblDoctorSpeciality setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(32, 300, 300, 24)];
+    UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(32, 260, 300, 35)];
     [txtDoctorSpeciality setPlaceholder:@"speciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
-    txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    txtDoctorSpeciality.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
     txtDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
-    //txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
     [txtDoctorSpeciality.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorSpeciality setBorderStyle:UITextBorderStyleNone];
@@ -231,14 +231,15 @@
     [txtDoctorSpeciality setHidden:NO];
     [txtDoctorSpeciality setTag:40];
     [txtDoctorSpeciality setTextColor:[UIColor grayColor]];
+    [txtDoctorSpeciality setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
-    UIView *vwSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(32, 334, 300, 1)];
+    UIView *vwSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(32, 294, 300, 1)];
     vwSeperator1.backgroundColor = [UIColor whiteColor];
     vwSeperator1.tag = 1000;
     
-    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(32, 345, 300, 24)];
+    UILabel *lblDoctorPhone = [[UILabel alloc] initWithFrame:CGRectMake(32, 305, 300, 35)];
     [lblDoctorPhone setBackgroundColor:[UIColor clearColor]];
-    lblDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    lblDoctorPhone.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [lblDoctorPhone setNumberOfLines:2];
     [lblDoctorPhone setTextColor:[UIColor darkGrayColor]];
     lblDoctorPhone.contentMode = UIViewContentModeBottomLeft;
@@ -248,13 +249,12 @@
     [lblDoctorPhone setTag:50];
     [lblDoctorPhone setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(32, 345, 300, 24)];
+    UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(32, 305, 300, 35)];
     [txtDoctorPhone setPlaceholder:@"+14134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
-    txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    txtDoctorPhone.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
     txtDoctorPhone.contentMode = UIViewContentModeBottomLeft;
-    //txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
     [txtDoctorPhone.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorPhone setBorderStyle:UITextBorderStyleNone];
@@ -264,8 +264,9 @@
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
     [txtDoctorPhone setTextColor:[UIColor grayColor]];
+    [txtDoctorPhone setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
-    UIView *vwSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(32, 379, 300, 1)];
+    UIView *vwSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(32, 339, 300, 1)];
     vwSeperator2.backgroundColor = [UIColor whiteColor];
     vwSeperator2.tag = 2000;
     
@@ -278,9 +279,9 @@
     toolbar.items = [NSArray arrayWithObject:barButton];
     txtDoctorPhone.inputAccessoryView = toolbar;
     
-    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(32, 390, 300, 24)];
+    UILabel *lblDoctorEmail = [[UILabel alloc] initWithFrame:CGRectMake(32, 350, 300, 35)];
     [lblDoctorEmail setBackgroundColor:[UIColor clearColor]];
-    lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    lblDoctorEmail.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [lblDoctorEmail setNumberOfLines:1];
     [lblDoctorEmail setTextColor:[UIColor darkGrayColor]];
     lblDoctorEmail.contentMode = UIViewContentModeBottomLeft;
@@ -290,13 +291,12 @@
     [lblDoctorEmail setTag:70];
     [lblDoctorEmail setTextColor:[UIColor whiteColor]];
     
-    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(32, 390, 300, 24)];
+    UITextField *txtDoctorEmail = [[UITextField alloc] initWithFrame:CGRectMake(32, 350, 300, 35)];
     [txtDoctorEmail setPlaceholder:@"name@mail.com"];
     [txtDoctorEmail setBackgroundColor:[UIColor whiteColor]];
-    txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    txtDoctorEmail.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
     txtDoctorEmail.contentMode = UIViewContentModeBottomLeft;
-    //txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [txtDoctorEmail.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorEmail.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorEmail setBorderStyle:UITextBorderStyleNone];
@@ -306,14 +306,15 @@
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     [txtDoctorEmail setTextColor:[UIColor grayColor]];
+    [txtDoctorEmail setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
-    UIView *vwSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(32, 424, 300, 1)];
+    UIView *vwSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(32, 384, 300, 1)];
     vwSeperator3.backgroundColor = [UIColor whiteColor];
     vwSeperator3.tag = 3000;
     
-    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(32, 435, 300, 60)];
+    UILabel *lblDoctorAddress = [[UILabel alloc] initWithFrame:CGRectMake(32, 395, 300, 60)];
     [lblDoctorAddress setBackgroundColor:[UIColor clearColor]];
-    lblDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    lblDoctorAddress.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [lblDoctorAddress setNumberOfLines:4];
     [lblDoctorAddress setTextColor:[UIColor grayColor]];
     lblDoctorAddress.contentMode = UIViewContentModeTopLeft;
@@ -323,14 +324,13 @@
     [lblDoctorAddress setTag:90];
     [lblDoctorAddress setTextColor:[UIColor whiteColor]];
     
-    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(32, 435, 300, 60)];
+    UITextView *txtDoctorAddress = [[UITextView alloc] initWithFrame:CGRectMake(32, 395, 300, 60)];
     [txtDoctorAddress setBackgroundColor:[UIColor whiteColor]];
-    txtDoctorAddress.font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    txtDoctorAddress.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
     txtDoctorAddress.contentMode = UIViewContentModeTopLeft;
     [txtDoctorAddress.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorAddress.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    //[txtDoctorAddress.layer setCornerRadius:6];
     [txtDoctorAddress.layer setBorderWidth:1.0];
     [txtDoctorAddress setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorAddress setDelegate:self];
@@ -339,7 +339,7 @@
     [txtDoctorAddress setTag:100];
     [txtDoctorAddress setTextColor:[UIColor grayColor]];
     
-    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(32, 515, 300, 50)];
+    UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(32, 475, 300, 50)];
     [btnAdd setTitle:@"Add" forState:UIControlStateNormal & UIControlStateSelected];
     [btnAdd setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnAdd titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -349,7 +349,7 @@
     [btnAdd setHidden:YES];
     [btnAdd setImage:[UIImage imageNamed:@"submitBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(32, 515, 302, 50)];
+    UIButton *btnEdit = [[UIButton alloc] initWithFrame:CGRectMake(32, 475, 302, 50)];
     [btnEdit setTitle:@"Edit" forState:UIControlStateNormal & UIControlStateSelected];
     [btnEdit setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnEdit titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -359,7 +359,7 @@
     [btnEdit setHidden:YES];
     [btnEdit setImage:[UIImage imageNamed:@"editBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(32, 515, 300, 50)];
+    UIButton *btnUpdate = [[UIButton alloc] initWithFrame:CGRectMake(32, 475, 300, 50)];
     [btnUpdate setTitle:@"Update" forState:UIControlStateNormal & UIControlStateSelected];
     [btnUpdate setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnUpdate titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -369,7 +369,7 @@
     [btnUpdate setHidden:YES];
     [btnUpdate setImage:[UIImage imageNamed:@"submitBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(32, 570, 300, 50)];
+    UIButton *btnDelete = [[UIButton alloc] initWithFrame:CGRectMake(32, 530, 300, 50)];
     [btnDelete setTitle:@"Delete" forState:UIControlStateNormal & UIControlStateSelected];
     [btnDelete setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnDelete titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -379,7 +379,7 @@
     [btnDelete setHidden:YES];
     [btnDelete setImage:[UIImage imageNamed:@"deleteBtn"] forState:UIControlStateNormal];
     
-    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(32, 625, 300, 50)];
+    UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(32, 585, 300, 50)];
     [btnCancel setTitle:@"Cancel" forState:UIControlStateNormal & UIControlStateSelected];
     [btnCancel setBackgroundColor:[UIColor colorWithRed:154/255.f green:180/255.f blue:92/255.f alpha:1.0]];
     [[btnCancel titleLabel] setTextColor:[UIColor colorWithRed:218/255.f green:218/255.f blue:215/255.f alpha:1.0]];
@@ -392,6 +392,7 @@
     
     vwSeperator1.hidden = vwSeperator2.hidden = vwSeperator3.hidden = YES;
     
+    [_doctorDetailContainer addSubview:imgVwBg];
     [_doctorDetailContainer addSubview:imgViewDoctor];
     [_doctorDetailContainer addSubview:lblDoctorName];
     [_doctorDetailContainer addSubview:txtDoctorName];

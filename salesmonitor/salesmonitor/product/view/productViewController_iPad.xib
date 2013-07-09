@@ -145,7 +145,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">bg.png</string>
-			<string key="NS.object.0">{1536, 2000}</string>
+			<string key="NS.object.0">{768, 1000}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

@@ -277,19 +277,18 @@
     UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(140, 14, 400, 26)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
-    lblName.font = [UIFont fontWithName:@"Helvetica" size:20.0];
+    lblName.font = [UIFont fontWithName:@"HelveticaNeue-ThCn" size:30.0];
     lblName.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblName.contentMode = UIViewContentModeBottomLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 20;
     
-    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 40, tableView.frame.size.width - 225, 20)];
+    UILabel *lblTheraputicClass = [[UILabel alloc] initWithFrame:CGRectMake(140, 40, tableView.frame.size.width - 225, 22)];
     lblTheraputicClass.backgroundColor = [UIColor clearColor];
-    lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
+    lblTheraputicClass.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
     lblTheraputicClass.numberOfLines = 1;
-    lblTheraputicClass.contentMode = UIViewContentModeTopLeft;
     lblTheraputicClass.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblTheraputicClass.textColor = [UIColor colorWithRed:197/255.0f green:197/255.0f blue:197/255.0f alpha:1.0];
+    lblTheraputicClass.textColor = [UIColor whiteColor];
     lblTheraputicClass.backgroundColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
     lblTheraputicClass.tag = 30;
     
@@ -311,18 +310,18 @@
     [imgViewPrice setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewPrice setImage:[UIImage imageNamed:@"priceIcon"]];
     
-    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(570, 12, 100, 27)];
+    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(570, 17, 100, 28)];
     lblPrice.backgroundColor = [UIColor clearColor];
-    lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    lblPrice.font = [UIFont fontWithName:@"HelveticaNeueLTStd-ThCn" size:22];
     lblPrice.numberOfLines = 1;
     lblPrice.contentMode = UIViewContentModeTopLeft;
     lblPrice.lineBreakMode = NSLineBreakByTruncatingTail;
-    lblPrice.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
+    lblPrice.textColor = [UIColor whiteColor];
     lblPrice.tag = 50;
     
-    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 15, 70, 60)];
+    UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 17, 70, 60)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
-    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:20];
     lblSaleUnit.numberOfLines = 1;
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
@@ -330,9 +329,9 @@
     lblSaleUnit.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblSaleUnit.tag = 60;
     
-    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 85, 70, 60)];
+    UILabel *lblBudgetUnit = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 73.5 , 90, 70, 60)];
     lblBudgetUnit.backgroundColor = [UIColor clearColor];
-    lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    lblBudgetUnit.font = [UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:20];
     lblBudgetUnit.numberOfLines = 1;
     lblBudgetUnit.contentMode = UIViewContentModeCenter;
     lblBudgetUnit.textAlignment = NSTextAlignmentCenter;
@@ -386,10 +385,10 @@
         [imgViewProduct setImage:[UIImage imageNamed:@"blue-circle.png"]];
     }
     
-    lblName.text = [product valueForKey:KEY_PRODUCT_NAME];
+    lblName.text = [[product valueForKey:KEY_PRODUCT_NAME] uppercaseString];
     lblTheraputicClass.text = [product valueForKey:KEY_PRODUCT_THERAPUTIC_CLASS];
     lblIndication.text = [product valueForKey:KEY_PRODUCT_INDICATION];
-    lblPrice.text = [[product valueForKey:KEY_PRODUCT_PRICE] description];
+    lblPrice.text = [NSString stringWithFormat:@"$ %@", [[product valueForKey:KEY_PRODUCT_PRICE] description]];
     lblSaleUnit.text = [[product valueForKey:KEY_PRODUCT_SALES_UNIT] description];
     lblBudgetUnit.text = [[product valueForKey:KEY_PRODUCT_BUDGET_UNITS] description];
     

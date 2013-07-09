@@ -210,42 +210,42 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     UIImageView *imgViewBg = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 335, 67)];
     [imgViewBg setTag:10];
     
-    UILabel *lblIndex = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 30, 28)];
+    UILabel *lblIndex = [[UILabel alloc] initWithFrame:CGRectMake(8, 14, 30, 26)];
     lblIndex.numberOfLines = 1;
     [lblIndex setBackgroundColor:[UIColor clearColor]];
-    lblIndex.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+    lblIndex.font = [UIFont fontWithName:@"HelveticaNeueLTStd-ThCn" size:20.0];
     [lblIndex setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
     [lblIndex setContentMode:UIViewContentModeTopLeft];
     [lblIndex setTextAlignment:NSTextAlignmentCenter];
     [lblIndex setLineBreakMode:NSLineBreakByTruncatingTail];
     [lblIndex setTag:20];
     
-    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(45, 8, 280, 28)];
+    UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(45, 14, 280, 26)];
     lblName.numberOfLines = 1;
     [lblName setBackgroundColor:[UIColor clearColor]];
-    lblName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
+    lblName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:20.0];
     [lblName setTextColor:[UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1.0]];
     [lblName setContentMode:UIViewContentModeTopLeft];
     [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
     [lblName setTag:30];
     
-    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(15, 39, 170, 28)];
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(15, 50, 170, 22)];
     lblSpeciality.numberOfLines = 1;
     [lblSpeciality setBackgroundColor:[UIColor clearColor]];
-    [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
+    [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeueLTStd-LtCnO" size:18]];
     [lblSpeciality setContentMode:UIViewContentModeTopLeft];
     [lblSpeciality setTextAlignment:NSTextAlignmentLeft];
     [lblSpeciality setLineBreakMode:NSLineBreakByTruncatingTail];
     [lblSpeciality setTextColor:[UIColor colorWithRed:243/255.0f green:243/255.0f blue:243/255.0f alpha:1.0]];
     [lblSpeciality setTag:40];
     
-    UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(190, 38, 25, 25)];
+    UIImageView *imgViewCallIcon = [[UIImageView alloc] initWithFrame:CGRectMake(190, 42, 25, 25)];
     [imgViewCallIcon setImage:[UIImage imageNamed:@"callIcon"]];
     
-    UILabel *lblContactNo = [[UILabel alloc] initWithFrame:CGRectMake(220, 40, 110, 28)];
+    UILabel *lblContactNo = [[UILabel alloc] initWithFrame:CGRectMake(220, 48, 110, 22)];
     lblContactNo.numberOfLines = 1;
     [lblContactNo setBackgroundColor:[UIColor clearColor]];
-    [lblContactNo setFont:[UIFont fontWithName:@"HelveticaNeue" size:16]];
+    [lblContactNo setFont:[UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:16]];
     [lblContactNo setContentMode:UIViewContentModeTopLeft];
     [lblContactNo setTextAlignment:NSTextAlignmentLeft];
     [lblContactNo setLineBreakMode:NSLineBreakByTruncatingTail];

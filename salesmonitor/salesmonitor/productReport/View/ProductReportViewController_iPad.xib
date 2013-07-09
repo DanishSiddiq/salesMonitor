@@ -69,7 +69,7 @@
 					<object class="IBUIImageView" id="228660343">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{230, 105}, {28, 27}}</string>
+						<string key="NSFrame">{{191, 105}, {28, 27}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="697726040"/>
@@ -84,7 +84,7 @@
 					<object class="IBUIButton" id="753242877">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{230, 97}, {141, 44}}</string>
+						<string key="NSFrame">{{191, 97}, {188, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="228660343"/>
@@ -106,20 +106,22 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="961871682">
-							<int key="type">2</int>
-							<double key="pointSize">15</double>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="982706769">
+							<string key="name">HelveticaNeue-CondensedBlack</string>
+							<string key="family">Helvetica Neue</string>
+							<int key="traits">2</int>
+							<double key="pointSize">25</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="196806735">
-							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">15</double>
+						<object class="NSFont" key="IBUIFont" id="9349006">
+							<string key="NSName">HelveticaNeue-Bold</string>
+							<double key="NSSize">25</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="318927278">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{454, 105}, {28, 27}}</string>
+						<string key="NSFrame">{{429, 105}, {28, 27}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="302977544"/>
@@ -131,7 +133,7 @@
 					<object class="IBUIButton" id="697726040">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{454, 97}, {141, 44}}</string>
+						<string key="NSFrame">{{423, 97}, {199, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="318927278"/>
@@ -147,8 +149,8 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="769370864"/>
-						<reference key="IBUIFontDescription" ref="961871682"/>
-						<reference key="IBUIFont" ref="196806735"/>
+						<reference key="IBUIFontDescription" ref="982706769"/>
+						<reference key="IBUIFont" ref="9349006"/>
 					</object>
 					<object class="IBUIButton" id="302977544">
 						<reference key="NSNextResponder" ref="766721923"/>
@@ -172,8 +174,15 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">dateBtn.png</string>
 						</object>
-						<reference key="IBUIFontDescription" ref="961871682"/>
-						<reference key="IBUIFont" ref="196806735"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<double key="pointSize">15</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">15</double>
+							<int key="NSfFlags">16</int>
+						</object>
 					</object>
 					<object class="IBUIImageView" id="597622426">
 						<reference key="NSNextResponder" ref="766721923"/>
@@ -299,13 +308,13 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="560355010"/>
 							<reference ref="386994180"/>
+							<reference ref="597622426"/>
+							<reference ref="302977544"/>
+							<reference ref="541677582"/>
 							<reference ref="228660343"/>
 							<reference ref="753242877"/>
 							<reference ref="318927278"/>
 							<reference ref="697726040"/>
-							<reference ref="597622426"/>
-							<reference ref="302977544"/>
-							<reference ref="541677582"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

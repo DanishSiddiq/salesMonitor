@@ -75,7 +75,7 @@
     
     UILabel *lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 5, [UIScreen mainScreen].bounds.size.width - 304, 30)];
     [lblName setBackgroundColor:[UIColor clearColor]];
-    lblName.font = [UIFont fontWithName:@"Helvetica" size: 18.0];
+    lblName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size: 18.0];
     lblName.textColor = [UIColor whiteColor];
     lblName.contentMode = UIViewContentModeCenter;
     lblName.textAlignment = NSTextAlignmentCenter;
@@ -90,7 +90,7 @@
     
     UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 294, 5, 90, 30)];
     lblPrice.backgroundColor = [UIColor clearColor];
-    lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
+    lblPrice.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:18.0];
     lblPrice.contentMode = UIViewContentModeCenter;
     lblPrice.textColor = [UIColor whiteColor];
     lblPrice.textAlignment = NSTextAlignmentCenter;
@@ -104,7 +104,7 @@
     
     UILabel *lblSaleUnit = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width -202, 5, 90, 30)];
     lblSaleUnit.backgroundColor = [UIColor clearColor];
-    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeue" size: 18.0];
+    lblSaleUnit.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size: 18.0];
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
     lblSaleUnit.textColor = [UIColor whiteColor];
@@ -118,7 +118,7 @@
     
     UILabel *lblTotalSale = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 110, 5, 90, 30)];
     lblTotalSale.backgroundColor = [UIColor clearColor];
-    lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeue" size: 18.0];
+    lblTotalSale.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size: 18.0];
     lblTotalSale.contentMode = UIViewContentModeCenter;
     lblTotalSale.textAlignment = NSTextAlignmentCenter;
     lblTotalSale.textColor = [UIColor whiteColor];
@@ -265,7 +265,7 @@
     lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 10, [UIScreen mainScreen].bounds.size.width - 304, 40)];
     [lblName setBackgroundColor:[UIColor clearColor]];
     lblName.numberOfLines = 1;
-    lblName.font = [UIFont fontWithName:@"Helvetica" size: 20.0];
+    lblName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size: 20.0];
     lblName.textColor = [UIColor darkGrayColor];
     lblName.contentMode = UIViewContentModeBottomLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
