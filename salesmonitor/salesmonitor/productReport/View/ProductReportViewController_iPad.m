@@ -165,16 +165,16 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _vwHeaderChartValue = [[UIView alloc] initWithFrame:CGRectMake( 30
                                                                   , 170
                                                                   , [UIScreen mainScreen].bounds.size.width - 30
-                                                                  , 30)];
+                                                                  , 40)];
     
     UILabel *lblHeading = [[UILabel alloc] initWithFrame:CGRectMake(10
-                                                                    , 0
+                                                                    , 10
                                                                     , 400
                                                                     , 30)];
     lblHeading.textAlignment = NSTextAlignmentLeft;
     lblHeading.contentMode = UIViewContentModeTop;
     [lblHeading setBackgroundColor:[UIColor clearColor]];
-    lblHeading.font = [UIFont fontWithName:@"Helvetica" size:16.0 ];
+    lblHeading.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:24.0 ];
     lblHeading.textColor = [UIColor colorWithRed:0/255.0f green:83/255.0f blue:167/255.0f alpha:1.0];
     lblHeading.text = @"Select dates";
     lblHeading.tag = 10;

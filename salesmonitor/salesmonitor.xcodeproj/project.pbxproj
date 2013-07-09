@@ -90,7 +90,6 @@
 		3A9DFD93178AA29100D831EE /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFCFF178AA29100D831EE /* editBtn.png */; };
 		3A9DFD94178AA29100D831EE /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD00178AA29100D831EE /* emailIcon.png */; };
 		3A9DFD95178AA29100D831EE /* Flieds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD01178AA29100D831EE /* Flieds.png */; };
-		3A9DFD96178AA29100D831EE /* iPadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD02178AA29100D831EE /* iPadIcon.png */; };
 		3A9DFD97178AA29100D831EE /* iphoneaddBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD03178AA29100D831EE /* iphoneaddBtn.png */; };
 		3A9DFD98178AA29100D831EE /* iphoneAvater.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD04178AA29100D831EE /* iphoneAvater.png */; };
 		3A9DFD99178AA29100D831EE /* iphoneAvaterWithoutFace.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD05178AA29100D831EE /* iphoneAvaterWithoutFace.png */; };
@@ -211,7 +210,6 @@
 		3A9DFE0C178AA29100D831EE /* loginBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD78178AA29100D831EE /* loginBtn@2x.png */; };
 		3A9DFE0D178AA29100D831EE /* splashLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD79178AA29100D831EE /* splashLogo@2x.png */; };
 		3A9DFE0E178AA29100D831EE /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD7A178AA29100D831EE /* bg@2x.png */; };
-		3A9DFE0F178AA29100D831EE /* iPadIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFD7B178AA29100D831EE /* iPadIcon@2x.png */; };
 		3A9DFE12178AAD3300D831EE /* iphonebarIcon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE10178AAD2B00D831EE /* iphonebarIcon6.png */; };
 		3A9DFE13178AAD3300D831EE /* iphonebarIcon6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE11178AAD2E00D831EE /* iphonebarIcon6@2x.png */; };
 		3A9DFE16178AB29C00D831EE /* titlebar-back-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9DFE14178AB29300D831EE /* titlebar-back-btn.png */; };
@@ -393,7 +391,6 @@
 		3A9DFCFF178AA29100D831EE /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		3A9DFD00178AA29100D831EE /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
 		3A9DFD01178AA29100D831EE /* Flieds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flieds.png; sourceTree = "<group>"; };
-		3A9DFD02178AA29100D831EE /* iPadIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadIcon.png; sourceTree = "<group>"; };
 		3A9DFD03178AA29100D831EE /* iphoneaddBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneaddBtn.png; sourceTree = "<group>"; };
 		3A9DFD04178AA29100D831EE /* iphoneAvater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneAvater.png; sourceTree = "<group>"; };
 		3A9DFD05178AA29100D831EE /* iphoneAvaterWithoutFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneAvaterWithoutFace.png; sourceTree = "<group>"; };
@@ -514,7 +511,6 @@
 		3A9DFD78178AA29100D831EE /* loginBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBtn@2x.png"; sourceTree = "<group>"; };
 		3A9DFD79178AA29100D831EE /* splashLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splashLogo@2x.png"; sourceTree = "<group>"; };
 		3A9DFD7A178AA29100D831EE /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
-		3A9DFD7B178AA29100D831EE /* iPadIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadIcon@2x.png"; sourceTree = "<group>"; };
 		3A9DFE10178AAD2B00D831EE /* iphonebarIcon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebarIcon6.png; sourceTree = "<group>"; };
 		3A9DFE11178AAD2E00D831EE /* iphonebarIcon6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphonebarIcon6@2x.png"; sourceTree = "<group>"; };
 		3A9DFE14178AB29300D831EE /* titlebar-back-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-back-btn.png"; sourceTree = "<group>"; };
@@ -663,7 +659,6 @@
 				3A9DFCFF178AA29100D831EE /* editBtn.png */,
 				3A9DFD00178AA29100D831EE /* emailIcon.png */,
 				3A9DFD01178AA29100D831EE /* Flieds.png */,
-				3A9DFD02178AA29100D831EE /* iPadIcon.png */,
 				3A9DFD03178AA29100D831EE /* iphoneaddBtn.png */,
 				3A9DFD04178AA29100D831EE /* iphoneAvater.png */,
 				3A9DFD05178AA29100D831EE /* iphoneAvaterWithoutFace.png */,
@@ -784,7 +779,6 @@
 				3A9DFD78178AA29100D831EE /* loginBtn@2x.png */,
 				3A9DFD79178AA29100D831EE /* splashLogo@2x.png */,
 				3A9DFD7A178AA29100D831EE /* bg@2x.png */,
-				3A9DFD7B178AA29100D831EE /* iPadIcon@2x.png */,
 				3A9DFCE7178AA20600D831EE /* primary */,
 			);
 			path = images;
@@ -1427,7 +1421,6 @@
 				3A9DFD93178AA29100D831EE /* editBtn.png in Resources */,
 				3A9DFD94178AA29100D831EE /* emailIcon.png in Resources */,
 				3A9DFD95178AA29100D831EE /* Flieds.png in Resources */,
-				3A9DFD96178AA29100D831EE /* iPadIcon.png in Resources */,
 				3A9DFD97178AA29100D831EE /* iphoneaddBtn.png in Resources */,
 				3A9DFD98178AA29100D831EE /* iphoneAvater.png in Resources */,
 				3A9DFD99178AA29100D831EE /* iphoneAvaterWithoutFace.png in Resources */,
@@ -1548,7 +1541,6 @@
 				3A9DFE0C178AA29100D831EE /* loginBtn@2x.png in Resources */,
 				3A9DFE0D178AA29100D831EE /* splashLogo@2x.png in Resources */,
 				3A9DFE0E178AA29100D831EE /* bg@2x.png in Resources */,
-				3A9DFE0F178AA29100D831EE /* iPadIcon@2x.png in Resources */,
 				3A9DFE12178AAD3300D831EE /* iphonebarIcon6.png in Resources */,
 				3A9DFE13178AAD3300D831EE /* iphonebarIcon6@2x.png in Resources */,
 				3A9DFE16178AB29C00D831EE /* titlebar-back-btn.png in Resources */,
