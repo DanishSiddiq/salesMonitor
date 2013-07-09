@@ -339,8 +339,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = YES;
     
     CGRect frame = [_btnFrom frame];
-    frame.origin.x = 85;
-    frame.origin.y = -140;
+    frame.origin.x = 44;
+    frame.origin.y = -125;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];
@@ -365,8 +365,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     _isBtnFromSelected = NO;
     
     CGRect frame = [_btnTo frame];
-    frame.origin.x = 305;
-    frame.origin.y = -140;
+    frame.origin.x = 282;
+    frame.origin.y = -125;
     
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];
