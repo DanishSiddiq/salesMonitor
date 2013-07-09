@@ -25,8 +25,11 @@
 @property (nonatomic, strong) IBOutlet UIButton *btnFrom;
 @property (nonatomic, strong) IBOutlet UIButton *btnTo;
 
-@property (nonatomic, strong) NSNumber *fromDate;
-@property (nonatomic, strong) NSNumber *toDate;
+@property (nonatomic, strong) NSDate *fromDate;
+@property (nonatomic, strong) NSDate *toDate;
+
+@property (nonatomic, strong) NSNumber *fromDateNumber;
+@property (nonatomic, strong) NSNumber *toDateNumber;
 
 @property (nonatomic) BOOL isBtnFromSelected;
 
@@ -78,8 +81,8 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 - (void) initializeData {
     
     _isBtnFromSelected = NO;
-    _fromDate = [[NSNumber alloc] init];
-    _toDate = [[NSNumber alloc] init];
+    _fromDateNumber = [[NSNumber alloc] init];
+    _toDateNumber = [[NSNumber alloc] init];
     _loadSales = [[NSMutableArray alloc] init];
     _productReportController = [[ProductReportController alloc] init:NO
                                                       viewController:self
@@ -92,30 +95,30 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (void) initializeDates {
     
-    NSDate *resultDate = [NSDate date];
+    _toDate = _fromDate = [NSDate date];
     
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dayComponents =
-    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:resultDate];
+    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_fromDate];
     
     [dayComponents setHour: 00];
     [dayComponents setMinute:00];
     [dayComponents setSecond:00];
-    resultDate = [gregorian dateFromComponents:dayComponents];
+    _fromDate = _toDate = [gregorian dateFromComponents:dayComponents];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateStyle:NSDateFormatterMediumStyle];
-    [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-    _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    [_btnFrom setTitle:[format stringFromDate:_fromDate] forState:UIControlStateNormal];
+    _fromDateNumber = [NSNumber numberWithLongLong:[_fromDate timeIntervalSince1970]*1000];
     
     [dayComponents setHour: 11];
     [dayComponents setMinute:59];
     [dayComponents setSecond:59];
-    resultDate = [gregorian dateFromComponents:dayComponents];
+    _fromDate = [gregorian dateFromComponents:dayComponents];
     
-    [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-    _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+    [_btnTo setTitle:[format stringFromDate:_fromDate] forState:UIControlStateNormal];
+    _toDateNumber = [NSNumber numberWithLongLong:[_fromDate timeIntervalSince1970]*1000];
     
 }
 
@@ -342,10 +345,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];
     
-    NSDate *myDate = [NSDate date];
     ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@""
                                                                       datePickerMode:UIDatePickerModeDate
-                                                                        selectedDate:myDate
+                                                                        selectedDate:_fromDate
                                                                               target:self
                                                                               action:@selector(dateWasSelected:element:)
                                                                               origin:btnClear];
@@ -369,10 +371,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     UIButton *btnClear = [[UIButton alloc] initWithFrame:frame];
     [self.view addSubview:btnClear];
     
-    NSDate *myDate = [NSDate date];
     ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@""
                                                                       datePickerMode:UIDatePickerModeDate
-                                                                        selectedDate:myDate
+                                                                        selectedDate:_toDate
                                                                               target:self
                                                                               action:@selector(dateWasSelected:element:)
                                                                               origin:btnClear ];
@@ -388,7 +389,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (IBAction)btnPressedReport:(id)sender {
     
-    [_productReportController fetchDataFromServer:_fromDate toDate:_toDate];
+    [_productReportController fetchDataFromServer:_fromDateNumber toDate:_toDateNumber];
 }
 
 // date time was selected
@@ -411,10 +412,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     if(_isBtnFromSelected){
         
-        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] < [_toDate doubleValue]){
+        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] < [_toDateNumber doubleValue]){
             
             [_btnFrom setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-            _fromDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+            _fromDateNumber = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+            _fromDate = resultDate;
         }
         else{
             
@@ -429,10 +431,11 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     }
     else{
         
-        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] > [_fromDate doubleValue]){
+        if([[NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000] doubleValue] > [_fromDateNumber doubleValue]){
             
             [_btnTo setTitle:[format stringFromDate:resultDate] forState:UIControlStateNormal];
-            _toDate = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+            _toDateNumber = [NSNumber numberWithLongLong:[resultDate timeIntervalSince1970]*1000];
+            _toDate = resultDate;
         }
         else{
             
