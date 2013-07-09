@@ -146,17 +146,17 @@
     lblIndication.backgroundColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0];
     lblIndication.tag = 40;
     
-    UIView *vwBackPrice = [[UIView alloc] initWithFrame:CGRectMake(530, 12, 142, 27)];
+    UIView *vwBackPrice = [[UIView alloc] initWithFrame:CGRectMake(212, 07, 70, 18)];
     [vwBackPrice setBackgroundColor:[UIColor colorWithRed:71/255.0f green:192/255.0f blue:88/255.0f alpha:1.0]];
     
-    UIImageView *imgViewPrice = [[UIImageView alloc] initWithFrame:CGRectMake(530, 12, 32, 27)];
+    UIImageView *imgViewPrice = [[UIImageView alloc] initWithFrame:CGRectMake(214, 8, 16, 16)];
     [imgViewPrice setClipsToBounds:YES];
     [imgViewPrice setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewPrice setImage:[UIImage imageNamed:@"priceIcon"]];
     
-    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(570, 12, 100, 27)];
+    UILabel *lblPrice = [[UILabel alloc] initWithFrame:CGRectMake(236, 7, 36, 18)];
     lblPrice.backgroundColor = [UIColor clearColor];
-    lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    lblPrice.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     lblPrice.numberOfLines = 1;
     lblPrice.contentMode = UIViewContentModeTopLeft;
     lblPrice.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -188,9 +188,9 @@
     [cell.contentView addSubview:lblName];
     [cell.contentView addSubview:lblTheraputicClass];
     [cell.contentView addSubview:lblIndication];
-//    [cell.contentView addSubview:vwBackPrice];
-//    [cell.contentView addSubview:imgViewPrice];
-//    [cell.contentView addSubview:lblPrice];
+    [cell.contentView addSubview:vwBackPrice];
+    [cell.contentView addSubview:imgViewPrice];
+    [cell.contentView addSubview:lblPrice];
     [cell.contentView addSubview:lblSaleUnit];
     [cell.contentView addSubview:lblBudgetUnit];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -231,7 +231,7 @@
     lblName.text = [product valueForKey:KEY_PRODUCT_NAME];
     lblTheraputicClass.text = [product valueForKey:KEY_PRODUCT_THERAPUTIC_CLASS];
     lblIndication.text = [product valueForKey:KEY_PRODUCT_INDICATION];
-    lblPrice.text = [[product valueForKey:KEY_PRODUCT_PRICE] description];
+    lblPrice.text = [NSString stringWithFormat:@"$ %@", [[product valueForKey:KEY_PRODUCT_PRICE] description]];
     lblSaleUnit.text = [[product valueForKey:KEY_PRODUCT_SALES_UNIT] description];
     lblBudgetUnit.text = [[product valueForKey:KEY_PRODUCT_BUDGET_UNITS] description];
     
