@@ -108,9 +108,9 @@
     
     // setting product in controller
     UIImageView *imgViewInfo = [[UIImageView alloc] initWithFrame:CGRectMake(60
-                                                                            , 60
+                                                                            , 100
                                                                             , [UIScreen mainScreen].bounds.size.width - 30
-                                                                            , [UIScreen mainScreen].bounds.size.height - 30)];
+                                                                            , [UIScreen mainScreen].bounds.size.height - 50)];
     [imgViewInfo setImage:[UIImage imageNamed:@"about"]];
     [[KGModal sharedInstance] showWithContentView:imgViewInfo andAnimated:YES];
 }
