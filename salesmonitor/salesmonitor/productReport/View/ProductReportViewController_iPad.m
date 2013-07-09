@@ -129,22 +129,22 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 -(void) customizeNavigationBar {
     
     // icons in navigation bar
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 0, [UIScreen mainScreen].bounds.size.width-10, 77)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];    
     
-    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 67)];
     [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewBackGround setClipsToBounds:YES];
     [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
     [imgViewBackGround setTag:10];
     
-    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 10, 267, 63)];
     [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewLogo setClipsToBounds:YES];
     [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
     [imgViewLogo setTag:20];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 67)];
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 8, 84, 67)];
     [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];

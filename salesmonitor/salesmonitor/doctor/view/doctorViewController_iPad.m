@@ -93,27 +93,27 @@
 - (void) customizeNavigationBar{
     
     // icons in navigation bar
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 0, [UIScreen mainScreen].bounds.size.width-10, 77)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 67)];
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 67)];
     [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewBackGround setClipsToBounds:YES];
     [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
     [imgViewBackGround setTag:10];
     
-    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 10, 267, 63)];
     [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewLogo setClipsToBounds:YES];
     [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
     [imgViewLogo setTag:20];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 67)];
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 8, 84, 67)];
     [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *btnNavBarAdd = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 92, 0, 82, 63)];
+    UIButton *btnNavBarAdd = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 82, 10, 82, 63)];
     [btnNavBarAdd setImage:[UIImage imageNamed:@"addBtn"] forState:UIControlStateNormal];
     btnNavBarAdd.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarAdd addTarget:self action:@selector(btnPressedNavBarAdd:) forControlEvents:UIControlEventTouchUpInside];
@@ -138,7 +138,17 @@
                                                                     , 92
                                                                     , 345
                                                                     , [UIScreen mainScreen].bounds.size.height - 137)];
-    [_doctorListContainer setBackgroundColor:[UIColor whiteColor]];
+    [_doctorListContainer setBackgroundColor:[UIColor clearColor]];
+    
+    
+    UIImageView *imgVwBg = [[UIImageView alloc] initWithFrame:CGRectMake(0
+                                                                         , 0
+                                                                         , 345
+                                                                         , [UIScreen mainScreen].bounds.size.height - 137)];
+    [imgVwBg setImage:[UIImage imageNamed:@"leftColBg"]];
+
+    
+    [_doctorListContainer addSubview:imgVwBg];
     [self.view addSubview:_doctorListContainer];
 }
 
@@ -164,10 +174,14 @@
                                                                       , [UIScreen mainScreen].bounds.size.height - 137)];
     _doctorDetailContainer.backgroundColor = [UIColor clearColor];
     
-    UIImageView *imgVwBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rightColBg"]];
+    UIImageView *imgVwBg = [[UIImageView alloc] initWithFrame:CGRectMake(0
+                                                                         , 0
+                                                                         , 366
+                                                                         , [UIScreen mainScreen].bounds.size.height - 137)];
+    [imgVwBg setImage:[UIImage imageNamed:@"rightColBg"]];
     [imgVwBg setTag:-10];
     
-    CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(32, 50, 300, 193)];
+    CustomImageView *imgViewDoctor = [[CustomImageView alloc] initWithFrame:CGRectMake(32, 56, 300, 193)];
     [imgViewDoctor setUserInteractionEnabled:YES];
     [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
     [imgViewDoctor.layer setBorderWidth:1.0];

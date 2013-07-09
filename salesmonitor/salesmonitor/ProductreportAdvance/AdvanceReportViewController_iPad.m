@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 GoodCore. All rights reserved.
 //
 
-#import "AdvanceReportViewController_iPhone.h"
+#import "AdvanceReportViewController_iPad.h"
 
-@interface AdvanceReportViewController_iPhone ()
+@interface AdvanceReportViewController_iPad ()
 
 // nav bar item at right in previous view
 @property (strong, nonatomic) UIView *navBarContainer;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation AdvanceReportViewController_iPhone
+@implementation AdvanceReportViewController_iPad
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,22 +53,22 @@
 - (void) customizeNavigationBar{
     
     // icons in navigation bar
-    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(10, 0, [UIScreen mainScreen].bounds.size.width-10, 77)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
-    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-10, 67)];
+    UIImageView *imgViewBackGround = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width-10, 67)];
     [imgViewBackGround setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewBackGround setClipsToBounds:YES];
     [imgViewBackGround setImage:[UIImage imageNamed:@"topBarBg"]];
     [imgViewBackGround setTag:10];
     
-    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 267, 63)];
+    UIImageView *imgViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(90, 10, 267, 63)];
     [imgViewLogo setContentMode:UIViewContentModeScaleAspectFill];
     [imgViewLogo setClipsToBounds:YES];
     [imgViewLogo setImage:[UIImage imageNamed:@"barLogo"]];
     [imgViewLogo setTag:20];
     
-    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 84, 67)];
+    UIButton *btnNavBarBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 8, 84, 67)];
     [btnNavBarBack setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
     btnNavBarBack.imageView.contentMode = UIViewContentModeScaleToFill;
     [btnNavBarBack addTarget:self action:@selector(btnPressedNavBarBack:) forControlEvents:UIControlEventTouchUpInside];

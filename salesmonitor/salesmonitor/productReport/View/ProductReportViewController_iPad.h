@@ -13,7 +13,7 @@
 #import "GDataXMLNode.h"
 #import "BarChartView.h"
 #import "ChartData.h"
-#import "AdvanceReportViewController_iPhone.h"
+#import "AdvanceReportViewController_iPad.h"
 
 
 @interface ProductReportViewController_iPad : UIViewController <ProductReportDelegate>

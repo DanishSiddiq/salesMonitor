@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "applicationConstants.h"
 
-@interface AdvanceReportViewController_iPhone : UIViewController <UIWebViewDelegate>
+@interface AdvanceReportViewController_iPad : UIViewController <UIWebViewDelegate>
 
 @end

@@ -259,7 +259,7 @@
 
 - (void) btnPressedNavBarAdvanceReports : (UIButton *) sender {
     
-    AdvanceReportViewController_iPhone *advanceReportViewController =[[AdvanceReportViewController_iPhone alloc]
+    AdvanceReportViewController_iPad *advanceReportViewController =[[AdvanceReportViewController_iPad alloc]
                                                                       initWithNibName:@"AdvanceReportViewController_iPad"
                                                                       bundle:nil];
     [self.navigationController pushViewController:advanceReportViewController animated:YES];

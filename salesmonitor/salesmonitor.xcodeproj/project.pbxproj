@@ -39,8 +39,7 @@
 		3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A74117671DDA00ADCB49 /* ChartData.m */; };
 		3A94805D1760F0430068A201 /* doctorViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */; };
 		3A94805E1760F0430068A201 /* doctorViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */; };
-		3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */; };
-		3A95BE8E176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */; };
+		3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPad.m */; };
 		3A95BE93176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */; };
 		3A96B44D17605E07000970EC /* ProductReportViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */; };
 		3A96B44E17605E07000970EC /* ProductReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A96B44C17605E07000970EC /* ProductReportViewController_iPhone.xib */; };
@@ -328,9 +327,8 @@
 		3A94805A1760F0430068A201 /* doctorViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorViewController_iPhone.h; sourceTree = "<group>"; };
 		3A94805B1760F0430068A201 /* doctorViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorViewController_iPhone.m; sourceTree = "<group>"; };
 		3A94805C1760F0430068A201 /* doctorViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = doctorViewController_iPhone.xib; sourceTree = "<group>"; };
-		3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvanceReportViewController_iPhone.h; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
-		3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvanceReportViewController_iPhone.m; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
-		3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvanceReportViewController_iPhone.xib; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
+		3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvanceReportViewController_iPad.h; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPad.h; sourceTree = SOURCE_ROOT; };
+		3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvanceReportViewController_iPad.m; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPad.m; sourceTree = SOURCE_ROOT; };
 		3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvanceReportViewController_iPad.xib; path = salesmonitor/ProductReportAdvance/AdvanceReportViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
 		3A96B44A17605E07000970EC /* ProductReportViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductReportViewController_iPhone.h; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.h; sourceTree = SOURCE_ROOT; };
 		3A96B44B17605E07000970EC /* ProductReportViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductReportViewController_iPhone.m; path = salesmonitor/productReport/view/ProductReportViewController_iPhone.m; sourceTree = SOURCE_ROOT; };
@@ -972,9 +970,8 @@
 		3A95BE84176F2B1D00C72D36 /* ProductReportAdvance */ = {
 			isa = PBXGroup;
 			children = (
-				3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPhone.h */,
-				3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m */,
-				3A95BE8C176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib */,
+				3A95BE8A176F2BA500C72D36 /* AdvanceReportViewController_iPad.h */,
+				3A95BE8B176F2BA500C72D36 /* AdvanceReportViewController_iPad.m */,
 				3A95BE91176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib */,
 			);
 			name = ProductReportAdvance;
@@ -1398,7 +1395,6 @@
 				3A92F5011765CB39008F2753 /* SVProgressHUD.bundle in Resources */,
 				3A93A7371766FF5D00ADCB49 /* barChart.xml in Resources */,
 				3A9ECA711768AE0600297583 /* doctorViewController_iPad.xib in Resources */,
-				3A95BE8E176F2BA500C72D36 /* AdvanceReportViewController_iPhone.xib in Resources */,
 				3A95BE93176F2BBB00C72D36 /* AdvanceReportViewController_iPad.xib in Resources */,
 				3A9D594917844D87001EF677 /* HelveticaNeueLTStd-ThCn.ttf in Resources */,
 				3A9D594A17844D87001EF677 /* HelveticaNeueLTStd-LtCnO.ttf in Resources */,
@@ -1636,7 +1632,7 @@
 				3A93A74217671DDA00ADCB49 /* ChartData.m in Sources */,
 				3A9ECA6417688C3900297583 /* Custombutton.m in Sources */,
 				3A9ECA701768AE0600297583 /* doctorViewController_iPad.m in Sources */,
-				3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPhone.m in Sources */,
+				3A95BE8D176F2BA500C72D36 /* AdvanceReportViewController_iPad.m in Sources */,
 				3A9D593717841F79001EF677 /* CustomImageView.m in Sources */,
 				3A9B305117856B3F00767173 /* productViewController_iPad.m in Sources */,
 			);
