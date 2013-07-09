@@ -139,12 +139,13 @@
                                                                     , 345
                                                                     , [UIScreen mainScreen].bounds.size.height - 137)];
     [_doctorListContainer setBackgroundColor:[UIColor clearColor]];
+    [_doctorListContainer setClipsToBounds:YES];
     
     
     UIImageView *imgVwBg = [[UIImageView alloc] initWithFrame:CGRectMake(0
-                                                                         , 0
+                                                                         , 2
                                                                          , 345
-                                                                         , [UIScreen mainScreen].bounds.size.height - 137)];
+                                                                         , [UIScreen mainScreen].bounds.size.height - 160)];
     [imgVwBg setImage:[UIImage imageNamed:@"leftColBg"]];
 
     
@@ -157,7 +158,7 @@
     _tblDoctor = [[UITableView alloc] initWithFrame:CGRectMake(0
                                                                , 0
                                                                , 345
-                                                               , [UIScreen mainScreen].bounds.size.height - 107)];
+                                                               , [UIScreen mainScreen].bounds.size.height - 165)];
     
     _tblDoctor.delegate = _doctorController;
     _tblDoctor.dataSource = _doctorController;
