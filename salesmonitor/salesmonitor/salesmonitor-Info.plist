@@ -16,6 +16,8 @@
 			<array>
 				<string>iPadIcon.png</string>
 				<string>iPadIcon@2x.png</string>
+				<string>iPhoneIcon.png</string>
+				<string>iPhoneIcon@2x.png</string>
 			</array>
 		</dict>
 	</dict>
