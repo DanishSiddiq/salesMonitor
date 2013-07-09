@@ -18,6 +18,8 @@
 		3A127DFB175F5B9600C7CA96 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A127DF3175F5B9600C7CA96 /* UIImageView+WebCache.m */; };
 		3A127DFF175F5CF500C7CA96 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A127DFE175F5CF400C7CA96 /* ImageIO.framework */; };
 		3A127E09175F7B0E00C7CA96 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A127E08175F7B0D00C7CA96 /* MapKit.framework */; };
+		3A64B5A4178C08C600048E63 /* iphoneLoginBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A64B5A2178C08C600048E63 /* iphoneLoginBg.png */; };
+		3A64B5A5178C08C600048E63 /* iphoneLoginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A64B5A3178C08C600048E63 /* iphoneLoginBg@2x.png */; };
 		3A92F4FC1765C162008F2753 /* ProductReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A92F4FB1765C162008F2753 /* ProductReportController.m */; };
 		3A92F5011765CB39008F2753 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A92F4FE1765CB39008F2753 /* SVProgressHUD.bundle */; };
 		3A92F5021765CB39008F2753 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A92F5001765CB39008F2753 /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -293,6 +295,8 @@
 		3A127DF3175F5B9600C7CA96 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		3A127DFE175F5CF400C7CA96 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		3A127E08175F7B0D00C7CA96 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A64B5A2178C08C600048E63 /* iphoneLoginBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneLoginBg.png; sourceTree = "<group>"; };
+		3A64B5A3178C08C600048E63 /* iphoneLoginBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphoneLoginBg@2x.png"; sourceTree = "<group>"; };
 		3A92F4FA1765C162008F2753 /* ProductReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReportController.h; sourceTree = "<group>"; };
 		3A92F4FB1765C162008F2753 /* ProductReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReportController.m; sourceTree = "<group>"; };
 		3A92F4FE1765CB39008F2753 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -629,6 +633,8 @@
 		3A127DDF175F186300C7CA96 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A64B5A2178C08C600048E63 /* iphoneLoginBg.png */,
+				3A64B5A3178C08C600048E63 /* iphoneLoginBg@2x.png */,
 				3A9DFE20178AE3DA00D831EE /* iphonedateBtn.png */,
 				3A9DFE21178AE3E100D831EE /* iphonesaleDateBar.png */,
 				3A9DFE22178AE3EB00D831EE /* iphonedateBtn@2x.png */,
@@ -1571,6 +1577,8 @@
 				3A9B3E9E178BFF2600C3B950 /* Default-568h@2x.png in Resources */,
 				3A9B3EA0178BFFB500C3B950 /* Default-Portrait~ipad.png in Resources */,
 				3A9B3EA2178BFFBA00C3B950 /* Default-Portrait@2x~ipad.png in Resources */,
+				3A64B5A4178C08C600048E63 /* iphoneLoginBg.png in Resources */,
+				3A64B5A5178C08C600048E63 /* iphoneLoginBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
