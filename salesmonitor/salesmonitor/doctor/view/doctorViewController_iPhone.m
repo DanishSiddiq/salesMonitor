@@ -448,16 +448,47 @@
     UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
-    NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                   txtDoctorName.text, KEY_DOCTORS_NAME
-                                   , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
-                                   , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
-                                   , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
-                                   , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
-                                   , nil];
+    if([[[txtDoctorName text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0
+       && [[[txtDoctorSpeciality text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0
+       && [[[txtDoctorPhone text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0){
     
-    NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
-    [_doctorController add:doctorContainer];
+        NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                       txtDoctorName.text, KEY_DOCTORS_NAME
+                                       , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
+                                       , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
+                                       , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
+                                       , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
+                                       , nil];
+        
+        NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
+        [_doctorController add:doctorContainer];
+    }
+    else{
+        
+        if([[[txtDoctorName text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorName setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorName.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorName.layer setBorderWidth:1.0];
+            [txtDoctorName setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+        
+        if([[[txtDoctorSpeciality text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorSpeciality setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorSpeciality.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorSpeciality.layer setBorderWidth:1.0];
+            [txtDoctorSpeciality setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+        
+        if([[[txtDoctorPhone text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorPhone setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorPhone.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorPhone.layer setBorderWidth:1.0];
+            [txtDoctorPhone setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+    }
 }
 
 -(void) btnPressedEdit: (UIButton *) sender{
@@ -472,17 +503,49 @@
     UITextField *txtDoctorEmail     = (UITextField *)[_doctorDetailContainer viewWithTag:80];
     UITextView *txtDoctorAddress    = (UITextView *)[_doctorDetailContainer viewWithTag:100];
     
-    NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                    txtDoctorName.text, KEY_DOCTORS_NAME
-                                   , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
-                                   , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
-                                   , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
-                                   , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
-                                   , nil];
     
-    NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
-    NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
-    [_doctorController update:doctorContainer _id:[selectedDoctor valueForKey:KEY_DOCTORS_ID]];
+    if([[[txtDoctorName text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0
+       && [[[txtDoctorSpeciality text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0
+       && [[[txtDoctorPhone text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0){
+    
+        NSMutableDictionary *doctor = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        txtDoctorName.text, KEY_DOCTORS_NAME
+                                       , txtDoctorSpeciality.text , KEY_DOCTORS_SPECIALITY
+                                       , [NSNumber numberWithLongLong:[txtDoctorPhone.text longLongValue]], KEY_DOCTORS_PHONE
+                                       , txtDoctorEmail.text, KEY_DOCTORS_EMAIL
+                                       , txtDoctorAddress.text, KEY_DOCTORS_ADDRESS
+                                       , nil];
+        
+        NSMutableDictionary *selectedDoctor = [[[_salesMonitorDelegate userData] valueForKey:KEY_DOCTORS] objectAtIndex:_selectedIndex];
+        NSMutableDictionary *doctorContainer = [[NSMutableDictionary alloc] initWithObjectsAndKeys:doctor, KEY_DOCTOR_ADD, nil];
+        [_doctorController update:doctorContainer _id:[selectedDoctor valueForKey:KEY_DOCTORS_ID]];
+    }
+    else{
+        
+        if([[[txtDoctorName text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorName setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorName.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorName.layer setBorderWidth:1.0];
+            [txtDoctorName setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+        
+        if([[[txtDoctorSpeciality text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorSpeciality setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorSpeciality.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorSpeciality.layer setBorderWidth:1.0];
+            [txtDoctorSpeciality setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+        
+        if([[[txtDoctorPhone text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+            
+            [txtDoctorPhone setBorderStyle:UITextBorderStyleLine];
+            [txtDoctorPhone.layer setBorderColor:[UIColor redColor].CGColor];
+            [txtDoctorPhone.layer setBorderWidth:1.0];
+            [txtDoctorPhone setBackgroundColor:[UIColor colorWithRed:255/255.f green:192/255.f blue:192/255.f alpha:1.0]];
+        }
+    }
 }
 
 -(void) btnPressedDelete: (UIButton *) sender{
@@ -729,6 +792,30 @@
     [lblDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     [txtDoctorAddress setText:isAddMode ? @"" : [selectedDoctor valueForKey:KEY_DOCTORS_ADDRESS]];
     
+    
+    if([txtDoctorName.layer borderWidth] == 1.0f){
+        
+        [txtDoctorName setBorderStyle:UITextBorderStyleNone];
+        [txtDoctorName.layer setBorderColor:[UIColor clearColor].CGColor];
+        [txtDoctorName.layer setBorderWidth:0.0];
+        [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
+    }
+    
+    if([txtDoctorSpeciality.layer borderWidth] == 1.0f){
+        
+        [txtDoctorSpeciality setBorderStyle:UITextBorderStyleNone];
+        [txtDoctorSpeciality.layer setBorderColor:[UIColor clearColor].CGColor];
+        [txtDoctorSpeciality.layer setBorderWidth:0.0];
+        [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
+    }
+    
+    if([txtDoctorPhone.layer borderWidth] == 1.0f){
+        
+        [txtDoctorPhone setBorderStyle:UITextBorderStyleNone];
+        [txtDoctorPhone.layer setBorderColor:[UIColor clearColor].CGColor];
+        [txtDoctorPhone.layer setBorderWidth:0.0];
+        [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
+    }
 }
 
 - (void) showDoctorInAddMode {
@@ -1020,6 +1107,20 @@
 }
 
 // text field delegate
+
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0){
+        
+        [textField setBorderStyle:UITextBorderStyleNone];
+        [textField.layer setBorderColor:[UIColor clearColor].CGColor];
+        [textField.layer setBorderWidth:0.0];
+        [textField setBackgroundColor:[UIColor whiteColor]];
+    }
+    
+    return YES;
+}
+
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;

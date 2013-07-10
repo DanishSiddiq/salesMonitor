@@ -1257,12 +1257,6 @@
 }
 
 // text field delegate
-
-- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
-    
-    return YES;
-}
-
 - (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0){
@@ -1296,7 +1290,6 @@
 }
 
 // image delegate
-
 - (NSString *)generateUUIDStringAtDevice {
     
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
