@@ -229,7 +229,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
     [lblName setLineBreakMode:NSLineBreakByTruncatingTail];
     [lblName setTag:30];
     
-    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(15, 50, 170, 22)];
+    UILabel *lblSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(15, 42, 170, 30)];
     lblSpeciality.numberOfLines = 1;
     [lblSpeciality setBackgroundColor:[UIColor clearColor]];
     [lblSpeciality setFont:[UIFont fontWithName:@"HelveticaNeueLTStd-LtCnO" size:18]];
