@@ -202,6 +202,7 @@
     [lblDoctorName adjustsFontSizeToFitWidth];
     [lblDoctorName setHidden:YES];
     [lblDoctorName setTag:10];
+    [lblDoctorName setTextAlignment:NSTextAlignmentLeft];
     [lblDoctorName setTextColor:[UIColor whiteColor]];
     
     UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 35)];
@@ -218,6 +219,7 @@
     [txtDoctorName setDelegate:self];
     [txtDoctorName setTag:20];
     [txtDoctorName setTextColor:[UIColor grayColor]];
+    [txtDoctorName setTextAlignment:NSTextAlignmentLeft];
     [txtDoctorName setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
     UILabel *lblDoctorSpeciality = [[UILabel alloc] initWithFrame:CGRectMake(32, 260, 300, 35)];
@@ -246,6 +248,7 @@
     [txtDoctorSpeciality setHidden:NO];
     [txtDoctorSpeciality setTag:40];
     [txtDoctorSpeciality setTextColor:[UIColor grayColor]];
+    [txtDoctorSpeciality setTextAlignment:NSTextAlignmentCenter];
     [txtDoctorSpeciality setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
     UIView *vwSeperator1 = [[UIView alloc] initWithFrame:CGRectMake(32, 294, 300, 1)];
@@ -279,6 +282,7 @@
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
     [txtDoctorPhone setTextColor:[UIColor grayColor]];
+    [txtDoctorPhone setTextAlignment:NSTextAlignmentCenter];
     [txtDoctorPhone setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
     UIView *vwSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(32, 339, 300, 1)];
@@ -321,6 +325,7 @@
     [txtDoctorEmail setHidden:YES];
     [txtDoctorEmail setTag:80];
     [txtDoctorEmail setTextColor:[UIColor grayColor]];
+    [txtDoctorEmail setTextAlignment:NSTextAlignmentCenter];
     [txtDoctorEmail setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
     
     UIView *vwSeperator3 = [[UIView alloc] initWithFrame:CGRectMake(32, 384, 300, 1)];
