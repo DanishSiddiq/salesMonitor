@@ -268,7 +268,7 @@
     [lblDoctorPhone setTextColor:[UIColor whiteColor]];
     
     UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(32, 305, 300, 35)];
-    [txtDoctorPhone setPlaceholder:@"+14134562"];
+    [txtDoctorPhone setPlaceholder:@"0014134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
@@ -277,7 +277,7 @@
     [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorPhone setBorderStyle:UITextBorderStyleNone];
     [txtDoctorPhone setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [txtDoctorPhone setKeyboardType:UIKeyboardTypeDecimalPad];
+    [txtDoctorPhone setKeyboardType:UIKeyboardTypeNumberPad];
     [txtDoctorPhone setDelegate:self];
     [txtDoctorPhone setHidden:YES];
     [txtDoctorPhone setTag:60];
