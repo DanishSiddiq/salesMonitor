@@ -440,11 +440,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1068"
-         endingLineNumber = "1068"
+         startingLineNumber = "1158"
+         endingLineNumber = "1158"
          landmarkName = "-showDoctorInEditMode"
          landmarkType = "5">
       </FileBreakpoint>
@@ -492,11 +492,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "726"
-         endingLineNumber = "726"
+         startingLineNumber = "791"
+         endingLineNumber = "791"
          landmarkName = "-doctorDelete:msg:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -505,11 +505,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "780"
-         endingLineNumber = "780"
+         startingLineNumber = "845"
+         endingLineNumber = "845"
          landmarkName = "-showDoctorDetailSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -544,11 +544,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "752"
-         endingLineNumber = "752"
+         startingLineNumber = "817"
+         endingLineNumber = "817"
          landmarkName = "-deleteImagesCreatedByApplicationAtDevice"
          landmarkType = "5">
       </FileBreakpoint>
@@ -713,11 +713,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "820"
-         endingLineNumber = "820"
+         startingLineNumber = "885"
+         endingLineNumber = "885"
          landmarkName = "-populateDoctorDetailData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -726,11 +726,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "829"
-         endingLineNumber = "829"
+         startingLineNumber = "895"
+         endingLineNumber = "895"
          landmarkName = "-populateDoctorDetailData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -739,11 +739,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "819"
-         endingLineNumber = "819"
+         startingLineNumber = "884"
+         endingLineNumber = "884"
          landmarkName = "-populateDoctorDetailData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -752,24 +752,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395135328.135572"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "564"
-         endingLineNumber = "564"
-         landmarkName = "-btnPressedUpdate:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "577"
-         endingLineNumber = "577"
+         startingLineNumber = "642"
+         endingLineNumber = "642"
          landmarkName = "@implementation doctorViewController_iPad"
          landmarkType = "3">
       </FileBreakpoint>
@@ -778,11 +765,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "829"
-         endingLineNumber = "829"
+         startingLineNumber = "895"
+         endingLineNumber = "895"
          landmarkName = "-populateDoctorDetailData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -791,11 +778,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395136797.178627"
+         timestampString = "395146143.902709"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1226"
-         endingLineNumber = "1226"
+         startingLineNumber = "1335"
+         endingLineNumber = "1335"
          landmarkName = "@implementation doctorViewController_iPad"
          landmarkType = "3">
       </FileBreakpoint>
@@ -804,12 +791,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
-         timestampString = "395137194.606521"
+         timestampString = "395142711.437584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "573"
-         endingLineNumber = "573"
-         landmarkName = "-btnPressedUpdate:"
+         startingLineNumber = "897"
+         endingLineNumber = "897"
+         landmarkName = "-populateDoctorDetailData:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
+         timestampString = "395146143.902709"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1288"
+         endingLineNumber = "1288"
+         landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
