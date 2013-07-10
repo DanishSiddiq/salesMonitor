@@ -201,10 +201,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 // updating views on getting data from server
 - (void) salesDataFromServer : (NSMutableArray *) salesReport{
     
-    
     [_loadSales removeAllObjects];
-    //[_loadSales addObjectsFromArray:salesReport];
-    
     [_loadSales addObjectsFromArray:[salesReport sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         CGFloat first  = [[a valueForKey:KEY_SALES_MONTH_NUMBER] floatValue] + ([[a valueForKey:KEY_SALES_YEAR] floatValue] * 12);
         CGFloat second = [[b valueForKey:KEY_SALES_MONTH_NUMBER] floatValue] + ([[b valueForKey:KEY_SALES_YEAR] floatValue] * 12);
@@ -214,9 +211,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
         return [firstNumber compare:secondNumer];
     }]];
     
-    
-    __block UILabel *lblResult;
-    
+    __block UILabel *lblResult;    
     if([_loadSales count] > 0){
         lblResult = (UILabel *)[_vwHeaderChartValue viewWithTag:10];
         lblResult.text = @"Budget/Sale Value Chart";
