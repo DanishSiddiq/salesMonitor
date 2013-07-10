@@ -82,7 +82,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
              [SVProgressHUD dismiss];
              
              SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Server not Responded"
-                                                              andMessage:@"custom message on basis of code"];
+                                                              andMessage:[JSON  valueForKey:KEY_ERROR]];
              [alertView addButtonWithTitle:@"Ok"
                                       type:SIAlertViewButtonTypeDestructive
                                    handler:^(SIAlertView *alertView) {
