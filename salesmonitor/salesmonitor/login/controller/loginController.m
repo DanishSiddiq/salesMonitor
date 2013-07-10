@@ -57,30 +57,27 @@
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         httpClient.parameterEncoding = AFJSONParameterEncoding;
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST" path:@"" parameters:dictCredential];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                             JSONRequestOperationWithRequest:request
+                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 
+                                                 if([_viewController respondsToSelector:@selector(authenticateUser:msg:)]){
+                                                     [self populateData:JSON];
+                                                     [_viewController authenticateUser:0 msg:@"Success"];
+                                                 }
+                                             }
+                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 
+                                                 [SVProgressHUD dismiss];
+                                                 NSLog(@"ERROR saving publish message to server: %@", error);
+                                                 
+                                                 if([self.viewController respondsToSelector:@selector(authenticateUser:msg:)]){
+                                                     [_viewController authenticateUser:1 msg:[JSON valueForKey:KEY_ERROR]];
+                                                 }
+                                             }];
         
-        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-        
-        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"login call start, %lld, %lld",totalBytesWritten, totalBytesExpectedToWrite);
-        }];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
-            [SVProgressHUD dismiss];
-            
-            if([_viewController respondsToSelector:@selector(authenticateUser:)]){
-                [self populateData:JSON];
-                [_viewController authenticateUser:0];
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
-            [SVProgressHUD dismiss];
-            NSLog(@"ERROR saving publish message to server: %@", error);
-            
-            if([self.viewController respondsToSelector:@selector(authenticateUser:)]){
-                [_viewController authenticateUser:-1];
-            }
-        }];        
             
         operation.JSONReadingOptions = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves;
         [operation start];

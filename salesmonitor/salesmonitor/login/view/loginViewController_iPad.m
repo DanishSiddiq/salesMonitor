@@ -55,7 +55,7 @@
     self.loginController = [[loginController alloc] init:self salesMonitorDelegate:_salesMonitorDelegate];
 }
 
-- (void) authenticateUser : (NSInteger)responseCode {
+- (void) authenticateUser : (NSInteger)responseCode msg : (NSString *) msg{
     
     // 0 in application means no error
     if(responseCode == 0){
@@ -68,7 +68,7 @@
     }
     else{
         
-        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Login Failed" andMessage:@"custom message on basis of code"];
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Login Failed" andMessage:msg];
         [alertView addButtonWithTitle:@"Ok"
                                  type:SIAlertViewButtonTypeDestructive
                               handler:^(SIAlertView *alertView) {

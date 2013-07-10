@@ -17,6 +17,6 @@
 
 
 // protocol implementation
-- (void) authenticateUser : (NSInteger)responseCode;
+- (void) authenticateUser : (NSInteger)responseCode msg : (NSString *) msg;
 
 @end
