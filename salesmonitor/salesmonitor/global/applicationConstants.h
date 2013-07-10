@@ -67,6 +67,7 @@
 
 #define KEY_SALES_YEAR          @"year"
 #define KEY_SALES_MONTH         @"month"
+#define KEY_SALES_MONTH_NUMBER  @"monthNumber"
 #define KEY_SALES_BUDGET_UNIT   @"budgetUnits"
 #define KEY_SALES_BUDGET_VALUE  @"budgetValue"
 #define KEY_SALES_UNIT          @"salesUnit"

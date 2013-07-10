@@ -203,7 +203,17 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     
     
     [_loadSales removeAllObjects];
-    [_loadSales addObjectsFromArray:salesReport];
+    //[_loadSales addObjectsFromArray:salesReport];
+    
+    [_loadSales addObjectsFromArray:[salesReport sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        CGFloat first  = [[a valueForKey:KEY_SALES_MONTH_NUMBER] floatValue] + ([[a valueForKey:KEY_SALES_YEAR] floatValue] * 12);
+        CGFloat second = [[b valueForKey:KEY_SALES_MONTH_NUMBER] floatValue] + ([[b valueForKey:KEY_SALES_YEAR] floatValue] * 12);
+        
+        NSNumber *firstNumber = [NSNumber numberWithFloat:first];
+        NSNumber *secondNumer = [NSNumber numberWithFloat:second];        
+        return [firstNumber compare:secondNumer];
+    }]];
+    
     
     __block UILabel *lblResult;
     
