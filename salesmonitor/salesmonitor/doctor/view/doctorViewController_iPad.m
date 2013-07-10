@@ -206,7 +206,7 @@
     [lblDoctorName setTextColor:[UIColor whiteColor]];
     
     UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(32, 13, 300, 35)];
-    [txtDoctorName setPlaceholder:@"name"];
+    [txtDoctorName setPlaceholder:@"Name"];
     [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
     txtDoctorName.font = [UIFont fontWithName:@"HelveticaNeueLTStd-HvCn" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
@@ -235,7 +235,7 @@
     [lblDoctorSpeciality setTextColor:[UIColor whiteColor]];
     
     UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(32, 260, 300, 35)];
-    [txtDoctorSpeciality setPlaceholder:@"speciality"];
+    [txtDoctorSpeciality setPlaceholder:@"Speciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"HelveticaNeueLTStd-LtCn" size:19.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
