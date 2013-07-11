@@ -214,7 +214,7 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
     __block UILabel *lblResult;    
     if([_loadSales count] > 0){
         lblResult = (UILabel *)[_vwHeaderChartValue viewWithTag:10];
-        lblResult.text = @"Budget/Sale Value Chart";
+        lblResult.text = @"Budget/Sales Value Chart";
         
         [self customizeBarChartForBudget];
     }

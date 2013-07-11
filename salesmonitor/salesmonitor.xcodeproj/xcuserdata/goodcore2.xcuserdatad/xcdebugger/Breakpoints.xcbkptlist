@@ -825,5 +825,57 @@
          landmarkName = "-salesDataFromServer:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
+         timestampString = "395216325.5347"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "830"
+         endingLineNumber = "830"
+         landmarkName = "-showDoctorDetailSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
+         timestampString = "395216377.098655"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "488"
+         endingLineNumber = "488"
+         landmarkName = "-btnPressedNavBarAdd:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
+         timestampString = "395216469.61087"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "855"
+         endingLineNumber = "855"
+         landmarkName = "-populateDoctorDetailData:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "salesmonitor/doctor/view/doctorViewController_iPad.m"
+         timestampString = "395216495.080968"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "883"
+         endingLineNumber = "883"
+         landmarkName = "-populateDoctorDetailData:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

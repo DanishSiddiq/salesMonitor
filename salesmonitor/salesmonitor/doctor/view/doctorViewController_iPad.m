@@ -283,7 +283,7 @@
     [txtDoctorPhone setTag:60];
     [txtDoctorPhone setTextColor:[UIColor grayColor]];
     [txtDoctorPhone setTextAlignment:NSTextAlignmentCenter];
-    [txtDoctorPhone setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
+    [txtDoctorPhone setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     
     UIView *vwSeperator2 = [[UIView alloc] initWithFrame:CGRectMake(32, 339, 300, 1)];
     vwSeperator2.backgroundColor = [UIColor whiteColor];
@@ -881,7 +881,7 @@
     [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
     
     if(isAddMode){
-        [imgViewDoctor setImage:nil];
+        [imgViewDoctor setImage:[UIImage imageNamed:@"bigAvater"]];
         [imgViewDoctor.cacheImagePath setString:@""];
     }
     else{
