@@ -162,8 +162,8 @@
     [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
-    txtDoctorName.contentMode = UIViewContentModeBottomLeft;
-//    txtDoctorName.textAlignment = NSTextAlignmentCenter;
+    txtDoctorName.contentMode = UIViewContentModeCenter;
+    txtDoctorName.textAlignment = NSTextAlignmentCenter;
     [txtDoctorName.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorName.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorName setBorderStyle:UITextBorderStyleNone];
@@ -192,8 +192,8 @@
     [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
-    txtDoctorSpeciality.contentMode = UIViewContentModeBottomLeft;
-//    txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
+    txtDoctorSpeciality.contentMode = UIViewContentModeCenter;
+    txtDoctorSpeciality.textAlignment = NSTextAlignmentCenter;
     [txtDoctorSpeciality.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorSpeciality.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorSpeciality setBorderStyle:UITextBorderStyleNone];
@@ -222,8 +222,8 @@
     [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
-    txtDoctorPhone.contentMode = UIViewContentModeBottomLeft;
-//    txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
+    txtDoctorPhone.contentMode = UIViewContentModeCenter;
+    txtDoctorPhone.textAlignment = NSTextAlignmentCenter;
     [txtDoctorPhone.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorPhone.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorPhone setBorderStyle:UITextBorderStyleNone];
@@ -251,7 +251,7 @@
     lblDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [lblDoctorEmail setNumberOfLines:1];
     [lblDoctorEmail setTextColor:[UIColor darkGrayColor]];
-    lblDoctorEmail.contentMode = UIViewContentModeBottomLeft;
+    lblDoctorEmail.contentMode = UIViewContentModeCenter;
     lblDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [lblDoctorEmail adjustsFontSizeToFitWidth];
     [lblDoctorEmail setHidden:YES];
@@ -262,8 +262,8 @@
     [txtDoctorEmail setBackgroundColor:[UIColor whiteColor]];
     txtDoctorEmail.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorEmail setTextColor:[UIColor darkGrayColor]];
-    txtDoctorEmail.contentMode = UIViewContentModeBottomLeft;
-//    txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
+    txtDoctorEmail.contentMode = UIViewContentModeCenter;
+    txtDoctorEmail.textAlignment = NSTextAlignmentCenter;
     [txtDoctorEmail.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorEmail.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
     [txtDoctorEmail setBorderStyle:UITextBorderStyleNone];
@@ -295,12 +295,11 @@
     txtDoctorAddress.contentMode = UIViewContentModeTopLeft;
     [txtDoctorAddress.layer setBorderColor:[UIColor colorWithWhite:0.70 alpha:0.8].CGColor];
     [txtDoctorAddress.layer setShadowColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-//    [txtDoctorAddress.layer setCornerRadius:6];
     [txtDoctorAddress.layer setBorderWidth:1.0];
     [txtDoctorAddress setAutocorrectionType:UITextAutocorrectionTypeNo];
     [txtDoctorAddress setDelegate:self];
     [txtDoctorAddress setHidden:YES];
-//    txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
+    txtDoctorAddress.textAlignment = NSTextAlignmentCenter;
     [txtDoctorAddress setTag:100];
     
     UIView *vwSeperator5 = [[UIView alloc] initWithFrame:CGRectMake(9, 204, 302, 1)];

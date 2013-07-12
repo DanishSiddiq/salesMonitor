@@ -235,7 +235,7 @@ salesMonitorDelegate : (AppDelegate *)salesMonitorDelegate
 - (UIView *) createHeaderViewForIphone {
     
     UIView *viewHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
-    [viewHeader setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
+    [viewHeader setBackgroundColor:[UIColor colorWithWhite:0.8666669 alpha:1.0]];
     
     UIView *vwBgDate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 64, 40)];
     [vwBgDate setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0f]];

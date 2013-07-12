@@ -260,6 +260,8 @@
 		3AB43D80175E22E4007A79BC /* BlockTextPromptAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D7B175E22E4007A79BC /* BlockTextPromptAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3AB43D85175E2572007A79BC /* SIAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AB43D82175E2572007A79BC /* SIAlertView.bundle */; };
 		3AB43D86175E2572007A79BC /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43D84175E2572007A79BC /* SIAlertView.m */; };
+		3AD3CCB9178FE2E600D6DC2F /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3CCB7178FE2E600D6DC2F /* icon_back.png */; };
+		3AD3CCBA178FE2E600D6DC2F /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3CCB8178FE2E600D6DC2F /* icon_back@2x.png */; };
 		3AD6515A178D52D9008C0F6A /* topBarLogoBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD65158178D52D9008C0F6A /* topBarLogoBg.png */; };
 		3AD6515B178D52D9008C0F6A /* topBarLogoBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD65159178D52D9008C0F6A /* topBarLogoBg@2x.png */; };
 		3AD6515E178D53CB008C0F6A /* iphoneLoginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD6515C178D53CB008C0F6A /* iphoneLoginBg@2x.png */; };
@@ -602,6 +604,8 @@
 		3AB43D82175E2572007A79BC /* SIAlertView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIAlertView.bundle; sourceTree = "<group>"; };
 		3AB43D83175E2572007A79BC /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		3AB43D84175E2572007A79BC /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
+		3AD3CCB7178FE2E600D6DC2F /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
+		3AD3CCB8178FE2E600D6DC2F /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		3AD65158178D52D9008C0F6A /* topBarLogoBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topBarLogoBg.png; sourceTree = "<group>"; };
 		3AD65159178D52D9008C0F6A /* topBarLogoBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topBarLogoBg@2x.png"; sourceTree = "<group>"; };
 		3AD6515C178D53CB008C0F6A /* iphoneLoginBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphoneLoginBg@2x.png"; sourceTree = "<group>"; };
@@ -646,6 +650,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9C97A3178D334D003FB098 /* startUpImages */,
+				3AD3CCB7178FE2E600D6DC2F /* icon_back.png */,
+				3AD3CCB8178FE2E600D6DC2F /* icon_back@2x.png */,
 				3AD65178178D59BC008C0F6A /* logingBg.png */,
 				3AD65179178D59BC008C0F6A /* logingBg@2x.png */,
 				3AD65174178D592A008C0F6A /* about.png */,
@@ -1611,6 +1617,8 @@
 				3AD65177178D592A008C0F6A /* about@2x.png in Resources */,
 				3AD6517A178D59BC008C0F6A /* logingBg.png in Resources */,
 				3AD6517B178D59BC008C0F6A /* logingBg@2x.png in Resources */,
+				3AD3CCB9178FE2E600D6DC2F /* icon_back.png in Resources */,
+				3AD3CCBA178FE2E600D6DC2F /* icon_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,7 +1720,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1727,6 +1736,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1744,7 +1755,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1752,6 +1764,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1762,6 +1776,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -1770,6 +1786,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1778,6 +1796,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Danish Siddiq Muhammad Siddiq (C87QQK3FAC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesmonitor/salesmonitor-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -1786,6 +1806,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BA34837-E776-445E-95FE-A4F9EE30C00C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

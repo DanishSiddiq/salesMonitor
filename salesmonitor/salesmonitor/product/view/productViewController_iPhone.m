@@ -120,27 +120,27 @@
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
     
     UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 45)];
-    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"iphonebaricon1"] forState:UIControlStateNormal];
-    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"iphonebaricon1Selected"] forState:UIControlStateSelected];
+    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon1"] forState:UIControlStateNormal];
+    [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon1Selected"] forState:UIControlStateSelected];
     [btnNavBarDoctorList addTarget:self action:@selector(btnPressedNavBarDoctorList:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btnNavBarAdvanceReport = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 80, 45)];
-    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"iphonebaricon2"] forState:UIControlStateNormal];
-    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"iphonebaricon2Selected"] forState:UIControlStateSelected];
+    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon2"] forState:UIControlStateNormal];
+    [btnNavBarAdvanceReport setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon2Selected"] forState:UIControlStateSelected];
     [btnNavBarAdvanceReport addTarget:self action:@selector(btnPressedNavBarAdvanceReports:) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *btnSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(160, 0, 80, 45)];
     
     UIButton *btnNavBarListView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 45)];
-    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"iphonebaricon6"] forState:UIControlStateNormal];
-    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"iphonebaricon6Selected"] forState:UIControlStateSelected];
+    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon6"] forState:UIControlStateNormal];
+    [btnNavBarListView setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon6Selected"] forState:UIControlStateSelected];
     [btnNavBarListView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarListView setHidden:YES];
     [btnNavBarListView setTag:10];
     
     UIButton *btnNavBarMapView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 45)];
-    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"iphonebaricon3"] forState:UIControlStateNormal];
-    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"iphonebaricon3Selected"] forState:UIControlStateSelected];
+    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon3"] forState:UIControlStateNormal];
+    [btnNavBarMapView setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon3Selected"] forState:UIControlStateSelected];
     [btnNavBarMapView addTarget:self action:@selector(btnPressedNavBarSwitchView:) forControlEvents:UIControlEventTouchUpInside];
     [btnNavBarMapView setTag:20];
     
@@ -148,8 +148,8 @@
     [btnSwitchContainer addSubview:btnNavBarMapView];
     
     UIButton *btnNavBarLogout = [[UIButton alloc] initWithFrame:CGRectMake(240, 0, 80, 45)];
-    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"iphonebaricon4"] forState:UIControlStateNormal];
-    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"iphonebaricon4Selected"] forState:UIControlStateSelected];
+    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon4"] forState:UIControlStateNormal];
+    [btnNavBarLogout setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon4Selected"] forState:UIControlStateSelected];
     [btnNavBarLogout addTarget:self action:@selector(btnPressedNavBarLogout:) forControlEvents:UIControlEventTouchUpInside];
     
     
