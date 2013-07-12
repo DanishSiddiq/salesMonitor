@@ -158,7 +158,7 @@
     [lblDoctorName setTag:10];
     
     UITextField *txtDoctorName = [[UITextField alloc] initWithFrame:CGRectMake(8, 45, 304, 24)];
-    [txtDoctorName setPlaceholder:@"name"];
+    [txtDoctorName setPlaceholder:@"Name"];
     [txtDoctorName setBackgroundColor:[UIColor whiteColor]];
     txtDoctorName.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorName setTextColor:[UIColor darkGrayColor]];
@@ -188,7 +188,7 @@
     [lblDoctorSpeciality setTag:30];
     
     UITextField *txtDoctorSpeciality = [[UITextField alloc] initWithFrame:CGRectMake(8, 70, 304, 24)];
-    [txtDoctorSpeciality setPlaceholder:@"spciality"];
+    [txtDoctorSpeciality setPlaceholder:@"Speciality"];
     [txtDoctorSpeciality setBackgroundColor:[UIColor whiteColor]];
     txtDoctorSpeciality.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorSpeciality setTextColor:[UIColor darkGrayColor]];
@@ -218,7 +218,7 @@
     [lblDoctorPhone setTag:50];
     
     UITextField *txtDoctorPhone = [[UITextField alloc] initWithFrame:CGRectMake(8, 95, 304, 24)];
-    [txtDoctorPhone setPlaceholder:@"+14134562"];
+    [txtDoctorPhone setPlaceholder:@"0014134562"];
     [txtDoctorPhone setBackgroundColor:[UIColor whiteColor]];
     txtDoctorPhone.font = [UIFont fontWithName:@"Helvetica" size:18.0];
     [txtDoctorPhone setTextColor:[UIColor darkGrayColor]];
