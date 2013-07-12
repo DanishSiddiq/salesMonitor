@@ -33,10 +33,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    
     [self initializeController];
     [self initializeViews];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +92,6 @@
 
 - (void) initializeMainView {
     [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void) customizeTextFields {
