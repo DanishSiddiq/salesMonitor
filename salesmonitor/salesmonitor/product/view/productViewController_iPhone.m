@@ -118,6 +118,7 @@
     
     _navBarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45)];
     [_navBarContainer setBackgroundColor:[UIColor clearColor]];
+    [_navBarContainer setTag:1000];
     
     UIButton *btnNavBarDoctorList = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 45)];
     [btnNavBarDoctorList setBackgroundImage:[UIImage imageNamed:@"iphonebarIcon1"] forState:UIControlStateNormal];

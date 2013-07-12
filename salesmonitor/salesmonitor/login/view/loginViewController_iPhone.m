@@ -41,6 +41,7 @@
     
     [super viewWillAppear:animated];
     
+    [self customizeNavigationBar ];
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -88,6 +89,21 @@
     
     [self initializeMainView];
     [self customizeTextFields];
+}
+
+- (void) customizeNavigationBar {
+    
+    UIView *navBarContainer;
+    
+    for(UIView *sv in [self.navigationController.navigationBar subviews]){
+        if([sv tag] == 1000){
+            navBarContainer = sv;
+            break;
+        }
+    }
+    
+    [navBarContainer removeFromSuperview];
+    navBarContainer = nil;
 }
 
 - (void) initializeMainView {
