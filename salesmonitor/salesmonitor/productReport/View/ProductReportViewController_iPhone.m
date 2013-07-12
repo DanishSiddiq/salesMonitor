@@ -143,9 +143,9 @@ salesMonitorDelegate : (AppDelegate *) salesMonitorDelegate
 
 - (void) initializeTableSale {
     _tblSale = [[UITableView alloc] initWithFrame:CGRectMake(0
-                                                             , 55
+                                                             , 65
                                                              ,[UIScreen mainScreen].bounds.size.width
-                                                             , [UIScreen mainScreen].bounds.size.height - 100)];
+                                                             , [UIScreen mainScreen].bounds.size.height - 110)];
     _tblSale.delegate = _productReportController;
     _tblSale.dataSource = _productReportController;
     _tblSale.backgroundColor = [UIColor clearColor];

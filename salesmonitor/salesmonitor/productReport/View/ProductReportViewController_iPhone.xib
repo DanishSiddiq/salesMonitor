@@ -58,7 +58,7 @@
 							<object class="IBUIImageView" id="924682200">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{320, 40}</string>
+								<string key="NSFrameSize">{320, 50}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="777277755"/>
@@ -73,7 +73,7 @@
 							<object class="IBUIButton" id="407991468">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{12, 9}, {117, 26}}</string>
+								<string key="NSFrame">{{5, 19}, {117, 26}}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="433062841"/>
@@ -110,7 +110,7 @@
 							<object class="IBUIButton" id="696087749">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{151, 9}, {117, 26}}</string>
+								<string key="NSFrame">{{143, 19}, {117, 26}}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="321349533"/>
@@ -132,7 +132,7 @@
 							<object class="IBUIButton" id="321349533">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{282, -1}, {40, 40}}</string>
+								<string key="NSFrame">{{274, 0}, {48, 50}}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -146,7 +146,7 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="610825456"/>
-								<object class="NSCustomResource" key="IBUINormalImage">
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">iphonedateBtn.png</string>
 								</object>
@@ -163,7 +163,7 @@
 							<object class="IBUIImageView" id="433062841">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{151, 8}, {24, 24}}</string>
+								<string key="NSFrame">{{143, 18}, {24, 24}}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="696087749"/>
@@ -178,7 +178,7 @@
 							<object class="IBUIImageView" id="777277755">
 								<reference key="NSNextResponder" ref="879546315"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{12, 8}, {24, 24}}</string>
+								<string key="NSFrame">{{5, 18}, {24, 24}}</string>
 								<reference key="NSSuperview" ref="879546315"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="407991468"/>
@@ -188,7 +188,7 @@
 								<reference key="IBUIImage" ref="791254097"/>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 40}</string>
+						<string key="NSFrameSize">{320, 50}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="924682200"/>
