@@ -108,7 +108,7 @@
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
     lblSaleUnit.textColor = [UIColor whiteColor];
-    lblSaleUnit.text = @"Sale";
+    lblSaleUnit.text = @"Sales";
     
     UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame: CGRectMake([UIScreen mainScreen].bounds.size.width - 112, 0, 2, 40)];
     [viewSeperatorUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
@@ -181,7 +181,7 @@
     lblSaleUnit.contentMode = UIViewContentModeCenter;
     lblSaleUnit.textAlignment = NSTextAlignmentCenter;
     lblSaleUnit.textColor = [UIColor whiteColor];
-    lblSaleUnit.text = @"Sale";
+    lblSaleUnit.text = @"Sales";
     
     UIView *viewSeperatorUnit = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 81 , 0, 1, 40)];
     [viewSeperatorUnit setBackgroundColor:[UIColor colorWithRed:112/255.0f green:112/255.0f blue:112/255.0f alpha:1.0]];
