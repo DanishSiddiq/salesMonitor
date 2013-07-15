@@ -283,6 +283,8 @@
 		3AD65177178D592A008C0F6A /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD65175178D592A008C0F6A /* about@2x.png */; };
 		3AD6517A178D59BC008C0F6A /* logingBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD65178178D59BC008C0F6A /* logingBg.png */; };
 		3AD6517B178D59BC008C0F6A /* logingBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD65179178D59BC008C0F6A /* logingBg@2x.png */; };
+		3AFD1C8A1793ED9E00C58DAC /* iphone-about.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD1C881793ED9E00C58DAC /* iphone-about.png */; };
+		3AFD1C8B1793ED9E00C58DAC /* iphone-about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD1C891793ED9E00C58DAC /* iphone-about@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -633,6 +635,8 @@
 		3AD65175178D592A008C0F6A /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
 		3AD65178178D59BC008C0F6A /* logingBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logingBg.png; sourceTree = "<group>"; };
 		3AD65179178D59BC008C0F6A /* logingBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logingBg@2x.png"; sourceTree = "<group>"; };
+		3AFD1C881793ED9E00C58DAC /* iphone-about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-about.png"; sourceTree = "<group>"; };
+		3AFD1C891793ED9E00C58DAC /* iphone-about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-about@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -662,6 +666,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9C97A3178D334D003FB098 /* startUpImages */,
+				3AFD1C881793ED9E00C58DAC /* iphone-about.png */,
+				3AFD1C891793ED9E00C58DAC /* iphone-about@2x.png */,
 				3AD3CCC317901D2B00D6DC2F /* titlebar-add-btn.png */,
 				3AD3CCC417901D2B00D6DC2F /* titlebar-add-btn@2x.png */,
 				3AD3CCBF178FE8F800D6DC2F /* distributor.png */,
@@ -1643,6 +1649,8 @@
 				3AD3CCC2178FE8F800D6DC2F /* distributor@2x.png in Resources */,
 				3AD3CCC517901D2B00D6DC2F /* titlebar-add-btn.png in Resources */,
 				3AD3CCC617901D2B00D6DC2F /* titlebar-add-btn@2x.png in Resources */,
+				3AFD1C8A1793ED9E00C58DAC /* iphone-about.png in Resources */,
+				3AFD1C8B1793ED9E00C58DAC /* iphone-about@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

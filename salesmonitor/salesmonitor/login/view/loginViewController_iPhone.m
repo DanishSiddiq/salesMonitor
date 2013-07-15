@@ -13,6 +13,12 @@
 @property (nonatomic, strong) loginController *loginController;
 @property (nonatomic, strong) AppDelegate *salesMonitorDelegate;
 
+@property (nonatomic, strong) IBOutlet UITextField *txtEmail;
+@property (nonatomic, strong) IBOutlet UITextField *txtPassword;
+
+- (IBAction)btnPressedLogin:(id)sender;
+- (IBAction)btnPressedInfo:(id)sender;
+
 @end
 
 @implementation loginViewController_iPhone
@@ -123,7 +129,16 @@
     [self.loginController authenticateUserAtServer:txtEmail.text pass:txtPassword.text];
 }
 
-
+- (IBAction)btnPressedInfo:(id)sender {
+    
+    // setting product in controller
+    UIImageView *imgViewInfo = [[UIImageView alloc] initWithFrame:CGRectMake(60
+                                                                             , 120
+                                                                             , [UIScreen mainScreen].bounds.size.width - 30
+                                                                             , [UIScreen mainScreen].bounds.size.height - 60)];
+    [imgViewInfo setImage:[UIImage imageNamed:@"iphone-about"]];
+    [[KGModal sharedInstance] showWithContentView:imgViewInfo andAnimated:YES];
+}
 
 
 

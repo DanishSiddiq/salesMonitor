@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/view/loginViewController_iPhone.m"
-         timestampString = "395320216.596148"
+         timestampString = "395570797.842921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
          landmarkName = "@implementation loginViewController_iPhone"
          landmarkType = "3">
       </FileBreakpoint>
@@ -888,11 +888,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "salesmonitor/login/view/loginViewController_iPhone.m"
-         timestampString = "395320245.918901"
+         timestampString = "395570797.842921"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
          landmarkName = "-customizeNavigationBar"
          landmarkType = "5">
       </FileBreakpoint>
