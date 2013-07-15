@@ -132,10 +132,10 @@
 - (IBAction)btnPressedInfo:(id)sender {
     
     // setting product in controller
-    UIImageView *imgViewInfo = [[UIImageView alloc] initWithFrame:CGRectMake(60
-                                                                             , 120
-                                                                             , [UIScreen mainScreen].bounds.size.width - 30
-                                                                             , [UIScreen mainScreen].bounds.size.height - 60)];
+    UIImageView *imgViewInfo = [[UIImageView alloc] initWithFrame:CGRectMake(30
+                                                                             , 60
+                                                                             , [UIScreen mainScreen].bounds.size.width - 60
+                                                                             , [UIScreen mainScreen].bounds.size.height - 120)];
     [imgViewInfo setImage:[UIImage imageNamed:@"iphone-about"]];
     [[KGModal sharedInstance] showWithContentView:imgViewInfo andAnimated:YES];
 }

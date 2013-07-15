@@ -67,7 +67,7 @@
 
 - (UIView *) createHeaderViewForIpad {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40) ];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 40, 40) ];
     [headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
     
     UIView *vwBgName = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 302, 40)];
@@ -141,7 +141,7 @@
 
 - (UIView *) createHeaderViewForIphone {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -20, 40)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -30, 40)];
     [headerView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background_gradient"]]];
     
     UIView *vwBgName = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 207, 40)];
@@ -260,7 +260,7 @@
     UIView *viewSeperatorName, *viewSeperatorPrice, *viewSeperatorUnit;
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50) ];
+    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width-40, 50) ];
     
     lblName = [[UILabel alloc] initWithFrame:CGRectMake(8, 10, [UIScreen mainScreen].bounds.size.width - 304, 40)];
     [lblName setBackgroundColor:[UIColor clearColor]];
@@ -269,6 +269,7 @@
     lblName.textColor = [UIColor darkGrayColor];
     lblName.contentMode = UIViewContentModeBottomLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
+    lblName.textAlignment = NSTextAlignmentLeft;
     lblName.tag = 10;
     
     viewSeperatorName = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 296 , 0, 2, 50)];
@@ -344,7 +345,7 @@
     UIView *viewSeperatorName, *viewSeperatorPrice, *viewSeperatorUnit;
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:branchCellIdentifier];
-    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -20, 50)];
+    [cell setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width -30, 50)];
     
     lblName = [[UILabel alloc] initWithFrame:CGRectMake(4, 6, [UIScreen mainScreen].bounds.size.width -207, 40)];
     [lblName setBackgroundColor:[UIColor clearColor]];
@@ -352,6 +353,7 @@
     lblName.font = [UIFont fontWithName:@"Helvetica" size:16.0];
     lblName.textColor = [UIColor darkGrayColor];
     lblName.contentMode = UIViewContentModeBottomLeft;
+    lblName.textAlignment = NSTextAlignmentLeft;
     lblName.lineBreakMode = NSLineBreakByTruncatingTail;
     lblName.tag = 10;
     

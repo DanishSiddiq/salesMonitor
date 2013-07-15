@@ -394,9 +394,9 @@
     // setting product in controller
     [_brickProductController setLoadProduct:[brick valueForKey:KEY_BRICKS_SALES]];
     
-    UITableView *tblBrickProduct = [[UITableView alloc] initWithFrame:CGRectMake(10
+    UITableView *tblBrickProduct = [[UITableView alloc] initWithFrame:CGRectMake(15
                                                                                  , 0
-                                                                                 , [UIScreen mainScreen].bounds.size.width - 20
+                                                                                 , [UIScreen mainScreen].bounds.size.width - 30
                                                                                  , [[brick valueForKey:KEY_BRICKS_SALES] count]*50)];
     
     tblBrickProduct.delegate = _brickProductController;
